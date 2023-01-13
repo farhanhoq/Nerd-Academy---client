@@ -1,14 +1,14 @@
 import React from 'react';
-import minus from '../../assets/minus.png'
-import book from '../../assets/book.png'
+// import minus from '../../assets/minus.png'
+// import book from '../../assets/book.png'
 
 const Courses = () => {
     return (
         <div>
             <h1 className='text-5xl text-center font-bold '>Trending Courses</h1>
             <div className='grid justify-center '>
-                <img className='h-full w-24' src={minus} alt="" srcset="" />
-                <img className='w-24' src={book} alt="" srcset="" />
+                {/* <img className='h-full w-24' src={minus} alt="" srcset="" />
+                <img className='w-24' src={book} alt="" srcset="" /> */}
             </div>
 
 
