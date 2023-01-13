@@ -14,12 +14,12 @@ const Courses = () => {
 
             <div className='grid grid-rows-3 gap-4 my-10 mx-8 text-center'>
                 <div className="h-56 bg-slate-50 rounded-xl  ring-cyan-500 ring-offset-zinc-300">
-                    <div className="flex">
+                    <div className="flex gap-6">
                         <img src="https://placeimg.com/260/400/arch" className="rounded-tl-xl shadow-2xl h-56 w-1/2 mr-2" alt='' />
                         <div className='col-span-2 mr-24 my-6'>
 
                             <div className=''>
-                                <p className="py-6 ">We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance and We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance </p>
+                                <p className="py-6 ml-7  ">We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance and We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance </p>
                             </div>
 
 
@@ -39,7 +39,7 @@ const Courses = () => {
                         <div className='col-span-2 mr-24 my-6'>
 
                             <div className=''>
-                                <p className="py-6 ">We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance and We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance </p>
+                                <p className="py-6 ml-7 ">We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance and We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance </p>
                             </div>
 
 
@@ -54,12 +54,12 @@ const Courses = () => {
                 </div>
 
                 <div className="h-56 bg-slate-50 rounded-b-xl ring ring-cyan-500 ring-offset-zinc-300 rounded-bl-none rounded-tl-xl">
-                    <div className=" flex">
+                    <div className=" flex gap-6">
                         <img src="https://placeimg.com/260/400/arch" className="rounded-tl-xl shadow-2xl h-56 w-1/2 mr-2" alt='' />
                         <div className='col-span-2 mr-24 my-6'>
 
                             <div className=''>
-                                <p className="py-6 ">We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance and We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance </p>
+                                <p className="py-6 ml-7 ">We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance and We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance </p>
                             </div>
 
 
@@ -78,7 +78,7 @@ const Courses = () => {
                         <div className='col-span-2 mr-24 my-6'>
 
                             <div className=''>
-                                <p className="py-6 ">We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance and We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance </p>
+                                <p className="py-6 ml-7  ">We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance and We are experts in helping organisations leverage coaching to drive engagement, performance organisations leverage coaching to drive engagement, performance </p>
                             </div>
 
 
@@ -93,7 +93,7 @@ const Courses = () => {
                 </div>
 
             </div>
-        </div>
+        </div >
     );
 };
 
