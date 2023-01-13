@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "USERS",
+        "number": 83710,
+        "icon": "users",
+        "bg": "bg-secondary"
+    },
+    {
+        "id": 2,
+        "name": "INTRUCTORS",
+        "number": 83710,
+        "icon": "instructor",
+        "bg": "bg-secondary"
+    },
+    {
+        "id": 3,
+        "name": "LEARNERS",
+        "number": 83710,
+        "icon": "learner",
+        "bg": "bg-secondary"
+    },
+    {
+        "id": 4,
+        "name": "COURSES",
+        "number": 83710,
+        "icon": "course",
+        "bg": "bg-secondary"
+    }
+]

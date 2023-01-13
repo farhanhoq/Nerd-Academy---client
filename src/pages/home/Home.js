@@ -1,4 +1,5 @@
 import React from 'react';
+import Counter from '../Counter/Counter';
 import Courses from '../Courses/Courses';
 import OurCourses from './OurCourses/OurCourses';
 import Banner from "./Banner/Banner"
@@ -11,6 +12,7 @@ const Home = () => {
             <Banner></Banner>
             <OurCourses></OurCourses>
             <Courses></Courses>
+            <Counter></Counter>
             <Instructor></Instructor>
         </div>
     );

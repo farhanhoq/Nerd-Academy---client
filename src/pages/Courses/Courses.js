@@ -4,7 +4,7 @@ import book from '../../Assets/book.png'
 
 const Courses = () => {
     return (
-        <div>
+        <div className="my-20 container mx-auto px-16">
             <h1 className='text-5xl text-center font-bold '>Trending Courses</h1>
             <div className='grid justify-center '>
                 <img className='h-full w-24' src={minus} alt="" srcset="" />
