@@ -4,7 +4,6 @@ import React from 'react';
 const Navbar = () => {
     return (
         <div>
-<<<<<<< HEAD
            <div className="navbar bg-base-100 w-11/12 mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
@@ -39,9 +38,6 @@ const Navbar = () => {
     {/* <a className="btn">Get started</a> */}
   </div>
 </div>
-=======
-            <h1>This is nav bar</h1>
->>>>>>> 3f77d3994fa1e8eaf2c6b1c02c758ddf5249c6b1
         </div>
     );
 };
