@@ -1,14 +1,14 @@
 import React from 'react';
-import Banner from './Banner/Banner';
+import Courses from '../Courses/Courses';
 import OurCourses from './OurCourses/OurCourses';
-import TopNav from './TopNav/TopNav';
 
 const Home = () => {
     return (
         <div>
-            
-            <Banner></Banner>
+
+
             <OurCourses></OurCourses>
+            <Courses></Courses>
         </div>
     );
 };
