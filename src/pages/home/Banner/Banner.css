@@ -1,0 +1,7 @@
+.banner{
+    background: url('../../../../public/Assets/background.png') no-repeat center;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+    
+}
