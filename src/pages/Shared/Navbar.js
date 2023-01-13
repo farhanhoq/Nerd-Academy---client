@@ -4,7 +4,7 @@ import React from 'react';
 const Navbar = () => {
     return (
         <div>
-           <div className="navbar bg-base-100 w-11/12 mx-auto">
+           <div className="navbar bg-base-100 mx-auto z-10 ">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -25,7 +25,7 @@ const Navbar = () => {
     {/* <img src={nerd} alt="" /> */}
     <a href="/" className="font-bold"><span className="italic text-3xl">Nerd</span><span className="text-cyan-500 text-2xl"> ACADEMY</span></a>
   </div>
-  <div className="navbar-center hidden lg:flex">
+  <div className="navbar-end hidden lg:flex">
     <ul className=" menu-horizontal gap-x-3">
       <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Home</a></li>
       <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Services</a></li>
@@ -35,9 +35,6 @@ const Navbar = () => {
       <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">About</a></li>
       <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Contact</a></li>
     </ul>
-  </div>
-  <div className="navbar-end">
-    {/* <a className="btn">Get started</a> */}
   </div>
 </div>
         </div>
