@@ -1,4 +1,7 @@
 import React from 'react';
+import minusb from '../../../Assets/minusb.png'
+import book from '../../../Assets/book.png'
+
 
 const OurCourses = () => {
     return (
@@ -7,9 +10,9 @@ const OurCourses = () => {
             <h1 className='text-5xl text-center font-bold '>OUR COURSES</h1>
 
             <div className='grid justify-center'>
-                {/* 
-                <img className='h-full w-24' src={} alt="" srcset="" />
-                <img className='h-full w-24' src={book} alt="" srcset="" /> */}
+
+                <img className='h-full w-24' src={minusb} alt="" srcset="" />
+                <img className='h-full w-24' src={book} alt="" srcset="" />
 
             </div>
 
@@ -61,7 +64,6 @@ const OurCourses = () => {
 
                     </div>
                 </div>
-                <p className='text-center'>Lorem ipsum dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lonm andhn lorem ipsum </p>
 
 
 

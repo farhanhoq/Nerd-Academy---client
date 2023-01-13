@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import TopNav from '../pages/home/TopNav/TopNav';
+import TopNav from '../pages/Home/TopNav/TopNav';
 import Footer from '../pages/Shared/Footer';
 import Navbar from '../pages/Shared/Navbar';
 
@@ -12,10 +12,10 @@ const Main = () => {
             </div>
             <div>
                 <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+                <Outlet></Outlet>
+                <Footer></Footer>
             </div>
-            
+
         </div>
     );
 };
