@@ -25,12 +25,11 @@ const OurCourses = () => {
                         <div className="card-body">
                             <h2 className="card-title justify-center">
                                 Graphic Design
-
                             </h2>
                             <p className='text-center'>We are experts in helping organizations leverage coaching to drive engagement, performance and </p>
                             <div className="card-actions justify-center mt-2">
-                                <div className="bg-cyan-600 rounded-t-none rounded-b-none rounded-l-lg text-lg p-1 text-white">150$</div>
-                                <div className="rounded-r-xl bg-cyan-700 text-white text-lg p-1 ring-offset-2">Join Now</div>
+                                <button className="bg-primary rounded-t-none rounded-b-none rounded-l-lg text-lg p-1 text-white">150$</button>
+                                <button className="rounded-r-xl bg-primary text-white text-lg p-1 ring-offset-2">Join Now</button>
                             </div>
                         </div>
                     </div>
