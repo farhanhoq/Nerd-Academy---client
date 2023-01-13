@@ -6,29 +6,31 @@ const Footer = () => {
         <div>
             <div className='w-11/12 mx-auto grid sm:grid-cols-2 md:grid-cols-4 my-16'>
                 <div className=''>
-                    <h1 className='text-3xl text-primary mb-4'>ABOUT US</h1>
+                    <h1 className='text-2xl text-primary mb-4'>ABOUT US</h1>
                     <div className='w-10/12'>
                         <p>We are experts in helping organisations leverage coaching to drive engagement, </p>
                         <p className='my-3 text-primary text-2xl'>001 5555 6666</p>
-                        <p>rubayed@gmail.com</p>
+                        <p>nerdacademy@gmail.com</p>
                     </div>
                 </div>
                 <div>
-                    <h1 className='text-3xl text-primary mb-4'>NAVIGATION</h1>
-                    <div>
-                        <p>HOME</p>
-                        <p>COURSES</p>
-                        <p>NEWS</p>
-                        <p>ABOUT</p>
-                        <p>CONTACT</p>
-                    </div>
+                    <h1 className='text-xl text-primary mb-4'>NAVIGATION</h1>
+                    <ul>
+                        <li className='my-2'>HOME</li>
+                        <li className='my-2'>COURSES</li>
+                        <li className='my-2'>NEWS</li>
+                        <li className='my-2'>ABOUT</li>
+                        <li className='my-2'>CONTACT</li>
+                    </ul>
                 </div>
                 <div>
-                    <h1 className='text-3xl text-primary mb-4'>SERVICES</h1>
+                    <h1 className='text-xl text-primary mb-4'>SERVICES</h1>
                     
-                        <p>SERVICES</p>
-                        <p>COURSES</p>
-                        <p>OUR COURSES</p>
+                    <ul>
+                    <p className='my-2'>SERVICES</p>
+                        <p className='my-2'>COURSES</p>
+                        <p className='my-2'>OUR COURSES</p>
+                    </ul>
 
                     
                 </div>

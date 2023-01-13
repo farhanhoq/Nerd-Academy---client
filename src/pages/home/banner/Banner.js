@@ -4,7 +4,7 @@ import './Banner.css'
 
 const Banner = () => {
     return (
-        <div className='pt-12'>
+        <div className=''>
             <div className="hero min-h-screen banner">
   <div className="bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
