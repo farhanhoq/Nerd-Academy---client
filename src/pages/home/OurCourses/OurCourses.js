@@ -1,6 +1,6 @@
 import React from 'react';
 import minusb from '../../../Assets/minusb.png'
-import bookb from '../../../Assets/bookb.png'
+import book from '../../../Assets/book.png'
 
 
 const OurCourses = () => {
@@ -12,7 +12,7 @@ const OurCourses = () => {
             <div className='grid justify-center'>
 
                 <img className='h-full w-24' src={minusb} alt="" srcset="" />
-                <img className='h-full w-24' src={bookb} alt="" srcset="" />
+                <img className='h-full w-24' src={book} alt="" srcset="" />
 
             </div>
 
