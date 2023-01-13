@@ -5,8 +5,6 @@ import OurCourses from './OurCourses/OurCourses';
 const Home = () => {
     return (
         <div>
-
-
             <OurCourses></OurCourses>
             <Courses></Courses>
         </div>
