@@ -1,6 +1,6 @@
 import React from 'react';
-import minus from '../../assets/minus.png'
-import book from '../../assets/book.png'
+import minus from '../../Assets/minus.png'
+import book from '../../Assets/book.png'
 
 const Courses = () => {
     return (
