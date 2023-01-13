@@ -13,27 +13,27 @@ const Navbar = () => {
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         
 
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Home</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Services</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Page</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Courses</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">News</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">About</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Contact</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Home</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Services</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Page</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Courses</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">News</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">About</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Contact</a></li>
       </ul>
     </div>
     {/* <img src={nerd} alt="" /> */}
-    <a href="" className="font-bold"><span className="italic text-3xl">Nerd</span><span className="text-cyan-500 text-2xl"> ACADEMY</span></a>
+    <a href="/" className="font-bold"><span className="italic text-3xl">Nerd</span><span className="text-cyan-500 text-2xl"> ACADEMY</span></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className=" menu-horizontal gap-x-3">
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Home</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Services</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Page</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Courses</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">News</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">About</a></li>
-      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Contact</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Home</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Services</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Page</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Courses</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">News</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">About</a></li>
+      <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer" href="/">Contact</a></li>
     </ul>
   </div>
   <div className="navbar-end">
