@@ -5,9 +5,9 @@ import book from '../../../Assets/book.png'
 
 const OurCourses = () => {
     return (
-        <div>
+        <div className='my-20'>
 
-            <h1 className='text-3xl text-center font-bold uppercase'>our courses</h1>
+            <h1 className='text-5xl text-center font-bold uppercase'>our courses</h1>
 
             <div className='grid justify-center'>
 
