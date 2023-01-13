@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div className=''>
             <div className="hero min-h-screen banner">
-  <div className="hero-overlay bg-opacity-60"></div>
+  <div className="bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-2xl">
     <p className='mb-3'>All You Need To Know</p>
@@ -19,3 +19,5 @@ const Banner = () => {
         </div>
     );
 };
+
+export default Banner;
