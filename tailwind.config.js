@@ -6,7 +6,7 @@ module.exports = {
   daisyui:{
     themes: [
       {
-        nerdacademy:{
+        nerdthemes:{
           primary: '#11CEE6',
           secondary: '#7f8be3',
           accent: "#3A4256",
