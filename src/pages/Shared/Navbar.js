@@ -4,7 +4,6 @@ import React from 'react';
 const Navbar = () => {
     return (
         <div>
-<<<<<<< HEAD
            <div className="navbar bg-base-100 w-11/12 mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
@@ -12,6 +11,8 @@ const Navbar = () => {
       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+        
+
       <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Home</a></li>
       <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Services</a></li>
       <li><a className="p-2 hover:border-b-2 border-teal-500 cursor-pointer">Page</a></li>
@@ -39,9 +40,6 @@ const Navbar = () => {
     {/* <a className="btn">Get started</a> */}
   </div>
 </div>
-=======
-            <h1>This is nav bar</h1>
->>>>>>> 3f77d3994fa1e8eaf2c6b1c02c758ddf5249c6b1
         </div>
     );
 };

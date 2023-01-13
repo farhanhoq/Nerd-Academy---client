@@ -1,16 +1,26 @@
 import React from 'react';
-import { FaLinkedin , FaFacebookSquare , FaGooglePlusSquare , FaTwitterSquare} from 'react-icons/fa';
+import { FaLinkedinIn , FaFacebookF , FaGoogle , FaTwitter} from 'react-icons/fa';
 
 const TopNav = () => {
   return (
     <div className="p-5">
       <div className ="flex justify-between items-center w-11/12 mx-auto">
         <div className="flex gap-x-3">
-           <p className= "cursor-pointer text-slate-400 hover:text-teal-500 text-2xl" ><FaLinkedin /></p>
-           <p className= "cursor-pointer text-slate-400 hover:text-teal-500 text-2xl" ><FaFacebookSquare /></p>
-           <p className= "cursor-pointer text-slate-400 hover:text-teal-500 text-2xl" ><FaGooglePlusSquare /></p>
-           <p className= "cursor-pointer text-slate-400 hover:text-teal-500 text-2xl" ><FaTwitterSquare /></p>
+           <p className= "cursor-pointer text-slate-400 hover:text-teal-500 text-xl" ><FaLinkedinIn /></p>
+           <p className= "cursor-pointer text-slate-400 hover:text-teal-500 text-xl" ><FaFacebookF /></p>
+           <p className= "cursor-pointer text-slate-400 hover:text-teal-500 text-xl" ><FaGoogle /></p>
+           <p className= "cursor-pointer text-slate-400 hover:text-teal-500 text-xl" ><FaTwitter /></p>
         </div>
+{/* ------------------------------- */}
+
+
+
+<div>
+<input type="text" placeholder="Search" className="input input-md rounded-full input-bordered" />
+</div>
+
+
+
 {/* ------------------------------- */}
 
         <div>
