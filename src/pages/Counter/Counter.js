@@ -10,7 +10,7 @@ const Counter = () => {
     return (
 
         <div>
-            <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10 my-16 w-11/12 mx-auto'>
+            <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10 my-16 w-12/12 mx-8'>
                 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div className="flex justify-end px-4 pt-4">
 

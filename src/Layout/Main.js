@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../pages/Shared/Footer';
 import Navbar from '../pages/Shared/Navbar';
-import TopNav from "../pages/home/TopNav/TopNav"
+import TopNav from "../pages/Home/TopNav/TopNav"
 
 const Main = () => {
     return (
@@ -11,7 +11,7 @@ const Main = () => {
                 <TopNav></TopNav>
             </div>
             <div>
-            <Navbar></Navbar>
+                <Navbar></Navbar>
                 <Outlet></Outlet>
                 <Footer></Footer>
             </div>
