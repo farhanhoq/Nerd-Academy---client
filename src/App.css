@@ -1,3 +1,14 @@
 body {
   font-family: 'Poppins', sans-serif
 }
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #111; 
+  border: 5px solid transparent;
+  border-radius: 9px;
+  -webkit-background-clip: content-box;
+}
