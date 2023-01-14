@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Nerd-Academy---client/static/css/main.bf19aa2a.css",
+    "main.js": "/Nerd-Academy---client/static/js/main.b6efc9b7.js",
+    "static/js/787.a2f23d30.chunk.js": "/Nerd-Academy---client/static/js/787.a2f23d30.chunk.js",
+    "static/media/background.png": "/Nerd-Academy---client/static/media/background.493801f12a72e29efd57.png",
+    "static/media/instructor.jpg": "/Nerd-Academy---client/static/media/instructor.2c5f90778587f956aff6.jpg",
+    "static/media/book.png": "/Nerd-Academy---client/static/media/book.3f31285443a0e59254b3.png",
+    "static/media/learner.png": "/Nerd-Academy---client/static/media/learner.a2ad1b993917d31cfcd6.png",
+    "static/media/instructorf.png": "/Nerd-Academy---client/static/media/instructorf.a3e8e173f79e15828e4d.png",
+    "static/media/course.png": "/Nerd-Academy---client/static/media/course.8b9ede322879132c9c68.png",
+    "static/media/users.png": "/Nerd-Academy---client/static/media/users.fa29a3524c35ee466d7c.png",
+    "index.html": "/Nerd-Academy---client/index.html",
+    "main.bf19aa2a.css.map": "/Nerd-Academy---client/static/css/main.bf19aa2a.css.map",
+    "main.b6efc9b7.js.map": "/Nerd-Academy---client/static/js/main.b6efc9b7.js.map",
+    "787.a2f23d30.chunk.js.map": "/Nerd-Academy---client/static/js/787.a2f23d30.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bf19aa2a.css",
+    "static/js/main.b6efc9b7.js"
+  ]
+}
