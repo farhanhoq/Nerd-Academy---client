@@ -1,27 +1,27 @@
-import React from 'react';
 import minusb from '../../../Assets/minusb.png'
 import book from '../../../Assets/book.png'
 
 
 const OurCourses = () => {
-    return (
-        <div>
 
+    return (
+        <div className='my-24'>
             <h1 className='text-5xl text-center font-bold '>OUR COURSES</h1>
 
             <div className='grid justify-center'>
-
-                <img className='h-full w-24' src={minusb} alt="" srcset="" />
-                <img className='h-full w-24' src={book} alt="" srcset="" />
-
+                <img className='h-full w-24' src={minusb} alt="" />
+                <img className='h-full w-24' src={book} alt="" />
             </div>
 
             <div className=''>
                 <p className='text-center mt-6'> Here are a few courses and more upcoming now just processing. <br />
                     Here are a few courses and more upcoming now just processing.</p>
-                <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 my-10 mx-8 text-center'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10 mx-8 text-center'>
+
                     <div className="card w-full rounded-tr-none bg-white-600 shadow-xl">
-                        <figure><img className='rounded-tl-2xl' src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                        <figure>
+                            <img className='rounded-tl-2xl w-full' src="https://placeimg.com/400/225/arch" alt="Shoes" />
+                        </figure>
                         <div className="card-body">
                             <h2 className="card-title justify-center">
                                 Graphic Design
@@ -33,8 +33,9 @@ const OurCourses = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className="card w-full rounded-tr-none bg-white-600 shadow-xl">
-                        <figure><img className='rounded-tl-2xl' src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                        <figure><img className='rounded-tl-2xl w-full' src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title justify-center">
                                 Graphic Design
@@ -48,7 +49,7 @@ const OurCourses = () => {
                         </div>
                     </div>
                     <div className="card w-full rounded-tr-none bg-white-600 shadow-xl">
-                        <figure><img className='rounded-tl-2xl' src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                        <figure><img className='rounded-tl-2xl w-full' src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title justify-center">
                                 Graphic Design
