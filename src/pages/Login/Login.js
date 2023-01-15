@@ -13,7 +13,9 @@ const Login = () => {
                 </div>
 
                 <div>
+                  <div><h1 className='text-3xl text-primary text-center mb-4 font-bold'>Log In</h1></div>
                 <div className="card shadow-2xl bg-base-100 border border-primary mt-[50px] md:mt-0">
+                  
       <div className="card-body ">
         <div className="">
           <label className="label">
