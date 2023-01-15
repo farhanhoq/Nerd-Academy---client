@@ -22,6 +22,7 @@ const CounterInfo = () => {
 
         <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 my-24 w-11/12 mx-auto'>
 
+
         </div>
 
     );
