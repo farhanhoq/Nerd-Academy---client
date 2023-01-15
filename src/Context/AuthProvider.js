@@ -35,10 +35,10 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, provider);
     }
 
-    const logOut = () => {
-        setLoading(true);
-        return signOut(auth);
-    }
+    // const logOut = () => {
+    //     setLoading(true);
+    //     return signOut(auth);
+    // }
 
     const updateUser = (userInfo) => {
         return updateProfile(auth.currentUser, userInfo);
