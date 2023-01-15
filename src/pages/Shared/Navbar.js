@@ -84,8 +84,9 @@ const Navbar = () => {
       </div>
       
         <div className="">
-            <button className='btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1'>Log in</button>
-            <button className='btn border-primary bg-primary text-white text rounded-none'>Sign up</button>
+            <button className='btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1 '><Link to='/login'>Log in</Link></button>
+            <button className='btn border-primary bg-primary text-white text rounded-none'><Link to='/register'>Sign up</Link></button>
+            
         </div>
       </div>
     </div>
