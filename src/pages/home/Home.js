@@ -12,8 +12,8 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            
             <OurCourses></OurCourses>
-            <Courses></Courses>
             <Counter></Counter>
             <About></About>
             <Contact></Contact>
