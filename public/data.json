@@ -1,30 +1,27 @@
 [
     {
         "id": 1,
-        "name": "USERS",
-        "number": 83710,
-        "icon": "users",
-        "bg": "bg-secondary"
+        "question": "what is 4th industrial revolution?",
+        "answer": "The Fourth Industrial Revolution, 4IR, or Industry 4.0,[1] conceptualizes rapid change to technology, industries, and societal patterns and processes in the 21st century due to increasing interconnectivity and smart automation. The term has been used widely in scientific literature"
     },
     {
         "id": 2,
-        "name": "INTRUCTORS",
-        "number": 83710,
-        "icon": "instructor",
-        "bg": "bg-secondary"
+        "question": "What are the 4 types of AI?",
+        "answer": "There are a lot of ongoing discoveries and developments, most of which are divided into four categories: reactive machines, limited memory, theory of mind, and self-aware AI."
     },
     {
         "id": 3,
-        "name": "LEARNERS",
-        "number": 83710,
-        "icon": "learner",
-        "bg": "bg-secondary"
+        "question": "How does the brainstorming technique work?",
+        "answer": "Brainstorming combines a relaxd, informal approach to problem solving with lateral thinking. It encourages people to come up with thoughts and ideas that can, at first, seem a bit crazy. "
     },
     {
         "id": 4,
-        "name": "COURSES",
-        "number": 83710,
-        "icon": "course",
-        "bg": "bg-secondary"
+        "question": "how does working redux?",
+        "answer": "There is a central store that holds the entire state of the application. Each component can access the stored state without having to send down props from one component to another."
+    },
+    {
+        "id": 5,
+        "question": " What is TypeScript and why it is used?",
+        "answer": "TypeScript extends JavaScript and improves the developer experience. It enables developers to add type safety to their projects."
     }
 ]
