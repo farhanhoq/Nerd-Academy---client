@@ -38,7 +38,7 @@ const About = () => {
           </figure>
           <div className="w-full mt-4 ml-6">
             <h2 className="card-title">Gain Certificate</h2>
-            <p className="text-slate-500">
+            <p className="text-slate-500 w-11/12">
               To gain accreditation for something by passing a test or exam{" "}
               Best FREE Online Certification
             </p>
@@ -50,7 +50,7 @@ const About = () => {
           </figure>
           <div className="w-full mt-4 ml-6">
             <h2 className="card-title">Learn with Expert</h2>
-            <p className="text-slate-500">
+            <p className="text-slate-500 w-11/12">
               Block Slacks Contribution To Building A Better Collae You can
               learn almost anything for free
             </p>

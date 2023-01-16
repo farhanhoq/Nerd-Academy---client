@@ -10,11 +10,10 @@ const CounterInfo = () => {
     const [counter, setCounter] = useState([]);
 
     useEffect(() => {
-        fetch("data.json")
+        fetch('data.json')
             .then(res => res.json())
             .then(data => {
                 setCounter(data)
-                console.log(data);
             })
     }, []);
 
