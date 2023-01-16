@@ -1,9 +1,6 @@
 import React from 'react';
 import "./Banner.css";
 import bg from '../../../Assets/background.png';
-import Courses from '../../Courses/Courses';
-
-
 
 const Banner = () => {
 

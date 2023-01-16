@@ -70,7 +70,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div class="input w-full">
+        <div class="hidden lg:block input w-full">
           <input
             type="text"
             placeholder="Search for anything"
