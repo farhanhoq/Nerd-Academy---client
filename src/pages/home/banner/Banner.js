@@ -15,10 +15,10 @@ const Banner = () => {
           <p className="mb-5 mt-7">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
           <button className="btn border-none px-8 mt-3 bg-cyan-500 rounded-full">GET STARTED</button>
           <div className='absolute my-14'>
-          <Courses></Courses>
+            <Courses></Courses>
+          </div>
         </div>
-        </div>
-        
+
       </div>
     </div>
   );
