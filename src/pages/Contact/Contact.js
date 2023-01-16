@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div className="grid grid-cols-2 justify-items-stretch mx-8 mt-6">
+        <div className="grid grid-cols-2 justify-items-stretch mx-8 mt-40">
 
             <div className="text-center lg:text-left">
                 <img className='w-10/12' src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?w=740&t=st=1673781447~exp=1673782047~hmac=c4925cf02c78fea815b894b4393247cf7e71d96a32a1f3f2596131ec8b36c070" alt="" />

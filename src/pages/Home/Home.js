@@ -6,6 +6,7 @@ import Banner from "./Banner/Banner"
 import Instructor from './Instructor/Instructor';
 import Contact from '../Contact/Contact';
 import About from '../About/About';
+import Faq from '../../Faq/Faq';
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
             <Counter></Counter>
             <About></About>
             <Contact></Contact>
+            <Faq></Faq>
             <Instructor></Instructor>
         </div>
     );
