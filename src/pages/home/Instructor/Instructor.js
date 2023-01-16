@@ -3,7 +3,7 @@ import instructor from '../../../Assets/instructor.jpg'
 
 const Instructor = () => {
     return (
-        <div className='flex sm:flex-col md:flex-row items-center w-11/12 mx-auto shadow-2xl my-36 rounded-xl'>
+        <div className='flex flex-col md:flex-row items-center w-11/12 mx-auto shadow-2xl my-36 rounded-xl'>
 
             <div className='w-6/12'>
                 <img src={instructor} alt="" />

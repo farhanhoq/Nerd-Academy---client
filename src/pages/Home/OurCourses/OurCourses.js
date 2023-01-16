@@ -1,20 +1,50 @@
 import minusb from '../../../Assets/minusb.png'
-import book from '../../../Assets/book.png'
+import book from '../../../Assets/book.png';
+import { useQuery } from '@tanstack/react-query';
+import './OurCourses.css'
+
 
 
 const OurCourses = () => {
 
-    return (
-        <div>
-            <div className='my-24'>
-                <h1 className='text-5xl text-center font-bold '>OUR COURSES</h1>
+    const {data: singleCourses = [], isLoading, refetch } = useQuery({
+        queryKey: ['singleCourses'],
+        queryFn: () => fetch('ourCourses.json')
+        .then(res => res.json())
+      });
+      console.log(singleCourses);
 
+    return (
+        <div className='my-64 background'>
+            <div className='my-24 w-11/12 mx-auto'>
+                <h1 className='text-5xl text-center font-bold '>OUR COURSES</h1>
                 <div className='grid justify-center'>
                     <img className='h-full w-24' src={minusb} alt="" />
                     <img className='h-full w-24' src={book} alt="" />
                 </div>
 
-                <div className=''>
+                <div className='w-12/12 mx-auto rounded-lg shadow-xl'>
+  <div className='grid grid-cols1 md:grid-cols-2 lg:grid-cols-3 p-10  text-center gap-5'>
+    {
+      singleCourses?.map(course => <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
+      <figure><img className='' src={course?.picture} alt="Shoes" /></figure>
+      <div className="card-body text-left">
+        <h2 className="font-bold text-primary">{course?.name}</h2>
+        <p className='text-sm text-gray-600'>{course?.about.slice(0, 150)}</p>
+        <div className="card-actions justify-between items-center">
+          <p className='font-bold text-primary'>${course?.price}</p>
+          <button className="btn rounded text-white btn-primary">Buy Now</button>
+        </div>
+      </div>
+    </div>)
+    }
+</div>
+</div>
+
+
+
+
+                {/* <div className=''>
                     <p className='text-center mt-6'> Here are a few courses and more upcoming now just processing. <br />
                         Here are a few courses and more upcoming now just processing.</p>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10 mx-8 text-center'>
@@ -68,7 +98,7 @@ const OurCourses = () => {
 
 
 
-                </div>
+                </div> */}
             </div>
         </div>
     );
