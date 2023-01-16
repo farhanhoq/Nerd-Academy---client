@@ -7,12 +7,17 @@ import Instructor from './Instructor/Instructor';
 import Contact from '../Contact/Contact';
 import About from '../About/About';
 import Faq from '../../Faq/Faq';
+import Carousel from './Banner/Carousel';
 
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Carousel></Carousel>
+            <OurCourses></OurCourses>
+            <Courses></Courses>
+            <Counter></Counter>
             <About></About>
             <OurCourses></OurCourses>
             <Counter></Counter>
