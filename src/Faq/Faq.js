@@ -97,67 +97,65 @@ const Faq = () => {
                             </p>
                         </div>
 
-                        <div class="flex flex-col-2 lg:w-4/5 sm:mx-auto sm:mb-2 justify-between ">
+                        <div class="flex flex-col-2 lg:w-4/5 sm:mx-auto sm:mb-2 justify-between items-center">
                             <div class=" flex flex-col w-full mr-40">
                                 <img className='h-auto w-12/12 justify-center' src="https://img.freepik.com/free-vector/questions-concept-illustration_114360-1523.jpg?w=740&t=st=1673848976~exp=1673849576~hmac=11485a24bd712cdbfca1070232f3de145196150934a2ede7450bede7229f9923" alt="" srcset="" />
-
-
                             </div>
                             <div class="w-full px-2 py-8">
-                                <details class="mb-4">
+                                <details class="mb-4 cursor-pointer">
                                     <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
                                         How Long is this site live?
                                     </summary>
 
-                                    <span>
+                                    <p className="py-6 px-2 border-2 rounded-lg">
                                         Laboris qui labore cillum culpa in sunt quis sint veniam.
                                         Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
                                         minim velit nostrud pariatur culpa magna in aute.
-                                    </span>
+                                    </p>
                                 </details>
-                                <details class="mb-4">
+                                <details class="mb-4 cursor-pointer">
                                     <summary class="font-semibold bg-gray-200 rounded-md py-2 px-4">
                                         Can I install/upload anything I want on there?
                                     </summary>
 
-                                    <span>
+                                    <p className="py-6 px-2 border-2 rounded-lg">
                                         Laboris qui labore cillum culpa in sunt quis sint veniam.
                                         Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
                                         minim velit nostrud pariatur culpa magna in aute.
-                                    </span>
+                                    </p>
                                 </details>
-                                <details class="mb-4">
+                                <details class="mb-4 cursor-pointer">
                                     <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
                                         How can I migrate to another site?
                                     </summary>
 
-                                    <span>
+                                    <p className="py-6 px-2 border-2 rounded-lg">
                                         Laboris qui labore cillum culpa in sunt quis sint veniam.
                                         Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
                                         minim velit nostrud pariatur culpa magna in aute.
-                                    </span>
+                                    </p>
                                 </details>
-                                <details class="mb-4">
+                                <details class="mb-4 cursor-pointer">
                                     <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
                                         How can I migrate to another site?
                                     </summary>
 
-                                    <span>
+                                    <p className="py-6 px-2 border-2 rounded-lg">
                                         Laboris qui labore cillum culpa in sunt quis sint veniam.
                                         Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
                                         minim velit nostrud pariatur culpa magna in aute.
-                                    </span>
+                                    </p>
                                 </details>
-                                <details class="mb-4">
+                                <details class="mb-4 cursor-pointer">
                                     <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
                                         How can I migrate to another site?
                                     </summary>
 
-                                    <span>
+                                    <p className="py-6 px-2 border-2 rounded-lg">
                                         Laboris qui labore cillum culpa in sunt quis sint veniam.
                                         Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
                                         minim velit nostrud pariatur culpa magna in aute.
-                                    </span>
+                                    </p>
                                 </details>
 
                             </div>

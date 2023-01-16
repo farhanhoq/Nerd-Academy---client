@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section className="grid grid-cols-2 justify-items-stretch mx-8 mt-40" id="contact">
+    <section className="grid grid-cols-2 justify-items-stretch mt-40 container mx-auto px-16" id="contact">
       <div className="text-center lg:text-left">
         <img
           className="w-10/12"
@@ -11,7 +11,7 @@ const Contact = () => {
         />
       </div>
 
-      <section className="grid justify-between mt-10 mr-20">
+      <div className="grid justify-between mt-10 mr-20 justify-self-center">
         <h2 className="text-center lg:text-left text-2xl font-bold">
           {" "}
           Any question in mind? Don't worry
@@ -50,7 +50,7 @@ const Contact = () => {
             className="btn btn-primary bg-gradient-to-r from-primary to secondary w-40 rounded-full text-white"
           />
         </div>
-      </section>
+      </div>
     </section>
   );
 };

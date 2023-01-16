@@ -6,7 +6,7 @@ import analyst from "../../Assets/analyst.png";
 
 const About = () => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 mx-8 mt-40" id="about">
+    <section className="grid grid-cols-1 md:grid-cols-2 mx-8 mt-40 container px-16" id="about">
       <div className="text-center lg:text-left mr-2">
         <img
           className="w-12/12"
@@ -17,41 +17,40 @@ const About = () => {
 
       <div className="flex flex-col">
         <h2 className="text-center lg:text-left text-2xl font-bold">
-          {" "}
           Benefits About Online Learning Expertise{" "}
         </h2>
 
-        <div className="card md:card-side shadow-md mt-8 text-black w-full h-28">
+        <div className="card md:card-side shadow-md mt-8 text-black w-full h-28 cursor-pointer">
           <figure>
             <img className="h-20 w-24 ml-6" src={online} alt="Movie" />
           </figure>
           <div className="w-full mt-4 ml-6">
             <h2 className="card-title">Online Course </h2>
-            <p>
+            <p className="text-slate-500">
               Google IT Automation with Python Professional Certificate{" "}
               <br></br>From Art Alison has thousands of online courses
             </p>
           </div>
         </div>
-        <div className="card md:card-side shadow-md mt-2 text-black w-full h-28">
+        <div className="card md:card-side shadow-md mt-2 text-black w-full h-28 cursor-pointer">
           <figure>
             <img className="h-20 w-24 ml-6" src={certificate} alt="Movie" />
           </figure>
           <div className="w-full mt-4 ml-6">
             <h2 className="card-title">Gain Certificate</h2>
-            <p>
+            <p className="text-slate-500">
               To gain accreditation for something by passing a test or exam{" "}
               <br /> Best FREE Online Certification Course Providers
             </p>
           </div>
         </div>
-        <div className="card md:card-side shadow-md mt-2 text-black w-full h-28">
+        <div className="card md:card-side shadow-md mt-2 text-black w-full h-28 cursor-pointer">
           <figure>
             <img className="h-20 w-24 ml-6" src={analyst} alt="Movie" />
           </figure>
           <div className="w-full mt-4 ml-6">
             <h2 className="card-title">Learn with Expert</h2>
-            <p>
+            <p className="text-slate-500">
               Block Slacks Contribution To Building A Better Collae You can
               learn almost anything for free, but it's also easy to spend hours
             </p>
