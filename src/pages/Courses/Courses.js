@@ -21,7 +21,7 @@ const Courses = () => {
 
   return (
     <div className='w-11/12 mx-auto rounded-lg hidden lg:block my-carousel mt-[-345px]'>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10  text-center gap-5'>
+      <div className='grid grid-cols-3 p-10  text-center gap-5'>
         {
           courses?.map(course => <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
             <figure><img className='w-full' src={course?.picture} alt="Shoes" /></figure>
