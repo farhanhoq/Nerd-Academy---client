@@ -1,7 +1,7 @@
 import React from 'react';
 import Lottie from 'lottie-react';
 import eduAnimation from '../../../src/Assets/edu-animation.json';
-import google from '../../Assets/google.png'
+// import google from '../../Assets/google.png'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
