@@ -6,12 +6,14 @@ import Banner from "./Banner/Banner"
 import Instructor from './Instructor/Instructor';
 import Contact from '../Contact/Contact';
 import About from '../About/About';
+import Carousel from './Banner/Carousel';
 
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Carousel></Carousel>
             <OurCourses></OurCourses>
             <Courses></Courses>
             <Counter></Counter>

@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <div className='w-11/12 mx-auto'>
       <div className="navbar flex justify-between mt-3 mb-[-5px]">
-        <div className="">  
+        <div className="">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -58,9 +58,9 @@ const Navbar = () => {
           {/* <img src={nerd} alt="" /> */}
           <div className='w-[210px]'>
             <Link href="/" className="font-bold">
-            <span className="text-2xl">Nerd</span>
-            <span className="text-cyan-500 text-2xl"> Academy</span>
-          </Link>
+              <span className="text-2xl">Nerd</span>
+              <span className="text-cyan-500 text-2xl"> Academy</span>
+            </Link>
           </div>
         </div>
 
@@ -72,21 +72,21 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        
-        <div class="input w-full">
+
+        <div className="hidden lg:block input w-full">
           <input
             type="text"
             placeholder="Search for anything"
-            className="input input-bordered input-primary rounded-full w-full"/>
+            className="input input-bordered input-primary rounded-full w-full" />
         </div>
-      <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
-        <FaOpencart />
-      </div>
-      
+        <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
+          <FaOpencart />
+        </div>
+
         <div className="">
-            <button className='btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1 '><Link to='/login'>Log in</Link></button>
-            <button className='btn border-primary bg-primary text-white text rounded-none'><Link to='/register'>Sign up</Link></button>
-            
+          <button className='btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1 '><Link to='/login'>Log in</Link></button>
+          <button className='btn border-primary bg-primary text-white text rounded-none'><Link to='/register'>Sign up</Link></button>
+
         </div>
       </div>
     </div>
