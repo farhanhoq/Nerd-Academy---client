@@ -20,6 +20,12 @@ const Navbar = () => {
       <li>
         <a href="/#contact">Contact</a>
       </li>
+      <li className="block lg:hidden">
+        <a href="/login">Login</a>
+      </li>
+      <li className="block lg:hidden">
+        <a href="/register">Register</a>
+      </li>
     </>
   );
 
@@ -81,16 +87,16 @@ const Navbar = () => {
           <FaOpencart />
         </div>
 
-        <div>
+        <div className="">
           <Link
             to="/login"
-            className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1 "
+            className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1 hidden md:block"
           >
             Login
           </Link>
           <Link
             to="/register"
-            className="btn border-primary bg-primary text-white text rounded-none"
+            className="btn border-primary bg-primary text-white text-center rounded-none hidden md:block"
           >
             Sign up
           </Link>
