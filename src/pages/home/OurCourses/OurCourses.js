@@ -7,39 +7,39 @@ import './OurCourses.css'
 
 const OurCourses = () => {
 
-    const {data: singleCourses = [], isLoading, refetch } = useQuery({
+    const { data: singleCourses = [], isLoading, refetch } = useQuery({
         queryKey: ['singleCourses'],
         queryFn: () => fetch('ourCourses.json')
-        .then(res => res.json())
-      });
-      console.log(singleCourses);
+            .then(res => res.json())
+    });
+    console.log(singleCourses);
 
     return (
-        <div className='my-64 background'>
+        <div className='my-32 background'>
             <div className='my-24 w-11/12 mx-auto'>
-                <h1 className='text-5xl text-center font-bold '>OUR COURSES</h1>
+                <h1 className='text-5xl text-center font-bold'>OUR COURSES</h1>
                 <div className='grid justify-center'>
                     <img className='h-full w-24' src={minusb} alt="" />
                     <img className='h-full w-24' src={book} alt="" />
                 </div>
 
                 <div className='w-12/12 mx-auto rounded-lg shadow-xl'>
-  <div className='grid grid-cols1 md:grid-cols-2 lg:grid-cols-3 p-10  text-center gap-5'>
-    {
-      singleCourses?.map(course => <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
-      <figure><img className='' src={course?.picture} alt="Shoes" /></figure>
-      <div className="card-body text-left">
-        <h2 className="font-bold text-primary">{course?.name}</h2>
-        <p className='text-sm text-gray-600'>{course?.about.slice(0, 150)}</p>
-        <div className="card-actions justify-between items-center">
-          <p className='font-bold text-primary'>${course?.price}</p>
-          <button className="btn rounded text-white btn-primary">Buy Now</button>
-        </div>
-      </div>
-    </div>)
-    }
-</div>
-</div>
+                    <div className='grid grid-cols1 md:grid-cols-2 lg:grid-cols-3 p-10  text-center gap-5'>
+                        {
+                            singleCourses?.map(course => <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
+                                <figure><img className='' src={course?.picture} alt="Shoes" /></figure>
+                                <div className="card-body text-left">
+                                    <h2 className="font-bold text-primary">{course?.name}</h2>
+                                    <p className='text-sm text-gray-600'>{course?.about.slice(0, 150)}</p>
+                                    <div className="card-actions justify-between items-center">
+                                        <p className='font-bold text-primary'>${course?.price}</p>
+                                        <button className="btn rounded text-white btn-primary">Buy Now</button>
+                                    </div>
+                                </div>
+                            </div>)
+                        }
+                    </div>
+                </div>
 
 
 
