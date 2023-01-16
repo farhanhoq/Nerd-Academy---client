@@ -1,38 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaOpencart } from 'react-icons/fa';
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaOpencart } from "react-icons/fa";
 
 const Navbar = () => {
   const menuItems = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <a href="/#home">Home</a>
       </li>
       <li>
-        <Link to="/services">Services</Link>
+        <a href="/#about">About</a>
       </li>
       <li>
-        <Link to="/page">Page</Link>
+        <a href="/#courses">Courses</a>
       </li>
       <li>
-        <Link to="/course">Courses</Link>
+        <a href="/#news">News</a>
       </li>
       <li>
-        <Link to="/news">News</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
-      <li>
-        <Link to="/contact">Contact</Link>
+        <a href="/#contact">Contact</a>
       </li>
     </>
   );
 
   return (
-    <div className='w-11/12 mx-auto'>
+    <div className="w-11/12 mx-auto">
       <div className="navbar flex justify-between mt-3 mb-[-5px]">
-        <div className="">  
+        <div className="">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -40,7 +34,8 @@ const Navbar = () => {
                 className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor">
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -51,16 +46,18 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            >
               {menuItems}
             </ul>
           </div>
           {/* <img src={nerd} alt="" /> */}
-          <div className='w-[210px]'>
-            <Link href="/" className="font-bold">
-            <span className="text-2xl">Nerd</span>
-            <span className="text-cyan-500 text-2xl"> Academy</span>
-          </Link>
+          <div className="w-[210px]">
+            <Link to="/" className="font-bold text-2xl">
+              {" "}
+              Nerd
+              <span className="text-cyan-500"> Academy</span>
+            </Link>
           </div>
         </div>
 
@@ -72,21 +69,31 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        
+
         <div class="input w-full">
           <input
             type="text"
             placeholder="Search for anything"
-            className="input input-bordered input-primary rounded-full w-full"/>
+            className="input input-bordered input-primary rounded-full w-full"
+          />
         </div>
-      <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
-        <FaOpencart />
-      </div>
-      
-        <div className="">
-            <button className='btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1 '><Link to='/login'>Log in</Link></button>
-            <button className='btn border-primary bg-primary text-white text rounded-none'><Link to='/register'>Sign up</Link></button>
-            
+        <div className="text-3xl hover:text-primary cursor-pointer mx-5">
+          <FaOpencart />
+        </div>
+
+        <div>
+          <Link
+            to="/login"
+            className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1 "
+          >
+            Login
+          </Link>
+          <Link
+            to="/register"
+            className="btn border-primary bg-primary text-white text rounded-none"
+          >
+            Sign up
+          </Link>
         </div>
       </div>
     </div>

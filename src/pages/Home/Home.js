@@ -6,17 +6,18 @@ import Banner from "./Banner/Banner"
 import Instructor from './Instructor/Instructor';
 import Contact from '../Contact/Contact';
 import About from '../About/About';
+import Faq from '../../Faq/Faq';
 
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            
+            <About></About>
             <OurCourses></OurCourses>
             <Counter></Counter>
-            <About></About>
             <Contact></Contact>
+            <Faq></Faq>
             <Instructor></Instructor>
         </div>
     );
