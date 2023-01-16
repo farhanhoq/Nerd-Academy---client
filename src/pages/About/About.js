@@ -26,9 +26,9 @@ const About = () => {
           </figure>
           <div className="w-full mt-4 ml-6">
             <h2 className="card-title">Online Course </h2>
-            <p className="text-slate-500">
+            <p className="text-slate-500 text-base">
               Google IT Automation with Python Professional Certificate{" "}
-              <br></br>From Art Alison has thousands of online courses
+              From Art Alison has thousands
             </p>
           </div>
         </div>
@@ -40,7 +40,7 @@ const About = () => {
             <h2 className="card-title">Gain Certificate</h2>
             <p className="text-slate-500">
               To gain accreditation for something by passing a test or exam{" "}
-              <br /> Best FREE Online Certification Course Providers
+              Best FREE Online Certification
             </p>
           </div>
         </div>
@@ -52,7 +52,7 @@ const About = () => {
             <h2 className="card-title">Learn with Expert</h2>
             <p className="text-slate-500">
               Block Slacks Contribution To Building A Better Collae You can
-              learn almost anything for free, but it's also easy to spend hours
+              learn almost anything for free
             </p>
           </div>
         </div>
