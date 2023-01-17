@@ -6,11 +6,17 @@ import { useQuery } from '@tanstack/react-query';
 import ScrollCarousel from 'scroll-carousel';
 
 const Courses = () => {
+  // new ScrollCarousel(".my-carousel", {
+  //   autoplay: true,
+  //   direction: 'ltr',
+  //   margin: 20,
+  //   speed: 5,
+  // });
+  // new ScrollCarousel(".my-carousel");
   new ScrollCarousel(".my-carousel", {
-    autoplay: true,
-    direction: 'ltr',
-    margin: 20
+    direction: 'ltr'
   });
+
 
   const { data: courses = [], isLoading, refetch } = useQuery({
     queryKey: ['courses'],
@@ -20,8 +26,8 @@ const Courses = () => {
   // console.log(courses);
 
   return (
-    <div className='w-11/12 mx-auto rounded-lg hidden lg:block my-carousel mt-[-345px]'>
-      <div className='grid grid-cols-3 p-10  text-center gap-5'>
+    <div className='w-11/12 mx-auto rounded-lg hidden lg:block my-carousel'>
+      <div className='grid grid-cols-3 p-10  text-center gap-5 my-slide'>
         {
           courses?.map(course => <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
             <figure><img className='w-full' src={course?.picture} alt="Shoes" /></figure>
