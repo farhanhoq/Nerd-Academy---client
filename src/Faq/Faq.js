@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import FaqDetails from './FaqDetails';
 // import FaqDetails from './FaqDetails';
 
 const Faq = () => {
@@ -30,34 +31,13 @@ const Faq = () => {
                     </div>
 
                     <div class="w-full px-2 py-">
-                        <details class="mb-4 cursor-pointer">
-                            <summary class="font-semibold  bg-cyan-100 rounded-md py-2 px-4">{faq.question}</summary>
-                            <p className="py-6 px-2 border border-cyan-400 rounded-lg">{faq.answer}</p>
-                        </details>
-                        <details class="mb-4 cursor-pointer">
-                            <summary class="font-semibold  bg-cyan-100 rounded-md py-2 px-4">{faq.question}</summary>
-                            <p className="py-6 px-2 border border-cyan-400 rounded-lg">{faq.answer}</p>
-                        </details>
-                        <details class="mb-4 cursor-pointer">
-                            <summary class="font-semibold  bg-cyan-100 rounded-md py-2 px-4">{faq.question}</summary>
-                            <p className="py-6 px-2 border border-cyan-400 rounded-lg">{faq.answer}</p>
-                        </details>
-                        <details class="mb-4 cursor-pointer">
-                            <summary class="font-semibold  bg-cyan-100 rounded-md py-2 px-4">{faq.question}</summary>
-                            <p className="py-6 px-2 border border-cyan-400 rounded-lg">{faq.answer}</p>
-                        </details>
-                        <details class="mb-4 cursor-pointer">
-                            <summary class="font-semibold  bg-cyan-100 rounded-md py-2 px-4">{faq.question}</summary>
-                            <p className="py-6 px-2 border border-cyan-400 rounded-lg">{faq.answer}</p>
-                        </details>
-                        <details class="mb-4 cursor-pointer">
-                            <summary class="font-semibold  bg-cyan-100 rounded-md py-2 px-4">{faq.question}</summary>
-                            <p className="py-6 px-2 border border-cyan-400 rounded-lg">{faq.answer}</p>
-                        </details>
-                        <details class="mb-4 cursor-pointer">
-                            <summary class="font-semibold  bg-cyan-100 rounded-md py-2 px-4">{faq.question}</summary>
-                            <p className="py-6 px-2 border border-cyan-400 rounded-lg">{faq.answer}</p>
-                        </details>
+                        {
+                            faq.map(qa => <FaqDetails
+                                key={qa.id}
+                                qa={qa}
+                            ></FaqDetails>)
+                        }
+
 
 
                     </div>

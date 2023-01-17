@@ -15,6 +15,9 @@ const Navbar = () => {
         <a href="/#courses">Courses</a>
       </li>
       <li>
+        <a href="/details">Courses Details</a>
+      </li>
+      <li>
         <a href="/#news">News</a>
       </li>
       <li>
