@@ -1,11 +1,6 @@
 import React from 'react';
 import "./Banner.css";
 import bg from '../../../Assets/background.png';
-<<<<<<< HEAD
-
-
-=======
->>>>>>> f6416fb1f404dcc8630599d04e19dc1fe17d16a7
 
 const Banner = () => {
 
