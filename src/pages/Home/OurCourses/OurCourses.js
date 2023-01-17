@@ -15,7 +15,7 @@ const OurCourses = () => {
     console.log(singleCourses);
 
     return (
-        <div className='mt-72 mb-32 background'>
+        <div className='mt-32 lg:mt-72 mb-32 background'>
             <div className='my-24 w-11/12 mx-auto'>
                 <h1 className='text-5xl text-center font-bold'>OUR COURSES</h1>
                 <div className='grid justify-center'>
