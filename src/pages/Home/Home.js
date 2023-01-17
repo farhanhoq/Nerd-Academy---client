@@ -5,7 +5,7 @@ import Instructor from './Instructor/Instructor';
 import Contact from '../Contact/Contact';
 import About from '../About/About';
 import Faq from '../../Faq/Faq';
-import Banner from '../home/Banner/Banner'
+import Banner from '../Home/Banner/Banner'
 import Courses from '../Courses/Courses'
 
 
