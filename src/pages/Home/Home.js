@@ -1,12 +1,12 @@
 import React from 'react';
 import Counter from '../Counter/Counter';
-import Courses from '../Courses/Courses';
 import OurCourses from './OurCourses/OurCourses';
-import Banner from "./Banner/Banner"
 import Instructor from './Instructor/Instructor';
 import Contact from '../Contact/Contact';
 import About from '../About/About';
 import Faq from '../../Faq/Faq';
+import Banner from '../home/Banner/Banner'
+import Courses from '../Courses/Courses'
 
 
 const Home = () => {
@@ -20,6 +20,7 @@ const Home = () => {
             <Contact></Contact>
             <Faq></Faq>
             <Instructor></Instructor>
+
         </div>
     );
 };

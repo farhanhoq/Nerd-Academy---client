@@ -5,6 +5,7 @@ import Checkout from "../pages/Checkout/Checkout";
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
 import Courses from "../pages/Courses/Courses";
+import SummaryReview from "../pages/Courses/SummaryRoute.js/SummaryReview";
 import Home from "../pages/home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -20,13 +21,13 @@ export const routes = createBrowserRouter([
             }
             ,
             {
-                path: '/courses',
-                element: <Courses></Courses>
+                path: '/details',
+                element: <CourseDetails></CourseDetails>
             }
             ,
             {
-                path: '/details',
-                element: <CourseDetails></CourseDetails>
+                path: '/SummaryReview',
+                element: <SummaryReview></SummaryReview>
             }
             ,
             {
