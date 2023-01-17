@@ -3,7 +3,7 @@ import Main from "../Layout/Main";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
-import Courses from "../pages/Courses/Courses";
+import SummaryReview from "../pages/Courses/SummaryRoute.js/SummaryReview";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -19,13 +19,13 @@ export const routes = createBrowserRouter([
             }
             ,
             {
-                path: '/courses',
-                element: <Courses></Courses>
+                path: '/details',
+                element: <CourseDetails></CourseDetails>
             }
             ,
             {
-                path: '/details',
-                element: <CourseDetails></CourseDetails>
+                path: '/SummaryReview',
+                element: <SummaryReview></SummaryReview>
             }
             ,
             {
