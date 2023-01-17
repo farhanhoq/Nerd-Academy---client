@@ -87,7 +87,7 @@ const Navbar = () => {
           />
         </div>
       <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
-        <FaOpencart />
+        <Link to='/cart'><FaOpencart /></Link>
       </div>
       
 

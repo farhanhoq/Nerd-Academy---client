@@ -14,7 +14,7 @@ const Courses = () => {
   // console.log(courses);
 
   return (
-      <div className='w-12/12 mx-auto rounded-lg '>
+      <div className='w-full mx-auto rounded-lg '>
   <div className='grid grid-cols1 md:grid-cols-2 lg:grid-cols-3 p-10  text-center gap-5'>
     {
       courses?.map(course => <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
