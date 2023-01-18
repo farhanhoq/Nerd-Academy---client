@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
+import './Navbar.css'
 
 const Navbar = () => {
+  const [navbar, setNavbar] = useState(false)
+
+  const changeBg = () => {
+    if(window.scrollY >= 20) {
+      setNavbar(true)
+    }
+    else {
+      setNavbar(false)
+    }
+  }
+
+  window.addEventListener('scroll', changeBg)
   const menuItems = (
     <>
       <li>
@@ -33,8 +46,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="navbar flex justify-between mt-3 mb-[-5px]">
+      <nav className={navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"}>
         <div className="">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -62,50 +74,54 @@ const Navbar = () => {
           </div>
           {/* <img src={nerd} alt="" /> */}
           <div className="w-[210px]">
-            <Link to="/" className="font-bold text-2xl">
+            <Link to="/" className="font-bold text-white text-2xl">
               {" "}
               Nerd
-              <span className="text-cyan-500"> Academy</span>
+              <span className=""> Academy</span>
             </Link>
           </div>
         </div>
 
         <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal bg-white hover:bg-white">
+          <ul className="menu menu-horizontal">
             <li>
-              <span className="hover:text-primary rounded">Categories</span>
+              <span className="rounded text-white">Categories</span>
               <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
+            </li>
+            <li>
+            <a href="/#courses" className="text-white">Courses</a>
             </li>
           </ul>
         </div>
 
-        <div class="hidden lg:block input w-full">
+        <div class="hidden lg:block w-[30%]">
           <input
             type="text"
-            placeholder="Search for anything"
+            placeholder="Search courses here"
             className="input input-bordered input-primary rounded-full w-full"
           />
         </div>
-        <div className="text-3xl hover:text-primary cursor-pointer mx-5">
-          <FaOpencart />
-        </div>
+      <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
+        <Link to='/cart'><FaOpencart /></Link>
+      </div>
+      
 
-        <div className="">
+        <div>
           <Link
             to="/login"
-            className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1 hidden md:block"
+            className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
+            rounded mr-1 hidden md:block pt-4"
           >
             Login
           </Link>
           <Link
             to="/register"
-            className="btn border-primary bg-primary text-white text-center rounded-none hidden md:block"
+            className="btn border-primary bg-primary text-white text-center rounded hidden md:block pt-4"
           >
             Sign up
           </Link>
         </div>
-      </div>
-    </div>
+      </nav>
   );
 };
 
