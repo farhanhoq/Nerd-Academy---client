@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
+import './Navbar.css'
 
 const Navbar = () => {
+  const [navbar, setNavbar] = useState(false)
+
+  const changeBg = () => {
+    if(window.scrollY >= 20) {
+      setNavbar(true)
+    }
+    else {
+      setNavbar(false)
+    }
+  }
+
+  window.addEventListener('scroll', changeBg)
   const menuItems = (
     <>
       <li>
@@ -33,8 +46,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="w-full mx-auto fixed z-10 px-16">
-      <div className="navbar flex justify-between mt-3 mb-[-5px]">
+      <nav className={navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"}>
         <div className="">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,8 +86,10 @@ const Navbar = () => {
           <ul className="menu menu-horizontal">
             <li>
               <span className="rounded text-white">Categories</span>
-              <a href="/#courses" className="text-white">Courses</a>
               <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
+            </li>
+            <li>
+            <a href="/#courses" className="text-white">Courses</a>
             </li>
           </ul>
         </div>
@@ -83,7 +97,7 @@ const Navbar = () => {
         <div class="hidden lg:block w-[30%]">
           <input
             type="text"
-            placeholder="Search for anything"
+            placeholder="Search courses here"
             className="input input-bordered input-primary rounded-full w-full"
           />
         </div>
@@ -106,8 +120,7 @@ const Navbar = () => {
             Sign up
           </Link>
         </div>
-      </div>
-    </div>
+      </nav>
   );
 };
 
