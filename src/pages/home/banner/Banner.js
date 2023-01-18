@@ -1,7 +1,5 @@
 import React from 'react';
-import "./Banner.css";
 import bg from '../../../Assets/background.png';
-import Courses from '../../Courses/Courses';
 import ImgSlider from '../../ImgSlider/ImgSlider';
 
 const Banner = () => {
