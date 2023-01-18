@@ -33,7 +33,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-full mx-auto fixed z-10 px-16">
       <div className="navbar flex justify-between mt-3 mb-[-5px]">
         <div className="">
           <div className="dropdown">
@@ -62,44 +62,46 @@ const Navbar = () => {
           </div>
           {/* <img src={nerd} alt="" /> */}
           <div className="w-[210px]">
-            <Link to="/" className="font-bold text-2xl">
+            <Link to="/" className="font-bold text-white text-2xl">
               {" "}
               Nerd
-              <span className="text-cyan-500"> Academy</span>
+              <span className=""> Academy</span>
             </Link>
           </div>
         </div>
 
         <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal bg-white hover:bg-white">
+          <ul className="menu menu-horizontal">
             <li>
-              <span className="hover:text-primary rounded">Categories</span>
+              <span className="rounded text-white">Categories</span>
+              <a href="/#courses" className="text-white">Courses</a>
               <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
             </li>
           </ul>
         </div>
 
-        <div class="hidden lg:block input w-full">
+        <div class="hidden lg:block w-[30%]">
           <input
             type="text"
             placeholder="Search for anything"
             className="input input-bordered input-primary rounded-full w-full"
           />
         </div>
-        <div className="text-3xl hover:text-primary cursor-pointer mx-5">
+        <div className="text-3xl hover:text-primary cursor-pointer mx-5 text-white">
           <FaOpencart />
         </div>
 
-        <div className="">
+        <div>
           <Link
             to="/login"
-            className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black rounded-none mr-1 hidden md:block"
+            className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
+            rounded mr-1 hidden md:block pt-4"
           >
             Login
           </Link>
           <Link
             to="/register"
-            className="btn border-primary bg-primary text-white text-center rounded-none hidden md:block"
+            className="btn border-primary bg-primary text-white text-center rounded hidden md:block pt-4"
           >
             Sign up
           </Link>

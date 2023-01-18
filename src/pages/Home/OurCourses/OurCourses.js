@@ -15,7 +15,7 @@ const OurCourses = () => {
     console.log(singleCourses);
 
     return (
-        <div className='mb-32 py-32 bg-cyan-50 mt-[20%]'>
+        <div className='mb-32 py-32 bg-cyan-50 mt-[20%]' id='courses'>
             <div className='w-11/12 mx-auto'>
                 <h1 className='text-5xl text-center font-bold capitalize'>our courses</h1>
                 <div className='grid justify-center'>
