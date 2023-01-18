@@ -25,21 +25,18 @@ const Faq = () => {
                     </p>
                 </div>
 
-                <div class="flex lg:w-4/5 sm:mx-auto sm:mb-2 ">
+                <div class="flex lg:w-4/5 sm:mx-auto sm:mb-2 flex-row-reverse items-center gap-6">
                     <div class=" flex flex-col w-full mr-40">
                         <img className='hue-rotate-0 w-full justify-center rounded-md shadow-gray-400' src="https://img.freepik.com/free-vector/organic-flat-people-business-training_23-2148896824.jpg?w=740&t=st=1673904517~exp=1673905117~hmac=0c55fb2d4a5b1324d41bc752c767b2f92b970f1b81548a9c6c5394dfb74d088f" alt="" srcset="" />
                     </div>
 
-                    <div class="w-full px-2 py-">
+                    <div class="w-full px-2">
                         {
                             faq.map(qa => <FaqDetails
                                 key={qa.id}
                                 qa={qa}
                             ></FaqDetails>)
                         }
-
-
-
                     </div>
                 </div>
 
