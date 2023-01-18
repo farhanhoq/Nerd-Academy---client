@@ -1,4 +1,6 @@
 import React from 'react';
+import Banner from '../home/Banner/Banner'
+import Courses from '../Courses/Courses'
 import Counter from '../Counter/Counter';
 import OurCourses from './OurCourses/OurCourses';
 import Instructor from './Instructor/Instructor';
@@ -10,19 +12,14 @@ import Faq from '../../Faq/Faq';
 const Home = () => {
     return (
         <div>
-<<<<<<< HEAD
-
-=======
-            <Banner></Banner>
-            <Courses></Courses>
->>>>>>> 673314e05d65e200a1fc5f31ec7d2202105e24c2
-            <OurCourses></OurCourses>
-            <Counter></Counter>
-            <About></About>
-            <Contact></Contact>
-            <Faq></Faq>
-            <Instructor></Instructor>
-
+            <Banner/>
+            <Courses/>
+            <About/>
+            <OurCourses/>
+            <Counter/>
+            <Contact/>
+            <Faq/>
+            <Instructor/>
         </div>
     );
 };

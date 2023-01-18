@@ -15,12 +15,12 @@ const OurCourses = () => {
     console.log(singleCourses);
 
     return (
-        <div className='my-32 background'>
+        <div className='my-32 bg-cyan-50'>
             <div className='my-24 w-11/12 mx-auto'>
-                <h1 className='text-5xl text-center font-bold'>OUR COURSES</h1>
+                <h1 className='text-5xl text-center font-bold capitalize pt-12'>our courses</h1>
                 <div className='grid justify-center'>
-                    <img className='h-full w-24' src={minusb} alt="" />
-                    <img className='h-full w-24' src={book} alt="" />
+                    <img className='h-full w-12' src={minusb} alt="" />
+                    <img className='h-full w-12' src={book} alt="" />
                 </div>
 
                 <div className='w-12/12 mx-auto rounded-lg shadow-xl'>

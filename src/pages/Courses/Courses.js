@@ -17,7 +17,6 @@ const Courses = () => {
     queryFn: () => fetch('trendingCourses.json')
       .then(res => res.json())
   });
-  // console.log(courses);
 
   return (
     <div className='w-11/12 mx-auto rounded-lg hidden lg:block my-carousel mt-[-345px]'>
