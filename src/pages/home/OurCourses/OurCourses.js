@@ -30,7 +30,7 @@ const OurCourses = () => {
 
                                 <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
                                     <figure><img className='h-36 w-full' src={course?.picture} alt="Shoes" /></figure>
-                                    <div className="card-body text-left">
+                                    <div className="card-body text-left ">
                                         <h2 className="font-bold text-primary">{course?.name}</h2>
                                         <p className='text-sm text-gray-600'>{course?.about.slice(0, 150)}</p>
                                         <div className="card-actions justify-between items-center">
