@@ -7,14 +7,14 @@ const CourseDetails = () => {
     const [overview, setOverview] = useState([]);
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('overview.json')
+        fetch('https://nerd-academy-server.vercel.app/overview')
             .then(res => res.json())
             .then(data => setOverview(data))
     }, [])
 
 
     useEffect(() => {
-        fetch('coursedetails.json')
+        fetch('https://nerd-academy-server.vercel.app/cDetails')
             .then(res => res.json())
             .then(data => console.log(data))
     }, [])
