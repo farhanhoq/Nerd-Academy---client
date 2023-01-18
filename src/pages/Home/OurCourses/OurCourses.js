@@ -15,16 +15,16 @@ const OurCourses = () => {
     console.log(singleCourses);
 
     return (
-        <div className='my-32 bg-cyan-50'>
-            <div className='my-24 w-11/12 mx-auto'>
-                <h1 className='text-5xl text-center font-bold capitalize pt-12'>our courses</h1>
+        <div className='mb-32 py-32 bg-cyan-50 mt-[20%]'>
+            <div className='w-11/12 mx-auto'>
+                <h1 className='text-5xl text-center font-bold capitalize'>our courses</h1>
                 <div className='grid justify-center'>
                     <img className='h-full w-12' src={minusb} alt="" />
                     <img className='h-full w-12' src={book} alt="" />
                 </div>
 
-                <div className='w-12/12 mx-auto rounded-lg shadow-xl'>
-                    <div className='grid grid-cols1 md:grid-cols-2 lg:grid-cols-3 p-10  text-center gap-5'>
+                <div className='w-12/12 mx-auto rounded-lg'>
+                    <div className='grid grid-cols1 md:grid-cols-2 lg:grid-cols-3 p-10 text-center gap-5'>
                         {
                             singleCourses?.map(course => <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
                                 <figure><img className='' src={course?.picture} alt="Shoes" /></figure>
