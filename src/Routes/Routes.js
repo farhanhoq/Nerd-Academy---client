@@ -5,7 +5,6 @@ import Cart from "../pages/Cart/Cart";
 
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
-import Courses from "../pages/Courses/Courses";
 import SummaryReview from "../pages/Courses/SummaryRoute.js/SummaryReview";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";

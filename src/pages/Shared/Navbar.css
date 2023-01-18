@@ -1,0 +1,7 @@
+.navbar.active {
+    transition: .2s ease-in-out;
+    box-shadow: 0 0 13px 3px hsl(0deg 0% 62% / 41%);
+    background-image: linear-gradient(to right, rgba(105, 107, 128, 0.3), rgba(7, 7, 7, 0.3));
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
