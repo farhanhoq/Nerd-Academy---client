@@ -12,7 +12,7 @@ const OurCourses = () => {
 
     const { data: singleCourses = [], isLoading, refetch } = useQuery({
         queryKey: ['singleCourses'],
-        queryFn: () => fetch('ourCourses.json')
+        queryFn: () => fetch('https://nerd-academy-server.vercel.app/courses')
             .then(res => res.json())
     });
 
@@ -26,8 +26,9 @@ const OurCourses = () => {
                 </div>
 
                 <div className='w-12/12 mx-auto rounded-lg'>
-                    <div className='grid grid-cols1 md:grid-cols-2 lg:grid-cols-3 p-10 text-center gap-5'>
+                    <div className='grid grid-cols1 md:grid-cols-2 lg:grid-cols-5 p-10 text-center gap-10'>
                         {
+<<<<<<< HEAD
                             singleCourses?.map(course => <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
                                 <figure><img className='' src={course?.picture} alt="Shoes" /></figure>
                                 <div className="card-body text-left">
@@ -37,9 +38,23 @@ const OurCourses = () => {
                                         <p className='font-bold text-primary'>${course?.price}</p>
 
                                         <Link to={`/details/${course._id}`}><button className="btn rounded text-white btn-primary">Buy Now</button></Link>
+=======
+                            singleCourses?.map(course =>
+                                
+                                <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
+                                    <figure><img className='w-full h-36' src={course?.picture} alt="Shoes" /></figure>
+                                    <div className="card-body text-left p-5">
+                                        <h2 className="font-bold text-primary">{course?.name}</h2>
+                                        <p className='text-sm text-gray-600'>{course?.about.slice(0, 50)}</p>
+                                        <div className="card-actions justify-between items-center">
+                                            <p className='font-bold text-primary'>${course?.price}</p>
+                                            <button className="btn btn-sm rounded text-white btn-primary">Buy</button>
+                                        </div>
+>>>>>>> e89304827c6f60010896831dfefec5fab1c50b6b
                                     </div>
                                 </div>
-                            </div>)
+
+                            )
                         }
                     </div>
                 </div>
