@@ -6,7 +6,7 @@ import Checkout from "../pages/Checkout/Checkout";
 
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
-import SummaryReview from "../pages/Courses/SummaryRoute.js/SummaryReview";
+import Review from "../pages/Courses/Review";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -25,12 +25,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`coursedetails.json/${params.id}`)
+                loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/cDetails/${params.id}`)
             }
             ,
             {
-                path: '/SummaryReview',
-                element: <SummaryReview></SummaryReview>
+                path: '/Review',
+                element: <Review></Review>
             }
             ,
             {
@@ -55,9 +55,7 @@ export const routes = createBrowserRouter([
                 path: '/cart',
                 element: <Cart></Cart>
             }
-<<<<<<< HEAD
 
-=======
             ,
             {
                 path: '/checkout',
@@ -68,8 +66,7 @@ export const routes = createBrowserRouter([
                 path: '/construction',
                 element: <UnderConstruction></UnderConstruction>
             }
-            
->>>>>>> e89304827c6f60010896831dfefec5fab1c50b6b
+
         ]
     }
 ])

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DetailsPage from "./DetailsPage";
-import SummaryReview from "./SummaryRoute.js/SummaryReview";
+import Review from "./Review";
 
 const CourseDetails = () => {
     const [overview, setOverview] = useState([]);
@@ -210,7 +210,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
             </div>
-            <SummaryReview></SummaryReview>
+            <Review></Review>
         </div>
 
 

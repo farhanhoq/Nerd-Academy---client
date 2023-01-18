@@ -10,11 +10,6 @@ import Faq from '../../Faq/Faq';
 const Home = () => {
     return (
         <div>
-<<<<<<< HEAD
-
-=======
-            <Banner></Banner>
->>>>>>> e89304827c6f60010896831dfefec5fab1c50b6b
             <OurCourses></OurCourses>
             <Counter></Counter>
             <About></About>
