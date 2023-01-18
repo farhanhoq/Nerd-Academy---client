@@ -2,17 +2,19 @@ import minusb from '../../../Assets/minusb.png'
 import book from '../../../Assets/book.png';
 import { useQuery } from '@tanstack/react-query';
 import './OurCourses.css'
+import { Link, useLoaderData } from 'react-router-dom';
 
 
 
 const OurCourses = () => {
+
+    const service = useLoaderData()
 
     const { data: singleCourses = [], isLoading, refetch } = useQuery({
         queryKey: ['singleCourses'],
         queryFn: () => fetch('ourCourses.json')
             .then(res => res.json())
     });
-    console.log(singleCourses);
 
     return (
         <div className='mb-32 py-32 bg-cyan-50 mt-[20%]' id='courses'>
@@ -33,7 +35,8 @@ const OurCourses = () => {
                                     <p className='text-sm text-gray-600'>{course?.about.slice(0, 150)}</p>
                                     <div className="card-actions justify-between items-center">
                                         <p className='font-bold text-primary'>${course?.price}</p>
-                                        <button className="btn rounded text-white btn-primary">Buy Now</button>
+
+                                        <Link to={`/details/${course._id}`}><button className="btn rounded text-white btn-primary">Buy Now</button></Link>
                                     </div>
                                 </div>
                             </div>)
@@ -100,7 +103,7 @@ const OurCourses = () => {
 
                 </div> */}
             </div>
-        </div>
+        </div >
     );
 };
 

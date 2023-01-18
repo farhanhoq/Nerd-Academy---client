@@ -21,8 +21,9 @@ export const routes = createBrowserRouter([
             }
             ,
             {
-                path: '/details',
-                element: <CourseDetails></CourseDetails>
+                path: '/details/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({ params }) => fetch(`coursedetails.json/${params.id}`)
             }
             ,
             {
@@ -51,7 +52,7 @@ export const routes = createBrowserRouter([
                 path: '/cart',
                 element: <Cart></Cart>
             }
-            
+
         ]
     }
 ])
