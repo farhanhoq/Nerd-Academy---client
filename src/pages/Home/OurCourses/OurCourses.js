@@ -9,7 +9,7 @@ const OurCourses = () => {
 
     const { data: singleCourses = [], isLoading, refetch } = useQuery({
         queryKey: ['singleCourses'],
-        queryFn: () => fetch('ourCourses.json')
+        queryFn: () => fetch('https://nerd-academy-server.vercel.app/courses')
             .then(res => res.json())
     });
     console.log(singleCourses);
