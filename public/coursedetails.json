@@ -1,0 +1,56 @@
+[
+    {
+        "_id": "01",
+        "title": "React",
+        "img": "https://img.freepik.com/free-vector/javascript-frameworks-concept-illustration_114360-743.jpg?w=740&t=st=1673968652~exp=1673969252~hmac=bca629b439bed86a1671902efb73c78bd96d9b01551dba5f0cf093c2db0ccde7",
+        "price": "$138",
+        "rating": "4.7",
+        "review": "10",
+        "description": "React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies."
+    },
+    {
+        "_id": "02",
+        "title": "Java Script",
+        "img": "https://img.freepik.com/free-vector/hand-drawn-web-developers_23-2148819604.jpg?w=740&t=st=1673968789~exp=1673969389~hmac=d9ca49e6d6c8263f6edb1116d286cd9111f3e0fe935a3d8181b559b5c43eeacd",
+        "price": "$145",
+        "rating": "4.8",
+        "review": "20",
+        "description": "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries."
+    },
+    {
+        "_id": "03",
+        "title": "Swift",
+        "img": "https://i.ibb.co/2KPxmmM/swift.jpg",
+        "price": "$120",
+        "rating": "4.9",
+        "review": "25",
+        "description": "Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community. First released in 2014"
+    },
+    {
+        "_id": "04",
+        "title": "JAVA Programming",
+        "img": "https://i.ibb.co/RyHmjtW/java.jpg",
+        "price": "$118",
+        "rating": "37",
+        "review": "10",
+        "description": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let programmers write once, run anywhere (WORA),"
+    },
+    {
+        "_id": "05",
+        "title": "Artificial Intelligence",
+        "img": "https://i.ibb.co/pzkSs8n/ai.jpg",
+        "price": "$180",
+        "rating": "4.5",
+        "review": "45",
+        "description": "Artificial intelligence is intelligence—perceiving, synthesizing, and inferring information—demonstrated by machines, as opposed to intelligence display."
+    },
+    {
+        "_id": "06",
+        "title": "Machine Learning",
+        "img": "https://i.ibb.co/5KMR016/ml.jpg",
+        "price": "175",
+        "rating": "5.0",
+        "review": "51",
+        "description": "Machine learning is a branch of artificial intelligence (AI) and computer science which focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy."
+    }
+]
