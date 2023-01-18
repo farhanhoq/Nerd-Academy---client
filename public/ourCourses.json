@@ -40,6 +40,46 @@
     "lectures": "96"
   },
   {
+      "_id": "1",
+      "picture": "https://i.ibb.co/W0nts7m/react.jpg",
+      "name": "React",
+      "about": "React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.",
+      "price": "138",
+      "creator": "Mujahidul Islam",
+      "hours": "14",
+      "lectures": "125"
+  },
+  {
+      "_id": "2",
+      "picture": "https://i.ibb.co/82yhqsw/js.jpg",
+      "name": "Java Script",
+      "about": "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries.",
+      "price": "145",
+      "creator": "Georgia Emma",
+      "hours": "13",
+      "lectures": "110"
+  },
+  {
+      "_id": "3",
+      "picture": "https://i.ibb.co/2KPxmmM/swift.jpg",
+      "name": "Swift",
+      "about": "Swift is a powerful and intuitive programming language for iOS, iPadOS, macOS, tvOS, and watchOS. Writing Swift code is interactive and fun, the syntax is concise yet expressive, and Swift includes modern features developers love. Swift code is safe by design and produces software that runs lightning-fast.",
+      "price": "120",
+      "creator": "Mary Elizabeth",
+      "hours": "15",
+      "lectures": "144"
+  },
+  {
+    "_id": "4",
+    "picture": "https://i.ibb.co/RyHmjtW/java.jpg",
+    "name": "JAVA Programming",
+    "about": "Java is a general-purpose, class-based, object-oriented programming language designed for having lesser implementation dependencies. It is a computing platform for application development. Java is fast, secure, and reliable, therefore. It is widely used for developing Java applications in laptops, data centers, game consoles, scientific supercomputers, cell phones, etc.",
+    "price": "118",
+    "creator": "Hector Sergio",
+    "hours": "9",
+    "lectures": "96"
+  },
+  {
     "_id": "5",
     "picture": "https://i.ibb.co/pzkSs8n/ai.jpg",
     "name": "Artificial Intelligence",
