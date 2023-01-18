@@ -86,9 +86,10 @@ const Navbar = () => {
             className="input input-bordered input-primary rounded-full w-full"
           />
         </div>
-        <div className="text-3xl hover:text-primary cursor-pointer mx-5">
-          <FaOpencart />
-        </div>
+      <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
+        <Link to='/cart'><FaOpencart /></Link>
+      </div>
+      
 
         <div className="">
           <Link
