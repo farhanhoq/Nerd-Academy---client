@@ -15,16 +15,16 @@ const About = () => {
         />
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-4">
         <h2 className="text-center lg:text-left text-2xl font-bold">
           Benefits About Online Learning Expertise{" "}
         </h2>
 
-        <div className="card md:card-side shadow-md mt-8 text-black w-full h-28 cursor-pointer">
+        <div className="card md:card-side shadow-md mt-8 text-black w-full cursor-pointer">
           <figure>
             <img className="h-20 w-24 ml-6" src={online} alt="Movie" />
           </figure>
-          <div className="w-full mt-4 ml-6">
+          <div className="w-full p-8">
             <h2 className="card-title">Online Course </h2>
             <p className="text-slate-500 text-base">
               Google IT Automation with Python Professional Certificate{" "}
@@ -32,27 +32,29 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="card md:card-side shadow-md mt-2 text-black w-full h-28 cursor-pointer">
+
+        <div className="card md:card-side shadow-md mt-2 text-black w-full cursor-pointer">
           <figure>
             <img className="h-20 w-24 ml-6" src={certificate} alt="Movie" />
           </figure>
-          <div className="w-full mt-4 ml-6">
-            <h2 className="card-title">Gain Certificate</h2>
-            <p className="text-slate-500 w-11/12">
-              To gain accreditation for something by passing a test or exam{" "}
-              Best FREE Online Certification
+          <div className="w-full p-8">
+            <h2 className="card-title">Online Course </h2>
+            <p className="text-slate-500 text-base">
+              Google IT Automation with Python Professional Certificate{" "}
+              From Art Alison has thousands
             </p>
           </div>
         </div>
-        <div className="card md:card-side shadow-md mt-2 text-black w-full h-28 cursor-pointer">
+
+        <div className="card md:card-side shadow-md mt-2 text-black w-full cursor-pointer">
           <figure>
             <img className="h-20 w-24 ml-6" src={analyst} alt="Movie" />
           </figure>
-          <div className="w-full mt-4 ml-6">
-            <h2 className="card-title">Learn with Expert</h2>
-            <p className="text-slate-500 w-11/12">
-              Block Slacks Contribution To Building A Better Collae You can
-              learn almost anything for free
+          <div className="w-full p-8">
+            <h2 className="card-title">Online Course </h2>
+            <p className="text-slate-500 text-base">
+              Google IT Automation with Python Professional Certificate{" "}
+              From Art Alison has thousands
             </p>
           </div>
         </div>
