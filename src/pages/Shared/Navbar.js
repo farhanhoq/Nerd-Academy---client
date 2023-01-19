@@ -49,12 +49,12 @@ const Navbar = () => {
       <li>
         <a href="/#contact">Contact</a>
       </li>
-      {/* <li className="block lg:hidden">
+      <li className="block lg:hidden">
         <a href="/login">Login</a>
       </li>
       <li className="block lg:hidden">
         <a href="/register">Register</a>
-      </li> */}
+      </li>
 
     </>
   );
