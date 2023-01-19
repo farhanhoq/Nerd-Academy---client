@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SummaryReview = () => {
+const Review = () => {
     const [menu, setMenu] = useState(true);
     const [menu1, setMenu1] = useState(false);
     return (
@@ -214,4 +214,4 @@ const SummaryReview = () => {
     );
 };
 
-export default SummaryReview;
+export default Review;

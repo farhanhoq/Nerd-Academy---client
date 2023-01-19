@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import DetailsPage from "./DetailsPage";
-import New from "./New";
-import SummaryReview from "./SummaryRoute.js/SummaryReview";
+import Review from "./Review";
 
 const CourseDetails = () => {
+
     const [overview, setOverview] = useState([]);
-    const [services, setServices] = useState([]);
+
+    const course = useLoaderData();
+    const { title, picture, img, price, rating, review, tutor, lectures, hours, date, description } = course[0];
+
+
     useEffect(() => {
-        fetch('overview.json')
+        fetch('https://nerd-academy-server.vercel.app/overview')
             .then(res => res.json())
             .then(data => setOverview(data))
-    }, [])
 
 
     useEffect(() => {
@@ -139,7 +143,6 @@ const CourseDetails = () => {
                     </div>
                 </div>
 
-
                 <div className="flex  justify-center items-center w-full">
                     <div className="w-full sm:w-96 md:w-8/12 lg:w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-28 sm:gap-x-6 sm:gap-y-12 gap-y-12 sm:mt-14 mt-10">
                         {
@@ -152,7 +155,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
             </div>
-            <SummaryReview></SummaryReview>
+            <Review></Review>
         </div>
 
 

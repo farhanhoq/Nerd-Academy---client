@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section className="grid grid-cols-2 justify-items-stretch mt-40 container mx-auto px-16" id="contact">
+    <section className="flex flex-row  justify-center items-center lg:flex-row mt-40 container mx-auto px-16" id="contact">
       <div className="text-center lg:text-left">
         <img
           className="w-10/12"

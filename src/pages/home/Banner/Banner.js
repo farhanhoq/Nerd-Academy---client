@@ -1,7 +1,5 @@
 import React from 'react';
-import "./Banner.css";
 import bg from '../../../Assets/background.png';
-import Courses from '../../Courses/Courses';
 import ImgSlider from '../../ImgSlider/ImgSlider';
 
 const Banner = () => {
@@ -19,7 +17,7 @@ const Banner = () => {
         </div>
       </div>
       <div className='absolute top-[80%] w-11/12'>
-        <ImgSlider/>
+        <ImgSlider />
       </div>
     </div>
   );
