@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
 
 const Cart = () => {
   const {
@@ -7,18 +7,18 @@ const Cart = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ['cartDatas'],
-    queryFn: () => fetch('ourCourses.json').then(res => res.json()),
+    queryKey: ["cartDatas"],
+    queryFn: () => fetch("ourCourses.json").then((res) => res.json()),
   });
-  console.log(cartDatas);
+
   return (
-    <div className="h-screen">
-      <div className="w-10/12 mx-auto my-10 p-5 shadow-xl border rounded-xl">
+    <section className="pt-24">
+      <div className="w-10/12 mx-auto p-5 shadow-xl border rounded-xl">
         <h1 className="text-5xl p-4 mb-8">Shopping Cart</h1>
         <div className="flex">
           <div className="overflow-x-auto w-7/12">
             <table className="table w-full">
-              {cartDatas?.map(data => (
+              {cartDatas?.map((data) => (
                 <tbody>
                   <tr className="flex justify-between">
                     <td>
@@ -31,19 +31,19 @@ const Cart = () => {
                         <div className="">
                           <div className="font-bold ">{data?.name}</div>
                           <div className="text-sm ">
-                            By{' '}
+                            By{" "}
                             <span className="badge badge-ghost">
                               {data?.creator}
                             </span>
                           </div>
                           <div className="text-sm ">
-                            Video:{' '}
+                            Video:{" "}
                             <span className="opacity-70">
                               {data?.hours} hours
                             </span>
                           </div>
                           <div className="text-sm ">
-                            Lectures:{' '}
+                            Lectures:{" "}
                             <span className="opacity-70">{data?.lectures}</span>
                           </div>
                         </div>
@@ -82,7 +82,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
