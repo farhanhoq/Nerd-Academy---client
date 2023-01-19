@@ -31,11 +31,11 @@ const OurCourses = () => {
                                 <div key={course?._id} className="card bg-base-100 shadow-xl rounded">
                                     <figure><img className='w-full h-36' src={course?.picture} alt="Shoes" /></figure>
                                     <div className="card-body text-left p-5">
-                                        <h2 className="font-bold text-primary">{course?.name}</h2>
-                                        <p className='text-sm text-gray-600'>{course?.about.slice(0, 50)}</p>
+                                        <h2 className="font-bold text-primary">{course?.title}</h2>
+                                        <p className='text-sm text-gray-600'>{course?.description.slice(0, 50)}</p>
                                         <div className="card-actions justify-between items-center">
                                             <p className='font-bold text-primary'>${course?.price}</p>
-                                            <Link to={`/details/${course._id}`}><button className="btn btn-sm rounded text-white btn-primary">Buy</button></Link>
+                                            <Link to={`/details/${course._id}`} className="btn btn-sm rounded text-white btn-primary">Buy</Link>
                                         </div>
                                     </div>
                                 </div>

@@ -25,7 +25,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/cDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/courses/${params.id}`)
             }
             ,
             {

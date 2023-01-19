@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import DetailsPage from "./DetailsPage";
 import Review from "./Review";
 
 const CourseDetails = () => {
+
     const [overview, setOverview] = useState([]);
-    const [services, setServices] = useState([]);
+
+    const course = useLoaderData();
+    const { title, picture, img, price, rating, review, tutor, lectures, hours, date, description } = course[0];
+
 
     useEffect(() => {
         fetch('https://nerd-academy-server.vercel.app/overview')
             .then(res => res.json())
             .then(data => setOverview(data))
 
-    }, [])
-
-
-    useEffect(() => {
-        fetch('https://nerd-academy-server.vercel.app/cDetails')
-            .then(res => res.json())
-            .then(data => setServices(data));
     }, [])
 
     // const [rotate, setRotate] = useState(false);
@@ -40,16 +38,15 @@ const CourseDetails = () => {
                     {/* <!-- Description Div --> */}
 
                     <div className="sm:w-96 md:w-8/12 lg:w-6/12 items-center">
-                        {
-                            services.map(service => <div key={service._id} service={service}>
-                                <h2 className="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 mt-4">{service.title}</h2>
+                        <div>
+                                <h2 className="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 mt-4">{title}</h2>
                                 <div className="mt-6 flex justify-start items-center flex-row space-x-2.5">
                                     <div>
                                         <img src="https://i.ibb.co/RCTGZTc/Mask-Group-1.png" alt="girl-avatar" />
                                     </div>
                                     <div className="flex flex-col justify-start items-start space-y-2">
-                                        <p className="text-base font-medium leading-none text-gray-800">{service.author}</p>
-                                        <p className="text-sm leading-none text-gray-600">{service.date}</p>
+                                        <p className="text-base font-medium leading-none text-gray-800">{tutor}</p>
+                                        <p className="text-sm leading-none text-gray-600">{date}</p>
                                     </div>
                                 </div>
 
@@ -87,11 +84,11 @@ const CourseDetails = () => {
                     </svg>
                 </div> */}
 
-                                    <p className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-700 hover:underline hover:text-gray-800 duration-100 cursor-pointer">{service.review}</p>
+                                    <p className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-700 hover:underline hover:text-gray-800 duration-100 cursor-pointer">{review}</p>
                                 </div>
 
-                                <p className=" font-normal text-black mt-7">{service.description}</p>
-                                <p className=" font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">{service.price}</p>
+                                <p className=" font-normal text-black mt-7">{description}</p>
+                                <p className=" font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">{price}</p>
 
                                 <div className="lg:mt-11 mt-10">
 
@@ -101,8 +98,7 @@ const CourseDetails = () => {
                                 <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-cyan-700 w-full py-5 lg:mt-12 mt-6 rounded-md">Add to Cart</button>
 
 
-                            </div>)
-                        }
+                        </div>
                     </div>
 
                     {/* <!-- Preview Images Div For larger Screen--> */}
@@ -196,7 +192,6 @@ const CourseDetails = () => {
 
                     </div>
                 </div>
-
 
                 <div className="flex  justify-center items-center w-full">
                     <div className="w-full sm:w-96 md:w-8/12 lg:w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-28 sm:gap-x-6 sm:gap-y-12 gap-y-12 sm:mt-14 mt-10">
