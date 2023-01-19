@@ -1,10 +1,26 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
 import './Navbar.css'
+import { AuthContext } from "../../Context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Navbar = () => {
-  const [navbar, setNavbar] = useState(false)
+  const [navbar, setNavbar] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Sign Out Successfully");
+        navigate('/');
+      })
+      .catch(error => {
+        toast.error(error.message);
+      })
+  }
 
   const changeBg = () => {
     if (window.scrollY >= 20) {
@@ -33,12 +49,13 @@ const Navbar = () => {
       <li>
         <a href="/#contact">Contact</a>
       </li>
-      <li className="block lg:hidden">
+      {/* <li className="block lg:hidden">
         <a href="/login">Login</a>
       </li>
       <li className="block lg:hidden">
         <a href="/register">Register</a>
-      </li>
+      </li> */}
+
     </>
   );
 
@@ -104,19 +121,28 @@ const Navbar = () => {
 
 
       <div>
-        <Link
-          to="/login"
-          className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
+        {
+          user?.uid ?
+            <Link onClick={handleLogOut} className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
+            rounded mr-1 hidden md:block pt-4">Sign Out</Link>
+            :
+            <>
+              <Link
+                to="/login"
+                className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
             rounded mr-1 hidden md:block pt-4"
-        >
-          Login
-        </Link>
-        <Link
-          to="/register"
-          className="btn border-primary bg-primary text-white text-center rounded hidden md:block pt-4"
-        >
-          Sign up
-        </Link>
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="btn border-primary bg-primary text-white text-center rounded hidden md:block pt-4"
+              >
+                Sign up
+              </Link>
+            </>
+        }
+
       </div>
     </nav>
   );
