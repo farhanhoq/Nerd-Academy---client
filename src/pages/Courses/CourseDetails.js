@@ -15,7 +15,6 @@ const CourseDetails = () => {
         fetch('https://nerd-academy-server.vercel.app/overview')
             .then(res => res.json())
             .then(data => setOverview(data))
-
     }, [])
 
     // const [rotate, setRotate] = useState(false);
