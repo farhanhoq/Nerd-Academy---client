@@ -16,8 +16,10 @@ const CourseDetails = () => {
     useEffect(() => {
         fetch('coursedetails.json')
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => setServices(data))
     }, [])
+
+    console.log(services)
 
     // const [rotate, setRotate] = useState(false);
     // const [count, setCount] = useState(0);
@@ -40,7 +42,7 @@ const CourseDetails = () => {
 
                     <div className="sm:w-96 md:w-8/12 lg:w-6/12 items-center">
                         {
-                            services.map(service => <New key={service._id} service={service}
+                            services?.map(service => <New key={service._id} service={service}
                             ></New>)
                         }
                     </div>
