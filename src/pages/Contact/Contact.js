@@ -1,6 +1,19 @@
 import React from "react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_3n892d5', 'template_rw7lgph', e.target, 'YQFVIeVH-0k8Q1nur')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+    e.target.reset()
+
+  }
   return (
     <section className="flex flex-row  justify-center items-center lg:flex-row mt-40 container mx-auto px-16" id="contact">
       <div className="text-center lg:text-left">
@@ -20,8 +33,7 @@ const Contact = () => {
 
         {/* From section */}
         <form
-          action="https://formspree.io/f/mzbqzjbb"
-          method="POST"
+          onSubmit={sendEmail}
         >
           <div className="form-control mt-8">
             <div className="flex gap-5">
