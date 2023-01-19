@@ -17,7 +17,7 @@ const Banner = () => {
         </div>
       </div>
       <div className='absolute top-[80%] w-11/12'>
-        <ImgSlider/>
+        <ImgSlider />
       </div>
     </div>
   );
