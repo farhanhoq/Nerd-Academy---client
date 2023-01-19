@@ -12,7 +12,7 @@ const Cart = () => {
   });
 
   return (
-    <section className="pt-24">
+    <section className="py-24">
       <div className="w-10/12 mx-auto p-5 shadow-xl border rounded-xl">
         <h1 className="text-5xl p-4 mb-8">Shopping Cart</h1>
         <div className="flex">
