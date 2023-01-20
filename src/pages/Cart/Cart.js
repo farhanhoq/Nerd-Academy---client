@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { signInAnonymously } from "firebase/auth";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Cart = () => {
@@ -110,9 +111,9 @@ const Cart = () => {
               <h1 className="text-4xl font-bold">${total}</h1>
               <div className="divider mt-[-3px]"></div>
 
-              <button className="btn btn-primary rounded text-white btn-wide w-full mt-5">
+              <Link to="/checkout" className="btn btn-primary rounded text-white btn-wide w-full mt-5">
                 Checkout
-              </button>
+              </Link>
             </div>
           </div>
         </div>
