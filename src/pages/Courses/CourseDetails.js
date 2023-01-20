@@ -48,7 +48,7 @@ const CourseDetails = () => {
       description,
     };
 
-    fetch("http://localhost:5000/userscart", {
+    fetch("https://nerd-academy-server.vercel.app/userscart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 
 const Cart = () => {
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/cartdata?email=${user?.email}`;
+  const url = `https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`;
   const {
     data: cartDatas = [],
     isLoading,
@@ -30,16 +30,16 @@ const Cart = () => {
       "Are you sure, you want to remove this order?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/usercartdata/${id}`, {
+      fetch(`https://nerd-academy-server.vercel.app/usercartdata/${id}`, {
         method: "DELETE",
       })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        if(data.deletedCount > 0){
-          alert('Removed Order Successfully')
-        }
-      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("Removed Order Successfully");
+          }
+        });
     }
   };
 
