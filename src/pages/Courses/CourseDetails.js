@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import ScrollToTop from "../ScrollToTop";
 import DetailsPage from "./DetailsPage";
 import Review from "./Review";
 
@@ -78,6 +79,7 @@ const CourseDetails = () => {
 
   return (
     <div>
+      <ScrollToTop/>
       <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
         <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
           {/* <!-- Description Div --> */}
