@@ -63,14 +63,9 @@ const CourseDetails = () => {
   //     }
   // };
 
-  return (
-    <div>
-      <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
-        <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
-          {/* <!-- Description Div --> */}
     return (
         <div>
-            <div className="2xl:container 2xl:mx-auto lg:py-32 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
+            <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
                 <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
                     {/* <!-- Description Div --> */}
 
