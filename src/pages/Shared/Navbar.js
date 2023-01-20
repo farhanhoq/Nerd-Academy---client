@@ -174,7 +174,7 @@ const Navbar = () => {
           
       </div>
       <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
-        <Link to='/cart' className="text-white"><FaOpencart /></Link>
+        <Link to='/cart' className="item"><FaOpencart /></Link>
       </div>
 
       <div>
