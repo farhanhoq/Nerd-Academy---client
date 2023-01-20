@@ -1,17 +1,19 @@
 import React from "react";
 import emailjs from '@emailjs/browser';
+import { toast } from "react-hot-toast";
 
 const Contact = () => {
   function sendEmail(e) {
     e.preventDefault();
 
-    emailjs.sendForm('service_3n892d5', 'template_rw7lgph', e.target, 'YQFVIeVH-0k8Q1nur')
+    emailjs.sendForm('service_up6a2q2', 'template_gu40p0p', e.target, 'RQpbmDtuAYwO9LiSC')
       .then((result) => {
         console.log(result.text);
       }, (error) => {
         console.log(error.text);
       });
     e.target.reset()
+    toast("Successfully sent your Email Thanks!")
 
   }
   return (
