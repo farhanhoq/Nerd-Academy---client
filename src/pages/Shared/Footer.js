@@ -22,11 +22,11 @@ const Footer = () => {
         <div className="md:justify-self-center">
           <h2 className="text-xl text-primary mb-4 uppercase font-semibold">Navigation</h2>
           <ul>
-            <Link to='/construction'><li className="my-2">Home</li></Link>
-            <Link to='/construction'><li className="my-2">Courses</li></Link>
-            <Link to='/construction'><li className="my-2">News</li></Link>
-            <Link to='/construction'><li className="my-2">About</li></Link>
-            <Link to='/construction'><li className="my-2">Contact</li></Link>
+            <a href='/'><li className="my-2">Home</li></a>
+            <a href='#courses'><li className="my-2">Courses</li></a>
+            <a href='/construction'><li className="my-2">News</li></a>
+            <a href='#about'><li className="my-2">About</li></a>
+            <a href='#contact'><li className="my-2">Contact</li></a>
 
           </ul>
         </div>
@@ -34,9 +34,7 @@ const Footer = () => {
           <h2 className="text-xl text-primary mb-4 uppercase font-semibold">Serivces</h2>
 
           <ul>
-            <Link to='/construction'><li className="my-2">Services</li></Link>
-            <Link to='/construction'><li className="my-2">Courses</li></Link>
-            <Link to='/construction'><li className="my-2">Courses</li></Link>
+            <a href='#courses'><li className="my-2">Courses</li></a>
           </ul>
         </div>
         <div className="">
