@@ -13,9 +13,10 @@ import {
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
 
-const AuthProvider = ({children}) => {
+// const provider = new GoogleAuthProvider();
+
+const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -30,9 +31,9 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const googleSignIn = () => {
+    const googleSignIn = (googleProvider) => {
         setLoading(true);
-        return signInWithPopup(auth, provider);
+        return signInWithPopup(auth, googleProvider);
     }
 
     const logOut = () => {

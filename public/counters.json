@@ -1,0 +1,32 @@
+[
+    {
+        "id": "01",
+        "title": "USERS",
+        "digit": "50390",
+        "img": "https://cdn-icons-png.flaticon.com/512/1307/1307714.png"
+    },
+    {
+        "id": "02",
+        "title": "INSTRUCTORS",
+        "digit": "500",
+        "img": "https://cdn-icons-png.flaticon.com/512/3048/3048709.png"
+    },
+    {
+        "id": "03",
+        "title": "LEARNERS",
+        "digit": "32802",
+        "img": "https://cdn-icons-png.flaticon.com/512/8234/8234957.png"
+    },
+    {
+        "id": "04",
+        "title": "COURSES",
+        "digit": "1000",
+        "img": "https://cdn-icons-png.flaticon.com/512/4270/4270577.png"
+    },
+    {
+        "id": "05",
+        "title": "Lessons",
+        "digit": "50",
+        "img": "https://cdn-icons-png.flaticon.com/512/1846/1846908.png"
+    }
+]

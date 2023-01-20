@@ -1,8 +1,21 @@
 import React from "react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_3n892d5', 'template_rw7lgph', e.target, 'YQFVIeVH-0k8Q1nur')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+    e.target.reset()
+
+  }
   return (
-    <section className="flex flex-row  justify-center items-center lg:flex-row mt-40 container mx-auto px-16" id="contact">
+    <section className="flex flex-col justify-between md:items-center lg:flex-row mt-40 container mx-auto px-16" id="contact">
       <div className="text-center lg:text-left">
         <img
           className="w-10/12"
@@ -14,42 +27,51 @@ const Contact = () => {
       <div className="grid justify-between mt-10 mr-20 justify-self-center">
         <h2 className="text-center lg:text-left text-2xl font-bold">
           {" "}
-          Any question in mind? Don't worry
-          <br /> Contact us{" "}
+          Stay Connected with us
+          {" "}
         </h2>
-        <div className="form-control">
-          <div className="flex gap-5">
-            <input
-              type="text"
-              placeholder="Name"
-              className="input input-bordered w-full max-w-xs rounded-none "
-            />
-            <input
-              type="text"
-              placeholder="Email"
-              className="input input-bordered w-full max-w-xs rounded-none"
-            />
-          </div>
-          <input
-            type="text"
-            placeholder="Subject"
-            className="input input-bordered min-w-full max-w-xs mt-6 rounded-none"
-          />
-          <div className="form-control mt-6">
-            <textarea
-              className="textarea textarea-bordered h-24 rounded-none"
-              placeholder="Enter your message "
-            ></textarea>
-          </div>
-        </div>
 
-        <div className="mb-16">
-          <input
-            type="submit"
-            value="Send Message"
-            className="btn btn-primary bg-gradient-to-r from-primary to secondary w-40 rounded-full text-white"
-          />
-        </div>
+        {/* From section */}
+        <form
+          onSubmit={sendEmail}
+        >
+          <div className="form-control mt-8">
+            <div className="flex gap-5">
+              <input
+                type="text"
+                placeholder="Name"
+                className="input input-bordered w-full max-w-xs rounded-none "
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="input input-bordered w-full max-w-xs rounded-none"
+              />
+            </div>
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              className="input input-bordered min-w-full max-w-xs mt-6 rounded-none"
+            />
+            <div className="form-control mt-6">
+              <textarea
+                className="textarea textarea-bordered h-24 rounded-none"
+                placeholder="Enter your message "
+                name="message"
+              ></textarea>
+            </div>
+          </div>
+
+          <div className="mb-12 mt-6">
+            <input
+              type="submit"
+              value="Send Message"
+              className="btn btn-primary bg-gradient-to-r from-primary to secondary w-40 rounded-full text-white"
+            />
+          </div>
+        </form>
       </div>
     </section>
   );
