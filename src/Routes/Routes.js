@@ -3,7 +3,6 @@ import Main from "../Layout/Main";
 import About from "../pages/About/About";
 import Cart from "../pages/Cart/Cart";
 import Checkout from "../pages/Checkout/Checkout";
-
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
 import Review from "../pages/Courses/Review";

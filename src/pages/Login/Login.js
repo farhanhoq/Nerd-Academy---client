@@ -87,14 +87,14 @@ const Login = () => {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row items-center h-screen container mx-auto justify-between px-32">
-        <div className="md:mr-5">
+      <div className="flex flex-col gap-6 lg:gap-24 md:flex-row items-center lg:h-screen container mx-auto justify-between md:px-32">
+        <div className="w-10/12 lg:w-1/2 mt-16 lg:mt-0">
           <Lottie loop={true} animationData={eduAnimation} />
         </div>
 
-        <div>
+        <div className="w-10/12 lg:w-4/12 md:mt-16 mb-16 lg:mb-0">
           <div>
-            <h1 className="text-3xl text-primary text-center mb-4 font-bold">
+            <h1 className="text-5xl text-primary text-center mb-4 font-bold">
               Log In
             </h1>
           </div>
