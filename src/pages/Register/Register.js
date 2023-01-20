@@ -20,8 +20,8 @@ const Register = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
-        toast.success("Successfully User Created");
         event.target.reset();
+        // toast.success("Successfully User Created");
 
         const userInfo = {
           displayName: data.name,
@@ -29,47 +29,48 @@ const Register = () => {
 
         updateUser(userInfo)
           .then(() => {
-            // savedUsertoDb(data.name, data.email, data.account);
+            savedUsertoDb(data.name, data.email, data.account);
           })
           .catch(error => {
             console.log(error.message);
           })
-        navigate('/');
+        // navigate('/');
       })
       .catch(error => {
         toast.error(error.message);
       });
   }
 
-  // const savedUsertoDb = (name, email, account) => {
-  //   const user = {
-  //     name,
-  //     email,
-  //     role: account
-  //   }
+  const savedUsertoDb = (name, email, account) => {
+    const user = {
+      name,
+      email,
+      role: account
+    }
 
-  //   fetch('http://localhost:5000/users', {
-  //     method: 'POST',
-  //     headers: {
-  //       'content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify(user)
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       if (data.acknowledged) {
-  //         fetch(`http://localhost:5000/jwt?email=${email}`)
-  //           .then(res => res.json())
-  //           .then(data => {
-  //             if (data.accessToken) {
-  //               localStorage.setItem('accessToken', data.accessToken);
-  //             }
-  //           })
-  //         navigate('/');
-  //       }
-  //     })
+    fetch('http://localhost:5000/users', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.acknowledged) {
+          // fetch(`http://localhost:5000/jwt?email=${email}`)
+          //   .then(res => res.json())
+          //   .then(data => {
+          //     if (data.accessToken) {
+          //       localStorage.setItem('accessToken', data.accessToken);
+          //     }
+          //   })
+          toast.success("Successfully User Created");
+          navigate('/');
+        }
+      })
 
-  // }
+  }
 
   const handleSignInGoogle = () => {
     googleSignIn(googleProvider)
@@ -182,8 +183,8 @@ const Register = () => {
                 <select
                   {...register("account")}
                   className="select select-bordered border-primary rounded">
-                  <option value="buyer">Student</option>
-                  <option value="seller">Teacher</option>
+                  <option value="student">Student</option>
+                  <option value="teacher">Teacher</option>
                 </select>
               </div>
 
