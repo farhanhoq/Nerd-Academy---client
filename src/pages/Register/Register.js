@@ -48,7 +48,7 @@ const Register = () => {
       role: account
     }
 
-    fetch('http://localhost:5000/users', {
+    fetch('https://nerd-academy-server.vercel.app/users', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
