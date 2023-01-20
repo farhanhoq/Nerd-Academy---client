@@ -16,12 +16,8 @@ const Instructor = () => {
                     <p>Instructors from around the world teach millions of students on Nerd Academy. We provide the tools and skills to teach what you love.</p>
                 </div>
 
-<<<<<<< HEAD
 
                 <Link to='/construction' className='btn btn-primary text-white rounded-full mt-5'>Start teaching today</Link>
-=======
-                <button className='btn btn-primary text-white rounded-full mt-5'>Start teaching today</button>
->>>>>>> f7ae7ed6562a130756a92ae8a61b0c443be0f8f8
             </div>
 
         </div>

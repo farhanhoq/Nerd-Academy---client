@@ -89,7 +89,7 @@ const handleFilter = (e) => {
 
   return (
     <nav className={navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"}>
-      <div className="">
+      
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -116,25 +116,16 @@ const handleFilter = (e) => {
         </div>
 
         <div class="hidden lg:block w-[30%]">
-          <input
-            type="text"
-            placeholder="Search courses here"
-            className="input input-bordered input-primary rounded-full w-full"
-            onChange={handleFilter}
-          />
-          {
-            filteredData.length !== 0 && (
-              <div className="dataResult mt-[5px] w-11/12 mx-auto rounded-md bg-white border z-20 border-primary">
-            {
-              filteredData?.slice(0, 5).map(( value , key ) => {
-                return <Link key={key} className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white" to={`/details/${value?._id}`}><p>{value?.title}</p></Link>
-              })
-            }
-          </div>
-            )
-          }
+          
           
 
+        {/* <img src={nerd} alt="" /> */}
+        <div className="w-[210px]">
+          <Link to="/" className="font-bold text-white text-2xl">
+            {" "}
+            Nerd
+            <span className=""> Academy</span>
+          </Link>
         </div>
       </div>
 
@@ -151,11 +142,23 @@ const handleFilter = (e) => {
       </div>
 
       <div class="hidden lg:block w-[30%]">
-        <input
-          type="text"
-          placeholder="Search courses here"
-          className="input input-bordered input-primary rounded-full w-full"
-        />
+      <input
+            type="text"
+            placeholder="Search courses here"
+            className="input input-bordered input-primary rounded-full w-full"
+            onChange={handleFilter}
+          />
+          {
+            filteredData.length !== 0 && (
+              <div className="dataResult mt-[5px] w-11/12 mx-auto rounded-md bg-white border z-20 border-primary">
+            {
+              filteredData?.slice(0, 5).map(( value , key ) => {
+                return <Link key={key} className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white" to={`/details/${value?._id}`}><p>{value?.title}</p></Link>
+              })
+            }
+          </div>
+            )
+          }
       </div>
       <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
         <Link to='/cart'><FaOpencart /></Link>
