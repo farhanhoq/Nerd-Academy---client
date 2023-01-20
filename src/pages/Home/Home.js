@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import React, { useContext } from 'react';
-=======
-import React from 'react';
->>>>>>> 3e39ac6d23af99dfcd42ce9bf76eff906a1fc5e2
-import Banner from '../Home/Banner/Banner'
+import Banner from '../home/Banner/Banner'
 import Counter from '../Counter/Counter';
 import OurCourses from './OurCourses/OurCourses';
 import Instructor from './Instructor/Instructor';
