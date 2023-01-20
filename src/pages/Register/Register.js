@@ -20,8 +20,8 @@ const Register = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
-        toast.success("Successfully User Created");
         event.target.reset();
+        // toast.success("Successfully User Created");
 
         const userInfo = {
           displayName: data.name,
@@ -29,47 +29,48 @@ const Register = () => {
 
         updateUser(userInfo)
           .then(() => {
-            // savedUsertoDb(data.name, data.email, data.account);
+            savedUsertoDb(data.name, data.email, data.account);
           })
           .catch(error => {
             console.log(error.message);
           })
-        navigate('/');
+        // navigate('/');
       })
       .catch(error => {
         toast.error(error.message);
       });
   }
 
-  // const savedUsertoDb = (name, email, account) => {
-  //   const user = {
-  //     name,
-  //     email,
-  //     role: account
-  //   }
+  const savedUsertoDb = (name, email, account) => {
+    const user = {
+      name,
+      email,
+      role: account
+    }
 
-  //   fetch('http://localhost:5000/users', {
-  //     method: 'POST',
-  //     headers: {
-  //       'content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify(user)
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       if (data.acknowledged) {
-  //         fetch(`http://localhost:5000/jwt?email=${email}`)
-  //           .then(res => res.json())
-  //           .then(data => {
-  //             if (data.accessToken) {
-  //               localStorage.setItem('accessToken', data.accessToken);
-  //             }
-  //           })
-  //         navigate('/');
-  //       }
-  //     })
+    fetch('https://nerd-academy-server.vercel.app/users', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.acknowledged) {
+          // fetch(`http://localhost:5000/jwt?email=${email}`)
+          //   .then(res => res.json())
+          //   .then(data => {
+          //     if (data.accessToken) {
+          //       localStorage.setItem('accessToken', data.accessToken);
+          //     }
+          //   })
+          toast.success("Successfully User Created");
+          navigate('/');
+        }
+      })
 
-  // }
+  }
 
   const handleSignInGoogle = () => {
     googleSignIn(googleProvider)
@@ -117,12 +118,12 @@ const Register = () => {
 
 
   return (
-    <div className="flex flex-col gap-6 lg:gap-32 md:flex-row items-center lg:h-screen container mx-auto justify-between">
-      <div className="w-10/12 lg:w-10/12 mt-16 lg:mt-0">
+    <div className="flex flex-col gap-6 lg:gap-24 md:flex-row items-center lg:h-screen container mx-auto justify-between md:px-32">
+      <div className="w-10/12 lg:w-1/2 mt-16 lg:mt-0">
         <Lottie loop={true} animationData={eduAnimation} />
       </div>
 
-      <div className="w-10/12 lg:w-1/2 md:mt-16 mb-16 lg:mb-0">
+      <div className="w-10/12 lg:w-4/12 md:my-32 lg:mt-16 mb-16 lg:mb-0">
         <div>
           <h1 className="text-5xl text-primary text-center mb-4 font-bold">
             Registration
@@ -182,8 +183,8 @@ const Register = () => {
                 <select
                   {...register("account")}
                   className="select select-bordered border-primary rounded">
-                  <option value="buyer">Student</option>
-                  <option value="seller">Teacher</option>
+                  <option value="student">Student</option>
+                  <option value="teacher">Teacher</option>
                 </select>
               </div>
 

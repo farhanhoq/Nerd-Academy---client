@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
-import './Navbar.css'
+import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
@@ -10,19 +10,35 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const { user, logOut } = useContext(AuthContext);
+  const [color, changeColor] = useState('#111')
+
   const navigate = useNavigate();
   const location = useLocation();
 
+<<<<<<< HEAD
   const { data: coursesData = [], isLoading, refetch } = useQuery({
     queryKey: ['coursesData'],
     queryFn: () => fetch('https://nerd-academy-server.vercel.app/courses')
       .then(res => res.json())
+=======
+  const {
+    data: coursesData = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["coursesData"],
+    queryFn: () =>
+      fetch("https://nerd-academy-server.vercel.app/courses").then((res) =>
+        res.json()
+      ),
+>>>>>>> 3e39ac6d23af99dfcd42ce9bf76eff906a1fc5e2
   });
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
         toast.success("Sign Out Successfully");
+<<<<<<< HEAD
         navigate('/');
       })
       .catch(error => {
@@ -90,12 +106,81 @@ const Navbar = () => {
       setFilteredData(newFilter);
     }
   }
+=======
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+>>>>>>> 3e39ac6d23af99dfcd42ce9bf76eff906a1fc5e2
 
+  const changeBg = () => {
+    if (window.scrollY >= 20) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
 
+  window.addEventListener("scroll", changeBg);
+  const menuItems = (
+    <>
+      <li>
+        <a href="/#home">Home</a>
+      </li>
+      <li>
+        <a href="/#about">About</a>
+      </li>
+      <li>
+        <a href="/#courses">Courses</a>
+      </li>
+      <li>
+        <a href="/details">Courses Details</a>
+      </li>
+      <Link to="/construction">
+        <li>
+          <a href="/#news">Blog</a>
+        </li>
+      </Link>
+      <li>
+        <a href="/#contact">Contact</a>
+      </li>
+      <li className="block lg:hidden">
+        <a href="/login">Login</a>
+      </li>
+      <li className="block lg:hidden">
+        <a href="/register">Register</a>
+      </li>
+    </>
+  );
+
+  const handleFilter = (e) => {
+    const searchedWord = e.target.value;
+    const newFilter = coursesData.filter((value) => {
+      return value.title.toLowerCase().includes(searchedWord.toLowerCase());
+    });
+
+    if (searchedWord === "") {
+      setFilteredData("");
+    } else {
+      setFilteredData(newFilter);
+    }
+  };
 
   return (
+<<<<<<< HEAD
     <nav className={navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"}>
 
+=======
+    <nav
+      className={
+        navbar
+          ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16"
+          : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
+      }
+    >
+>>>>>>> 3e39ac6d23af99dfcd42ce9bf76eff906a1fc5e2
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
           <svg
@@ -120,14 +205,18 @@ const Navbar = () => {
           {menuItems}
         </ul>
       </div>
+<<<<<<< HEAD
 
       <div class="hidden lg:block w-[30%]">
 
 
+=======
+>>>>>>> 3e39ac6d23af99dfcd42ce9bf76eff906a1fc5e2
 
+      <div class="hidden lg:block w-[30%]">
         {/* <img src={nerd} alt="" /> */}
         <div className="w-[210px]">
-          <Link to="/" className="font-bold text-white text-2xl">
+          <Link to="/" className="font-bold text-2xl navbar-logo">
             {" "}
             Nerd
             <span className=""> Academy</span>
@@ -138,11 +227,13 @@ const Navbar = () => {
       <div className="hidden lg:flex">
         <ul className="menu menu-horizontal">
           <li>
-            <span className="rounded text-white">Categories</span>
+            <span className="rounded item">Categories</span>
             <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
           </li>
           <li>
-            <a href="/#courses" className="text-white">Courses</a>
+            <a href="/#courses" className="item">
+              Courses
+            </a>
           </li>
         </ul>
       </div>
@@ -154,6 +245,7 @@ const Navbar = () => {
           className="input input-bordered input-primary rounded-full w-full"
           onChange={handleFilter}
         />
+<<<<<<< HEAD
         {
           filteredData.length !== 0 && (
             <div className="dataResult mt-[5px] w-11/12 mx-auto rounded-md bg-white border z-20 border-primary">
@@ -165,13 +257,32 @@ const Navbar = () => {
             </div>
           )
         }
+=======
+        {filteredData.length !== 0 && (
+          <div className="dataResult mt-[5px] w-11/12 mx-auto rounded-md bg-white border z-20 border-primary">
+            {filteredData?.slice(0, 5).map((value, key) => {
+              return (
+                <Link
+                  key={key}
+                  className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white"
+                  to={`/details/${value?._id}`}
+                >
+                  <p>{value?.title}</p>
+                </Link>
+              );
+            })}
+          </div>
+        )}
+>>>>>>> 3e39ac6d23af99dfcd42ce9bf76eff906a1fc5e2
       </div>
-      <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
-        <Link to='/cart'><FaOpencart /></Link>
+      <div className="text-3xl hover:text-primary cursor-pointer mx-5">
+        <Link to="/cart" className="item">
+          <FaOpencart />
+        </Link>
       </div>
-
 
       <div>
+<<<<<<< HEAD
 
         {
           user?.uid ?
@@ -201,6 +312,33 @@ const Navbar = () => {
 
 
 
+=======
+        {user?.uid ? (
+          <Link
+            onClick={handleLogOut}
+            className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
+            rounded mr-1 hidden md:block pt-4"
+          >
+            Sign Out
+          </Link>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
+            rounded mr-1 hidden md:block pt-4"
+            >
+              Login
+            </Link>
+            <Link
+              to="/register"
+              className="btn border-primary bg-primary text-white text-center rounded hidden md:block pt-4"
+            >
+              Sign up
+            </Link>
+          </>
+        )}
+>>>>>>> 3e39ac6d23af99dfcd42ce9bf76eff906a1fc5e2
       </div>
     </nav>
   );
