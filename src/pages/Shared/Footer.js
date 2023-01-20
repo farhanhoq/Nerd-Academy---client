@@ -19,7 +19,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="justify-self-center">
+        <div className="md:justify-self-center">
           <h2 className="text-xl text-primary mb-4 uppercase font-semibold">Navigation</h2>
           <ul>
             <Link to='/construction'><li className="my-2">Home</li></Link>
@@ -27,10 +27,10 @@ const Footer = () => {
             <Link to='/construction'><li className="my-2">News</li></Link>
             <Link to='/construction'><li className="my-2">About</li></Link>
             <Link to='/construction'><li className="my-2">Contact</li></Link>
-            
+
           </ul>
         </div>
-        <div className="justify-self-center">
+        <div className="md:justify-self-center">
           <h2 className="text-xl text-primary mb-4 uppercase font-semibold">Serivces</h2>
 
           <ul>
