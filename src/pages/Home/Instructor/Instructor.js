@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import instructor from '../../../Assets/instructor.jpg'
 
 const Instructor = () => {
@@ -17,7 +18,7 @@ const Instructor = () => {
                 </div>
 
 
-                <button className='btn btn-primary text-white rounded-full mt-5'>Start teaching today</button>
+                <Link to='/construction' className='btn btn-primary text-white rounded-full mt-5'>Start teaching today</Link>
             </div>
 
         </div>

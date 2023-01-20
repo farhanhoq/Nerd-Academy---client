@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
 import './Navbar.css'
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
-  const [navbar, setNavbar] = useState(false)
+  const [navbar, setNavbar] = useState(false);
+  const [filteredData , setFilteredData] = useState([]);
+
+  const { data: coursesData = [], isLoading, refetch } = useQuery({
+    queryKey: ['coursesData'],
+    queryFn: () => fetch('https://nerd-academy-server.vercel.app/courses')
+        .then(res => res.json())
+});
 
   const changeBg = () => {
     if(window.scrollY >= 20) {
@@ -30,9 +38,11 @@ const Navbar = () => {
       <li>
         <a href="/details">Courses Details</a>
       </li>
-      <li>
-        <a href="/#news">News</a>
-      </li>
+      <Link to='/construction'>
+        <li>
+          <a href="/#news">Blog</a>
+        </li>
+      </Link>
       <li>
         <a href="/#contact">Contact</a>
       </li>
@@ -44,6 +54,19 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const handleFilter = (e) => {
+    const searchedWord = e.target.value;
+    const newFilter = coursesData.filter(value => {
+      return value.title.toLowerCase().includes(searchedWord.toLowerCase());
+    });
+
+    if(searchedWord === ""){
+      setFilteredData("")
+    }else{
+      setFilteredData(newFilter);
+    }
+  }
 
   return (
       <nav className={navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"}>
@@ -99,7 +122,21 @@ const Navbar = () => {
             type="text"
             placeholder="Search courses here"
             className="input input-bordered input-primary rounded-full w-full"
+            onChange={handleFilter}
           />
+          {
+            filteredData.length !== 0 && (
+              <div className="dataResult mt-[5px] w-11/12 mx-auto rounded-md bg-white border z-20 border-primary">
+            {
+              filteredData?.slice(0, 5).map(( value , key ) => {
+                return <Link key={key} className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white" to={`/details/${value?._id}`}><p>{value?.title}</p></Link>
+              })
+            }
+          </div>
+            )
+          }
+          
+
         </div>
       <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
         <Link to='/cart'><FaOpencart /></Link>

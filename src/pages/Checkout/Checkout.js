@@ -13,9 +13,8 @@ const Checkout = () => {
   });
 
   return (
-    <div>
-      <div className="h-screen">
-        <div className="w-8/12 mx-auto mt-20 p-5 shadow-xl border rounded-xl">
+    <section className='py-24'>
+        <div className="w-8/12 mx-auto p-5 shadow-xl border rounded-xl">
           <h1 className="text-5xl p-4 mb-8">Checkout</h1>
           <div className="flex">
             <div className="w-7/12 p-5">
@@ -196,8 +195,8 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      
+    </section>
   );
 };
 
