@@ -1,16 +1,47 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import { signInAnonymously } from "firebase/auth";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Cart = () => {
-  
+  const { user } = useContext(AuthContext);
+  const url = `http://localhost:5000/cartdata?email=${user?.email}`;
   const {
     data: cartDatas = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["cartDatas"],
-    queryFn: () => fetch("ourCourses.json").then((res) => res.json()),
+    queryKey: ["cartDatas", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    },
   });
+
+  let total = 0;
+
+  for (const singledata of cartDatas) {
+    total = total + singledata.price;
+  }
+
+  const handleRemove = (id) => {
+    const proceed = window.confirm(
+      "Are you sure, you want to remove this order?"
+    );
+    if (proceed) {
+      fetch(`http://localhost:5000/usercartdata/${id}`, {
+        method: "DELETE",
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if(data.deletedCount > 0){
+          alert('Removed Order Successfully')
+        }
+      })
+    }
+  };
 
   return (
     <section className="py-24">
@@ -30,11 +61,11 @@ const Cart = () => {
                           </div>
                         </div>
                         <div className="">
-                          <div className="font-bold ">{data?.name}</div>
+                          <div className="font-bold ">{data?.title}</div>
                           <div className="text-sm ">
                             By{" "}
                             <span className="badge badge-ghost">
-                              {data?.creator}
+                              {data?.tutor}
                             </span>
                           </div>
                           <div className="text-sm ">
@@ -55,7 +86,10 @@ const Cart = () => {
                         <p className="font-bold text-primary text-lg">
                           ${data?.price}
                         </p>
-                        <a className="text-red-500 hover:underline cursor-pointer">
+                        <a
+                          onClick={() => handleRemove(data._id)}
+                          className="text-red-500 hover:underline cursor-pointer"
+                        >
                           Remove
                         </a>
                         <br />
@@ -73,7 +107,7 @@ const Cart = () => {
           <div className="w-5/12">
             <div className="border border-primary rounded-xl p-4 w-7/12 mx-auto">
               <h4 className="text-xl font-bold mb-2">Total</h4>
-              <h1 className="text-4xl font-bold">$13.99</h1>
+              <h1 className="text-4xl font-bold">${total}</h1>
               <div className="divider mt-[-3px]"></div>
 
               <button className="btn btn-primary rounded text-white btn-wide w-full mt-5">
