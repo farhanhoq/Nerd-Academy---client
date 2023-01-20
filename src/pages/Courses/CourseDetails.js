@@ -35,7 +35,7 @@ const CourseDetails = () => {
   const handleAddToCart = () => {
     const coursecart = {
       email: user?.email,
-      name:user?.displayName,
+      name: user?.displayName,
       title,
       picture,
       img,
@@ -150,12 +150,21 @@ const CourseDetails = () => {
                 <hr className=" bg-gray-200 w-full mt-4" />
               </div>
 
-              <button
-                onClick={handleAddToCart}
-                className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-cyan-700 w-full py-5 lg:mt-12 mt-6 rounded-md"
-              >
-                Add to Cart
-              </button>
+              {user?.email ? (
+                <button
+                  onClick={handleAddToCart}
+                  className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-cyan-700 w-full py-5 lg:mt-12 mt-6 rounded-md"
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <button
+                  onClick={handleAddToCart}
+                  className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-cyan-700 w-full py-5 lg:mt-12 mt-6 rounded-md"
+                >
+                  Please login to add this course on cart
+                </button>
+              )}
             </div>
           </div>
 
