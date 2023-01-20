@@ -141,27 +141,32 @@ const handleFilter = (e) => {
         </ul>
       </div>
 
-      <div class="hidden lg:block w-[30%]">
-      <input
-            type="text"
-            placeholder="Search courses here"
-            className="input input-bordered input-primary rounded-full w-full"
-            onChange={handleFilter}
-          />
-          {
+      <div class="hidden lg:block w-[30%] ">
+        <ul className="menu menu-horizontal w-full">
+          <li tabIndex={0} className="w-full">
+            <a className="bg-transparent w-full">
+              <input type="text" placeholder="Search courses here" className="input input-bordered input-primary rounded-full w-full" onChange={handleFilter} />
+            </a>
+             
+         
+            {
             filteredData.length !== 0 && (
-              <div className="dataResult mt-[5px] w-11/12 mx-auto rounded-md bg-white border z-20 border-primary">
+              <ul className="dataResult w-11/12 mx-auto rounded-md bg-white border z-20 border-primary ml-5">
             {
               filteredData?.slice(0, 5).map(( value , key ) => {
-                return <Link key={key} className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white" to={`/details/${value?._id}`}><p>{value?.title}</p></Link>
+                return <Link key={key} className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white" to={`/details/${value?._id}`}><li>{value?.title}</li></Link>
               })
             }
-          </div>
+          </ul>
             )
           }
+          </li>
+        </ul>
+      
+          
       </div>
       <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
-        <Link to='/cart'><FaOpencart /></Link>
+        <Link to='/cart' className="text-white"><FaOpencart /></Link>
       </div>
 
 

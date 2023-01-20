@@ -31,25 +31,25 @@ const CourseDetails = () => {
     // };
 
     return (
-        <div>
-            <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
+        <div className="py-20">
+            <div className="2xl:container 2xl:mx-auto lg:px-20 md:py-2 md:px-6 px-4 ">
                 <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
                     {/* <!-- Description Div --> */}
 
                     <div className="sm:w-96 md:w-8/12 lg:w-6/12 items-center">
                         <div>
-                                <h2 className="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 mt-4">{title}</h2>
-                                <div className="mt-6 flex justify-start items-center flex-row space-x-2.5">
+                                <h2 className="font-semibold lg:text-5xl text-4xl lg:leading-9 leading-7 text-gray-800">{title}</h2>
+                                <div className="mt-10 flex justify-start items-center flex-row space-x-2.5">
                                     <div>
-                                        <img src="https://i.ibb.co/RCTGZTc/Mask-Group-1.png" alt="girl-avatar" />
+                                        <img className="w-[35px] " src="https://i.ibb.co/RCTGZTc/Mask-Group-1.png" alt="girl-avatar" />
                                     </div>
                                     <div className="flex flex-col justify-start items-start space-y-2">
                                         <p className="text-base font-medium leading-none text-gray-800">{tutor}</p>
-                                        <p className="text-sm leading-none text-gray-600">{date}</p>
+                                        <p className="text-sm leading-none text-gray-600">Publish date: {date}</p>
                                     </div>
                                 </div>
 
-                                <div className=" flex flex-row justify-between  mt-5">
+                                <div className=" flex flex-row justify-between">
                                     {/* <div className=" flex flex-row space-x-3">
                     <svg className=" cursor-pointer" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -83,11 +83,15 @@ const CourseDetails = () => {
                     </svg>
                 </div> */}
 
-                                    <p className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-700 hover:underline hover:text-gray-800 duration-100 cursor-pointer">{review}</p>
+                                    {/* <p className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-700 hover:underline hover:text-gray-800 duration-100 cursor-pointer">{review}</p> */}
                                 </div>
 
-                                <p className=" font-normal text-black mt-7">{description}</p>
-                                <p className=" font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">{price}</p>
+                                <p className="mt-6">Lectures: <span className="opacity-70">{lectures}</span></p>
+                                <p className="">Videos: <span className="opacity-70">{hours} hours</span></p>
+                                <p className="">Reviews: <span className="opacity-70">{review}</span></p>
+                                <p className="">Rating: <span className="opacity-70">{rating}</span></p>
+                                <p className="">Description: <span className="opacity-70">{description}</span></p>
+                                <p className=" font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6">Price: <span className="text-primary">{price}</span></p>
 
                                 <div className="lg:mt-11 mt-10">
 
@@ -102,9 +106,9 @@ const CourseDetails = () => {
 
                     {/* <!-- Preview Images Div For larger Screen--> */}
 
-                    <div className=" w-full sm:w-96 md:w-8/12  lg:w-6/12 flex lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4">
+                    <div className=" w-full sm:w-96 md:w-8/12  lg:w-6/12 flex lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4 pt-5">
 
-                        <div className=" w-full lg:w-4/12 grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-2 gap-6 ml-6">
+                        <div className=" w-full lg:w-4/12 grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-2 gap-6 ml-6 pt-5">
                             <div className="bg-gray-100 flex justify-center items-center py-4">
                                 <img src="https://img.freepik.com/free-photo/professional-programmer-working-late-dark-office_1098-18705.jpg?w=740&t=st=1673953591~exp=1673954191~hmac=92581bef9d0fa8d091c1aa152b3a23689250c30a63544cf28487d86276e138c8" alt="Wooden chair - preview 1" />
                             </div>
@@ -117,7 +121,7 @@ const CourseDetails = () => {
                         </div>
 
 
-                        <div class="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800 ml-16">
+                        <div class="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800 ml-16 mt-7">
                             <p class="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
                                 Entreprise
                             </p>
@@ -192,7 +196,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
 
-                <div className="flex  justify-center items-center w-full">
+                <div className="flex  justify-center items-center w-full mt-24">
                     <div className="w-full sm:w-96 md:w-8/12 lg:w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-28 sm:gap-x-6 sm:gap-y-12 gap-y-12 sm:mt-14 mt-10">
                         {
                             overview.map(ov => <DetailsPage
@@ -204,7 +208,10 @@ const CourseDetails = () => {
                     </div>
                 </div>
             </div>
-            <Review></Review>
+            <div className="mt-20">
+                <Review></Review>
+            </div>
+            
         </div>
 
 
