@@ -11,7 +11,7 @@ const Banner = () => {
           {/* <iframe className='aspect-auto lg:aspect-video w-2/3 h-3/4 ml-[-54px] mt[-54px]' width="500" height="315" src="https://www.youtube.com/embed/sTeoEFzVNSc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> */}
           <div className='w-full text-white mx-auto'>
             <h1 className="text-4xl lg:text-6xl font-bold">Online Learning Platform!</h1>
-            <p className="py-8 w-2/4 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi reiciendis iusto facere quidem officiis error, dignissimos rem sequi libero nobis impedit non suscipit, exercitationem earum magni vero quae aut!</p>
+            <p className="py-8 w-full md:w-2/4 mx-auto">Nerd Academy is an online learning community based in the globally for people who want to learn from educational videos. The courses, which are not accredited, are only available through paid subscription.</p>
             <button className="btn text-white">Join For Free</button>
           </div>
         </div>
