@@ -50,15 +50,21 @@ const Navbar = () => {
   const menuItems = (
     <>
       <li>
-        <a href="/#home">Home</a>
+        <a href="#">Web Development</a>
       </li>
       <li>
-        <a href="/#about">About</a>
+        <a href="#">Programming</a>
       </li>
       <li>
-        <a href="/#courses">Courses</a>
+        <a href="#">Computer Science</a>
       </li>
       <li>
+        <a href="#">Artificial Intelligence</a>
+      </li>
+      <li>
+        <a href="#">Mobile App Development</a>
+      </li>
+      {/* <li>
         <a href="/details">Courses Details</a>
       </li>
       <Link to="/construction">
@@ -74,7 +80,7 @@ const Navbar = () => {
       </li>
       <li className="block lg:hidden">
         <a href="/register">Register</a>
-      </li>
+      </li> */}
     </>
   );
 
@@ -170,6 +176,8 @@ const Navbar = () => {
             }
           </li>
         </ul>
+
+
 
 
       </div>
