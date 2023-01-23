@@ -155,29 +155,29 @@ const Navbar = () => {
             <a className="bg-transparent w-full">
               <input type="text" placeholder="Search courses here" className="input input-bordered input-primary rounded-full w-full" onChange={handleFilter} />
             </a>
-             
-         
+
+
             {
-            filteredData.length !== 0 && (
-              <ul className="dataResult w-11/12 mx-auto rounded-md bg-white border z-20 border-primary ml-5">
-            {
-              filteredData?.slice(0, 5).map(( value , key ) => {
-                return <Link key={key} className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white" to={`/details/${value?._id}`}><li>{value?.title}</li></Link>
-              })
+              filteredData.length !== 0 && (
+                <ul className="dataResult w-11/12 mx-auto rounded-md bg-white border z-20 border-primary ml-5">
+                  {
+                    filteredData?.slice(0, 5).map((value, key) => {
+                      return <Link key={key} className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white" to={`/details/${value?._id}`}><li>{value?.title}</li></Link>
+                    })
+                  }
+                </ul>
+              )
             }
-          </ul>
-            )
-          }
           </li>
         </ul>
-      
-          
+
+
       </div>
       <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
         <Link to='/cart' className="item"><FaOpencart /></Link>
       </div>
 
-      <div>
+      <div className="gap-6">
         {user?.uid ? (
           <Link
             onClick={handleLogOut}
@@ -190,14 +190,13 @@ const Navbar = () => {
           <>
             <Link
               to="/login"
-              className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
-            rounded mr-1 hidden md:block pt-4"
+              className=" hover:text-white text-black md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-white mx-1.5 "
             >
               Login
             </Link>
             <Link
               to="/register"
-              className="btn border-primary bg-primary text-white text-center rounded hidden md:block pt-4"
+              className="hover:text-white text-black hidden md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5"
             >
               Sign up
             </Link>

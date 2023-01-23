@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import instructor from '../../../Assets/instructor.jpg'
+// import instructor from '../../../Assets/instructor.jpg'
 
 const Instructor = () => {
     return (
         <div className='flex flex-col md:flex-row items-center w-11/12 mx-auto shadow-2xl my-28 rounded-xl'>
 
             <div className='w-full md:w-6/12'>
-                <img src={instructor} alt="instructor" />
+                <img className='rounded-tl-md rounded-bl-md' src="https://img.freepik.com/premium-vector/business-people-having-board-meeting_1034-1214.jpg" alt="instructor" />
             </div>
             <div className='md:w-6/12 p-5 md:ml-5'>
 

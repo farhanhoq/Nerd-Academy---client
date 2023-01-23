@@ -23,5 +23,10 @@
         "id": 5,
         "question": " What is TypeScript and why it is used?",
         "answer": "TypeScript extends JavaScript and improves the developer experience. It enables developers to add type safety to their projects."
+    },
+    {
+        "id": 6,
+        "question": "What is TypeScript?",
+        "answer": "There is a central store that holds the entire state of the application. Each component can access the stored state without having to send down props from one component to another."
     }
 ]
