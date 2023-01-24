@@ -5,8 +5,6 @@ import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
-import DarkLightMode from "../../Theme-Change/DarkLightMode";
-import ThemeChanger from "../../Theme-Change/ThemeChanger";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -16,15 +14,15 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("light");
 
-const toggleTheme = () => {
-  setTheme(theme === "night" ? "light" : "night");
-};
+  const toggleTheme = () => {
+    setTheme(theme === "night" ? "light" : "night");
+  };
 
- React.useEffect(() => {
-   document.querySelector("html").setAttribute("data-theme", theme);
- }, [theme]);
+  React.useEffect(() => {
+    document.querySelector("html").setAttribute("data-theme", theme);
+  }, [theme]);
 
   const {
     data: coursesData = [],
@@ -59,17 +57,13 @@ const toggleTheme = () => {
 
   window.addEventListener("scroll", changeBg);
 
-  console.log(window.location.pathname)
-
   const getColor = (current) => {
-
-    if(window.location.pathname === current) {
-      return "#fff"
+    if (window.location.pathname === current) {
+      return "#fff";
+    } else {
+      return "#111";
     }
-    else {
-      return "#111"
-    }
-  }
+  };
   const menuItems = (
     <>
       <li>
@@ -156,7 +150,11 @@ const toggleTheme = () => {
       <div class="hidden lg:block w-[30%]">
         {/* <img src={nerd} alt="" /> */}
         <div className="w-[210px]">
-          <Link to="/" className="font-bold text-2xl navbar-logo" style={{color: getColor('/')}}>
+          <Link
+            to="/"
+            className="font-bold text-2xl navbar-logo"
+            style={{ color: getColor("/") }}
+          >
             {" "}
             Nerd
             <span> Academy</span>
@@ -167,7 +165,9 @@ const toggleTheme = () => {
       <div className="hidden lg:flex">
         <ul className="menu menu-horizontal">
           <li>
-            <span className="rounded item" style={{color: getColor('/')}}>Categories</span>
+            <span className="rounded item" style={{ color: getColor("/") }}>
+              Categories
+            </span>
             <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
           </li>
         </ul>
@@ -177,30 +177,42 @@ const toggleTheme = () => {
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
             <a className="bg-transparent w-full" href="/">
-              <input type="text" placeholder="Search courses here" className="input input-bordered input-primary rounded-full w-full" onChange={handleFilter} />
+              <input
+                type="text"
+                placeholder="Search courses here"
+                className="input input-bordered input-primary rounded-full w-full"
+                onChange={handleFilter}
+              />
             </a>
-            {
-              filteredData.length !== 0 && (
-                <ul className="dataResult w-11/12 mx-auto rounded-md bg-white border z-20 border-primary ml-5">
-                  {
-                    filteredData?.slice(0, 5).map((value, key) => {
-                      return <Link key={key} className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white" to={`/details/${value?._id}`}><li>{value?.title}</li></Link>
-                    })
-                  }
-                </ul>
-              )
-            }
+            {filteredData.length !== 0 && (
+              <ul className="dataResult w-11/12 mx-auto rounded-md bg-white border z-20 border-primary ml-5">
+                {filteredData?.slice(0, 5).map((value, key) => {
+                  return (
+                    <Link
+                      key={key}
+                      className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white"
+                      to={`/details/${value?._id}`}
+                    >
+                      <li>{value?.title}</li>
+                    </Link>
+                  );
+                })}
+              </ul>
+            )}
           </li>
         </ul>
       </div>
-      <div className='text-3xl hover:text-primary cursor-pointer mx-5'>
-        <Link to='/cart' className="item" style={{color: getColor('/')}}><FaOpencart /></Link>
+      <div className="text-3xl hover:text-primary cursor-pointer mx-5">
+        <Link to="/cart" className="item" style={{ color: getColor("/") }}>
+          <FaOpencart />
+        </Link>
       </div>
 
       <div className="gap-6">
         {user?.uid ? (
           <Link
-            onClick={handleLogOut} style={{color: getColor('/')}}
+            onClick={handleLogOut}
+            style={{ color: getColor("/") }}
             className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
             rounded mr-1 hidden md:block pt-4 item"
           >
@@ -209,16 +221,18 @@ const toggleTheme = () => {
         ) : (
           <>
             <Link
-              to="/login" style={{color: getColor('/')}}
+              to="/login"
+              style={{ color: getColor("/") }}
               className="btn-n hover:text-white text-black md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-white mx-1.5 item"
             >
               Login
             </Link>
             <Link
-              to="/register" style={{color: getColor('/')}}
+              to="/register"
+              style={{ color: getColor("/") }}
               className="btn-n hover:text-white text-black hidden md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
             >
-              Sign up
+              Register
             </Link>
           </>
         )}

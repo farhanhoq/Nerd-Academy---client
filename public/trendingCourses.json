@@ -7,7 +7,9 @@
       "price": "118",
       "author": "james",
       "trend": "Trending",
-      "reviews": "13,643"
+      "reviews": "13,643",
+      "hours": "22",
+      "updated": "12/01/23"
     },
     {
       "_id": "63c8b8924cad87fef2c0043c",
@@ -17,7 +19,9 @@
       "price": "180",
       "author": "Olivera",
       "trend": "Trending",
-      "reviews": "12,853"
+      "reviews": "12,853",
+      "hours": "12",
+      "updated": "23/01/23"
     },
     {
       "_id": "63c8b8924cad87fef2c0043d",
@@ -27,7 +31,9 @@
       "price": "175",
       "author": "Antony",
       "trend": "Trending",
-      "reviews": "12,453"
+      "reviews": "12,453",
+      "hours": "32",
+      "updated": "31/01/23"
     },
     {
       "_id": "63c8b8924cad87fef2c00434",
@@ -37,7 +43,9 @@
       "price": "138",
       "author": "Mike",
       "trend": "Trending",
-      "reviews": "19,764"
+      "reviews": "19,764",
+      "hours": "13",
+      "updated": "23/01/23"
   },
   {
       "_id": "63c8b8924cad87fef2c00435",
@@ -47,7 +55,9 @@
       "price": "145",
       "author": "Robin",
       "trend": "Trending",
-      "reviews": "19,875"
+      "reviews": "19,875",
+      "hours": "14",
+      "updated": "17/01/23"
   },
   {
       "_id": "63c8b8924cad87fef2c0043a",
@@ -57,6 +67,8 @@
       "price": "120",
       "author": "Rohan",
       "trend": "Trending",
-      "reviews": "16,528"
+      "reviews": "16,528",
+      "hours": "16",
+      "updated": "24/01/23"
   }
   ]

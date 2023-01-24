@@ -7,11 +7,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 const Cart = () => {
   const { user } = useContext(AuthContext);
   const url = `https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`;
-  const {
-    data: cartDatas = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  const { data: cartDatas = [], isLoading, refetch } = useQuery({
     queryKey: ["cartDatas", user?.email],
     queryFn: async () => {
       const res = await fetch(url);
