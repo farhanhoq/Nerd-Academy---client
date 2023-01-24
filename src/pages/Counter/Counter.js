@@ -19,7 +19,8 @@ const Counter = () => {
 
 
         <div style={{
-            background: `url(https://img.freepik.com/free-vector/blue-fluid-background_53876-114597.jpg?w=740&t=st=1673891733~exp=1673892333~hmac=f0fa97036719bb019b3d5970ca6bc9d368e91490bf1e3096d3365538f8cb4e92)`,
+            background: `linear-gradient(109.6deg, rgba(156, 252, 248, 1) 11.2%, #90D6F7 91.1%)`,
+
 
         }}
             className='grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 gap-8 my-28 w-12/12 mx-24'>

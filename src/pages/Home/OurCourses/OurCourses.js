@@ -26,7 +26,7 @@ const OurCourses = () => {
                 </div>
 
                 <div className='w-12/12 mx-auto rounded-lg'>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 p-10 text-center gap-10'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-10 text-center gap-10'>
                         {
                             singleCourses?.map(course =>
 
@@ -37,7 +37,7 @@ const OurCourses = () => {
                                         <p className='text-sm text-gray-600'>{course?.description.slice(0, 50)}</p>
                                         <h3>{course?.tutor}</h3>
                                         <div className='card-actions justify-start'>
-                                            <h4 className="text-xs ">{course?.rating}  </h4>
+                                            <h4 className="text-sm">{course?.rating}  </h4>
                                             <FaStar className='text-warning text-sm'></FaStar><FaStar className='text-warning text-sm'></FaStar><FaStar className='text-warning text-sm'></FaStar><FaStar className='text-warning text-sm'></FaStar><FaStar className='text-warning text-sm'></FaStar>
 
                                             {/* <p>{course?.review}</p> */}
