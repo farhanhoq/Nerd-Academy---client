@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div>
       <hr />
-      <footer className="footer p-10 lg:grid-cols-3 justify-items-center my-8">
+      <footer className="footer p-10 lg:grid-cols-3 md:justify-items-center my-8">
         <div className="w-full">
           <h2 className="text-2xl text-primary mb-3 uppercase font-semibold">Office Address</h2>
           <div>
