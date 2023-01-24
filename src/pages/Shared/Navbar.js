@@ -208,15 +208,15 @@ const Navbar = () => {
           <>
             <Link
               to="/login"
-              className="btn-n hover:text-white text-black md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-white mx-1.5"
+              className="btn-n hover:text-white text-black md:block pt-0 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-white mx-1.5"
             >
               Login
             </Link>
             <Link
               to="/register"
-              className="btn-n hover:text-white text-black hidden md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5"
+              className="btn-n hover:text-white text-black hidden md:block pt-0 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5"
             >
-              Sign up
+              Register
             </Link>
           </>
         )}
