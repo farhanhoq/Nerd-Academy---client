@@ -239,7 +239,7 @@ const CourseDetails = () => {
                 <div className="flex">
                   <div className="avatar mr-3">
                   <div className="w-28 rounded-full">
-                      <img src="https://placeimg.com/192/192/people" />
+                      <img src="https://placeimg.com/192/192/people" alt="" />
                   </div>
                 </div>
                 <div className="">
@@ -260,8 +260,8 @@ const CourseDetails = () => {
               <img src={picture} alt="" />
               <div className="w-10/12 mx-auto mt-8">
                 <h1 className="text-5xl font-bold">${price}</h1>
-              <button className="btn text-white btn-wide w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
-              <button className="btn text-black hover:text-white  btn-wide w-full rounded-none bg-white mb-2 ">Buy now</button>
+              <button className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
+              <button className="btn text-black hover:text-white w-full rounded-none bg-white mb-2 ">Buy now</button>
 
               <h5 className="font-bold mt-7">This course includes:</h5>
               
