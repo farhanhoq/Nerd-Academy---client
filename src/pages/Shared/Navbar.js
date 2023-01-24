@@ -1,19 +1,31 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
 import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
+import DarkLightMode from "../../Theme-Change/DarkLightMode";
+import ThemeChanger from "../../Theme-Change/ThemeChanger";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const { user, logOut } = useContext(AuthContext);
-  const [color, changeColor] = useState('#111')
+  const [color, changeColor] = useState("#111");
 
   const navigate = useNavigate();
   const location = useLocation();
+
+const [theme, setTheme] = useState("light");
+
+const toggleTheme = () => {
+  setTheme(theme === "night" ? "light" : "night");
+};
+
+ React.useEffect(() => {
+   document.querySelector("html").setAttribute("data-theme", theme);
+ }, [theme]);
 
   const {
     data: coursesData = [],
@@ -140,7 +152,7 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-      
+
       <div className="hidden lg:flex">
         <ul className="menu menu-horizontal">
           <li>
@@ -212,6 +224,15 @@ const Navbar = () => {
           </>
         )}
       </div>
+      {/* <DarkLightMode/>
+     <ThemeChanger/> */}
+      <>
+        <label className="swap swap-rotate ml-10 text-black">
+          <input onClick={toggleTheme} type="checkbox" />
+          <div className="swap-on">LIGHTMODE</div>
+          <div className="swap-off">DARKMODE</div>
+        </label>
+      </>
     </nav>
   );
 };
