@@ -1,44 +1,62 @@
 [
     {
-      "_id": "1",
+      "_id": "63c8b8924cad87fef2c0043b",
       "picture": "https://i.ibb.co/RyHmjtW/java.jpg",
       "name": "JAVA Programming",
       "about": "Java is a general-purpose, class-based, object-oriented programming language designed for having lesser implementation dependencies. It is a computing platform for application development. Java is fast, secure, and reliable, therefore. It is widely used for developing Java applications in laptops, data centers, game consoles, scientific supercomputers, cell phones, etc.",
-      "price": "118"
+      "price": "118",
+      "author": "james",
+      "trend": "Trending",
+      "reviews": "13,643"
     },
     {
-      "_id": "2",
+      "_id": "63c8b8924cad87fef2c0043c",
       "picture": "https://i.ibb.co/pzkSs8n/ai.jpg",
       "name": "Artificial Intelligence",
       "about": "Artificial intelligence is intelligence—perceiving, synthesizing, and inferring information—demonstrated by machines, as opposed to intelligence displayed by non-human animals and humans.",
-      "price": "180"
+      "price": "180",
+      "author": "Olivera",
+      "trend": "Trending",
+      "reviews": "12,853"
     },
     {
-      "_id": "3",
+      "_id": "63c8b8924cad87fef2c0043d",
       "picture": "https://i.ibb.co/5KMR016/ml.jpg",
       "name": "Machine Learning",
       "about": "Machine learning is a field of inquiry devoted to understanding and building methods that 'learn', that is, methods that leverage data to improve performance on some set of tasks. It is seen as a part of artificial intelligence.",
-      "price": "175"
+      "price": "175",
+      "author": "Antony",
+      "trend": "Trending",
+      "reviews": "12,453"
     },
     {
-      "_id": "1",
+      "_id": "63c8b8924cad87fef2c00434",
       "picture": "https://i.ibb.co/W0nts7m/react.jpg",
       "name": "React",
       "about": "React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.",
-      "price": "138"
+      "price": "138",
+      "author": "Mike",
+      "trend": "Trending",
+      "reviews": "19,764"
   },
   {
-      "_id": "2",
+      "_id": "63c8b8924cad87fef2c00435",
       "picture": "https://i.ibb.co/82yhqsw/js.jpg",
       "name": "Java Script",
       "about": "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries.",
-      "price": "145"
+      "price": "145",
+      "author": "Robin",
+      "trend": "Trending",
+      "reviews": "19,875"
   },
   {
-      "_id": "3",
+      "_id": "63c8b8924cad87fef2c0043a",
       "picture": "https://i.ibb.co/2KPxmmM/swift.jpg",
       "name": "Swift",
       "about": "Swift is a powerful and intuitive programming language for iOS, iPadOS, macOS, tvOS, and watchOS. Writing Swift code is interactive and fun, the syntax is concise yet expressive, and Swift includes modern features developers love. Swift code is safe by design and produces software that runs lightning-fast.",
-      "price": "120"
+      "price": "120",
+      "author": "Rohan",
+      "trend": "Trending",
+      "reviews": "16,528"
   }
   ]
