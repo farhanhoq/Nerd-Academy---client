@@ -24,7 +24,7 @@ const OurCourses = () => {
                 </div>
 
                 <div className='w-12/12 mx-auto rounded-lg'>
-                    <div className='grid grid-cols1 md:grid-cols-2 lg:grid-cols-5 p-10 text-center gap-10'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 p-10 text-center gap-10'>
                         {
                             singleCourses?.map(course =>
 
