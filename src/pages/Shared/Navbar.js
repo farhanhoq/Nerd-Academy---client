@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
 import "./Navbar.css";
@@ -10,10 +10,20 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const { user, logOut } = useContext(AuthContext);
-  const [color, changeColor] = useState('#111')
+  const [color, changeColor] = useState("#111");
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme(theme === "night" ? "light" : "night");
+  };
+
+  React.useEffect(() => {
+    document.querySelector("html").setAttribute("data-theme", theme);
+  }, [theme]);
 
   const {
     data: coursesData = [],
@@ -198,19 +208,28 @@ const Navbar = () => {
           <>
             <Link
               to="/login"
-              className=" hover:text-white text-black md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-white mx-1.5 "
+              className="btn-n hover:text-white text-black md:block pt-0 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-white mx-1.5"
             >
               Login
             </Link>
             <Link
               to="/register"
-              className="hover:text-white text-black hidden md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5"
+              className="btn-n hover:text-white text-black hidden md:block pt-0 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5"
             >
-              Sign up
+              Register
             </Link>
           </>
         )}
       </div>
+      {/* <DarkLightMode/>
+     <ThemeChanger/> */}
+      <>
+        <label className="swap swap-rotate ml-10 text-black">
+          <input onClick={toggleTheme} type="checkbox" />
+          <div className="swap-on">LIGHTMODE</div>
+          <div className="swap-off">DARKMODE</div>
+        </label>
+      </>
     </nav>
   );
 };
