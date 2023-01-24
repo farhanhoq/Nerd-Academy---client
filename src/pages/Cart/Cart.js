@@ -1,16 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { signInAnonymously } from "firebase/auth";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Cart = () => {
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/cartdata?email=${user?.email}`;
-  const {
-    data: cartDatas = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  const url = `https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`;
+  const { data: cartDatas = [], isLoading, refetch } = useQuery({
     queryKey: ["cartDatas", user?.email],
     queryFn: async () => {
       const res = await fetch(url);
@@ -30,16 +27,16 @@ const Cart = () => {
       "Are you sure, you want to remove this order?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/usercartdata/${id}`, {
+      fetch(`https://nerd-academy-server.vercel.app/usercartdata/${id}`, {
         method: "DELETE",
       })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        if(data.deletedCount > 0){
-          alert('Removed Order Successfully')
-        }
-      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("Removed Order Successfully");
+          }
+        });
     }
   };
 
@@ -110,9 +107,9 @@ const Cart = () => {
               <h1 className="text-4xl font-bold">${total}</h1>
               <div className="divider mt-[-3px]"></div>
 
-              <button className="btn btn-primary rounded text-white btn-wide w-full mt-5">
+              <Link to="/checkout" className="btn btn-primary rounded text-white btn-wide w-full mt-5">
                 Checkout
-              </button>
+              </Link>
             </div>
           </div>
         </div>

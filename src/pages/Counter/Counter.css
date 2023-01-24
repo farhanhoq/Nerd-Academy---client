@@ -1,0 +1,24 @@
+.left-content {
+    width: 100%;
+}
+
+.left-content {
+    position: relative;
+    animation-duration: 1s;
+    animation-name: animation1;
+    animation-iteration-count: infinite;
+    color: var(--aqua);
+}
+
+
+@keyframes animation1 {
+    0% {
+        top: 0px;
+        bottom: 0;
+    }
+
+    50% {
+        top: -10px;
+        bottom: -10px;
+    }
+}

@@ -7,8 +7,10 @@ import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
 import Review from "../pages/Courses/Review";
 import Home from "../pages/home/Home";
+import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import StudentAlsoBought from "../pages/StudentAlsoBought/StudentAlsoBought";
 import UnderConstruction from "../pages/UnderConstruction/UnderConstruction";
 
 export const routes = createBrowserRouter([
@@ -54,7 +56,6 @@ export const routes = createBrowserRouter([
                 path: '/cart',
                 element: <Cart></Cart>
             }
-
             ,
             {
                 path: '/checkout',
@@ -64,6 +65,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/construction',
                 element: <UnderConstruction></UnderConstruction>
+            }
+            ,
+            {
+                path: '*',
+                element: <Error></Error>
             }
 
         ]

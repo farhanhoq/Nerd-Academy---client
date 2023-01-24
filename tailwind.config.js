@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode:"class",
   daisyui:{
     themes: [
       {
@@ -14,13 +15,6 @@ module.exports = {
           "base-100": "#FFFFFF",
         }
       },
-      'black',
-      'light',
-      'forest',
-      'halloween',
-      'night',
-      'dracula',
-      'business'
     ]
   },
   theme: {

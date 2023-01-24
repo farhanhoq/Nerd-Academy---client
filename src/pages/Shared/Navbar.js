@@ -5,16 +5,29 @@ import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const { user, logOut } = useContext(AuthContext);
-  const [color, changeColor] = useState("#111");
+  const [theme, setTheme] = useState("light");
 
   const navigate = useNavigate();
   const location = useLocation();
 
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+    else{
+      document.documentElement.classList.add("light");
+    }
+  }, [theme]);
+
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const {
     data: coursesData = [],
@@ -48,6 +61,14 @@ const Navbar = () => {
   };
 
   window.addEventListener("scroll", changeBg);
+
+  const getColor = (current) => {
+    if (window.location.pathname === current) {
+      return "#fff";
+    } else {
+      return "#111";
+    }
+  };
   const menuItems = (
     <>
       <li>
@@ -134,10 +155,14 @@ const Navbar = () => {
       <div class="hidden lg:block w-[30%]">
         {/* <img src={nerd} alt="" /> */}
         <div className="w-[210px]">
-          <Link to="/" className="font-bold text-2xl navbar-logo">
+          <Link
+            to="/"
+            className="font-bold text-2xl navbar-logo"
+            style={{ color: getColor("/") }}
+          >
             {" "}
             Nerd
-            <span className=""> Academy</span>
+            <span> Academy</span>
           </Link>
         </div>
       </div>
@@ -145,52 +170,56 @@ const Navbar = () => {
       <div className="hidden lg:flex">
         <ul className="menu menu-horizontal">
           <li>
-            <span className="rounded item">Categories</span>
+            <span className="rounded item" style={{ color: getColor("/") }}>
+              Categories
+            </span>
             <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
-          </li>
-          <li>
-            <a href="/#courses" className="item">
-              Courses
-            </a>
           </li>
         </ul>
       </div>
 
-      <div class="hidden lg:block w-[30%]">
-        <input
-          type="text"
-          placeholder="Search courses here"
-          className="input input-bordered input-primary rounded-full w-full"
-          onChange={handleFilter}
-        />
-        {filteredData.length !== 0 && (
-          <div className="dataResult mt-[5px] w-11/12 mx-auto rounded-md bg-white border z-20 border-primary">
-            {filteredData?.slice(0, 5).map((value, key) => {
-              return (
-                <Link
-                  key={key}
-                  className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white"
-                  to={`/details/${value?._id}`}
-                >
-                  <p>{value?.title}</p>
-                </Link>
-              );
-            })}
-          </div>
-        )}
+      <div class="hidden lg:block w-[30%] ">
+        <ul className="menu menu-horizontal w-full">
+          <li tabIndex={0} className="w-full">
+            <a className="bg-transparent w-full" href="/">
+              <input
+                type="text"
+                placeholder="Search courses here"
+                className="input input-bordered input-primary rounded-full w-full"
+                onChange={handleFilter}
+              />
+            </a>
+            {filteredData.length !== 0 && (
+              <ul className="dataResult w-11/12 mx-auto rounded-md bg-white border z-20 border-primary ml-5">
+                {filteredData?.slice(0, 5).map((value, key) => {
+                  return (
+                    <Link
+                      key={key}
+                      className="w-full h-[50px] flex items-center pl-4 hover:bg-primary hover:text-white"
+                      to={`/details/${value?._id}`}
+                    >
+                      <li>{value?.title}</li>
+                    </Link>
+                  );
+                })}
+              </ul>
+            )}
+          </li>
+        </ul>
       </div>
       <div className="text-3xl hover:text-primary cursor-pointer mx-5">
-        <Link to="/cart" className="item">
+        <Link to="/cart" className="item" style={{ color: getColor("/") }}>
           <FaOpencart />
         </Link>
       </div>
 
-      <div>
+      <div className="gap-6">
         {user?.uid ? (
           <Link
             onClick={handleLogOut}
+            style={{ color: getColor("/") }}
             className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
-            rounded mr-1 hidden md:block pt-4"
+            rounded mr-1 hidden md:block pt-4 item"
           >
             Sign Out
           </Link>
@@ -198,21 +227,26 @@ const Navbar = () => {
           <>
             <Link
               to="/login"
-              className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
-            rounded mr-1 hidden md:block pt-4"
+              style={{ color: getColor("/") }}
+              className="btn-n hover:text-white text-black md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-white mx-1.5 item"
             >
               Login
             </Link>
             <Link
               to="/register"
-              className="btn border-primary bg-primary text-white text-center rounded hidden md:block pt-4"
+              style={{ color: getColor("/") }}
+              className="btn-n hover:text-white text-black hidden md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
             >
-              Sign up
+              Register
             </Link>
           </>
         )}
       </div>
-      
+      <>
+        <button onClick={handleThemeSwitch}>
+          {theme === "dark" ? "Light Mode" : "Dark Mode"}
+        </button>
+      </>
     </nav>
   );
 };

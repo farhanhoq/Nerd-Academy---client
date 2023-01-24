@@ -4,6 +4,7 @@ import { Autoplay } from "swiper";
 import "./ImgSlider.css";
 import "swiper/css";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const ImgSlider = () => {
   const {
@@ -32,15 +33,18 @@ const ImgSlider = () => {
         >
           {courses?.map((course, i) => (
             <SwiperSlide key={i}>
-              <div className="h-96 flex">
+              <Link to={`/details/${course?._id}`} className="h-96 flex">
                 <div className={`mycard card-active`}>
                 <figure><img className='w-full h-44 rounded-t-lg' src={course?.picture} alt="" /></figure>
                 <div className="p-5">
                 <h2 className="font-bold text-xl text-primary">{course?.name}</h2>
-                  <p className='text-sm text-gray-600'>{course?.about.slice(0, 120)}</p>
+                <p className="badge badge-ghost font-thin rounded mt-4">{course?.author}</p>
+                <p className="ml-1 pt-1">{course?.reviews} reviews</p>
+                <p className="ml-1 text-2xl font-bold mt-1">${course?.price}</p>
+                <p className="text-right"><span className="badge badge-warning p-2 py-3 mr-2 rounded text-black">{course?.trend}</span></p>
                 </div>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
