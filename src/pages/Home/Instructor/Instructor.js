@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PrimaryButton from '../../../PrimaryButton/PrimaryButton';
 // import instructor from '../../../Assets/instructor.jpg'
 
 const Instructor = () => {
@@ -16,7 +17,8 @@ const Instructor = () => {
                     <p>Instructors from around the world teach millions of students on Nerd Academy. We provide the tools and skills to teach what you love.</p>
                 </div>
 
-                <Link to='/construction' className='btn btn-primary text-white rounded-full mt-5'>Start teaching today</Link>
+                {/* <Link to='/construction' className='btn btn-primary text-white rounded-full mt-5'>Start teaching today</Link> */}
+                <Link to='/construction'><PrimaryButton>Start teaching today</PrimaryButton></Link>
             </div>
 
         </div>
