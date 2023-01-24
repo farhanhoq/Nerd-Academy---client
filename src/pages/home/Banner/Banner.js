@@ -13,7 +13,7 @@ const Banner = () => {
             <h1 className="text-4xl lg:text-6xl font-bold">Online Learning Platform!</h1>
             <p className="py-8 w-full md:w-2/4 mx-auto">Nerd Academy is an online learning community based in the globally for people who want to learn from educational videos. The courses, which are not accredited, are only available through paid subscription.</p>
             {/* <button className="btn text-white">Join For Free</button> */}
-            <a href="#courses" className="btn text-white">Explore our courses</a>
+            <a href="#courses" className="btn bg-white text-black border-none">Explore our courses</a>
           </div>
         </div>
       </div>
