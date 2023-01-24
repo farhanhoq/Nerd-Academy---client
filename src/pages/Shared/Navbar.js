@@ -5,24 +5,29 @@ import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const { user, logOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState("light");
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme(theme === "night" ? "light" : "night");
-  };
-
-  React.useEffect(() => {
-    document.querySelector("html").setAttribute("data-theme", theme);
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+    else{
+      document.documentElement.classList.add("light");
+    }
   }, [theme]);
+
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const {
     data: coursesData = [],
@@ -237,14 +242,10 @@ const Navbar = () => {
           </>
         )}
       </div>
-      {/* <DarkLightMode/>
-     <ThemeChanger/> */}
       <>
-        <label className="swap swap-rotate ml-10 text-black">
-          <input onClick={toggleTheme} type="checkbox" />
-          <div className="swap-on">LIGHTMODE</div>
-          <div className="swap-off">DARKMODE</div>
-        </label>
+        <button onClick={handleThemeSwitch}>
+          {theme === "dark" ? "Light Mode" : "Dark Mode"}
+        </button>
       </>
     </nav>
   );
