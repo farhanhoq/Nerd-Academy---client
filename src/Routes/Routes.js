@@ -8,7 +8,6 @@ import CourseDetails from "../pages/Courses/CourseDetails";
 import Review from "../pages/Courses/Review";
 import Home from "../pages/Home/Home";
 import Error from "../pages/Error/Error";
-import Home from '../pages/home/Home'
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import UnderConstruction from "../pages/UnderConstruction/UnderConstruction";

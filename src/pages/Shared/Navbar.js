@@ -5,8 +5,6 @@ import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
-import DarkLightMode from "../../Theme-Change/DarkLightMode";
-import ThemeChanger from "../../Theme-Change/ThemeChanger";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -17,15 +15,15 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("light");
 
-const toggleTheme = () => {
-  setTheme(theme === "night" ? "light" : "night");
-};
+  const toggleTheme = () => {
+    setTheme(theme === "night" ? "light" : "night");
+  };
 
- React.useEffect(() => {
-   document.querySelector("html").setAttribute("data-theme", theme);
- }, [theme]);
+  React.useEffect(() => {
+    document.querySelector("html").setAttribute("data-theme", theme);
+  }, [theme]);
 
   const {
     data: coursesData = [],

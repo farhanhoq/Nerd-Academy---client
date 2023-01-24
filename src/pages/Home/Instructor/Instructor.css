@@ -1,0 +1,38 @@
+/* .left-content {
+    width: 50%;
+}
+
+.left-content img {
+    position: relative;
+    animation-duration: 1s;
+    animation-name: animation1;
+    animation-iteration-count: infinite;
+    color: var(--aqua);
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .left-content {
+        padding-top: 5rem;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+
+    .left-content {
+        width: 100%;
+    }
+}
+
+
+@keyframes animation1 {
+    0% {
+        top: 0px;
+        bottom: 0;
+    }
+
+    50% {
+        top: -10px;
+        bottom: -10px;
+    }
+} */
