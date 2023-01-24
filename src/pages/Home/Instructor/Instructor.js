@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import '../Instructor/Instructor.css'
 // import instructor from '../../../Assets/instructor.jpg'
 
 const Instructor = () => {
