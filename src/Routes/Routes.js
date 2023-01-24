@@ -10,6 +10,7 @@ import Home from "../pages/Home/Home";
 import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import StudentAlsoBought from "../pages/StudentAlsoBought/StudentAlsoBought";
 import UnderConstruction from "../pages/UnderConstruction/UnderConstruction";
 
 export const routes = createBrowserRouter([
