@@ -3,6 +3,7 @@ import users from '../../Assets/users.png'
 import instructorf from '../../Assets/instructorf.png'
 import learner from '../../Assets/learner.png'
 import course from '../../Assets/course.png'
+import './Counter.css'
 
 const Counter = () => {
     const [counters, setCounters] = useState([]);
@@ -29,7 +30,7 @@ const Counter = () => {
 
 
                     </div>
-                    <div className="flex flex-col items-center pb-10">
+                    <div className="left-content flex flex-col items-center pb-10">
                         <img className="w-24 h-24 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src={counter.img} alt='' />
                         <h5 className="mb-1 text-xl font-bold text-gray-900 dark:text-white">{counter.title}</h5>
                         <span className="text-black-500 dark:text-gray-400 text-md font-semibold">{counter.digit}</span>
