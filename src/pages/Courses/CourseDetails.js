@@ -76,11 +76,11 @@ const CourseDetails = () => {
 
 
 
-        <div className="flex w-11/12 mx-auto mt-20">
+        <div className="flex w-11/12 mx-auto mt-10">
           
-          <div className="w-7/12 mx-auto border p-5">
-            <h1 className="text-2xl font-bold p-5">What you'll learn</h1>
-            <div className="flex">
+          <div className="w-7/12 mx-auto ">
+            <h1 className="text-2xl font-bold pl-7 pb-3">What you'll learn</h1>
+            <div className="flex border p-5">
                <div>
                 <p className="p-2 w-11/12">Have an intermediate skill level of Python programming.</p>
                 <p className="p-2 w-11/12">Use the numpy library to create and manipulate arrays.</p>
@@ -96,19 +96,25 @@ const CourseDetails = () => {
              
           </div>
 
-          <div className="w-4/12 mx-auto">
-              <img src={Image} alt="" />
-              <h1>{price}</h1>
-              <button className="btn">Add to cart</button>
-              <button className="btn">Buy now</button>
+          <div className="w-3/12 mx-auto border ">
+              <img src={picture} alt="" />
+              <div className="w-10/12 mx-auto mt-8">
+                <h1 className="text-5xl font-bold">${price}</h1>
+              <button className="btn text-white btn-wide w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
+              <button className="btn text-black hover:text-white  btn-wide w-full rounded-none bg-white mb-2 ">Buy now</button>
 
-              <h5>This course includes:</h5>
-              <p>{hours} hours on-demand video</p>
-              <p>3 articles</p>
-              <p>4 downloadable resources</p>
-              <p>Full lifetime access</p>
-              <p>Access on mobile and TV</p>
-              <p>Certificate of completion</p>
+              <h5 className="font-bold mt-7">This course includes:</h5>
+              
+              <p className="mt-3">{hours} hours on-demand video</p>
+              <p className="mt-1">3 articles</p>
+              <p className="mt-1">4 downloadable resources</p>
+              <p className="mt-1">Full lifetime access</p>
+              <p className="mt-1">Access on mobile and TV</p>
+              <p className="mt-1 pb-5">Certificate of completion</p>
+              
+              
+              </div>
+              
           </div>
         </div>
 
