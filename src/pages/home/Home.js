@@ -8,7 +8,6 @@ import About from '../About/About';
 import Faq from '../../Faq/Faq';
 import { AuthContext } from '../../Context/AuthProvider';
 
-
 const Home = () => {
     const { user } = useContext(AuthContext);
 
@@ -16,6 +15,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <OurCourses></OurCourses>
+
             <Counter></Counter>
             <About></About>
             {
