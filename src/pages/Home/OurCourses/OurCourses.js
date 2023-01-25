@@ -11,7 +11,7 @@ const OurCourses = () => {
   const [coursedata, setCourseData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://nerd-academy-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => {
         setCourseData(data);
@@ -144,7 +144,9 @@ const OurCourses = () => {
                   <div className="flex items-center relative my-2">
                     <div className="w-10 h-10 rounded-full bg-gray-100 "></div>
                     <div className="ml-3">
-                      <p className="font-medium text-gray-800">{course?.tutor}</p>
+                      <p className="font-medium text-gray-800">
+                        {course?.tutor}
+                      </p>
                       <p className="text-md text-gray-600"></p>
                     </div>
 
