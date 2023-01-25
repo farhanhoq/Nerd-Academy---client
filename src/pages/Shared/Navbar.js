@@ -152,7 +152,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div class="hidden lg:block w-[30%]">
+      <div className="hidden lg:block w-[30%]">
         {/* <img src={nerd} alt="" /> */}
         <div className="w-[210px]">
           <Link
@@ -178,7 +178,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div class="hidden lg:block w-[30%] ">
+      <div className="hidden lg:block w-[30%] ">
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
             <a className="bg-transparent w-full" href="/">
