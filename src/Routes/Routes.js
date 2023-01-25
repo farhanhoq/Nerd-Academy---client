@@ -12,6 +12,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import StudentAlsoBought from "../pages/StudentAlsoBought/StudentAlsoBought";
 import UnderConstruction from "../pages/UnderConstruction/UnderConstruction";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 
 export const routes = createBrowserRouter([
     {
@@ -54,12 +55,12 @@ export const routes = createBrowserRouter([
             ,
             {
                 path: '/cart',
-                element: <Cart></Cart>
+                element: <PrivateRoutes><Cart></Cart></PrivateRoutes>
             }
             ,
             {
                 path: '/checkout',
-                element: <Checkout></Checkout>
+                element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>
             }
             ,
             {
