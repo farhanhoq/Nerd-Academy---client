@@ -25,7 +25,8 @@ const Counter = () => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             height: "400px",
-            padding: "1px"
+            padding: "1px",
+
 
 
         }}
