@@ -16,6 +16,7 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
+import Announcement from "../pages/Dashboard/Instructor/Announcement";
 
 export const routes = createBrowserRouter([
     {
@@ -98,6 +99,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>,
+            },
+            {
+                path: '/dashboard/announcement',
+                element: <Announcement></Announcement>,
             },
         ]
     }
