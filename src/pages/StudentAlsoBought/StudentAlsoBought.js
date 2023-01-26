@@ -1,18 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { FaStar, FaUserFriends } from 'react-icons/fa';
 
 const StudentAlsoBought = () => {
+  const [trendingData, setTrendingData] = useState([]);
 
-    const {
-        data: trendingData = [],
-        isLoading,
-        refetch,
-      } = useQuery({
-        queryKey: ['trendingData'],
-        queryFn: () => fetch('trendingCourses.json').then(res => res.json()),
-      });
-      console.log(trendingData);
+  useEffect(() => {
+    fetch('https://nerd-academy-server.vercel.app/studentAlsoBought')
+      .then((res) => res.json())
+      .then((data) => setTrendingData(data));
+  }, []);
 
     return (
         <div className=''>

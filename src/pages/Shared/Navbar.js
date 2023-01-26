@@ -164,7 +164,7 @@ const Navbar = () => {
       <div class="hidden lg:block w-[45%] ">
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
-            <a className="bg-transparent w-full" href="/">
+            <a className="bg-transparent w-full">
               <input
                 type="text"
                 placeholder="Search courses here"
