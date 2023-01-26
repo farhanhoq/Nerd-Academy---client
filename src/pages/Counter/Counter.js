@@ -25,14 +25,15 @@ const Counter = () => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             height: "400px",
-            padding: "1px"
+            padding: "1px",
+
 
 
         }}
         >
             <div className='grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 gap-8 my-20 w-12/12 mx-24'>
                 {
-                    counters.map(counter => <div key={counter.id} counter={counter} className="w-full max-w-sm  rounded-md shadow-md border border-indigo-700">
+                    counters.map(counter => <div key={counter.id} counter={counter} className="w-full max-w-sm  rounded-md shadow-md border border-cyan-500">
                         <div className="flex justify-end px-4 pt-4">
 
 

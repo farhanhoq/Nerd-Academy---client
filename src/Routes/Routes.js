@@ -6,12 +6,13 @@ import Checkout from "../pages/Checkout/Checkout";
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
 import Review from "../pages/Courses/Review";
-import Home from "../pages/Home/Home";
+import Home from "../pages/home/Home";
 import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import StudentAlsoBought from "../pages/StudentAlsoBought/StudentAlsoBought";
 import UnderConstruction from "../pages/UnderConstruction/UnderConstruction";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 
 export const routes = createBrowserRouter([
     {
@@ -54,12 +55,12 @@ export const routes = createBrowserRouter([
             ,
             {
                 path: '/cart',
-                element: <Cart></Cart>
+                element: <PrivateRoutes><Cart></Cart></PrivateRoutes>
             }
             ,
             {
                 path: '/checkout',
-                element: <Checkout></Checkout>
+                element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>
             }
             ,
             {
