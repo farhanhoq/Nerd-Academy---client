@@ -1,0 +1,123 @@
+[
+    {
+      "id": "1",
+      "heading": "it was a great experience but the downside it did not have exercises to practice on",
+      "about": [
+        "Course Intro",
+        "Course FAQs"
+      ],
+      "date": "2 lectures / 7min"
+    },
+    {
+      "id": "2",
+      "heading": "Setup",
+      "about": [
+        "Installation Setup and Overview",
+        "IDEs and Course Resources",
+        "iPython/Jupyter Notebook Overview"
+      ],
+      "date": "3 lectures / 33min"
+    },
+    {
+      "id": "3",
+      "heading": "Learning Numpy",
+      "about": [
+        "Course Intro",
+        "Course FAQs"
+      ],
+      "date": "8 lectures / 1hr 7min"
+    },
+    {
+      "id": "4",
+      "heading": "Intro to Pandas",
+      "about": [
+        "Series",
+        "DataFrames",
+        "Index objects",
+        "Reindex",
+        "Drop Entry",
+        "Selecting Entries",
+        "Data Alignment",
+        "Rank and Sort",
+        "Summary Statistics",
+        "Missing Data",
+        "Index Hierarchy"
+        
+      ],
+      "date": "11 lectures / 2hr 12min"
+    },
+    {
+      "id": "5",
+      "heading": "Working with Data:Part 1",
+      "about": [
+        "Reading and Writing Text Files",
+        "JSON with Python",
+        "HTML with Python",
+        "Microsoft Excel files with Python"
+      ],
+      "date": "4 lectures / 23min"
+    },
+    {
+      "id": "6",
+      "heading": "Working with Data:Part 2",
+      "about": [
+        "Merge",
+        "Merge on Index",
+        "Concatenate",
+        "Combining DataFrames",
+        "Reshaping",
+        "Pivoting",
+        "Duplicates in DataFrames"
+        
+      ],
+      "date": "7 lectures / 7min"
+    },
+    {
+      "id": "7",
+      "heading": "Working with Data:Part 3",
+      "about": [
+        "GroupBy on DataFrames",
+        "GroupBy on Dict and Series",
+        "Aggregation",
+        "Splitting Applying and Combining",
+        "Cross Tabulation"
+        
+      ],
+      "date": "5 lectures / 59min"
+    },
+    {
+      "id": "8",
+      "heading": "Data Visualization",
+      "about": [
+        "Installing Seaborn",
+        "Histograms",
+        "Combining Plot Styles",
+        "Box and Violin Plots",
+        "Regression Plots",
+        "Heatmaps and Clustered Matrices"
+      ],
+      "date": "6 lectures / 1hr 10min"
+    },
+    {
+      "id": "9",
+      "heading": "Example Projects",
+      "about": [
+        "Data Projects Preview",
+        "Intro to Data Projects",
+        "Titanic Project - Part 1",
+        "Titanic Project - Part 2"
+      ],
+      "date": "4 lectures / 48min"
+    },
+    {
+      "id": "10",
+      "heading": "Machine Learning",
+      "about": [
+        "Introduction to Machine Learning with SciKit Learn",
+        "Linear Regression Part 1",
+        "Linear Regression Part 2"
+        
+      ],
+      "date": "3 lectures / 38min"
+    }
+  ]
