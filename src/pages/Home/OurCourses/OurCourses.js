@@ -51,7 +51,7 @@ const OurCourses = () => {
         </div>
 
         <div className="mx-auto rounded-lg">
-          <div className="flex gap-6">
+          <div className="flex gap-6 justify-center my-10">
             <button
               onClick={() => filterResult("Web Development")}
               className="bg-transparent border-2 border-sky-400 p-2 rounded-lg mt-6"
