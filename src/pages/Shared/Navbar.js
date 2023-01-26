@@ -15,7 +15,6 @@ const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     if (theme === "dark") {
@@ -69,22 +68,23 @@ const Navbar = () => {
       return "#111";
     }
   };
+
   const menuItems = (
     <>
       <li>
-        <a href="#">Web Development</a>
+        <a href="/">Web Development</a>
       </li>
       <li>
-        <a href="#">Programming</a>
+        <a href="/">Programming</a>
       </li>
       <li>
-        <a href="#">Computer Science</a>
+        <a href="/">Computer Science</a>
       </li>
       <li>
-        <a href="#">Artificial Intelligence</a>
+        <a href="/">Artificial Intelligence</a>
       </li>
       <li>
-        <a href="#">Mobile App Development</a>
+        <a href="/">Mobile App Development</a>
       </li>
     </>
   );
@@ -201,9 +201,8 @@ const Navbar = () => {
           <Link
             onClick={handleLogOut}
             style={{ color: getColor("/") }}
-            className="btn border-primary hover:border-primary hover:text-white bg-white hover:bg-primary text-black 
-            rounded mr-1 hidden md:block pt-4 item"
-          >
+            className="hover:text-white custom-border transition duration-300 text-black hidden md:block
+             border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item">
             Sign Out
           </Link>
         ) : (
@@ -211,25 +210,28 @@ const Navbar = () => {
             <Link
               to="/login"
               style={{ color: getColor("/") }}
-              className="btn-n hover:text-white text-black md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-white mx-1.5 item"
+              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
+              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
             >
               Login
             </Link>
             <Link
               to="/register"
               style={{ color: getColor("/") }}
-              className="btn-n hover:text-white text-black hidden md:block pt-4 border-b-2 border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
+              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
+              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
             >
               Register
             </Link>
           </>
         )}
       </div>
-      <>
+      {/* <>
         <button onClick={handleThemeSwitch}>
           {theme === "dark" ? "Light Mode" : "Dark Mode"}
         </button>
-      </>
+      </> */}
+
       {/* Code by rubayed */}
       <div>
         <div className="switch-checkbox">
@@ -244,6 +246,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* ========================= */}
+      
     </nav>
   );
 };
