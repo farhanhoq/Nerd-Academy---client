@@ -48,7 +48,7 @@ const Settings = () => {
                     <label className="label">
                         <span className="label-text font-semibold">Bio</span>
                     </label>
-                    <textarea className="textarea textarea-bordered" placeholder=" I am a Front-End Web Developer with a background in Computer Science & Engineering. I am passionately curious about learning and writing code."></textarea>
+                    <textarea className="textarea textarea-bordered" placeholder="I am a Front-End Web Developer with a background in Computer Science & Engineering. I am passionately curious about learning and writing code."></textarea>
                 </div>
             </form>
             <div className="card-actions justify-start">

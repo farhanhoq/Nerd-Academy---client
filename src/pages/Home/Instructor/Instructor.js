@@ -18,7 +18,7 @@ const Instructor = () => {
                 </div>
 
                 {/* <Link to='/construction' className='btn btn-primary text-white rounded-full mt-5'>Start teaching today</Link> */}
-                <Link to='/construction'><PrimaryButton>Start teaching today</PrimaryButton></Link>
+                <Link to='/dashboard'><PrimaryButton>Start teaching today</PrimaryButton></Link>
             </div>
 
         </div>
