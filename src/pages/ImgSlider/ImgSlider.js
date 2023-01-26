@@ -41,7 +41,7 @@ const ImgSlider = () => {
                 <p className="badge badge-ghost font-thin rounded mt-4">{course?.author}</p>
                 <p className="ml-1 pt-1">{course?.reviews} reviews</p>
                 <p className="ml-1 text-2xl font-bold mt-1">${course?.price}</p>
-                <p className="text-right"><span className="badge badge-warning p-2 py-3 mr-2 rounded text-black">{course?.trend}</span></p>
+                <p className="text-right"><span className="badge badge-warning p-2 py-3 mr-2 rounded text-white">{course?.trend}</span></p>
                 </div>
                 </div>
               </Link>
