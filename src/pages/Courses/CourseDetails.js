@@ -31,7 +31,7 @@ const CourseDetails = () => {
   //     const data = await res.json();
   //   }
   // });
-  
+
 
 
 
@@ -130,39 +130,32 @@ const CourseDetails = () => {
             </div>
           </div>
 
-{/* content */}
+          {/* content */}
 
           <div className="mt-20">
             <h1 className="text-3xl font-bold mb-7">Course content</h1>
 
 
-      <div className="collapse collapse-arrow border border-base-300 bg-base-100">
-        <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>Intro to Course and Python</p><p>2 lectures / 7 min</p>
-          
-        </div>
-        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2"> 
-          <p className="py-2"><FaPlayCircle className="inline mr-1"/>Course Intro</p>
-          <p className="py-2"><FaPlayCircle className="inline mr-1"/>Course FAQs</p>
-        </div>
-    </div>
+            <div className="collapse collapse-arrow border border-base-300 bg-base-100">
+              <input type="checkbox" className="peer" />
+              <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>Intro to Course and Python</p><p>2 lectures / 7 min</p>
+
+              </div>
+              <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
+                <p className="py-2"><FaPlayCircle className="inline mr-1" />Course Intro</p>
+                <p className="py-2"><FaPlayCircle className="inline mr-1" />Course FAQs</p>
+              </div>
+            </div>
           </div>
 
-<<<<<<< HEAD
+          {/* student also bought */}
+
           <div className="mt-32">
-            <h1 className="text-2xl font-bold  pb-4">Student also bought</h1>
+            <h1 className="text-3xl font-bold  pb-4">Student also bought</h1>
             <StudentAlsoBought></StudentAlsoBought>
           </div>
-=======
-{/* student also bought */}
 
-            <div className="mt-32">
-                        <h1 className="text-3xl font-bold  pb-4">Student also bought</h1>
-                        <StudentAlsoBought></StudentAlsoBought>
-            </div>
->>>>>>> main
-
-{/* instructor */}
+          {/* instructor */}
 
           <div className="my-32">
             <h1 className="text-3xl font-bold  pb-4">Instructor</h1>
@@ -186,34 +179,30 @@ const CourseDetails = () => {
 
             </div>
           </div>
-<<<<<<< HEAD
-
-=======
-            </div>
-             <div className="w-3/12 mx-auto border">
-              <img src={picture} alt="" />
-              <div className="w-10/12 mx-auto mt-8">
-                <h1 className="text-5xl font-bold">${price}</h1>
-              <button onClick={handleAddToCart} className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
-              <h5 className="font-bold mt-7">This course includes:</h5>
-              
-              <p className="mt-3"><FaVideo className="inline mr-1"/> {hours} hours on-demand video</p>
-              <p className="mt-1"><FaEnvelopeOpenText className="inline mr-1" /> 3 articles</p>
-              <p className="mt-1"><FaFileDownload  className="inline mr-1"/>4 downloadable resources</p>
-              <p className="mt-1"><FaUserClock className="inline mr-1"/> Full lifetime access</p>
-              <p className="mt-1"><FaMobileAlt  className="inline mr-1" /> Access on mobile and TV</p>
-              <p className="mt-1 pb-5"><FaCertificate  className="inline mr-1" /> Certificate of completion</p>
-              </div>
-          </div> 
->>>>>>> main
         </div>
+        <div className="w-3/12 mx-auto border">
+          <img src={picture} alt="" />
+          <div className="w-10/12 mx-auto mt-8">
+            <h1 className="text-5xl font-bold">${price}</h1>
+            <button onClick={handleAddToCart} className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
+            <h5 className="font-bold mt-7">This course includes:</h5>
 
-       
-
-        
+            <p className="mt-3"><FaVideo className="inline mr-1" /> {hours} hours on-demand video</p>
+            <p className="mt-1"><FaEnvelopeOpenText className="inline mr-1" /> 3 articles</p>
+            <p className="mt-1"><FaFileDownload className="inline mr-1" />4 downloadable resources</p>
+            <p className="mt-1"><FaUserClock className="inline mr-1" /> Full lifetime access</p>
+            <p className="mt-1"><FaMobileAlt className="inline mr-1" /> Access on mobile and TV</p>
+            <p className="mt-1 pb-5"><FaCertificate className="inline mr-1" /> Certificate of completion</p>
+          </div>
+        </div>
       </div>
 
-   
+
+
+
+    </div>
+
+
 
   );
 };

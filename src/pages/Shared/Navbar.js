@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaOpencart, FaShoppingCart } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
@@ -19,12 +19,7 @@ const Navbar = () => {
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
-<<<<<<< HEAD
-    }
-    else {
-=======
     } else {
->>>>>>> main
       document.documentElement.classList.add("light");
     }
   }, [theme]);
@@ -35,8 +30,8 @@ const Navbar = () => {
 
   const {
     data: coursesData = [],
-    isLoading,
-    refetch,
+
+
   } = useQuery({
     queryKey: ["coursesData"],
     queryFn: () =>
@@ -92,7 +87,7 @@ const Navbar = () => {
         <a href="/">Mobile App Development</a>
       </li>
       <li>
-        <a href="/instructordashboard"> Instructo Dashboard</a>
+        <a href="/dashboard"> Instructo Dashboard</a>
       </li>
     </>
   );
@@ -112,14 +107,10 @@ const Navbar = () => {
 
   return (
     <nav
-<<<<<<< HEAD
-      className={navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
-=======
       className={
         navbar
           ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16"
           : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
->>>>>>> main
       }
     >
       <div className="dropdown">
@@ -258,7 +249,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* ========================= */}
-      
+
     </nav>
   );
 };

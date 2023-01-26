@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "title": "ENROLLED COURSES",
+        "count": "30",
+        "img": "https://cdn-icons-png.flaticon.com/512/9513/9513512.png"
+    },
+    {
+        "id": "2",
+        "title": "ACTIVE COURSES",
+        "count": "10",
+        "img": "https://cdn-icons-png.flaticon.com/512/9486/9486261.png"
+    },
+    {
+        "id": "3",
+        "title": "COMPLETED COURSES",
+        "count": "15",
+        "img": "https://cdn-icons-png.flaticon.com/512/7440/7440660.png"
+    },
+    {
+        "id": "4",
+        "title": "TOTAL STUDENTS",
+        "count": "5000",
+        "img": "https://cdn-icons-png.flaticon.com/512/9475/9475011.png"
+    },
+    {
+        "id": "5",
+        "title": "TOTAL COURSES",
+        "count": "40",
+        "img": "https://cdn-icons-png.flaticon.com/512/9513/9513512.png"
+    },
+    {
+        "id": "6",
+        "title": "TOTAL CATEGORIES",
+        "count": "10",
+        "img": "https://cdn-icons-png.flaticon.com/512/9513/9513512.png"
+    }
+]

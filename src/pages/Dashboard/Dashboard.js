@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Dashboard = () => {
+    const [dashboard, setDashboards] = useState([]);
+
+    useEffect(() => {
+        fetch('dashboard.json')
+            .then(res => res.json())
+            .then(data => {
+                setDashboards(data)
+            })
+    }, []);
     return (
         <div className='mx-auto'>
             <h2 className='text-4xl font-bold text-primary text-center my-4'>Welcome to My Dashboard</h2>
@@ -47,41 +56,24 @@ const Dashboard = () => {
 
                 <div class="px-6 pt-6 2xl:container">
                     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        <div class="md:col-span-2 lg:col-span-1" >
-                            <div class="h-full py-8 px-6 space-y-6 rounded-xl border border-gray-200 bg-white">
 
-                                <div>
-                                    <h5 class="text-xl text-gray-600 text-center">1st Activities</h5>
+                        {
+                            dashboard.map(db => <div key={db.id} className="w-11/12 max-w-sm  rounded-md shadow-md border border-cyan-500 ">
+                                <div className="flex justify-end px-4 pt-4">
+
 
                                 </div>
-                                <table class="w-full text-gray-600">
+                                <div className="left-content flex flex-col items-center pb-10">
+                                    <img className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src={db.img} alt='' />
+                                    <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">{db.count}</span>
+                                    <h5 className="mb-1 text-xs font-medium text-gray-900 dark:text-white">{db.title}</h5>
 
-                                </table>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="h-full py-6 px-6 rounded-xl border border-gray-200 bg-white">
-
-                                <div class="my-8">
-                                    <h1 class="text-3xl font-bold text-gray-800">2nd</h1>
 
                                 </div>
+                            </div>)
+                        }
 
 
-                            </div>
-                        </div>
-
-
-                        <div>
-                            <div class="lg:h-full py-8 px-6 text-gray-600 rounded-xl border border-gray-200 bg-white">
-
-                                <div class="mt-6">
-                                    <h5 class="text-xl text-gray-700 text-center">3rd</h5>
-
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
