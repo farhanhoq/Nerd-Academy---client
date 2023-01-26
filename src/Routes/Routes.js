@@ -14,6 +14,7 @@ import UnderConstruction from "../pages/UnderConstruction/UnderConstruction";
 import Blog from "../pages/Blog/Blog";
 import BlogDetails from "../pages/Blog/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
+import InstructorDashboard from "../pages/Home/Instructor/InstructorDashboard/InstructorDashboard";
 
 export const routes = createBrowserRouter([
     {
@@ -80,6 +81,11 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/blog/${params.id}`)
             }
             ,
+            {
+                path: '/instructordashboard',
+                element: <InstructorDashboard></InstructorDashboard>
+
+            },
             {
                 path: '*',
                 element: <Error></Error>

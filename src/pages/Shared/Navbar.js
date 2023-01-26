@@ -20,7 +20,7 @@ const Navbar = () => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     }
-    else{
+    else {
       document.documentElement.classList.add("light");
     }
   }, [theme]);
@@ -86,6 +86,9 @@ const Navbar = () => {
       <li>
         <a href="#">Mobile App Development</a>
       </li>
+      <li>
+        <a href="/instructordashboard"> Instructo Dashboard</a>
+      </li>
     </>
   );
 
@@ -104,8 +107,8 @@ const Navbar = () => {
 
   return (
     <nav
-    className={ navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
-  }
+      className={navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
+      }
     >
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
