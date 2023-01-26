@@ -5,13 +5,14 @@ import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import StudentAlsoBought from "../StudentAlsoBought/StudentAlsoBought";
+import Review from "./Review";
 
 
 const CourseDetails = () => {
   const [overview, setOverview] = useState([]);
   const [contentData, setContentData] = useState([]);
   const { user } = useContext(AuthContext);
-  console.log(contentData);
+  // console.log(contentData);
 
   const course = useLoaderData();
 
@@ -19,18 +20,19 @@ const CourseDetails = () => {
 
 
   useEffect(() => {
-    fetch('content.json')
+    fetch('https://nerd-academy-server.vercel.app/courseContent')
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setContentData(data));
   }, []);
 
   // const { data: contentData = [], refetch } = useQuery({
   //   queryKey: ["contentData", user?.email],
   //   queryFn: async () => {
-  //     const res = await fetch("content.json");
+  //     const res = await fetch("http://localhost:5000/courseContent");
   //     const data = await res.json();
   //   }
   // });
+  // console.log(contentData);
 
 
 
@@ -135,17 +137,21 @@ const CourseDetails = () => {
           <div className="mt-20">
             <h1 className="text-3xl font-bold mb-7">Course content</h1>
 
+            {
+              contentData?.map(data => <div className="collapse collapse-arrow border border-base-300 bg-base-100">
+                <input type="checkbox" className="peer" />
+                <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>{data?.heading}</p><p>{data?.date}</p>
 
-            <div className="collapse collapse-arrow border border-base-300 bg-base-100">
-              <input type="checkbox" className="peer" />
-              <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>Intro to Course and Python</p><p>2 lectures / 7 min</p>
+                </div>
+                <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
+                  {
+                    data?.section.map(singleData => <p className="py-2"><FaPlayCircle className="inline mr-1" />{singleData}</p>)
+                  }
 
-              </div>
-              <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
-                <p className="py-2"><FaPlayCircle className="inline mr-1" />Course Intro</p>
-                <p className="py-2"><FaPlayCircle className="inline mr-1" />Course FAQs</p>
-              </div>
-            </div>
+                </div>
+              </div>)
+            }
+
           </div>
 
           {/* student also bought */}
@@ -179,27 +185,50 @@ const CourseDetails = () => {
 
             </div>
           </div>
-        </div>
-        <div className="w-3/12 mx-auto border">
-          <img src={picture} alt="" />
-          <div className="w-10/12 mx-auto mt-8">
-            <h1 className="text-5xl font-bold">${price}</h1>
-            <button onClick={handleAddToCart} className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
-            <h5 className="font-bold mt-7">This course includes:</h5>
 
-            <p className="mt-3"><FaVideo className="inline mr-1" /> {hours} hours on-demand video</p>
-            <p className="mt-1"><FaEnvelopeOpenText className="inline mr-1" /> 3 articles</p>
-            <p className="mt-1"><FaFileDownload className="inline mr-1" />4 downloadable resources</p>
-            <p className="mt-1"><FaUserClock className="inline mr-1" /> Full lifetime access</p>
-            <p className="mt-1"><FaMobileAlt className="inline mr-1" /> Access on mobile and TV</p>
-            <p className="mt-1 pb-5"><FaCertificate className="inline mr-1" /> Certificate of completion</p>
+          <div className="my-32">
+            <h1 className="text-3xl font-bold  pb-4 flex items-center">
+              <div className="inline rating rating-lg mr-1"><input type="radio" name="rating-8" className="mask mask-star bg-yellow-500" checked /></div>
+              {rating} course rating * {review}K ratings</h1>
+            <Review></Review>
           </div>
+
+
+        </div>
+        <div className="w-3/12 mx-auto ">
+          <div className="border">
+            <img src={picture} alt="" />
+            <div className="w-10/12 mx-auto my-8">
+              <h1 className="text-5xl font-bold">${price}</h1>
+              <button onClick={handleAddToCart} className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
+              <h5 className="font-bold mt-7">This course includes:</h5>
+
+              <p className="mt-3"><FaVideo className="inline mr-1" /> {hours} hours on-demand video</p>
+              <p className="mt-1"><FaEnvelopeOpenText className="inline mr-1" /> 3 articles</p>
+              <p className="mt-1"><FaFileDownload className="inline mr-1" />4 downloadable resources</p>
+              <p className="mt-1"><FaUserClock className="inline mr-1" /> Full lifetime access</p>
+              <p className="mt-1"><FaMobileAlt className="inline mr-1" /> Access on mobile and TV</p>
+              <p className="mt-1 pb-5"><FaCertificate className="inline mr-1" /> Certificate of completion</p>
+            </div>
+          </div>
+
         </div>
       </div>
+      <div className="w-3/12 mx-auto border">
+        <img src={picture} alt="" />
+        <div className="w-10/12 mx-auto mt-8">
+          <h1 className="text-5xl font-bold">${price}</h1>
+          <button onClick={handleAddToCart} className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
+          <h5 className="font-bold mt-7">This course includes:</h5>
 
-
-
-
+          <p className="mt-3"><FaVideo className="inline mr-1" /> {hours} hours on-demand video</p>
+          <p className="mt-1"><FaEnvelopeOpenText className="inline mr-1" /> 3 articles</p>
+          <p className="mt-1"><FaFileDownload className="inline mr-1" />4 downloadable resources</p>
+          <p className="mt-1"><FaUserClock className="inline mr-1" /> Full lifetime access</p>
+          <p className="mt-1"><FaMobileAlt className="inline mr-1" /> Access on mobile and TV</p>
+          <p className="mt-1 pb-5"><FaCertificate className="inline mr-1" /> Certificate of completion</p>
+        </div>
+      </div>
     </div>
 
 
