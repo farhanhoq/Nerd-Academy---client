@@ -6,7 +6,7 @@ import Checkout from "../pages/Checkout/Checkout";
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
 import Review from "../pages/Courses/Review";
-import Home from "../pages/home/Home";
+import Home from "../pages/Home/Home";
 import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -17,6 +17,7 @@ import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Announcement from "../pages/Dashboard/Instructor/Announcement";
+import Settings from "../pages/Dashboard/Instructor/Settings";
 
 export const routes = createBrowserRouter([
     {
@@ -103,6 +104,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/announcement',
                 element: <Announcement></Announcement>,
+            },
+            {
+                path: '/dashboard/settings',
+                element: <Settings></Settings>,
             },
         ]
     }
