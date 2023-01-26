@@ -6,12 +6,13 @@ import Checkout from "../pages/Checkout/Checkout";
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
 import Review from "../pages/Courses/Review";
-import Home from "../pages/Home/Home";
+import Home from "../pages/home/Home";
 import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import StudentAlsoBought from "../pages/StudentAlsoBought/StudentAlsoBought";
 import UnderConstruction from "../pages/UnderConstruction/UnderConstruction";
+import Blog from "../pages/Blog/Blog";
+import BlogDetails from "../pages/Blog/BlogDetails";
 
 export const routes = createBrowserRouter([
     {
@@ -65,6 +66,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/construction',
                 element: <UnderConstruction></UnderConstruction>
+            }
+            ,
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            }
+            ,
+            {
+                path: '/blog/:id',
+                element: <BlogDetails></BlogDetails>,
+                loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/blog/${params.id}`)
             }
             ,
             {

@@ -115,20 +115,20 @@ const CourseDetails = () => {
 
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
           Intro to Course and Python
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>Course Intro</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>Course FAQs</p>
         </div>
     </div>
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
           Setup
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>Installation Setup and Overview</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>IDEs and Course Resources</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>iPython/Jupyter Notebook Overview
@@ -137,10 +137,10 @@ const CourseDetails = () => {
     </div>
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
           Learning Numpy
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>Intro to numpy</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>Using arrays and scalars</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>Array Transposition</p>
@@ -151,10 +151,10 @@ const CourseDetails = () => {
     </div>
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
           Click me to show/hide content
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>Series</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>DataFrames</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/>Reindex</p>
@@ -164,60 +164,60 @@ const CourseDetails = () => {
     </div>
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
           Working with Data:Part 1
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
         </div>
     </div>
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
         Working with Data:Part 2
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
         </div>
     </div>
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
         Working with Data:Part 3
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
         </div>
     </div>
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
           Data Visualization
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
         </div>
     </div>
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
           Example Projects.
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
         </div>
     </div>
     <div className="collapse collapse-arrow border border-base-300 bg-base-100">
         <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content">
+        <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content font-bold">
           Machine Learning
         </div>
-        <div className="collapse-content bg-base-200 text-primary-content peer-checked:bg-white peer-checked:text-black-content"> 
+        <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content"> 
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
           <p className="py-1"><FaPlayCircle className="inline mr-1"/> hello</p>
         </div>
@@ -260,8 +260,8 @@ const CourseDetails = () => {
               <img src={picture} alt="" />
               <div className="w-10/12 mx-auto mt-8">
                 <h1 className="text-5xl font-bold">${price}</h1>
-              <button className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
-              <button className="btn text-black hover:text-white w-full rounded-none bg-white mb-2 ">Buy now</button>
+              <button onClick={handleAddToCart} className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
+              {/* <button className="btn text-black hover:text-white w-full rounded-none bg-white mb-2 ">Buy now</button> */}
 
               <h5 className="font-bold mt-7">This course includes:</h5>
               

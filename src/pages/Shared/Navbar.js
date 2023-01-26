@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaOpencart } from "react-icons/fa";
+import { FaOpencart, FaShoppingCart } from "react-icons/fa";
 import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
@@ -81,23 +81,6 @@ const Navbar = () => {
       <li>
         <a href="#">Mobile App Development</a>
       </li>
-      {/* <li>
-        <a href="/details">Courses Details</a>
-      </li>
-      <Link to="/construction">
-        <li>
-          <a href="/#news">Blog</a>
-        </li>
-      </Link>
-      <li>
-        <a href="/#contact">Contact</a>
-      </li>
-      <li className="block lg:hidden">
-        <a href="/login">Login</a>
-      </li>
-      <li className="block lg:hidden">
-        <a href="/register">Register</a>
-      </li> */}
     </>
   );
 
@@ -116,11 +99,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={
-        navbar
-          ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16"
-          : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
-      }
+    className={ navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
+  }
     >
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -147,7 +127,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div class="hidden lg:block w-[30%]">
+      <div class="hidden lg:block w-[17%]">
         {/* <img src={nerd} alt="" /> */}
         <div className="w-[210px]">
           <Link
@@ -173,10 +153,10 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div class="hidden lg:block w-[30%] ">
+      <div class="hidden lg:block w-[45%] ">
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
-            <a className="bg-transparent w-full" href="/">
+            <a className="bg-transparent w-full">
               <input
                 type="text"
                 placeholder="Search courses here"
@@ -204,7 +184,7 @@ const Navbar = () => {
       </div>
       <div className="text-3xl hover:text-primary cursor-pointer mx-5">
         <Link to="/cart" className="item" style={{ color: getColor("/") }}>
-          <FaOpencart />
+          <FaShoppingCart />
         </Link>
       </div>
 
