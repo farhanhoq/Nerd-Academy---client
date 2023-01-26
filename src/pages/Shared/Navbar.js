@@ -12,6 +12,7 @@ const Navbar = () => {
   const [filteredData, setFilteredData] = useState([]);
   const { user, logOut } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
+  const [darkMode, setDarkMode] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -19,8 +20,7 @@ const Navbar = () => {
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
-    }
-    else{
+    } else {
       document.documentElement.classList.add("light");
     }
   }, [theme]);
@@ -104,8 +104,11 @@ const Navbar = () => {
 
   return (
     <nav
-    className={ navbar ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16" : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
-  }
+      className={
+        navbar
+          ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16"
+          : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
+      }
     >
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -161,7 +164,7 @@ const Navbar = () => {
       <div class="hidden lg:block w-[45%] ">
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
-            <a className="bg-transparent w-full">
+            <a className="bg-transparent w-full" href="/">
               <input
                 type="text"
                 placeholder="Search courses here"
@@ -227,6 +230,20 @@ const Navbar = () => {
           {theme === "dark" ? "Light Mode" : "Dark Mode"}
         </button>
       </>
+      {/* Code by rubayed */}
+      <div>
+        <div className="switch-checkbox">
+          <label className="switch">
+            <input
+              type="checkbox"
+              onClick={handleThemeSwitch}
+              onChange={() => setDarkMode(!darkMode)}
+            />
+            <span className="slider round"></span>
+          </label>
+        </div>
+      </div>
+      {/* ========================= */}
     </nav>
   );
 };
