@@ -163,7 +163,7 @@ input:checked + .slider:before {
   height: 50px;
 }
 
-
+/* border on navbar items */
 
 .custom-border::after {
   content: "";

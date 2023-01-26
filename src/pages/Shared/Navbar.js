@@ -201,7 +201,7 @@ const Navbar = () => {
           <Link
             onClick={handleLogOut}
             style={{ color: getColor("/") }}
-            className="hover:text-white custom-border transition duration-300 text-black hidden md:block pt-4
+            className="hover:text-white custom-border transition duration-300 text-black hidden md:block
              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item">
             Sign Out
           </Link>
@@ -210,7 +210,7 @@ const Navbar = () => {
             <Link
               to="/login"
               style={{ color: getColor("/") }}
-              className="hover:text-white custom-border transition duration-300 text-black hidden md:block pt-4
+              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
               border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
             >
               Login
@@ -218,7 +218,7 @@ const Navbar = () => {
             <Link
               to="/register"
               style={{ color: getColor("/") }}
-              className="hover:text-white custom-border transition duration-300 text-black hidden md:block pt-4
+              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
               border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
             >
               Register
