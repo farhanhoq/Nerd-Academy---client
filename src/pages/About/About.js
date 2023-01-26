@@ -6,7 +6,7 @@ import analyst from "../../Assets/analyst.png";
 
 const About = () => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 justify-between mt-40 px-16" id="about">
+    <section className="grid grid-cols-1 md:grid-cols-2 justify-between px-16 mt-[30%] mb-40 items-center" id="about">
       <div className="text-center lg:text-left mr-2">
         <img
           className="w-12/12"

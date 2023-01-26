@@ -14,10 +14,9 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <OurCourses></OurCourses>
-
-            <Counter></Counter>
             <About></About>
+            <OurCourses></OurCourses>
+            <Counter></Counter>
             {
                 user?.uid ?
                     <Contact></Contact>

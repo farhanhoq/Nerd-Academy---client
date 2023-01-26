@@ -14,7 +14,8 @@ import UnderConstruction from "../pages/UnderConstruction/UnderConstruction";
 import Blog from "../pages/Blog/Blog";
 import BlogDetails from "../pages/Blog/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
-import InstructorDashboard from "../pages/Home/Instructor/InstructorDashboard/InstructorDashboard";
+import DashboardLayout from "../Layout/DashboardLayout";
+import Dashboard from "../pages/Dashboard/Dashboard";
 
 export const routes = createBrowserRouter([
     {
@@ -82,15 +83,22 @@ export const routes = createBrowserRouter([
             }
             ,
             {
-                path: '/instructordashboard',
-                element: <InstructorDashboard></InstructorDashboard>
-
-            },
-            {
                 path: '*',
                 element: <Error></Error>
             }
 
+        ]
+    },
+
+    {
+        path: '/dashboard',
+        element: <PrivateRoutes> <DashboardLayout></DashboardLayout> </PrivateRoutes>,
+        errorElement: <Error></Error>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>,
+            },
         ]
     }
 ])
