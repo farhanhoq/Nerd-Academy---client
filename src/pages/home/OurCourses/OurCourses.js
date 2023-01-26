@@ -113,9 +113,9 @@ const OurCourses = () => {
                 </div>
 
                 <div className="mt-1 p-2">
-                  <h2 className="text-slate-700">{course?.title}</h2>
-                  <p className="mt-1 text-sm text-slate-400">
-                    {course?.description.slice(0, 97)}
+                  <h2 className="text-slate-700 text-lg font-bold mt-3">{course?.title}</h2>
+                  <p className="mt-1 text-[2px] text-slate-400">
+                    {course?.description.slice(0, 60)}
                   </p>
                   {/* <p>{course?.tutor}</p> */}
 
@@ -142,7 +142,7 @@ const OurCourses = () => {
                   </div>
                   <div className="flex items-center relative  border-b border-cyan-500 py-1"></div>
                   <div className="flex items-center relative my-2">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 "></div>
+                    <img src="https://placeimg.com/400/225/arch" className="w-10 h-10 rounded-full bg-gray-100 " alt=""/>
                     <div className="ml-3">
                       <p className="font-medium text-gray-800">
                         {course?.tutor}
@@ -150,7 +150,7 @@ const OurCourses = () => {
                       <p className="text-md text-gray-600"></p>
                     </div>
 
-                    <div className="flex items-center space-x-1.5 rounded-lg bg-primary px-4 py-1.5 text-white duration-100 hover:bg-cyan-500 mx-8">
+                    <div className="flex items-center space-x-1.5 rounded-lg px-4 py-1.5 border-primary border transition ease-in-out  duration-300 hover:text-white duration-100 hover:bg-cyan-500 mx-8">
                       {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="h-4 w-4">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                                 </svg> */}
