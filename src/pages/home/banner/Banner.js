@@ -5,7 +5,7 @@ import ImgSlider from '../../ImgSlider/ImgSlider';
 const Banner = () => {
 
   return (
-    <div className="hero min-h-screen relative" style={{ backgroundImage: `url(${bg})` }}>
+    <div className="hero min-h-screen relative" style={{ backgroundImage: `url(${bg})` }} id="#home">
       <div className='absolute'>
         <div className="hero-content flex-col items-center justify-center text-center">
           {/* <iframe className='aspect-auto lg:aspect-video w-2/3 h-3/4 ml-[-54px] mt[-54px]' width="500" height="315" src="https://www.youtube.com/embed/sTeoEFzVNSc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> */}
