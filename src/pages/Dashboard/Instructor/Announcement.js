@@ -9,10 +9,10 @@ const Announcement = () => {
             <div className="card-body">
                 <h2 className="card-title">Announcement</h2>
                 <hr />
-                <div className='card bg-cyan-400  p-8 my-4 flex flex-row justify-between'>
+                <div className='card bg-gradient-to-r from-sky-600 to-cyan-400  p-8 my-4 flex flex-row justify-between'>
                     <div>
-                        <p className='text-2xl font-semibold'>Notify your all students</p>
-                        <p>Create Announcement</p>
+                        <p className='text-2xl font-semibold text-white'>Notify your all students</p>
+                        <p className='text-white'>Create Announcement</p>
                     </div>
                     <button className='btn btn-secondary text-white'>Add New Announcement</button>
                 </div>
@@ -45,7 +45,7 @@ const Announcement = () => {
                 <hr className='my-4' />
 
 
-                <div className="overflow-x-auto w-full">
+                <div className="overflow-x-auto w-full  ">
                     <table className="table w-full">
                         <thead>
                             <tr>
@@ -87,7 +87,7 @@ const Announcement = () => {
                                 </td>
                                 {/* <td><FiEdit /> Edit</td> */}
                                 <th>
-                                    <button className="text-sm btn btn-ghost btn-sm"><FiEdit className='text-sm' />Edit</button>
+                                    <button className="text-sm btn btn-ghost btn-sm bg-gradient-to-r from-sky-600 to-cyan-400"><FiEdit className='text-sm' />Edit</button>
                                 </th>
                                 <th>
                                     <button className="text-sm btn btn-warning btn-sm"><MdOutlineDeleteOutline className='text-sm' />Delete</button>
@@ -119,7 +119,7 @@ const Announcement = () => {
                                 </td>
                                 {/* <td><FiEdit /> Edit</td> */}
                                 <th>
-                                    <button className="text-sm btn btn-ghost btn-sm"><FiEdit className='text-sm' />Edit</button>
+                                    <button className="text-sm btn btn-ghost btn-sm bg-gradient-to-r from-sky-600 to-cyan-400"><FiEdit className='text-sm' />Edit</button>
                                 </th>
                                 <th>
                                     <button className="text-sm btn btn-warning btn-sm"><MdOutlineDeleteOutline className='text-sm' />Delete</button>
@@ -151,7 +151,7 @@ const Announcement = () => {
                                 </td>
                                 {/* <td><FiEdit /> Edit</td> */}
                                 <th>
-                                    <button className="text-sm btn btn-ghost btn-sm"><FiEdit className='text-sm' />Edit</button>
+                                    <button className="text-sm btn btn-ghost btn-sm bg-gradient-to-r from-sky-600 to-cyan-400"><FiEdit className='text-sm' />Edit</button>
                                 </th>
                                 <th>
                                     <button className="text-sm btn btn-warning btn-sm"><MdOutlineDeleteOutline className='text-sm' />Delete</button>

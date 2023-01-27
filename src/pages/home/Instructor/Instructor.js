@@ -5,7 +5,7 @@ import PrimaryButton from '../../../PrimaryButton/PrimaryButton';
 
 const Instructor = () => {
     return (
-        <div className='flex flex-col md:flex-row items-center w-11/12 mx-auto shadow-2xl my-28 rounded-xl p-4'>
+        <div className='flex flex-col md:flex-row items-center w-11/12 mx-auto shadow-2xl my-28 rounded-xl p-4 dark:text-white'>
 
             <div className='w-full md:w-6/12'>
                 <img className='rounded-tl-md rounded-bl-md pr-5 w-11/12' src="https://img.freepik.com/premium-vector/business-people-having-board-meeting_1034-1214.jpg?w=740" alt="instructor" />

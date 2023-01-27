@@ -20,7 +20,7 @@ const Navbar = () => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
     }
   }, [theme]);
 

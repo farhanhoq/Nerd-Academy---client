@@ -3,11 +3,11 @@ import React from 'react';
 const DasboardReview = () => {
     return (
         <div>
-            <section class="my-14 2xl:py-44 bg-blueGray-100 rounded-t-10xl overflow-hidden">
+            <section class="my-12 2xl:py-44 bg-blueGray-100 rounded-t-10xl overflow-hidden">
                 <div class="container px-4 mx-auto">
                     <h2 className="card-title text-xl font-semibold">Testimonial</h2>
                     <hr className='my-2' />
-                    <div class="flex flex-wrap -mx-2 mb-14">
+                    <div class="flex flex-wrap -mx-2 mb-2">
                         <div class="w-full xl:w-3/5 px-2 mb-4 xl:mb-0">
                             <div class="flex items-center h-full py-12 px-8 bg-white rounded-3xl">
                                 <div class="flex flex-wrap items-center justify-between w-full -mx-2">
@@ -23,7 +23,7 @@ const DasboardReview = () => {
                         </div>
 
                     </div>
-                    <a class="inline-block mb-14 text-xl font-heading font-medium underline hover:text-darkBlueGray-700" href="#">10 reviews</a>
+
                     <div class="mb-2 shadow-lg rounded-t-8xl rounded-b-5xl overflow-hidden">
                         <div class="pt-3 pb-3 md:pb-1 px-4 md:px-16 bg-white bg-opacity-40">
                             <div class="flex flex-wrap items-center">

@@ -27,15 +27,15 @@ const MyCourse = () => {
             <div className="card-body">
                 <h2 className="card-title">My Courses</h2>
                 <hr className='my-2' />
-                <div className="btn-group btn-group-vertical lg:btn-group-horizontal flex flex-row gap-4">
-                    <button className="btn btn-active text-white">Publish</button>
-                    <button className="btn">Pending</button>
-                    <button className="btn">Draft</button>
+                <div className="tabs flex flex-row gap-6">
+                    <a className="tab tab-bordered tab-active">Publish</a>
+                    <a className="tab tab-bordered">Pending</a>
+                    <a className="tab tab-bordered">Draft</a>
                 </div>
                 <hr className='my-2' />
 
-                <div className="mx-auto rounded-lg">
-                    <div className="flex gap-6 justify-center my-4">
+                <div className="rounded-lg">
+                    {/* <div className="flex gap-6 justify-center my-4">
                         <button
                             onClick={() => filterResult("Web Development")}
                             className="bg-transparent border-2 border-sky-400 p-2 rounded-lg mt-6"
@@ -66,8 +66,8 @@ const MyCourse = () => {
                         >
                             Artificial Intelligence
                         </button>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 text-center">
+                    </div> */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 text-center">
                         {coursedata?.map((course) => (
                             <div
                                 key={course?._id}
