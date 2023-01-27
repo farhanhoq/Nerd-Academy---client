@@ -20,15 +20,14 @@ const About = () => {
           Benefits About Online Learning Expertise{" "}
         </h2>
 
-        <div className="card md:card-side shadow-md mt-8 text-black w-full cursor-pointer">
+        <div className="card md:card-side shadow-md mt-8 text-black w-full cursor-pointer items-center">
           <figure>
             <img className="h-20 w-24 ml-6" src={online} alt="Movie" />
           </figure>
           <div className="w-full p-8">
-            <h2 className="card-title">Online Course </h2>
-            <p className="text-slate-500 text-base">
-              Google IT Automation with Python Professional Certificate{" "}
-              From Art Alison has thousands
+            <h2 className="card-title">Flexibility </h2>
+            <p className="text-slate-500 text-base mt-2">
+            Online courses can be accessed from anywhere, at any time, making it convenient for people with busy schedules.
             </p>
           </div>
         </div>
@@ -38,10 +37,9 @@ const About = () => {
             <img className="h-20 w-24 ml-6" src={certificate} alt="Movie" />
           </figure>
           <div className="w-full p-8">
-            <h2 className="card-title">Online Course </h2>
-            <p className="text-slate-500 text-base">
-              Google IT Automation with Python Professional Certificate{" "}
-              From Art Alison has thousands
+            <h2 className="card-title">Cost effective</h2>
+            <p className="text-slate-500 text-base mt-2">
+            Online courses and programs are often less expensive than traditional on-campus options.
             </p>
           </div>
         </div>
@@ -51,10 +49,9 @@ const About = () => {
             <img className="h-20 w-24 ml-6" src={analyst} alt="Movie" />
           </figure>
           <div className="w-full p-8">
-            <h2 className="card-title">Online Course </h2>
-            <p className="text-slate-500 text-base">
-              Google IT Automation with Python Professional Certificate{" "}
-              From Art Alison has thousands
+            <h2 className="card-title">Networking</h2>
+            <p className="text-slate-500 text-base mt-2">
+            Online learning allows for students to connect with a diverse group of people from around the world.
             </p>
           </div>
         </div>
