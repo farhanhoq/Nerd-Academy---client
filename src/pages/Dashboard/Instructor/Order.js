@@ -36,8 +36,8 @@ const Order = () => {
                                             </a>
                                         </div>
                                         <div class="flex-1 pl-1">
-                                            <div class="font-medium dark:text-white">Barbara Curtis</div>
-                                            <div class="text-sm text-blue-600 dark:text-gray-200">
+                                            <div class="font-medium">Barbara Curtis</div>
+                                            <div class="text-sm text-blue-600 ">
                                                 Account Deactivated
                                             </div>
                                         </div>
@@ -63,8 +63,8 @@ const Order = () => {
                                             </a>
                                         </div>
                                         <div class="flex-1 pl-1">
-                                            <div class="font-medium dark:text-white">Charlie Hawkins</div>
-                                            <div class="text-sm text-green-600 dark:text-gray-200">
+                                            <div class="font-medium">Charlie Hawkins</div>
+                                            <div class="text-sm text-green-600 ">
                                                 Email Verified
                                             </div>
                                         </div>
@@ -90,8 +90,8 @@ const Order = () => {
                                             </a>
                                         </div>
                                         <div class="flex-1 pl-1">
-                                            <div class="font-medium dark:text-white">Nina Bates</div>
-                                            <div class="text-sm text-yellow-600 dark:text-gray-200">
+                                            <div class="font-medium ">Nina Bates</div>
+                                            <div class="text-sm text-yellow-600">
                                                 Payment On Hold
                                             </div>
                                         </div>
@@ -117,8 +117,8 @@ const Order = () => {
                                             </a>
                                         </div>
                                         <div class="flex-1 pl-1">
-                                            <div class="font-medium dark:text-white">Hester Richards</div>
-                                            <div class="text-sm text-green-600 dark:text-gray-200">
+                                            <div class="font-medium ">Hester Richards</div>
+                                            <div class="text-sm text-green-600 ">
                                                 Email Verified
                                             </div>
                                         </div>
