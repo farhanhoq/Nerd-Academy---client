@@ -21,6 +21,8 @@ import Settings from "../pages/Dashboard/Instructor/Settings";
 import Profile from "../pages/Dashboard/Instructor/Profile";
 import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
 import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
+import Order from "../pages/Dashboard/Instructor/Order";
+import Assignments from "../pages/Dashboard/Instructor/Assignments";
 
 export const routes = createBrowserRouter([
     {
@@ -123,6 +125,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/DasboardReview',
                 element: <DasboardReview></DasboardReview>,
+            },
+            {
+                path: '/dashboard/order',
+                element: <Order></Order>,
+            },
+            {
+                path: '/dashboard/assignments',
+                element: <Assignments></Assignments>,
             },
         ]
     }
