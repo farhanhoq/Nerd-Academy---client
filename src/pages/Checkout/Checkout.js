@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { FaCreditCard, FaPaypal, FaLock } from 'react-icons/fa';
+import ScrollToTop from "../ScrollToTop";
 
 const Checkout = () => {
   const {
@@ -14,6 +15,7 @@ const Checkout = () => {
 
   return (
     <section className='py-24'>
+        <ScrollToTop/>
       <div className="w-8/12 mx-auto p-5 shadow-xl border rounded-xl">
         <h1 className="text-5xl p-4 mb-8">Checkout</h1>
         <div className="flex">

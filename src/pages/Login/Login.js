@@ -7,6 +7,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { GoogleAuthProvider } from "@firebase/auth";
+import ScrollToTop from "../ScrollToTop";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -87,6 +88,7 @@ const Login = () => {
 
   return (
     <div>
+      <ScrollToTop/>
       <div className="flex flex-col gap-6 lg:gap-24 md:flex-row items-center lg:h-screen container mx-auto justify-between md:px-32">
         <div className="w-10/12 lg:w-1/2 mt-16 lg:mt-0">
           <Lottie loop={true} animationData={eduAnimation} />
@@ -94,8 +96,8 @@ const Login = () => {
 
         <div className="w-10/12 lg:w-4/12 md:mt-16 mb-16 lg:mb-0">
           <div>
-            <h1 className="text-5xl text-primary text-center mb-4 font-bold">
-              Log In
+            <h1 className="text-5xl text-primary text-center mb-4 font-bold uppercase">
+              Login
             </h1>
           </div>
           <div className="card card-body shadow-2xl bg-base-100 border border-primary mt-[50px] md:mt-0">
@@ -130,8 +132,8 @@ const Login = () => {
                 {errors.password && <p className="text-error">{errors.password?.message}</p>}
                 <label className="label">
                   <Link to="/register">
-                    <span className="label-text-alt ">
-                      New to this site? Please{" "}
+                    <span className="label-text-alt">
+                      New to this site? Please
                       <span className="link link-primary">Register</span>
                     </span>
                   </Link>

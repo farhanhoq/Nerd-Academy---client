@@ -16,6 +16,10 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
+import Announcement from "../pages/Dashboard/Instructor/Announcement";
+import Settings from "../pages/Dashboard/Instructor/Settings";
+import Profile from "../pages/Dashboard/Instructor/Profile";
+import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
 
 export const routes = createBrowserRouter([
     {
@@ -92,12 +96,28 @@ export const routes = createBrowserRouter([
 
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
         errorElement: <Error></Error>,
         children: [
             {
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>,
+            },
+            {
+                path: '/dashboard/announcement',
+                element: <Announcement></Announcement>,
+            },
+            {
+                path: '/dashboard/settings',
+                element: <Settings></Settings>,
+            },
+            {
+                path: '/dashboard/profile',
+                element: <Profile></Profile>,
+            },
+            {
+                path: '/dashboard/myCourse',
+                element: <MyCourse></MyCourse>,
             },
         ]
     }

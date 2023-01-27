@@ -3,6 +3,7 @@ import { signInAnonymously } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import ScrollToTop from "../ScrollToTop";
 
 const Cart = () => {
   const { user } = useContext(AuthContext);
@@ -42,6 +43,7 @@ const Cart = () => {
 
   return (
     <section className="py-24">
+      <ScrollToTop/>
       <div className="w-10/12 mx-auto p-5 shadow-xl border rounded-xl">
         <h1 className="text-5xl p-4 mb-8">Shopping Cart</h1>
         <div className="flex">

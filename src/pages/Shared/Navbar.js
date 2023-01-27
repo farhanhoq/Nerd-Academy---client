@@ -161,6 +161,9 @@ const Navbar = () => {
             </span>
             <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
           </li>
+          <li>
+            <Link to="/instructor" className="pt-3 item text-md" style={{ color: getColor("/") }}>Instructor</Link>
+          </li>
         </ul>
       </div>
 

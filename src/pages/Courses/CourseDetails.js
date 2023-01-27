@@ -3,9 +3,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
 import StudentAlsoBought from "../StudentAlsoBought/StudentAlsoBought";
 import Review from "./Review";
+import ScrollToTop from "../ScrollToTop";
 
 
 const CourseDetails = () => {
@@ -33,9 +33,6 @@ const CourseDetails = () => {
   //   }
   // });
   // console.log(contentData);
-
-
-
 
   useEffect(() => {
     fetch("https://nerd-academy-server.vercel.app/overview")
@@ -76,6 +73,7 @@ const CourseDetails = () => {
 
   return (
     <div className="py-24">
+      <ScrollToTop/>
       <div className=" bg-gradient-to-r from-black to-slate-500">
 
         <div className=" text-white w-11/12 mx-auto p-16">
@@ -214,7 +212,7 @@ const CourseDetails = () => {
 
         </div>
       </div>
-      <div className="w-3/12 mx-auto border">
+      {/* <div className="w-3/12 mx-auto border">
         <img src={picture} alt="" />
         <div className="w-10/12 mx-auto mt-8">
           <h1 className="text-5xl font-bold">${price}</h1>
@@ -228,7 +226,7 @@ const CourseDetails = () => {
           <p className="mt-1"><FaMobileAlt className="inline mr-1" /> Access on mobile and TV</p>
           <p className="mt-1 pb-5"><FaCertificate className="inline mr-1" /> Certificate of completion</p>
         </div>
-      </div>
+      </div> */}
     </div>
 
 

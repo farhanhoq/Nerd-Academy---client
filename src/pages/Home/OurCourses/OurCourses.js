@@ -43,7 +43,7 @@ const OurCourses = () => {
     <div className="mb-32 py-32 bg-cyan-50" id="courses">
       <div className="w-11/12 mx-auto">
         <h1 className="text-5xl text-center font-bold capitalize">
-          Our Courses
+          Courses we offer
         </h1>
         <div className="grid justify-center">
           <img className="h-full w-12" src={minusb} alt="" />

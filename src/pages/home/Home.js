@@ -7,6 +7,7 @@ import Contact from '../Contact/Contact';
 import About from '../About/About';
 import Faq from '../../Faq/Faq';
 import { AuthContext } from '../../Context/AuthProvider';
+import Blog from '../Blog/Blog';
 
 const Home = () => {
     const { user } = useContext(AuthContext);
@@ -17,6 +18,8 @@ const Home = () => {
             <About></About>
             <OurCourses></OurCourses>
             <Counter></Counter>
+            <Faq></Faq>
+            <Blog></Blog>
             {
                 user?.uid ?
                     <Contact></Contact>
@@ -24,8 +27,6 @@ const Home = () => {
                     <>
                     </>
             }
-
-            <Faq></Faq>
             {
                 user?.uid ?
                     <>
