@@ -28,9 +28,9 @@ const MyCourse = () => {
                 <h2 className="card-title">My Courses</h2>
                 <hr className='my-2' />
                 <div className="btn-group btn-group-vertical lg:btn-group-horizontal flex flex-row gap-4">
-                    <button className="btn btn-active text-white">Publish</button>
-                    <button className="btn">Pending</button>
-                    <button className="btn">Draft</button>
+                    <button className="btn btn-xs rounded-sm btn-active text-white">Publish</button>
+                    <button className="btn btn-xs rounded-sm text-white">Pending</button>
+                    <button className="btn btn-xs rounded-sm text-white">Draft</button>
                 </div>
                 <hr className='my-2' />
 
@@ -67,7 +67,7 @@ const MyCourse = () => {
                             Artificial Intelligence
                         </button>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 text-center">
                         {coursedata?.map((course) => (
                             <div
                                 key={course?._id}

@@ -1,17 +1,19 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import Navbar from '../pages/Shared/Navbar';
 
 const DashboardLayout = () => {
 
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 toast.success("Sign Out Successfully");
+                navigate('/');
             })
             .catch(error => {
                 toast.error(error.message);
@@ -37,7 +39,7 @@ const DashboardLayout = () => {
                         </Link>
                     </div>
 
-                    <div class="mt-8 text-center">
+                    <div class="mt-16 text-center">
                         <img className='w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28' src="https://cdn-icons-png.flaticon.com/512/8443/8443255.png" alt="" srcset="" />
                         <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Jerge Chamas</h5>
                         <span class="hidden text-gray-400 lg:block">Admin</span>
