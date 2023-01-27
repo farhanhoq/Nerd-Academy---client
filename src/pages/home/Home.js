@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Banner from '../home/Banner/Banner'
+import Banner from '../Home/Banner/Banner'
 import Counter from '../Counter/Counter';
 import OurCourses from './OurCourses/OurCourses';
 import Instructor from './Instructor/Instructor';
