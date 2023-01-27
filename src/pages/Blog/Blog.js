@@ -28,7 +28,7 @@ const Blog = () => {
         </div>
             </div>
             <div className='w-11/12 mx-auto px-22'>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
                     {
                     blogData.map(data => <Link to={`/blog/${data._id}`} className="card card-compact bg-base-100 shadow-xl hover:bg-base-200 hover:shadow-2xl">
                             <figure><img className='h-[170px] w-full object-cover' src={data?.picture} alt="Shoes" /></figure>
