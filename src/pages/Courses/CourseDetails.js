@@ -3,9 +3,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
 import StudentAlsoBought from "../StudentAlsoBought/StudentAlsoBought";
 import Review from "./Review";
+import ScrollToTop from "../ScrollToTop";
 
 
 const CourseDetails = () => {
@@ -33,9 +33,6 @@ const CourseDetails = () => {
   //   }
   // });
   // console.log(contentData);
-
-
-
 
   useEffect(() => {
     fetch("https://nerd-academy-server.vercel.app/overview")
@@ -76,6 +73,7 @@ const CourseDetails = () => {
 
   return (
     <div className="py-24">
+      <ScrollToTop/>
       <div className=" bg-gradient-to-r from-black to-slate-500">
 
         <div className=" text-white w-11/12 mx-auto p-16">

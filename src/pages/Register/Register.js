@@ -6,6 +6,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { GoogleAuthProvider } from '@firebase/auth';
+import ScrollToTop from "../ScrollToTop";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -118,15 +119,16 @@ const Register = () => {
 
 
   return (
-    <div className="flex flex-col gap-6 lg:gap-24 md:flex-row items-center lg:h-screen container mx-auto justify-between md:px-32">
+    <div className="flex flex-col gap-6 lg:gap-24 md:flex-row items-center container mx-auto justify-between md:px-32">
+      <ScrollToTop/>
       <div className="w-10/12 lg:w-1/2 mt-16 lg:mt-0">
         <Lottie loop={true} animationData={eduAnimation} />
       </div>
 
-      <div className="w-10/12 lg:w-4/12 md:my-32 lg:mt-16 mb-16 lg:mb-0">
+      <div className="w-10/12 lg:w-4/12 md:my-32 lg:mt-22 mb-22">
         <div>
           <h1 className="text-5xl text-primary text-center mb-4 font-bold">
-            Registration
+            Register
           </h1>
         </div>
         <div className="card card-body shadow-2xl bg-base-100 border border-primary">
