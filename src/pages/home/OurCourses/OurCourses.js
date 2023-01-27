@@ -40,7 +40,7 @@ const OurCourses = () => {
   };
 
   return (
-    <div className="mb-32 py-32 bg-cyan-50" id="courses">
+    <div className="mb-32 py-32 bg-cyan-50 dark:bg-black dark:text-white" id="courses">
       <div className="w-11/12 mx-auto">
         <h1 className="text-5xl text-center font-bold capitalize">
           Courses we offer
@@ -113,7 +113,9 @@ const OurCourses = () => {
                 </div>
 
                 <div className="mt-1 p-2">
-                  <h2 className="text-slate-700 text-lg font-bold mt-3">{course?.title}</h2>
+                  <h2 className="text-slate-700 text-lg font-bold mt-3">
+                    {course?.title}
+                  </h2>
                   <p className="mt-1 text-[2px] text-slate-400">
                     {course?.description.slice(0, 60)}
                   </p>
@@ -142,7 +144,11 @@ const OurCourses = () => {
                   </div>
                   <div className="flex items-center relative  border-b border-cyan-500 py-1"></div>
                   <div className="flex items-center relative my-2">
-                    <img src="https://placeimg.com/400/225/arch" className="w-10 h-10 rounded-full bg-gray-100 " alt=""/>
+                    <img
+                      src="https://placeimg.com/400/225/arch"
+                      className="w-10 h-10 rounded-full bg-gray-100 "
+                      alt=""
+                    />
                     <div className="ml-3">
                       <p className="font-medium text-gray-800">
                         {course?.tutor}

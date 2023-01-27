@@ -18,7 +18,7 @@ const Blog = () => {
 
     return (
         <div className='py-32'>
-            <div className='text-center mb-28 mt-10'>
+            <div className='text-center mb-28 mt-10 dark:text-white'>
             <h1 className="text-5xl text-center font-bold capitalize">
           Blogs
         </h1>
