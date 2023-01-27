@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+import Loader from '../../Loader/Loader';
 import ScrollToTop from '../ScrollToTop';
 
 const BlogDetails = () => {
     const data = useLoaderData();
     const {about, authorImg, date, heading, name, picture } = data[0];
     // console.log(name);
+    const { loading } = useContext(AuthContext);
+
+    if(loading){
+        return <Loader></Loader>
+    }
+
     return (    
         <div>
             <ScrollToTop/>

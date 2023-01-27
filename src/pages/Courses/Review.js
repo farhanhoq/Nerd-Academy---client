@@ -1,8 +1,11 @@
-import React, { useState , useEffect } from "react";
+import React, { useState , useEffect, useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
+import Loader from "../../Loader/Loader";
 
 const Review = () => {
 
     const [reviewData, setReviewData] = useState([]);
+    const { loading } = useContext(AuthContext);
 
     useEffect(() => {
       fetch('https://nerd-academy-server.vercel.app/review')
@@ -10,7 +13,9 @@ const Review = () => {
         .then((data) => setReviewData(data));
     }, []);
     // console.log(reviewData);
-   
+   if(loading){
+    return <Loader></Loader>
+   }
     return (
        <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             {

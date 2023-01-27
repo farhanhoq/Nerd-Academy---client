@@ -6,12 +6,13 @@ import { AuthContext } from "../../Context/AuthProvider";
 import StudentAlsoBought from "../StudentAlsoBought/StudentAlsoBought";
 import Review from "./Review";
 import ScrollToTop from "../ScrollToTop";
+import Loader from "../../Loader/Loader";
 
 
 const CourseDetails = () => {
   const [overview, setOverview] = useState([]);
   const [contentData, setContentData] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   // console.log(contentData);
 
   const course = useLoaderData();
@@ -70,6 +71,10 @@ const CourseDetails = () => {
         }
       });
   };
+
+  if(loading){
+    return <Loader></Loader>
+  }
 
   return (
     <div className="py-24">
@@ -212,21 +217,7 @@ const CourseDetails = () => {
 
         </div>
       </div>
-      {/* <div className="w-3/12 mx-auto border">
-        <img src={picture} alt="" />
-        <div className="w-10/12 mx-auto mt-8">
-          <h1 className="text-5xl font-bold">${price}</h1>
-          <button onClick={handleAddToCart} className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
-          <h5 className="font-bold mt-7">This course includes:</h5>
-
-          <p className="mt-3"><FaVideo className="inline mr-1" /> {hours} hours on-demand video</p>
-          <p className="mt-1"><FaEnvelopeOpenText className="inline mr-1" /> 3 articles</p>
-          <p className="mt-1"><FaFileDownload className="inline mr-1" />4 downloadable resources</p>
-          <p className="mt-1"><FaUserClock className="inline mr-1" /> Full lifetime access</p>
-          <p className="mt-1"><FaMobileAlt className="inline mr-1" /> Access on mobile and TV</p>
-          <p className="mt-1 pb-5"><FaCertificate className="inline mr-1" /> Certificate of completion</p>
-        </div>
-      </div> */}
+     
     </div>
 
 

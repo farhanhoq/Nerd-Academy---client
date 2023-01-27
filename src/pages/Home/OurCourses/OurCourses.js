@@ -4,11 +4,15 @@ import { useQuery } from "@tanstack/react-query";
 import "./OurCourses.css";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
+import { AuthContext } from "../../../Context/AuthProvider";
+import Loader from "../../../Loader/Loader";
 
 const OurCourses = () => {
   const [coursedata, setCourseData] = useState([]);
+
+  const { loading } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("https://nerd-academy-server.vercel.app/courses")
@@ -38,6 +42,10 @@ const OurCourses = () => {
 
     // window.location.reload(true)
   };
+
+  if(loading){
+    return <Loader></Loader>
+  }
 
   return (
     <div className="mb-32 py-32 bg-cyan-50" id="courses">
