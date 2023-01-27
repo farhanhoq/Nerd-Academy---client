@@ -3,7 +3,7 @@ import React from 'react';
 const DasboardReview = () => {
     return (
         <div>
-            <section class="my-14 2xl:py-44 bg-blueGray-100 rounded-t-10xl overflow-hidden">
+            <section class="my-6 2xl:py-44 bg-blueGray-100 rounded-t-10xl overflow-hidden">
                 <div class="container px-4 mx-auto">
                     <h2 className="card-title text-xl font-semibold">Testimonial</h2>
                     <hr className='my-2' />
