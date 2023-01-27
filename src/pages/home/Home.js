@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Banner from '../home/Banner/Banner'
+import Banner from '../Home/Banner/Banner'
 import Counter from '../Counter/Counter';
 import OurCourses from './OurCourses/OurCourses';
 import Instructor from './Instructor/Instructor';
@@ -11,9 +11,9 @@ import Blog from '../Blog/Blog';
 import Loader from '../../Loader/Loader';
 
 const Home = () => {
-    const { user , loading } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
 
-    if(loading){
+    if (loading) {
         return <Loader></Loader>
     }
 
@@ -26,9 +26,9 @@ const Home = () => {
             <Faq></Faq>
             {
                 loading ?
-                <Loader></Loader>
-                :
-                <Blog></Blog>
+                    <Loader></Loader>
+                    :
+                    <Blog></Blog>
             }
             {
                 user?.uid ?

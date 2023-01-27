@@ -17,7 +17,7 @@ const Faq = () => {
             <div className="container px-5 mt-16 mx-auto">
                 <div className="mt-10">
 
-                    <h1 className="sm:text-3xl text-2xl font-medium text-center text-gray-900 dark: text-white">
+                    <h1 className="sm:text-3xl text-2xl font-semibold text-center text-gray-900">
                         Frequently Asked Question
                     </h1>
 

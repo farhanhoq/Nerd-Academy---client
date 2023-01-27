@@ -43,7 +43,7 @@ const OurCourses = () => {
     // window.location.reload(true)
   };
 
-  if(loading){
+  if (loading) {
     return <Loader></Loader>
   }
 
@@ -59,7 +59,7 @@ const OurCourses = () => {
         </div>
 
         <div className="mx-auto rounded-lg">
-          <div className="flex gap-6 justify-center my-10">
+          <div className="flex flex-col md:flex-row gap-0 md:gap-6 justify-center my-10">
             <button
               onClick={() => filterResult("Web Development")}
               className="bg-transparent border-2 border-sky-400 p-2 rounded-lg mt-6"
