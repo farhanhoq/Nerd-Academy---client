@@ -214,7 +214,7 @@ const CourseDetails = () => {
 
         </div>
       </div>
-      <div className="w-3/12 mx-auto border">
+      {/* <div className="w-3/12 mx-auto border">
         <img src={picture} alt="" />
         <div className="w-10/12 mx-auto mt-8">
           <h1 className="text-5xl font-bold">${price}</h1>
@@ -228,7 +228,7 @@ const CourseDetails = () => {
           <p className="mt-1"><FaMobileAlt className="inline mr-1" /> Access on mobile and TV</p>
           <p className="mt-1 pb-5"><FaCertificate className="inline mr-1" /> Certificate of completion</p>
         </div>
-      </div>
+      </div> */}
     </div>
 
 
