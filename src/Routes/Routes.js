@@ -20,6 +20,7 @@ import Announcement from "../pages/Dashboard/Instructor/Announcement";
 import Settings from "../pages/Dashboard/Instructor/Settings";
 import Profile from "../pages/Dashboard/Instructor/Profile";
 import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
+import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
 
 export const routes = createBrowserRouter([
     {
@@ -96,7 +97,7 @@ export const routes = createBrowserRouter([
 
     {
         path: '/dashboard',
-        element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
+        element: <DashboardLayout></DashboardLayout>,
         errorElement: <Error></Error>,
         children: [
             {
@@ -118,6 +119,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myCourse',
                 element: <MyCourse></MyCourse>,
+            },
+            {
+                path: '/dashboard/DasboardReview',
+                element: <DasboardReview></DasboardReview>,
             },
         ]
     }
