@@ -1,14 +1,16 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import ScrollToTop from '../ScrollToTop';
 
 const BlogDetails = () => {
     const data = useLoaderData();
     const {about, authorImg, date, heading, name, picture } = data[0];
     // console.log(name);
-    return (
+    return (    
         <div>
+            <ScrollToTop/>
             <div className='w-9/12 mx-auto py-40'>
-                <h1 className='mb-20 font-bold text-5xl text-primary'>{heading}</h1>
+                <h1 className='mb-20 font-bold text-3xl text-primary'>{heading}</h1>
                 <div className='flex mb-8'>
                     <img className='w-24 rounded-full' src={authorImg} alt="" />
                     <div className='pl-1'>
@@ -16,7 +18,7 @@ const BlogDetails = () => {
                         <p className='pl-4 underline'>{date}</p>
                     </div>
                 </div>
-                <img src={picture} alt="" />
+                <img src={picture} className="rounded-lg" alt="" />
                 <p className='text-xl mt-10'>{about}</p>
             </div>
         </div>
