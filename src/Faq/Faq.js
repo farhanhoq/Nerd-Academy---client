@@ -13,7 +13,7 @@ const Faq = () => {
 
     return (
 
-        <section className="bg-cyan-50 p-1 mt-20 dark:bg-black dark:text-white">
+        <section className="bg-cyan-50 py-16 dark:bg-black dark:text-white">
             <div className="container px-5 mt-16 mx-auto">
                 <div className="mt-10">
 

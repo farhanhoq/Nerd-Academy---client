@@ -48,7 +48,7 @@ const OurCourses = () => {
   }
 
   return (
-    <div className="mb-32 py-32 bg-cyan-50 dark:bg-black dark:text-white" id="courses">
+    <div className="py-32 bg-cyan-50 dark:bg-black dark:text-white" id="courses">
       <div className="w-11/12 mx-auto">
         <h1 className="text-5xl text-center font-bold capitalize">
           Courses we offer
