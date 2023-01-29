@@ -18,7 +18,7 @@ const BlogDetails = () => {
         <div>
             <ScrollToTop/>
             <div className='w-9/12 mx-auto py-40'>
-                <h1 className='mb-20 font-bold text-3xl text-primary'>{heading}</h1>
+                <h1 className='mb-20 font-bold text-3xl qtext-primary'>{heading}</h1>
                 <div className='flex mb-8'>
                     <img className='w-24 rounded-full' src={authorImg} alt="" />
                     <div className='pl-1'>

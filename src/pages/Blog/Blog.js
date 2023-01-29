@@ -18,7 +18,6 @@ const Blog = () => {
         queryKey: ['blogData'],
         queryFn: () => fetch('https://nerd-academy-server.vercel.app/blog').then(res => res.json()),
       });
-      console.log(blogData);
 
       if(loading){
         return <Loader></Loader>
