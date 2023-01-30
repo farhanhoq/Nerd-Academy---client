@@ -23,7 +23,13 @@ import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
 import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
 import Order from "../pages/Dashboard/Instructor/Order";
 import Assignments from "../pages/Dashboard/Instructor/Assignments";
-import AdminDashboard from "../Layout/AdminDashboard";
+import AdminDashboardLayout from "../Layout/AdminDashboardLayout";
+import Item from "../pages/Dashboard/AdminDashboard/Item";
+import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
+import Inbox from "../pages/Dashboard/AdminDashboard/Inbox";
+import User from "../pages/Dashboard/AdminDashboard/User";
+import Products from "../pages/Dashboard/AdminDashboard/Products";
+import Documentation from "../pages/Dashboard/AdminDashboard/Documentation";
 
 export const routes = createBrowserRouter([
     {
@@ -138,15 +144,42 @@ export const routes = createBrowserRouter([
         ]
     },
     {
-        path: '/admindashboard',
-        element: <AdminDashboard></AdminDashboard>,
+        path: '/admin-dashboard',
+        element: <PrivateRoutes><AdminDashboardLayout></AdminDashboardLayout></PrivateRoutes>,
         errorElement: <Error></Error>,
         children: [
             {
-                path: '/admindashboard',
-                element: <Dashboard></Dashboard>,
+                path: '/admin-dashboard',
+                element: <AdminDashboard></AdminDashboard>,
             },
-
+            {
+                path: '/admin-dashboard/item',
+                element: <Item></Item>,
+            },
+            {
+                path: '/admin-dashboard/inbox',
+                element: <Inbox></Inbox>,
+            },
+            {
+                path: '/admin-dashboard/users',
+                element: <User></User>,
+            },
+            {
+                path: '/admin-dashboard/products',
+                element: <Products></Products>,
+            },
+            {
+                path: '/admin-dashboard/documentation',
+                element: <Documentation></Documentation>,
+            },
+            {
+                path: '/admin-dashboard/components',
+                element: <Item></Item>,
+            },
+            {
+                path: '/admin-dashboard/help',
+                element: <Item></Item>,
+            },
         ]
-    }
+    },
 ])
