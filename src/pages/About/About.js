@@ -6,7 +6,10 @@ import analyst from "../../Assets/analyst.png";
 
 const About = () => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 justify-between px-16 mt-[30%] mb-40 items-center" id="about">
+    <section
+      className="grid grid-cols-1 md:grid-cols-2 justify-between px-16 mt-[30%] mb-40 items-center dark:text-white"
+      id="about"
+    >
       <div className="text-center lg:text-left mr-2">
         <img
           className="w-12/12"
@@ -27,7 +30,8 @@ const About = () => {
           <div className="w-full p-8">
             <h2 className="card-title">Flexibility </h2>
             <p className="text-slate-500 text-base mt-2">
-            Online courses can be accessed from anywhere, at any time, making it convenient for people with busy schedules.
+              Online courses can be accessed from anywhere, at any time, making
+              it convenient for people with busy schedules.
             </p>
           </div>
         </div>
@@ -39,7 +43,8 @@ const About = () => {
           <div className="w-full p-8">
             <h2 className="card-title">Cost effective</h2>
             <p className="text-slate-500 text-base mt-2">
-            Online courses and programs are often less expensive than traditional on-campus options.
+              Online courses and programs are often less expensive than
+              traditional on-campus options.
             </p>
           </div>
         </div>
@@ -51,7 +56,8 @@ const About = () => {
           <div className="w-full p-8">
             <h2 className="card-title">Networking</h2>
             <p className="text-slate-500 text-base mt-2">
-            Online learning allows for students to connect with a diverse group of people from around the world.
+              Online learning allows for students to connect with a diverse
+              group of people from around the world.
             </p>
           </div>
         </div>

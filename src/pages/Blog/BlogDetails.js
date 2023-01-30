@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+import Loader from '../../Loader/Loader';
 import ScrollToTop from '../ScrollToTop';
 
 const BlogDetails = () => {
     const data = useLoaderData();
     const {about, authorImg, date, heading, name, picture } = data[0];
     // console.log(name);
+    const { loading } = useContext(AuthContext);
+
+    if(loading){
+        return <Loader></Loader>
+    }
+
     return (    
         <div>
             <ScrollToTop/>
             <div className='w-9/12 mx-auto py-40'>
-                <h1 className='mb-20 font-bold text-3xl text-primary'>{heading}</h1>
+                <h1 className='mb-20 font-bold text-3xl qtext-primary'>{heading}</h1>
                 <div className='flex mb-8'>
                     <img className='w-24 rounded-full' src={authorImg} alt="" />
                     <div className='pl-1'>

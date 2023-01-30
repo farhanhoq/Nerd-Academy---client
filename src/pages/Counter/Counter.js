@@ -19,24 +19,20 @@ const Counter = () => {
     return (
 
 
-        <div style={{
-            background: ` url(${cover2})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            height: "400px",
-            padding: "1px",
-
-
-
-        }}
-        >
-            <div className='grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 gap-8 my-20 w-12/12 mx-24'>
+        // <div style={{
+        //     background: ` url(${cover2})`,
+        //     backgroundPosition: "center",
+        //     backgroundRepeat: "no-repeat",
+        //     backgroundSize: "cover",
+        //     height: "400px",
+        //     padding: "1px",
+        // }}
+        // >
+        <div style={{ backgroundImage: `url(${cover2})` }} className="lg:h-96 p-1 bg-cover bg-no-repeat	bg-center">
+            <div className='grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-8 my-20 w-12/12 mx-24'>
                 {
                     counters.map(counter => <div key={counter.id} counter={counter} className="w-full max-w-sm  rounded-md shadow-md border border-cyan-500">
                         <div className="flex justify-end px-4 pt-4">
-
-
                         </div>
                         <div className="left-content flex flex-col items-center pb-10">
                             <img className="w-24 h-24 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src={counter.img} alt='' />
@@ -47,9 +43,9 @@ const Counter = () => {
                     </div>)
                 }
             </div>
-
-
         </div>
+
+
 
     );
 };

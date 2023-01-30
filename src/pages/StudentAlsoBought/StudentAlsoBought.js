@@ -1,9 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { FaStar, FaUserFriends } from 'react-icons/fa';
+import { AuthContext } from '../../Context/AuthProvider';
+import Loader from '../../Loader/Loader';
 
 const StudentAlsoBought = () => {
+  const { loading } = useContext(AuthContext);
   const [trendingData, setTrendingData] = useState([]);
 
   useEffect(() => {
@@ -12,6 +15,9 @@ const StudentAlsoBought = () => {
       .then((data) => setTrendingData(data));
   }, []);
 
+  if(loading){
+    return <Loader></Loader>
+  }
     return (
         <div className=''>
               <div className="overflow-x-auto border p-3">

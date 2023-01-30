@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -13,6 +13,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
   const [darkMode, setDarkMode] = useState(false);
+  // const location = useLocation();
 
   const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ const Navbar = () => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
     }
   }, [theme]);
 
@@ -136,6 +137,17 @@ const Navbar = () => {
         >
           {menuItems}
         </ul>
+
+        {/* <div>
+          {
+            ((location.pathname === '/dashboard') || (location.pathname.startsWith('/dashboard/'))) &&
+
+            <div className="drawer-content block lg:hidden">
+              <label htmlFor="dashboard-drawer" className="btn btn-primary drawer-button"><MdOutlineDashboardCustomize className='text-2xl text-white' /></label>
+            </div>
+          }
+        </div> */}
+
       </div>
 
       <div class="hidden lg:block w-[17%]">

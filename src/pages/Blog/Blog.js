@@ -1,10 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import minusb from "../../Assets/minusb.png";
 import book from "../../Assets/book.png";
+import { AuthContext } from '../../Context/AuthProvider';
+import Loader from '../../Loader/Loader';
 
 const Blog = () => {
+
+  const { loading } = useContext(AuthContext);
 
     const {
         data: blogData = [],
@@ -14,11 +18,14 @@ const Blog = () => {
         queryKey: ['blogData'],
         queryFn: () => fetch('https://nerd-academy-server.vercel.app/blog').then(res => res.json()),
       });
-      console.log(blogData);
+
+      if(loading){
+        return <Loader></Loader>
+      }
 
     return (
         <div className='py-32'>
-            <div className='text-center mb-28 mt-10'>
+            <div className='text-center mb-28 mt-10 dark:text-white'>
             <h1 className="text-5xl text-center font-bold capitalize">
           Blogs
         </h1>

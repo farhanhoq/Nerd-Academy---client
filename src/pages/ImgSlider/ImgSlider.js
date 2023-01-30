@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "./ImgSlider.css";
 import "swiper/css";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
+import Loader from "../../Loader/Loader";
 
 const ImgSlider = () => {
+
+  const { loading } = useContext(AuthContext);
+
+
+
   const {
     data: courses = [],
     isLoading,
@@ -15,6 +22,10 @@ const ImgSlider = () => {
     queryKey: ["courses"],
     queryFn: () => fetch("trendingCourses.json").then((res) => res.json()),
   });
+
+if(loading){
+  return <Loader></Loader>
+}
 
   return (
     <div className=" flex items-center justify-center">

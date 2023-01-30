@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div>
       <hr />
-      <footer className="footer p-10 lg:grid-cols-3 md:justify-items-center my-8">
+      <footer className="footer p-10 lg:grid-cols-3 md:justify-items-center my-8 dark:text-white">
         <div className="w-full">
           <h2 className="text-2xl text-primary mb-3 uppercase font-semibold">Office Address</h2>
           <div>
@@ -24,7 +24,7 @@ const Footer = () => {
           <ul>
             <Link className="text-xl" to='/'><li className="my-2">Home</li></Link>
             <Link className="text-xl" to='/about'><li className="my-2">About Us</li></Link>
-            <Link className="text-xl" to='/blogs'><li className="my-2">Blogs</li></Link>
+            <Link className="text-xl" to='/blog'><li className="my-2">Blogs</li></Link>
             <Link className="text-xl" to='/contact'><li className="my-2">Contact Us</li></Link>
 
           </ul>
