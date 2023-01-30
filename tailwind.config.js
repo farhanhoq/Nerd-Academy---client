@@ -3,11 +3,11 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  darkMode:"class",
-  daisyui:{
+  darkMode: "class",
+  daisyui: {
     themes: [
       {
-        nerdthemes:{
+        nerdthemes: {
           primary: '#11CEE6',
           secondary: '#2c3e50',
           accent: "#3A4256",

@@ -23,6 +23,7 @@ import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
 import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
 import Order from "../pages/Dashboard/Instructor/Order";
 import Assignments from "../pages/Dashboard/Instructor/Assignments";
+import AdminDashboard from "../Layout/AdminDashboard";
 
 export const routes = createBrowserRouter([
     {
@@ -134,6 +135,18 @@ export const routes = createBrowserRouter([
                 path: '/dashboard/assignments',
                 element: <Assignments></Assignments>,
             },
+        ]
+    },
+    {
+        path: '/admindashboard',
+        element: <AdminDashboard></AdminDashboard>,
+        errorElement: <Error></Error>,
+        children: [
+            {
+                path: '/admindashboard',
+                element: <Dashboard></Dashboard>,
+            },
+
         ]
     }
 ])
