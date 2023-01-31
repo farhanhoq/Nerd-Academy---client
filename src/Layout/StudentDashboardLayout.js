@@ -59,7 +59,7 @@ const StudentDashboardLayout = () => {
               <ul class="space-y-2 tracking-wide text-white ">
                 <li>
                   <Link
-                    to="/studentDashboard"
+                    to="/student-dashboard"
                     aria-label="dashboard"
                     class="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-white bg-gradient-to-r from-sky-600 to-cyan-400"
                   >
@@ -82,7 +82,7 @@ const StudentDashboardLayout = () => {
                 </li>
                 <li>
                   <Link
-                    to="/studentDashboard/myCourses"
+                    to="/student-dashboard/student-courses"
                     class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
                   >
                     <svg
@@ -109,7 +109,7 @@ const StudentDashboardLayout = () => {
 
                 <li>
                   <Link
-                    to="/studentDashboard/studentAnnouncement"
+                    to="/student-dashboard/student-announcement"
                     class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
                   >
                     <svg
@@ -135,7 +135,7 @@ const StudentDashboardLayout = () => {
                 </li>
                 <li>
                   <Link
-                    to="/studentDashboard/studentAssignment"
+                    to="/student-dashboard/student-assignment"
                     class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
                   >
                     <img
@@ -153,7 +153,7 @@ const StudentDashboardLayout = () => {
 
                 <li>
                   <Link
-                    to="/studentDashboard/studentProfile"
+                    to="/student-dashboard/student-profile"
                     class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
                   >
                     <svg
@@ -176,7 +176,7 @@ const StudentDashboardLayout = () => {
                 </li>
                 <li>
                   <Link
-                    to="/studentDashboard/studentOrderHistory"
+                    to="/student-dashboard/student-order"
                     class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
                   >
                     <img
@@ -191,7 +191,7 @@ const StudentDashboardLayout = () => {
                 </li>
                 <li>
                   <Link
-                    to="/studentDashboard/studentSettings"
+                    to="/student-dashboard/student-settings"
                     class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
                   >
                     <svg
