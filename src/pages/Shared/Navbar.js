@@ -6,6 +6,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
+import { MdOutlineDashboardCustomize } from 'react-icons/md';
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -13,7 +14,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
   const [darkMode, setDarkMode] = useState(false);
-  // const location = useLocation();
+  const location = useLocation();
 
   const navigate = useNavigate();
 
@@ -138,15 +139,16 @@ const Navbar = () => {
           {menuItems}
         </ul>
 
-        {/* <div>
+        <div>
           {
-            ((location.pathname === '/dashboard') || (location.pathname.startsWith('/dashboard/'))) &&
+            ((location.pathname === '/admin-dashboard') ||
+              (location.pathname.startsWith('/admin-dashboard/'))) &&
 
             <div className="drawer-content block lg:hidden">
-              <label htmlFor="dashboard-drawer" className="btn btn-primary drawer-button"><MdOutlineDashboardCustomize className='text-2xl text-white' /></label>
+              <label htmlFor="admin-dashboard-drawer" className="btn btn-primary drawer-button"><MdOutlineDashboardCustomize className='text-2xl text-white' /></label>
             </div>
           }
-        </div> */}
+        </div>
 
       </div>
 
