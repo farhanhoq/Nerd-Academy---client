@@ -6,7 +6,7 @@ const Faq = () => {
     const [faq, setFaq] = useState([]);
 
     useEffect(() => {
-        fetch('https://nerd-academy-server.vercel.app/counter')
+        fetch('https://nerd-academy-server.vercel.app/faq')
             .then(res => res.json())
             .then(data => setFaq(data))
     }, [])
