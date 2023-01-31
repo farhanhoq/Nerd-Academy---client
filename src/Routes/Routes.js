@@ -30,6 +30,8 @@ import Inbox from "../pages/Dashboard/AdminDashboard/Inbox";
 import User from "../pages/Dashboard/AdminDashboard/User";
 import Products from "../pages/Dashboard/AdminDashboard/Products";
 import Documentation from "../pages/Dashboard/AdminDashboard/Documentation";
+import AllInstructor from "../pages/Dashboard/AdminDashboard/AllInstructor";
+import Customer from "../pages/Dashboard/AdminDashboard/Customer";
 
 export const routes = createBrowserRouter([
     {
@@ -179,6 +181,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/admin-dashboard/help',
                 element: <Item></Item>,
+            },
+            {
+                path: '/admin-dashboard/all-instructor',
+                element: <AllInstructor></AllInstructor>,
+            },
+            {
+                path: '/admin-dashboard/customer',
+                element: <Customer></Customer>,
             },
         ]
     },
