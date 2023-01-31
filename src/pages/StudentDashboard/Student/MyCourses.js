@@ -93,6 +93,7 @@ const MyCourses = () => {
                                         </span>
                                     </div>
                                 </div>
+                                
 
                                 <div className="mt-1 p-2">
                                     <h2 className="text-slate-700 text-lg font-bold mt-3">{course?.title}</h2>
