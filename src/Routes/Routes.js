@@ -169,10 +169,6 @@ export const routes = createBrowserRouter([
                 element: <Analytics></Analytics>,
             },
             {
-                path: '/admin-dashboard/inbox',
-                element: <Inbox></Inbox>,
-            },
-            {
                 path: '/admin-dashboard/users',
                 element: <User></User>,
             },
