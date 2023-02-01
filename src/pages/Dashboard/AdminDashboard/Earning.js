@@ -79,13 +79,13 @@ const Earning = () => {
                 <div id="last-incomes">
                     <h1 class="font-bold py-4 uppercase">Last 24h incomes</h1>
                     <div id="stats" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="bg-gradient-to-r from-sky-600 to-cyan-400 rounded-lg">
+                        <div class="bg-white hover:bg-gradient-to-br hover:from-sky-600 hover:via-sky-400 hover:to-cyan-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
                             <div class="flex flex-row items-center">
                                 <div class="text-3xl p-4">💰</div>
                                 <div class="p-2">
                                     <p class="text-xl font-bold">348$</p>
-                                    <p class="text-cyan-50 font-medium">Amber Gates</p>
-                                    <p class="text-cyan-50 text-sm">24 Nov 2022</p>
+                                    <p class=" font-medium">Amber Gates</p>
+                                    <p class=" text-sm">24 Nov 2022</p>
                                 </div>
                             </div>
                             <div class="border-t border-white/40 p-4">
@@ -97,13 +97,13 @@ const Earning = () => {
                                 </a>
                             </div>
                         </div>
-                        <div class="bg-gradient-to-r from-sky-600 to-cyan-400 rounded-lg">
+                        <div class="bg-white hover:bg-gradient-to-br hover:from-sky-600 hover:via-sky-400 hover:to-cyan-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
                             <div class="flex flex-row items-center">
                                 <div class="text-3xl p-4">💰</div>
                                 <div class="p-2">
                                     <p class="text-xl font-bold">68$</p>
-                                    <p class="text-cyan-50 font-medium">Maia Kipper</p>
-                                    <p class="text-cyan-50 text-sm">23 Nov 2022</p>
+                                    <p class=" font-medium">Maia Kipper</p>
+                                    <p class=" text-sm">23 Nov 2022</p>
                                 </div>
                             </div>
                             <div class="border-t border-white/40 p-4">
@@ -115,13 +115,13 @@ const Earning = () => {
                                 </a>
                             </div>
                         </div>
-                        <div class="bg-gradient-to-r from-sky-600 to-cyan-400 rounded-lg">
+                        <div class="bg-white hover:bg-gradient-to-br hover:from-sky-600 hover:via-sky-400 hover:to-cyan-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
                             <div class="flex flex-row items-center">
                                 <div class="text-3xl p-4">💰</div>
                                 <div class="p-2">
                                     <p class="text-xl font-bold">12$</p>
-                                    <p class="text-cyan-50 font-medium">Oprah Milles</p>
-                                    <p class="text-cyan-50 text-sm">23 Nov 2022</p>
+                                    <p class=" font-medium">Oprah Milles</p>
+                                    <p class=" text-sm">23 Nov 2022</p>
                                 </div>
                             </div>
                             <div class="border-t border-white/40 p-4">
@@ -133,13 +133,13 @@ const Earning = () => {
                                 </a>
                             </div>
                         </div>
-                        <div class="bg-gradient-to-r from-sky-600 to-cyan-400 rounded-lg">
+                        <div class="bg-white hover:bg-gradient-to-br hover:from-sky-600 hover:via-sky-400 hover:to-cyan-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
                             <div class="flex flex-row items-center">
                                 <div class="text-3xl p-4">💰</div>
                                 <div class="p-2">
                                     <p class="text-xl font-bold">105$</p>
-                                    <p class="text-cyan-50 font-medium">Jonny Nite</p>
-                                    <p class="text-cyan-50 text-sm">23 Nov 2022</p>
+                                    <p class=" font-medium">Jonny Nite</p>
+                                    <p class=" text-sm">23 Nov 2022</p>
                                 </div>
                             </div>
                             <div class="border-t border-white/40 p-4">
@@ -151,13 +151,13 @@ const Earning = () => {
                                 </a>
                             </div>
                         </div>
-                        <div class="bg-gradient-to-r from-sky-600 to-cyan-400 rounded-lg">
+                        <div class="bg-white hover:bg-gradient-to-br hover:from-sky-600 hover:via-sky-400 hover:to-cyan-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
                             <div class="flex flex-row items-center">
                                 <div class="text-3xl p-4">💰</div>
                                 <div class="p-2">
                                     <p class="text-xl font-bold">52$</p>
-                                    <p class="text-cyan-50 font-medium">Megane Baile</p>
-                                    <p class="text-cyan-50 text-sm">22 Nov 2022</p>
+                                    <p class=" font-medium">Megane Baile</p>
+                                    <p class=" text-sm">22 Nov 2022</p>
                                 </div>
                             </div>
                             <div class="border-t border-white/40 p-4">
@@ -169,13 +169,13 @@ const Earning = () => {
                                 </a>
                             </div>
                         </div>
-                        <div class="bg-gradient-to-r from-sky-600 to-cyan-400 rounded-lg">
+                        <div class="bg-white hover:bg-gradient-to-br hover:from-sky-600 hover:via-sky-400 hover:to-cyan-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
                             <div class="flex flex-row items-center">
                                 <div class="text-3xl p-4">💰</div>
                                 <div class="p-2">
                                     <p class="text-xl font-bold">28$</p>
-                                    <p class="text-cyan-50 font-medium">Tony Ankel</p>
-                                    <p class="text-cyan-50 text-sm">22 Nov 2022</p>
+                                    <p class=" font-medium">Tony Ankel</p>
+                                    <p class=" text-sm">22 Nov 2022</p>
                                 </div>
                             </div>
                             <div class="border-t border-white/40 p-4">
@@ -191,9 +191,9 @@ const Earning = () => {
                 </div>
                 <div id="last-users">
                     <h1 class="font-bold py-4 uppercase">Last 24h users</h1>
-                    <div class="overflow-x-scroll bg-gradient-to-r from-sky-600 to-cyan-400 p-6 rounded-lg">
+                    <div class="overflow-x-scroll bg-white hover:bg-gradient-to-br hover:from-sky-600 hover:via-sky-400 hover:to-cyan-500 shadow-lg duration-300 hover:shadow-2xl group p-6 rounded-lg">
                         <table class="w-full whitespace-nowrap">
-                            <thead class="bg-sky-600 text-cyan-50">
+                            <thead class=" ">
                                 <th class="text-left py-3 px-2 rounded-l-lg">Name</th>
                                 <th class="text-left py-3 px-2">Email</th>
                                 <th class="text-left py-3 px-2">Group</th>
