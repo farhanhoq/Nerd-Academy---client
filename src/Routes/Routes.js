@@ -24,12 +24,14 @@ import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
 import Order from "../pages/Dashboard/Instructor/Order";
 import Assignments from "../pages/Dashboard/Instructor/Assignments";
 import AdminDashboardLayout from "../Layout/AdminDashboardLayout";
-import Item from "../pages/Dashboard/AdminDashboard/Item";
+import Item from "../pages/Dashboard/AdminDashboard/Analytics";
 import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
 import Inbox from "../pages/Dashboard/AdminDashboard/Inbox";
 import User from "../pages/Dashboard/AdminDashboard/User";
 import Products from "../pages/Dashboard/AdminDashboard/Products";
 import Documentation from "../pages/Dashboard/AdminDashboard/Documentation";
+import Analytics from "../pages/Dashboard/AdminDashboard/Analytics";
+import Earning from "../pages/Dashboard/AdminDashboard/Earning";
 
 export const routes = createBrowserRouter([
     {
@@ -153,8 +155,8 @@ export const routes = createBrowserRouter([
                 element: <AdminDashboard></AdminDashboard>,
             },
             {
-                path: '/admin-dashboard/item',
-                element: <Item></Item>,
+                path: '/admin-dashboard/analytics',
+                element: <Analytics></Analytics>,
             },
             {
                 path: '/admin-dashboard/inbox',
@@ -167,6 +169,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/admin-dashboard/products',
                 element: <Products></Products>,
+            },
+            {
+                path: '/admin-dashboard/earning',
+                element: <Earning></Earning>,
             },
             {
                 path: '/admin-dashboard/documentation',
