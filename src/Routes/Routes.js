@@ -40,6 +40,7 @@ import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignme
 import Analytics from "../pages/Dashboard/AdminDashboard/Analytics";
 import Earning from "../pages/Dashboard/AdminDashboard/Earning";
 import Home from "../pages/Home/Home/Home";
+import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 
 export const routes = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home/>
+                element: <Home />
             }
             ,
             {
@@ -138,6 +139,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myCourse',
                 element: <MyCourse></MyCourse>,
+            },
+            {
+                path: '/dashboard/add-course',
+                element: <AddCourse></AddCourse>,
             },
             {
                 path: '/dashboard/DasboardReview',
