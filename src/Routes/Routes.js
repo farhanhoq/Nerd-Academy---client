@@ -30,6 +30,16 @@ import Inbox from "../pages/Dashboard/AdminDashboard/Inbox";
 import User from "../pages/Dashboard/AdminDashboard/User";
 import Products from "../pages/Dashboard/AdminDashboard/Products";
 import Documentation from "../pages/Dashboard/AdminDashboard/Documentation";
+import AllInstructor from "../pages/Dashboard/AdminDashboard/AllInstructor";
+import Customer from "../pages/Dashboard/AdminDashboard/Customer";
+import StudentDashboardLayout from '../Layout/StudentDashboardLayout';
+import StudentDashboard from "../pages/StudentDashboard/StudentDashboard";
+import StudentAnnouncement from '../pages/StudentDashboard/Student/StudentAnnouncement';
+import StudentSettings from '../pages/StudentDashboard/Student/StudentSettings';
+import StudentProfile from "../pages/StudentDashboard/Student/StudentProfile";
+import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
+import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
+import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
 import Analytics from "../pages/Dashboard/AdminDashboard/Analytics";
 import Earning from "../pages/Dashboard/AdminDashboard/Earning";
 
@@ -185,6 +195,49 @@ export const routes = createBrowserRouter([
             {
                 path: '/admin-dashboard/help',
                 element: <Item></Item>,
+            },
+            {
+                path: '/admin-dashboard/all-instructor',
+                element: <AllInstructor></AllInstructor>,
+            },
+            {
+                path: '/admin-dashboard/customer',
+                element: <Customer></Customer>,
+            },
+        ]
+    },
+    {
+        path: '/student-dashboard',
+        element: <StudentDashboardLayout></StudentDashboardLayout>,
+        errorElement: <Error></Error>,
+        children: [
+            {
+                path: '/student-dashboard',
+                element: <StudentDashboard></StudentDashboard>,
+            },
+            {
+                path: '/student-dashboard/student-announcement',
+                element: <StudentAnnouncement></StudentAnnouncement>
+            },
+            {
+                path: '/student-dashboard/student-settings',
+                element: <StudentSettings></StudentSettings>,
+            },
+            {
+                path: '/student-dashboard/student-profile',
+                element: <StudentProfile></StudentProfile>,
+            },
+            {
+                path: '/student-dashboard/student-courses',
+                element: <MyCourses></MyCourses>,
+            },
+            {
+                path: '/student-dashboard/student-order',
+                element: <StudentOrderHistory></StudentOrderHistory>
+            },
+            {
+                path: '/student-dashboard/student-assignment',
+                element: <StudentAssignment></StudentAssignment>,
             },
         ]
     },

@@ -10,7 +10,7 @@ const Counter = () => {
     const [counters, setCounters] = useState([]);
 
     useEffect(() => {
-        fetch('counters.json')
+        fetch('https://nerd-academy-server.vercel.app/counter')
             .then(res => res.json())
             .then(data => {
                 setCounters(data)
