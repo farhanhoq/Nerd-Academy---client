@@ -6,7 +6,6 @@ import Checkout from "../pages/Checkout/Checkout";
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
 import Review from "../pages/Courses/Review";
-import Home from "../pages/home/Home";
 import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -40,6 +39,7 @@ import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderH
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
 import Analytics from "../pages/Dashboard/AdminDashboard/Analytics";
 import Earning from "../pages/Dashboard/AdminDashboard/Earning";
+import Home from "../pages/Home/Home/Home";
 
 export const routes = createBrowserRouter([
     {
@@ -48,7 +48,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home/>
             }
             ,
             {
