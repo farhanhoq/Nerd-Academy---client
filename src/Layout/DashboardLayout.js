@@ -96,23 +96,6 @@ const DashboardLayout = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/dashboard/assignments" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                                        <img className='h-5 w-5' src="https://cdn-icons-png.flaticon.com/512/5847/5847220.png" alt="" srcset="" />
-                                        <span class="group-hover:text-gray-700">Assignments</span>
-                                        {/* <Link to="/dashboard/announcement"><span class="group-hover:text-gray-700">Announcement</span></Link> */}
-
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link to="/dashboard/profile" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                        </svg>
-                                        <span class="group-hover:text-gray-700">Profile</span>
-                                        {/* <Link to="/dashboard/profile"><span class="group-hover:text-gray-700">Profile</span></Link> */}
-                                    </Link>
-                                </li>
-                                <li>
                                     <Link to="/dashboard/order" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
                                         <img className='h-5 w-5' src="https://cdn-icons-png.flaticon.com/512/3500/3500833.png" alt="" srcset="" />
                                         <span class="group-hover:text-gray-700">Order History</span>

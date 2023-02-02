@@ -17,11 +17,9 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Announcement from "../pages/Dashboard/Instructor/Announcement";
 import Settings from "../pages/Dashboard/Instructor/Settings";
-import Profile from "../pages/Dashboard/Instructor/Profile";
 import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
 import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
 import Order from "../pages/Dashboard/Instructor/Order";
-import Assignments from "../pages/Dashboard/Instructor/Assignments";
 import AdminDashboardLayout from "../Layout/AdminDashboardLayout";
 import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
 import User from "../pages/Dashboard/AdminDashboard/User";
@@ -128,10 +126,7 @@ export const routes = createBrowserRouter([
                 path: '/dashboard/settings',
                 element: <Settings></Settings>,
             },
-            {
-                path: '/dashboard/profile',
-                element: <Profile></Profile>,
-            },
+
             {
                 path: '/dashboard/myCourse',
                 element: <MyCourse></MyCourse>,
@@ -148,10 +143,7 @@ export const routes = createBrowserRouter([
                 path: '/dashboard/order',
                 element: <Order></Order>,
             },
-            {
-                path: '/dashboard/assignments',
-                element: <Assignments></Assignments>,
-            },
+
         ]
     },
     {
