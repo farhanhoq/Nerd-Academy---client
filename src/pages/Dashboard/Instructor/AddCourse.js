@@ -45,7 +45,7 @@ const AddCourse = () => {
 
                     console.log(addCourse);
 
-                    fetch('http://localhost:5000/courses', {
+                    fetch('https://nerd-academy-server.vercel.app/courses', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
