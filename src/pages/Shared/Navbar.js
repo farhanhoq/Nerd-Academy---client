@@ -88,9 +88,6 @@ const Navbar = () => {
       <li>
         <a href="/">Mobile App Development</a>
       </li>
-      <li>
-        <a href="/dashboard"> Instructo Dashboard</a>
-      </li>
     </>
   );
 
@@ -176,7 +173,7 @@ const Navbar = () => {
             <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
           </li>
           <li>
-            <Link to="/instructor" className="pt-3 item text-md" style={{ color: getColor("/") }}>Instructor</Link>
+            <Link to="/dashboard" className="pt-3 item text-md" style={{ color: getColor("/") }}>Instructor</Link>
           </li>
         </ul>
       </div>

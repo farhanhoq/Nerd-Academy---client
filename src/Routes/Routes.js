@@ -6,7 +6,6 @@ import Checkout from "../pages/Checkout/Checkout";
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
 import Review from "../pages/Courses/Review";
-import Home from "../pages/home/Home";
 import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -16,18 +15,13 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import Announcement from "../pages/Dashboard/Instructor/Announcement";
 import Settings from "../pages/Dashboard/Instructor/Settings";
-import Profile from "../pages/Dashboard/Instructor/Profile";
 import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
 import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
 import Order from "../pages/Dashboard/Instructor/Order";
-import Assignments from "../pages/Dashboard/Instructor/Assignments";
 import AdminDashboardLayout from "../Layout/AdminDashboardLayout";
-import Item from "../pages/Dashboard/AdminDashboard/Analytics";
 import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
 import User from "../pages/Dashboard/AdminDashboard/User";
-import Documentation from "../pages/Dashboard/AdminDashboard/Documentation";
 import AllInstructor from "../pages/Dashboard/AdminDashboard/AllInstructor";
 import Customer from "../pages/Dashboard/AdminDashboard/Customer";
 import StudentDashboardLayout from '../Layout/StudentDashboardLayout';
@@ -38,8 +32,8 @@ import StudentProfile from "../pages/StudentDashboard/Student/StudentProfile";
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
-import Analytics from "../pages/Dashboard/AdminDashboard/Analytics";
-import Earning from "../pages/Dashboard/AdminDashboard/Earning";
+import Home from "../pages/Home/Home/Home";
+import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 
 export const routes = createBrowserRouter([
     {
@@ -48,7 +42,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home />
             }
             ,
             {
@@ -124,20 +118,17 @@ export const routes = createBrowserRouter([
                 element: <Dashboard></Dashboard>,
             },
             {
-                path: '/dashboard/announcement',
-                element: <Announcement></Announcement>,
-            },
-            {
                 path: '/dashboard/settings',
                 element: <Settings></Settings>,
             },
-            {
-                path: '/dashboard/profile',
-                element: <Profile></Profile>,
-            },
+
             {
                 path: '/dashboard/myCourse',
                 element: <MyCourse></MyCourse>,
+            },
+            {
+                path: '/dashboard/add-course',
+                element: <AddCourse></AddCourse>,
             },
             {
                 path: '/dashboard/DasboardReview',
@@ -147,10 +138,7 @@ export const routes = createBrowserRouter([
                 path: '/dashboard/order',
                 element: <Order></Order>,
             },
-            {
-                path: '/dashboard/assignments',
-                element: <Assignments></Assignments>,
-            },
+
         ]
     },
     {
@@ -162,29 +150,10 @@ export const routes = createBrowserRouter([
                 path: '/admin-dashboard',
                 element: <AdminDashboard></AdminDashboard>,
             },
-            {
-                path: '/admin-dashboard/analytics',
-                element: <Analytics></Analytics>,
-            },
+
             {
                 path: '/admin-dashboard/users',
                 element: <User></User>,
-            },
-            {
-                path: '/admin-dashboard/earning',
-                element: <Earning></Earning>,
-            },
-            {
-                path: '/admin-dashboard/documentation',
-                element: <Documentation></Documentation>,
-            },
-            {
-                path: '/admin-dashboard/components',
-                element: <Item></Item>,
-            },
-            {
-                path: '/admin-dashboard/help',
-                element: <Item></Item>,
             },
             {
                 path: '/admin-dashboard/all-instructor',

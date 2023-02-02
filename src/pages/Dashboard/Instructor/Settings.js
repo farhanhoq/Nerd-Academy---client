@@ -7,24 +7,25 @@ const Settings = () => {
             <figure>
                 <img className='' src={cover} alt="Shoes" />
             </figure>
+
             <form className='grid grid-cols-2 justify-between gap-6 my-6'>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">First Name</span>
                     </label>
-                    <input type="text" placeholder="First Name" className="input input-bordered w-full" />
+                    <input type="text" placeholder="First Name" className="input input-bordered w-full" value="Jenson" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">Last Name</span>
                     </label>
-                    <input type="text" placeholder="Last Name" className="input input-bordered w-full" />
+                    <input type="text" placeholder="Last Name" className="input input-bordered w-full" value="Gaza" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">User Name</span>
                     </label>
-                    <input type="text" placeholder="User Name" className="input input-bordered w-full" />
+                    <input type="text" placeholder="User Name" className="input input-bordered w-full" value="Jenson" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
@@ -40,7 +41,19 @@ const Settings = () => {
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
+                        <span className="label-text font-semibold">Current Password</span>
+                    </label>
+                    <input type="password" placeholder="" className="input input-bordered w-full" />
+                </div>
+                <div className="form-control w-full">
+                    <label className="label">
                         <span className="label-text font-semibold">Change Password</span>
+                    </label>
+                    <input type="password" placeholder="" className="input input-bordered w-full" />
+                </div>
+                <div className="form-control w-full">
+                    <label className="label">
+                        <span className="label-text font-semibold">Re-type Password</span>
                     </label>
                     <input type="password" placeholder="" className="input input-bordered w-full" />
                 </div>
@@ -51,6 +64,7 @@ const Settings = () => {
                     <textarea className="textarea textarea-bordered" placeholder="I am a Front-End Web Developer with a background in Computer Science & Engineering. I am passionately curious about learning and writing code."></textarea>
                 </div>
             </form>
+
             <div className="card-actions justify-start">
                 <button className="btn btn-primary text-white">Save Change</button>
             </div>

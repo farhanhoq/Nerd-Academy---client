@@ -42,7 +42,7 @@ const DashboardLayout = () => {
                     <div class="mt-16 text-center">
                         <img className='w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28' src="https://cdn-icons-png.flaticon.com/512/8443/8443255.png" alt="" srcset="" />
                         <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Jerge Chamas</h5>
-                        <span class="hidden text-gray-400 lg:block">Admin</span>
+                        <span class="hidden text-gray-400 lg:block">Instructor</span>
                     </div>
 
                     <ul className="menu p-4 w-80 lg:bg-opacity-0 text-white">
@@ -69,39 +69,22 @@ const DashboardLayout = () => {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link to="/dashboard/add-course" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path class="fill-current text-gray-300 group-hover:text-cyan-300" fill-rule="evenodd" d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z" clip-rule="evenodd" />
+                                            <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z" />
+                                        </svg>
+                                        <span class="group-hover:text-gray-700">Add Course</span>
+                                        {/* <Link to="/dashboard/myCourse"><span class="group-hover:text-gray-700">My Courses</span></Link> */}
+                                    </Link>
+                                </li>
+                                <li>
                                     <Link to="/dashboard/DasboardReview" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
                                         <img className='h-5 w-5' src="https://cdn-icons-png.flaticon.com/512/9474/9474993.png" alt="" srcset="" />
                                         <span class="group-hover:text-gray-700">Review</span>
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link to="/dashboard/announcement" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd" />
-                                            <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
-                                        </svg>
-                                        <span class="group-hover:text-gray-700">Announcement</span>
-                                        {/* <Link to="/dashboard/announcement"><span class="group-hover:text-gray-700">Announcement</span></Link> */}
 
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/dashboard/assignments" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                                        <img className='h-5 w-5' src="https://cdn-icons-png.flaticon.com/512/5847/5847220.png" alt="" srcset="" />
-                                        <span class="group-hover:text-gray-700">Assignments</span>
-                                        {/* <Link to="/dashboard/announcement"><span class="group-hover:text-gray-700">Announcement</span></Link> */}
-
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link to="/dashboard/profile" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                        </svg>
-                                        <span class="group-hover:text-gray-700">Profile</span>
-                                        {/* <Link to="/dashboard/profile"><span class="group-hover:text-gray-700">Profile</span></Link> */}
-                                    </Link>
-                                </li>
                                 <li>
                                     <Link to="/dashboard/order" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
                                         <img className='h-5 w-5' src="https://cdn-icons-png.flaticon.com/512/3500/3500833.png" alt="" srcset="" />
@@ -115,7 +98,7 @@ const DashboardLayout = () => {
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                         </svg>
-                                        <span class="group-hover:text-gray-700">Settings</span>
+                                        <span class="group-hover:text-gray-700">Profile</span>
                                         {/* <Link to="/dashboard/settings"><span class="group-hover:text-gray-700">Settings</span></Link> */}
                                     </Link>
                                 </li>
