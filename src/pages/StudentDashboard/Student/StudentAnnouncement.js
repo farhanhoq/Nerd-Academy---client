@@ -4,48 +4,14 @@ import { MdOutlineDeleteOutline } from 'react-icons/md';
 
 const StudentAnnouncement = () => {
     return (
-        <div className="py-6 card bg-base-100 shadow-xl">
-            <div className="card-body">
-                <h2 className="card-title text-4xl font-bold my-10">Announcement</h2>
-                <hr />
-               
-                <div className="grid grid-cols-1 md:grid-cols-3">
-                    <div>
-                        <p className="text-xl">Courses</p>
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option selected>All</option>
-                            <option>Han Solo</option>
-                            <option>Greedo</option>
-                        </select>
-                    </div>
-                    <div>
-                        <p className="text-xl">Sort By</p>
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option selected>Default</option>
-                            <option>Han Solo</option>
-                            <option>Greedo</option>
-                        </select>
-                    </div>
-                    <div>
-                        <p className="text-xl">Sort By Offer</p>
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option selected>Free</option>
-                            <option>Han Solo</option>
-                            <option>Greedo</option>
-                        </select>
-                    </div>
-                </div>
-                <hr className='my-4' />
-
-
+        <div className="py-6 card">
+                <h2 className="card-title text-4xl font-bold mt-10 mb-5">Announcement</h2>
+                <hr className='mb-10' />
                 <div className="overflow-x-auto w-full  ">
                     <table className="table w-full">
                         <thead>
                             <tr>
                                 <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
                                 </th>
                                 <th>Date</th>
                                 <th>Announcement</th>
@@ -55,9 +21,7 @@ const StudentAnnouncement = () => {
                         <tbody>
                             <tr>
                                 <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
+                                   
                                 </th>
                                 <td>
                                     <div className="flex items-center space-x-3">
@@ -85,9 +49,7 @@ const StudentAnnouncement = () => {
                             </tr>
                             <tr>
                                 <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
+                                   
                                 </th>
                                 <td>
                                     <div className="flex items-center space-x-3">
@@ -115,9 +77,7 @@ const StudentAnnouncement = () => {
                             </tr>
                             <tr>
                                 <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
+                                    
                                 </th>
                                 <td>
                                     <div className="flex items-center space-x-3">
@@ -148,8 +108,7 @@ const StudentAnnouncement = () => {
 
                     </table>
                 </div>
-
-            </div>
+           
         </div >
     );
 };

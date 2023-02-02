@@ -1,6 +1,15 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 const StudentOrderHistory = () => {
+
+
+    const { data: orders = [], isLoading, refetch } = useQuery({
+        queryKey: ['orders'],
+        queryFn: () => fetch('https://nerd-academy-server.vercel.app/order-history')
+          .then(res => res.json())
+      });
+      console.log(orders);
+
     return (
         <div>
         <div class=" card my-20 bg-base-100 shadow-xl">
@@ -28,7 +37,9 @@ const StudentOrderHistory = () => {
                             </tr>
                         </thead>
                         <tbody class="text-sm font-normal text-gray-700">
-                            <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
+                            {
+                                orders.map(order => 
+                                <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
                                 <td class="flex flex-row items-center px-4 py-4">
                                     <div class="flex w-10 h-10 mr-4">
                                         <a href="#" class="relative block">
@@ -36,106 +47,28 @@ const StudentOrderHistory = () => {
                                         </a>
                                     </div>
                                     <div class="flex-1 pl-1">
-                                        <div class="font-medium">Barbara Curtis</div>
+                                        <div class="font-medium">{order?.name}</div>
                                         <div class="text-sm text-blue-600 ">
-                                            Account Deactivated
+                                            {order?.isVerified}
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-4 py-4">
-                                    Web Development
+                                    {order?.courseName}
                                 </td>
                                 <td class="px-4 py-4">
-                                    $1500
+                                    ${order?.price}
                                 </td>
                                 <td class="px-4 py-4">
-                                    MX-8523537435
+                                    {order?.orderNo}
                                 </td>
                                 <td class="px-4 py-4">
-                                    Just Now
+                                    {order?.purchasedOn}
                                 </td>
-                            </tr>
-                            <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
-                                <td class="flex flex-row items-center px-4 py-4">
-                                    <div class="flex w-10 h-10 mr-4">
-                                        <a href="#" class="relative block">
-                                            <img alt="profil" src="https://images.unsplash.com/photo-1571395443367-8fbb3962e48f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fG1lbiUyMGZhY2V8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="object-cover w-10 h-10 mx-auto rounded-md" />
-                                        </a>
-                                    </div>
-                                    <div class="flex-1 pl-1">
-                                        <div class="font-medium">Charlie Hawkins</div>
-                                        <div class="text-sm text-green-600 ">
-                                            Email Verified
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-4">
-                                    Apps Development
-                                </td>
-                                <td class="px-4 py-4">
-                                    $1100
-                                </td>
-                                <td class="px-4 py-4">
-                                    MX-9537537436
-                                </td>
-                                <td class="px-4 py-4">
-                                    Mar 04, 2018 11:37am
-                                </td>
-                            </tr>
-                            <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
-                                <td class="flex flex-row items-center px-4 py-4">
-                                    <div class="flex w-10 h-10 mr-4">
-                                        <a href="#" class="relative block">
-                                            <img alt="profil" src="https://images.unsplash.com/photo-1532170579297-281918c8ae72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fGZlbWFsZXxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60" class="object-cover w-10 h-10 mx-auto rounded-md" />
-                                        </a>
-                                    </div>
-                                    <div class="flex-1 pl-1">
-                                        <div class="font-medium ">Nina Bates</div>
-                                        <div class="text-sm text-yellow-600">
-                                            Payment On Hold
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-4">
-                                    Machine Learning
-                                </td>
-                                <td class="px-4 py-4">
-                                    $2200
-                                </td>
-                                <td class="px-4 py-4">
-                                    MX-7533567437
-                                </td>
-                                <td class="px-4 py-4">
-                                    Mar 13, 2018 9:41am
-                                </td>
-                            </tr>
-                            <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
-                                <td class="flex flex-row items-center px-4 py-4">
-                                    <div class="flex w-10 h-10 mr-4">
-                                        <a href="#" class="relative block">
-                                            <img alt="profil" src="https://images.unsplash.com/photo-1474176857210-7287d38d27c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1lbiUyMGZhY2V8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="object-cover w-10 h-10 mx-auto rounded-md" />
-                                        </a>
-                                    </div>
-                                    <div class="flex-1 pl-1">
-                                        <div class="font-medium ">Hester Richards</div>
-                                        <div class="text-sm text-green-600 ">
-                                            Email Verified
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-4">
-                                    Artificial Intelligence
-                                </td>
-                                <td class="px-4 py-4">
-                                    $1000
-                                </td>
-                                <td class="px-4 py-4">
-                                    MX-5673467743
-                                </td>
-                                <td class="px-4 py-4">
-                                    Feb 21, 2018 8:34am
-                                </td>
-                            </tr>
+                            </tr>)
+                            }
+                            
+                            
                         </tbody>
                     </table>
                 </div>
