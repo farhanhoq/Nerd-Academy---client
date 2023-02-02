@@ -42,7 +42,7 @@ const DashboardLayout = () => {
                     <div class="mt-16 text-center">
                         <img className='w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28' src="https://cdn-icons-png.flaticon.com/512/8443/8443255.png" alt="" srcset="" />
                         <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Jerge Chamas</h5>
-                        <span class="hidden text-gray-400 lg:block">Admin</span>
+                        <span class="hidden text-gray-400 lg:block">Instructor</span>
                     </div>
 
                     <ul className="menu p-4 w-80 lg:bg-opacity-0 text-white">
