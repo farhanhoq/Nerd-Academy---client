@@ -15,7 +15,6 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import Announcement from "../pages/Dashboard/Instructor/Announcement";
 import Settings from "../pages/Dashboard/Instructor/Settings";
 import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
 import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
@@ -117,10 +116,6 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>,
-            },
-            {
-                path: '/dashboard/announcement',
-                element: <Announcement></Announcement>,
             },
             {
                 path: '/dashboard/settings',
