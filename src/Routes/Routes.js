@@ -6,7 +6,6 @@ import Checkout from "../pages/Checkout/Checkout";
 import Contact from "../pages/Contact/Contact";
 import CourseDetails from "../pages/Courses/CourseDetails";
 import Review from "../pages/Courses/Review";
-import Home from "../pages/Home/Home";
 import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -36,6 +35,8 @@ import StudentProfile from "../pages/StudentDashboard/Student/StudentProfile";
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
+import Home from "../pages/Home/Home/Home";
+import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 
 export const routes = createBrowserRouter([
     {
@@ -44,7 +45,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home />
             }
             ,
             {
@@ -134,6 +135,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myCourse',
                 element: <MyCourse></MyCourse>,
+            },
+            {
+                path: '/dashboard/add-course',
+                element: <AddCourse></AddCourse>,
             },
             {
                 path: '/dashboard/DasboardReview',

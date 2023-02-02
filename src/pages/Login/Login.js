@@ -46,6 +46,7 @@ const Login = () => {
     googleSignIn(googleProvider)
       .then(result => {
         const user = result.user;
+        console.log(user);
         toast.success("successfully logged in");
         navigate('/');
       })
@@ -88,7 +89,7 @@ const Login = () => {
 
   return (
     <div>
-      <ScrollToTop/>
+      <ScrollToTop />
       <div className="flex flex-col gap-6 lg:gap-24 md:flex-row items-center lg:h-screen container mx-auto justify-between md:px-32">
         <div className="w-10/12 lg:w-1/2 mt-16 lg:mt-0">
           <Lottie loop={true} animationData={eduAnimation} />
