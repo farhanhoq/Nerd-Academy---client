@@ -14,11 +14,11 @@ const Profile = () => {
                         <p>John</p>
                         <p>Last Name</p>
                         <p>Doe</p>
-                        <p>UserName</p>
+                        <p>FullName</p>
                         <p>instructor</p>
                         <p>Email</p>
                         <p>instructor@gmail.com</p>
-                        <p>Phn Number</p>
+                        <p>Phone Number</p>
                         <p>+880121212</p>
                         <p>Skill/Occupation</p>
                         <p>Web Developer</p>
