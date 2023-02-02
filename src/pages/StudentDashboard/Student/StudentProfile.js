@@ -1,70 +1,60 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
+import Loader from '../../../Loader/Loader';
 
 const StudentProfile = () => {
+  const { user, loading } = useContext(AuthContext);
+
+
+  if(loading){
+    return <Loader></Loader>
+  }
   return (
     <div className="my-10">
       <div className="card bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title text-4xl font-bold mb-10">My Profile</h2>
-          {/* <hr className="my-2 mb-10" /> */}
-          {/* <div className="flex gap-4">
-            <div className='mr-10 font-bold'>
-              <p>Registration</p>
-              <p>First Name</p>
-              <p>Last Name</p>
-              <p>UserName</p>
-              <p>Email</p>
-              <p>Phn Number</p>
-              <p>Skill/Occupation</p>
-              <p>Biography</p>
-            </div>
-            <div>
-              <p>22 Dec, 2023 6.00 p.m</p>
-              <p>John</p>
-              <p>Doe</p>
-              <p>instructor</p>
-              <p>instructor@gmail.com</p>
-              <p>+880121212</p>
-              <p>Web Developer</p>
-              <p>
-                I am a Front-End Web Developer with a background in Computer
-                Science & Engineering. I am passionately curious about learning
-                and writing code.
-              </p>
-            </div>
-            
-          </div> */}
           <div className="">
   <table className="table w-full">
     <tbody>
 
       <tr>
         <td className='font-bold text-xl'>Registration Date</td>
-        <td className='text-slate-400'>22 Dec, 2023 6.00 p.m</td>
+        <td className='text-slate-400'>No Data</td>
       </tr>
       <tr>
         <td className='font-bold text-xl'>First Name</td>
-        <td className='text-slate-400'>John</td>
+        <td className='text-slate-400'>No Data</td>
       </tr>
       <tr>
         <td className='font-bold text-xl'>Last Name</td>
-        <td className='text-slate-400'>Doe</td>
+        <td className='text-slate-400'>No Data</td>
       </tr>
       <tr>
         <td className='font-bold text-xl'>UserName</td>
-        <td className='text-slate-400'>instructor</td>
+        <td className='text-slate-400'>{
+          user?.email ?
+          user?.displayName
+          :
+          <p>No Data</p>
+        }</td>
       </tr>
       <tr>
         <td className='font-bold text-xl'>Email</td>
-        <td className='text-slate-400'>instructor@gmail.com</td>
+        <td className='text-slate-400'>{
+          user?.email ?
+          user?.email
+          :
+          <p>No Data</p>
+        }</td>
       </tr>
       <tr>
         <td className='font-bold text-xl'>Phn Number</td>
-        <td className='text-slate-400'>+880121212</td>
+        <td className='text-slate-400'>No Data</td>
       </tr>
       <tr>
         <td className='font-bold text-xl'>Skill/Occupation</td>
-        <td className='text-slate-400'>Web Developer</td>
+        <td className='text-slate-400'>No Data</td>
       </tr>
       
       
