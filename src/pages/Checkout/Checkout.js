@@ -25,18 +25,19 @@ const Checkout = () => {
     queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`).then(res => res.json()),
   });
   // console.log(checkoutItems);
-  let total = 0;
+  let total = 1;
 
   for(const singleItem of checkoutItems){
     total = total + singleItem.price
   }
-
+let totalAmount = total;
+// console.log(totalAmount);
   
 
   return (
     <section className='py-24'>
         <ScrollToTop/>
-      <div className="w-8/12 mx-auto p-5 shadow-xl border rounded-xl">
+      {/* <div className="w-8/12 mx-auto p-5 shadow-xl border rounded-xl">
         <h1 className="text-5xl p-4 mb-8">Checkout</h1>
         <div className="flex">
           <div className="w-7/12 p-5">
@@ -216,12 +217,12 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
 {/* another input field */}
-<div className="w-96 my-24 mx-auto">
+<div className="my-24 mx-auto w-3/12">
   <Elements stripe={stripePromise}>
-      <CheckoutForm total={total} user={user?.displayName} email={user?.email} />
+      <CheckoutForm total={totalAmount} user={user?.displayName} email={user?.email} />
     </Elements>
 </div>
 
