@@ -182,9 +182,9 @@ const Navbar = () => {
             </span>
             <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
           </li>
-          <li>
+          {/* <li>
             <Link to="/dashboard" className="pt-3 item text-md" style={{ color: getColor("/") }}>Instructor</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
 
@@ -255,18 +255,6 @@ const Navbar = () => {
       </div> */}
 
       {/* Code by rubayed */}
-      
-        <div className="switch-checkbox">
-          <label className="switch">
-            <input
-              type="checkbox"
-              onClick={handleThemeSwitch}
-              onChange={() => setDarkMode(!darkMode)}
-            />
-            <span className="slider round"></span>
-          </label>
-        </div>
-      
 
 <div className="dropdown dropdown-end ">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar border border-slate-500 ">
@@ -319,11 +307,12 @@ const Navbar = () => {
             >
               Login
             </Link></li>
-            <li>
-              <Link
-              to="/register"
-              style={{ color: getColor("/") }}
-              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
+          ) : (
+            <>
+              <li><Link
+                to="/login"
+                style={{ color: getColor("/") }}
+                className="hover:text-white custom-border transition duration-300 text-black hidden md:block
               border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
             >
               Register

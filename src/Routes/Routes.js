@@ -32,9 +32,10 @@ import StudentProfile from "../pages/StudentDashboard/Student/StudentProfile";
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
-import Home from "../pages/home/Home/Home";
+import Home from "../pages/Home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 import Profile from "../pages/Dashboard/Instructor/Profile";
+import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 
 export const routes = createBrowserRouter([
     {
@@ -167,6 +168,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/admin-dashboard/customer',
                 element: <Customer></Customer>,
+            },
+            {
+                path: '/admin-dashboard/courses',
+                element: <Courses></Courses>,
             },
         ]
     },

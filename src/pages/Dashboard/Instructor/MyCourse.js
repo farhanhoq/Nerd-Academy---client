@@ -30,7 +30,7 @@ const MyCourse = () => {
             .then(data => {
                 if (data.acknowledged) {
                     refetch();
-                    toast.success("Deleted Item Successfully");
+                    toast.error("Deleted Item Successfully");
                 }
             })
     };
