@@ -7,11 +7,21 @@ import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
+import useAdmin from "../../Hooks/useAdmin";
+import useTeacher from "../../Hooks/useTeacher";
+import useStudent from "../../Hooks/useStudent";
+import useRole from "../../Hooks/useRole";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const { user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin(user?.email);
+  const [isRole] = useRole(user?.email)
+  console.log(isRole)
+  const [isTeacher] = useTeacher(user?.email);
+  const [isStudent] = useStudent(user?.email);
+  
   const [theme, setTheme] = useState("light");
   const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
@@ -265,15 +275,41 @@ const Navbar = () => {
         </div>
       </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-1 shadow border border-slate-500 rounded p-0">
-      {user?.uid ? (
-          <li className="border "><Link
+      {/* {user?.uid ? <>
+      <li className="border "><Link
             onClick={handleLogOut}
             style={{ color: getColor("/") }}
             className="hover:text-white custom-border transition duration-300 text-black hidden md:block
              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item">
             Sign Out
           </Link></li>
-        ) : (
+          {
+            isRole = "admin" &&
+            <li><Link
+              to="/admin-dashboard"
+              style={{ color: getColor("/") }}
+              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
+              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
+            >
+              My dashboard
+            </Link></li>
+            
+          }
+          {
+            isRole = "teacher" &&
+            <li><Link
+              to="/dashboard"
+              style={{ color: getColor("/") }}
+              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
+              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
+            >
+              My dashboard
+            </Link></li>
+            
+          }
+      </>
+          
+         : 
           <>
             <li><Link
               to="/login"
@@ -294,8 +330,13 @@ const Navbar = () => {
             </Link>
             </li>
             
+           
+            
+            
+
+            
           </>
-        )}
+} */}
       </ul>
     </div>
 
