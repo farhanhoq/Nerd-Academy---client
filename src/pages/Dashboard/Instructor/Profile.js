@@ -4,7 +4,7 @@ import { useState } from 'react';
 const Profile = () => {
     const [profile, setProfile] = useState();
     useEffect(() => {
-        fetch('http://localhost:5000/profile')
+        fetch('https://nerd-academy-server.vercel.app/profile')
             .then(res => res.json())
             .then(data => setProfile(data));
     }, [])
