@@ -21,7 +21,7 @@ const Settings = () => {
             phone: data.number
 
         }
-        fetch("http://localhost:5000/profile", {
+        fetch("https://nerd-academy-server.vercel.app/profile", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
