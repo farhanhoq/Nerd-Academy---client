@@ -2,8 +2,9 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { FaCreditCard, FaPaypal, FaLock } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider';
 import ScrollToTop from "../ScrollToTop";
@@ -12,9 +13,8 @@ import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 const Checkout = () => {
-  
 
-  const {user , loading} = useContext(AuthContext)
+  const {user , loading} = useContext(AuthContext);
 
   const {
     data: checkoutItems = [],
@@ -27,12 +27,41 @@ const Checkout = () => {
   // console.log(checkoutItems);
   let total = 1;
 
+
+const handleAddData = (picture, title, tutor, lectures, hours) => {
+  const data = {
+    picture,
+    title,
+    tutor,
+    lectures,
+    hours
+  }
+
+    fetch("https://nerd-academy-server.vercel.app/perchased-course", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify( data ),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          refetch();
+          toast.success("Course purchased Successfully");
+      }
+      });
+}
+
+
   for(const singleItem of checkoutItems){
-    total = total + singleItem.price
+    total = total + singleItem.price;
+    handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
   }
 let totalAmount = total;
-// console.log(totalAmount);
+// console.log(item);
   
+
+
+
 
   return (
     <section className='py-24'>
