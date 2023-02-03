@@ -1,17 +1,37 @@
+
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { useContext } from 'react';
 import { FaCreditCard, FaPaypal, FaLock } from 'react-icons/fa';
+import { AuthContext } from '../../Context/AuthProvider';
 import ScrollToTop from "../ScrollToTop";
+import CheckoutForm from './CheckoutForm';
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 const Checkout = () => {
+  
+
+  const {user , loading} = useContext(AuthContext)
+
   const {
     data: checkoutItems = [],
     isLoading,
     refetch,
   } = useQuery({
     queryKey: ['checkoutItems'],
-    queryFn: () => fetch('trendingCourses.json').then(res => res.json()),
+    queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`).then(res => res.json()),
   });
+  // console.log(checkoutItems);
+  let total = 0;
+
+  for(const singleItem of checkoutItems){
+    total = total + singleItem.price
+  }
+
+  
 
   return (
     <section className='py-24'>
@@ -156,7 +176,7 @@ const Checkout = () => {
                               </div>
                             </div>
                             <div className="">
-                              <div className="font-bold ">{data?.name}</div>
+                              <div className="font-bold ">{data?.title}</div>
                             </div>
                           </div>
                         </td>
@@ -180,14 +200,14 @@ const Checkout = () => {
               <h4 className="text-xl font-bold mb-2">Summary</h4>
               <div className="flex justify-between">
                 <h1 className="">Total Price:</h1>
-                <h1 className="">$13.99</h1>
+                <h1 className="">${total}</h1>
               </div>
 
               <div className="divider mb-[-3px]"></div>
 
               <div className="flex justify-between font-bold">
                 <h1 className="">Total:</h1>
-                <h1 className="">$13.99</h1>
+                <h1 className="">${total}</h1>
               </div>
 
               <button className="btn btn-primary rounded text-white btn-wide w-full mt-5">
@@ -197,6 +217,14 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+
+{/* another input field */}
+<div className="w-96 my-24 mx-auto">
+  <Elements stripe={stripePromise}>
+      <CheckoutForm total={total} user={user?.displayName} email={user?.email} />
+    </Elements>
+</div>
+
 
     </section>
   );
