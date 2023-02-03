@@ -34,7 +34,7 @@ const AddCourse = () => {
                     const addCourse = {
                         tutor: data.tutor,
                         email: user?.email,
-                        image: imgData.data.url,
+                        picture: imgData.data.url,
                         title: data.courseTitle,
                         description: data.description,
                         price: data.price,
