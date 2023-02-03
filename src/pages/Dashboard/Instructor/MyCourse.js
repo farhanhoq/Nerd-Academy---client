@@ -10,7 +10,7 @@ const MyCourse = () => {
     const { data: myCourse = [], refetch } = useQuery({
         queryKey: ['myCourse'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/my-courses?email=${user?.email}`, {
+            const res = await fetch(`https://nerd-academy-server.vercel.app/my-courses?email=${user?.email}`, {
                 // headers: {
                 //     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 // }
@@ -21,7 +21,7 @@ const MyCourse = () => {
     });
 
     const deleteProduct = (id) => {
-        fetch(`http://localhost:5000/deleteCourse/${id}`, {
+        fetch(`https://nerd-academy-server.vercel.app/deleteCourse/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

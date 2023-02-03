@@ -29,7 +29,7 @@ const CourseDetails = () => {
   // const { data: contentData = [], refetch } = useQuery({
   //   queryKey: ["contentData", user?.email],
   //   queryFn: async () => {
-  //     const res = await fetch("http://localhost:5000/courseContent");
+  //     const res = await fetch("https://nerd-academy-server.vercel.app/courseContent");
   //     const data = await res.json();
   //   }
   // });
@@ -72,13 +72,13 @@ const CourseDetails = () => {
       });
   };
 
-  if(loading){
+  if (loading) {
     return <Loader></Loader>
   }
 
   return (
     <div className="py-24">
-      <ScrollToTop/>
+      <ScrollToTop />
       <div className=" bg-gradient-to-r from-black to-slate-500">
 
         <div className=" text-white w-11/12 mx-auto p-16">
@@ -217,7 +217,7 @@ const CourseDetails = () => {
 
         </div>
       </div>
-     
+
     </div>
 
 
