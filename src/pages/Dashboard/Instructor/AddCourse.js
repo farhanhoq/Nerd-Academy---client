@@ -14,7 +14,7 @@ const AddCourse = () => {
 
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const imgbbHostKey = process.env.REACT_APP_imgbb_key;
+    // const imgbbHostKey = process.env.REACT_APP_imgbb_key;
 
     const handleAddProduct = (data) => {
         const image = data.image[0];
@@ -22,7 +22,7 @@ const AddCourse = () => {
         formData.append('image', image);
 
 
-        const url = `https://api.imgbb.com/1/upload?key=${imgbbHostKey}`;
+        const url = `https://api.imgbb.com/1/upload?key=218ccec0a78d63b33e00278172e1c053`;
         fetch(url, {
             method: 'POST',
             body: formData,
