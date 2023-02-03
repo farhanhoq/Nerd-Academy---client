@@ -16,7 +16,7 @@ const Dashboard = () => {
     }, []);
     return (
         <div className='mx-auto'>
-            <h2 className='text-4xl font-bold text-primary text-center my-16'>Welcome to My Dashboard</h2>
+            <h2 className='text-4xl font-bold text-primary text-center my-6'>Welcome to My Dashboard</h2>
             <div class="ml-auto mb-6">
                 <div class="sticky z-10 top-0 h-16 border-b bg-white lg:py-2.5">
                     <div class="px-6 flex items-center justify-between space-x-4 2xl:container">
