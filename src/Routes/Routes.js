@@ -34,6 +34,7 @@ import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderH
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
 import Home from "../pages/Home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
+import Profile from "../pages/Dashboard/Instructor/Profile";
 
 export const routes = createBrowserRouter([
     {
@@ -116,6 +117,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>,
+            },
+            {
+                path: '/dashboard/profile',
+                element: <Profile></Profile>,
             },
             {
                 path: '/dashboard/settings',

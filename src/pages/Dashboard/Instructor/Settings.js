@@ -1,73 +1,112 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import cover from "../../../Assets/cover.jpg";
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Settings = () => {
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
+    const { user } = useContext(AuthContext);
+    const [isLoading, setisLoading] = useState(false)
+
+    const handleEdit = data => {
+
+        console.log(data);
+        const profileData = {
+            fullname: data.name,
+            username: data.username,
+            email: data.email,
+            skill: data.skill,
+            bio: data.bio,
+            phone: data.number
+
+        }
+        fetch("http://localhost:5000/profile", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(profileData),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                alert(`${data.name} is added!`);
+                reset();
+            });
+        // fetch(`https://mobile-phones-server.vercel.app/users/${user?._id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(user)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //     })
+    }
     return (
-        <div className="p-4 card card-compact my-6 bg-base-100 shadow-xl">
+        <div className="p-4 card card-compact my-20 bg-base-100 shadow-xl">
             <figure>
                 <img className='' src={cover} alt="Shoes" />
             </figure>
 
-            <form className='grid grid-cols-2 justify-between gap-6 my-6'>
+
+            <form onSubmit={handleSubmit(handleEdit)} className='grid grid-cols-2 justify-between gap-6 my-6'>
                 <div className="form-control w-full">
                     <label className="label">
-                        <span className="label-text font-semibold">First Name</span>
+                        <span className="label-text font-semibold">Full Name</span>
                     </label>
-                    <input type="text" placeholder="First Name" className="input input-bordered w-full" value="Jenson" />
-                </div>
-                <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text font-semibold">Last Name</span>
-                    </label>
-                    <input type="text" placeholder="Last Name" className="input input-bordered w-full" value="Gaza" />
+
+                    <input defaultValue={user?.displayName}
+                        type="text" {...register("name")}
+                        placeholder="name" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">User Name</span>
                     </label>
-                    <input type="text" placeholder="User Name" className="input input-bordered w-full" value="Jenson" />
+                    <input type="text" {...register("username")}
+                        placeholder="User Name" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">Phone Number</span>
                     </label>
-                    <input type="text" placeholder="+8801700000" className="input input-bordered w-full" />
+                    <input type="text"{...register("number")}
+                        placeholder="Enter your number" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">Skill</span>
                     </label>
-                    <input type="text" placeholder="Full stack Developer" className="input input-bordered w-full" />
+                    <input type="text" {...register("skill")}
+                        placeholder="Enter your skill" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
-                        <span className="label-text font-semibold">Current Password</span>
+                        <span className="label-text font-semibold">Email</span>
                     </label>
-                    <input type="password" placeholder="" className="input input-bordered w-full" />
+                    <input type="email" {...register("email")}
+                        placeholder="email" className="input input-bordered w-full" />
                 </div>
-                <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text font-semibold">Change Password</span>
-                    </label>
-                    <input type="password" placeholder="" className="input input-bordered w-full" />
-                </div>
-                <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text font-semibold">Re-type Password</span>
-                    </label>
-                    <input type="password" placeholder="" className="input input-bordered w-full" />
-                </div>
+
+
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">Bio</span>
                     </label>
-                    <textarea className="textarea textarea-bordered" placeholder="I am a Front-End Web Developer with a background in Computer Science & Engineering. I am passionately curious about learning and writing code."></textarea>
+
+                    <textarea type="text" {...register("bio")}
+                        className="textarea textarea-bordered" placeholder="Enter your bio"></textarea>
+                </div>
+                <div className="card-actions justify-start">
+                    <button className="btn btn-primary text-white" type='submit' value="Save Change">Save Change</button>
                 </div>
             </form>
 
-            <div className="card-actions justify-start">
-                <button className="btn btn-primary text-white">Save Change</button>
-            </div>
+
+
         </div>
     );
 };
