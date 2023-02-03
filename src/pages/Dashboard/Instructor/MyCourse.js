@@ -20,6 +20,8 @@ const MyCourse = () => {
         }
     });
 
+    console.log(myCourse)
+
     const deleteProduct = (id) => {
         fetch(`https://nerd-academy-server.vercel.app/deleteCourse/${id}`, {
             method: 'DELETE'

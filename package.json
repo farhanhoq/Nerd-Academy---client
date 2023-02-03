@@ -29,6 +29,7 @@
     "react-spinners": "^0.13.8",
     "recharts": "^2.3.2",
     "scroll-carousel": "^1.2.1",
+    "stripe": "^11.9.0",
     "swiper": "^8.4.6",
     "theme-change": "^2.3.0",
     "use-local-storage": "^2.3.6",
