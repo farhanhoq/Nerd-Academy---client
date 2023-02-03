@@ -60,28 +60,28 @@ const Settings = () => {
 
                     <input defaultValue={user?.displayName}
                         type="text" {...register("name")}
-                        placeholder="name" className="input input-bordered w-full" value="Jenson" />
+                        placeholder="name" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">User Name</span>
                     </label>
                     <input type="text" {...register("username")}
-                        placeholder="User Name" className="input input-bordered w-full" value="Jenson" />
+                        placeholder="User Name" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">Phone Number</span>
                     </label>
                     <input type="text"{...register("number")}
-                        placeholder="+8801700000" className="input input-bordered w-full" />
+                        placeholder="Enter your number" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-semibold">Skill</span>
                     </label>
                     <input type="text" {...register("skill")}
-                        placeholder="Full stack Developer" className="input input-bordered w-full" />
+                        placeholder="Enter your skill" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
@@ -98,7 +98,7 @@ const Settings = () => {
                     </label>
 
                     <textarea type="text" {...register("bio")}
-                        className="textarea textarea-bordered" placeholder="I am a Front-End Web Developer with a background in Computer Science & Engineering. I am passionately curious about learning and writing code."></textarea>
+                        className="textarea textarea-bordered" placeholder="Enter your bio"></textarea>
                 </div>
                 <div className="card-actions justify-start">
                     <button className="btn btn-primary text-white" type='submit' value="Save Change">Save Change</button>
