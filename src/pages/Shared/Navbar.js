@@ -147,16 +147,18 @@ const Navbar = () => {
         </ul>
 
         <div>
-          {
-            ((location.pathname === '/admin-dashboard') ||
-              (location.pathname.startsWith('/admin-dashboard/'))) &&
-
+          {(location.pathname === "/admin-dashboard" ||
+            location.pathname.startsWith("/admin-dashboard/")) && (
             <div className="drawer-content block lg:hidden">
-              <label htmlFor="admin-dashboard-drawer" className="btn btn-primary drawer-button"><MdOutlineDashboardCustomize className='text-2xl text-white' /></label>
+              <label
+                htmlFor="admin-dashboard-drawer"
+                className="btn btn-primary drawer-button"
+              >
+                <MdOutlineDashboardCustomize className="text-2xl text-white" />
+              </label>
             </div>
-          }
+          )}
         </div>
-
       </div>
 
       <div class="hidden lg:block w-[17%]">
@@ -217,127 +219,50 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
+
       <div className="text-3xl hover:text-primary cursor-pointer mx-5">
         <Link to="/cart" className="item" style={{ color: getColor("/") }}>
           <FaShoppingCart />
         </Link>
       </div>
 
-      {/* <div className="gap-6">
-        {user?.uid ? (
-          <Link
-            onClick={handleLogOut}
-            style={{ color: getColor("/") }}
-            className="hover:text-white custom-border transition duration-300 text-black hidden md:block
-             border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item">
-            Sign Out
-          </Link>
-        ) : (
-          <>
-            <Link
-              to="/login"
-              style={{ color: getColor("/") }}
-              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
-              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
-            >
-              Login
-            </Link>
-            <Link
-              to="/register"
-              style={{ color: getColor("/") }}
-              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
-              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
-            >
-              Register
-            </Link>
-          </>
-        )}
-      </div> */}
+      <div className="dropdown dropdown-end">
 
-      {/* Code by rubayed */}
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          </div>
+        </label>
 
-<div className="dropdown dropdown-end ">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar border border-slate-500 ">
-        <div className="w-10 rounded-full  ">
-          <img src={user?.photoURL} />
-        </div>
-      </label>
-      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-1 shadow border border-slate-500 rounded p-0">
-      {/* {user?.uid ? <>
-      <li className="border "><Link
-            onClick={handleLogOut}
-            style={{ color: getColor("/") }}
-            className="hover:text-white custom-border transition duration-300 text-black hidden md:block
-             border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item">
-            Sign Out
-          </Link></li>
+        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+        
           {
-            isRole = "admin" &&
-            <li><Link
-              to="/admin-dashboard"
-              style={{ color: getColor("/") }}
-              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
-              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
-            >
-              My dashboard
-            </Link></li>
-            
+            user?.uid ?
+              <>
+                  {
+                    isRole === "student" && 
+                    <li><Link to="student-dashboard">Dashboard</Link></li>
+                  }
+                  {
+                    isRole === "teacher" && 
+                    <li><Link to="dashboard">Dashboard</Link></li>
+                  }
+                  {
+                    isRole === "admin" && 
+                    <li><Link to="admin-dashboard">Dashboard</Link></li>
+                  }
+                  <Link to='/' onClick={handleLogOut}><li>Log Out</li></Link>
+              </>
+              :
+              <>
+                <Link to="/login"><li>Login</li></Link>
+                <Link to="/register"><li>Register</li></Link>
+              </>
           }
-          {
-            isRole = "teacher" &&
-            <li><Link
-              to="/dashboard"
-              style={{ color: getColor("/") }}
-              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
-              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
-            >
-              My dashboard
-            </Link></li>
-            
-          }
-      </>
-          
-         : 
-          <>
-            <li><Link
-              to="/login"
-              style={{ color: getColor("/") }}
-              className="hover:text-white custom-border transition duration-300 text-black hidden md:block
-              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
-            >
-              Login
-            </Link></li>
-          ) : (
-            <>
-              <li><Link
-                to="/login"
-                style={{ color: getColor("/") }}
-                className="hover:text-white custom-border transition duration-300 text-black hidden md:block
-              border-transparent dark:hover:text-gray-200 hover:border-cyan-50 mx-1.5 item"
-            >
-              Register
-            </Link>
-            </li>
-            
-           
-            
-            
 
-            
-          </>
-} */}
-      </ul>
-    </div>
+        </ul>
 
-      {/* <>
-        <button onClick={handleThemeSwitch}>
-          {theme === "dark" ? "Light Mode" : "Dark Mode"}
-        </button>
-      </> */}
-
-
-      {/* ========================= */}
-
+      </div>
     </nav>
   );
 };
