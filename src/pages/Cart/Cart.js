@@ -85,16 +85,12 @@ const Cart = () => {
                         <p className="font-bold text-primary text-lg">
                           ${data?.price}
                         </p>
-                        <a
+                        <button
                           onClick={() => handleRemove(data._id)}
                           className="text-red-500 hover:underline cursor-pointer"
                         >
                           Remove
-                        </a>
-                        <br />
-                        <a className="hover:underline cursor-pointer">
-                          Save for later
-                        </a>
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -109,7 +105,7 @@ const Cart = () => {
               <h1 className="text-4xl font-bold">${total}</h1>
               <div className="divider mt-[-3px]"></div>
 
-              <Link to="/checkout" className="btn btn-primary rounded text-white btn-wide w-full mt-5">
+              <Link to="/checkout" className="btn btn-primary rounded text-white w-full mt-5">
                 Checkout
               </Link>
             </div>
