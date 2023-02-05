@@ -57,8 +57,8 @@ const handleAddData = (picture, title, tutor, lectures, hours) => {
     total = total + singleItem.price;
     handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
   }
-let totalAmount = total;
-// console.log(item);
+  let totalAmount = total;
+  // console.log(item);
   
   return (
     <section className='py-24'>
@@ -67,7 +67,7 @@ let totalAmount = total;
       {/* another input field */}
       <div className="my-24 mx-auto w-3/12">
         <Elements stripe={stripePromise}>
-            <CheckoutForm total={totalAmount} user={user?.displayName} email={user?.email} />
+            <CheckoutForm total={totalAmount} user={user?.displayName} email={user?.email} handleAddData={handleAddData} />
           </Elements>
       </div>
 

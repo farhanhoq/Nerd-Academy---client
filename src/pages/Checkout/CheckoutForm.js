@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../Context/AuthProvider';
 
-const CheckoutForm = ({ total  , email}) => {
+const CheckoutForm = ({ total  , email, handleAddData}) => {
 
   const {user , loading} = useContext(AuthContext)
   
@@ -38,59 +38,67 @@ const CheckoutForm = ({ total  , email}) => {
             return;
           }
 
-          const {error, paymentMethod} = await stripe.createPaymentMethod({
-            type: 'card',
-            card,
-          });
+        const {error, paymentMethod} = await stripe.createPaymentMethod({
+          type: 'card',
+          card,
+        });
 
-          if (error) {
-            console.log(error);
-            setCardError(error.message);
-          } else {
-            setCardError('');
-          }
+        if (error) {
+          console.log(error);
+          setCardError(error.message);
+        } else {
+          setCardError('');
+        }
 
-          const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
-            clientSecret,
-            {
-              payment_method: {
-                card: card,
-                billing_details: {
-                  name: user,
-                  email: email
-                },
+        const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
+          clientSecret,
+          {
+            payment_method: {
+              card: card,
+              billing_details: {
+                name: user,
+                email: email
               },
-            },
-          );
-
-          if(confirmError){
-            setCardError(confirmError.message);
-            return;
-          }
-          console.log('paymentIntent' , paymentIntent);
-      }
-  return (
-    <form onSubmit={handleSubmit}>
-      <CardElement
-        options={{
-          style: {
-            base: {
-              fontSize: "16px",
-              color: "#424770",
-              "::placeholder": {
-                color: "#aab7c4",
-              },
-            },
-            invalid: {
-              color: "#9e2146",
             },
           },
-        }}
-      />
-      <button className='btn btn-sm mt-5' type="submit" disabled={!stripe}>
-        Pay
-      </button>
-    </form>
+        );
+
+        if(confirmError){
+          setCardError(confirmError.message);
+          return;
+        }
+        console.log('paymentIntent' , paymentIntent);
+      }
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <CardElement
+          options={{
+            style: {
+              base: {
+                fontSize: "16px",
+                color: "#424770",
+                "::placeholder": {
+                  color: "#aab7c4",
+                },
+              },
+              invalid: {
+                color: "#9e2146",
+              },
+            },
+          }}
+        />
+        <button
+          className="btn btn-sm mt-5"
+          type="submit"
+          disabled={!stripe}
+          onClick={handleAddData}
+        >
+          Pay
+        </button>
+      </form>
+      <p className='text-red-500'>{ cardError }</p>
+    </>
   );
 };
 
