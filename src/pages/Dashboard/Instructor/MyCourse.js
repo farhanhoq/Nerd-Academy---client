@@ -43,7 +43,7 @@ const MyCourse = () => {
                 <div className="tabs flex flex-row gap-6">
                     <a className="tab tab-bordered tab-active">Publish</a>
                     <a className="tab tab-bordered">Pending</a>
-                    <a className="tab tab-bordered">Draft</a>
+
                 </div>
                 <hr className='my-2' />
 
