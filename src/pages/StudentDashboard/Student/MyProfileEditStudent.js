@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../../Loader/Loader';
 
-const MyProfileEdit = () => {
+const MyProfileEditStudent = () => {
     const {
         register,
         reset,
@@ -71,7 +71,7 @@ const MyProfileEdit = () => {
                         .then((result) => {
                             toast.success("Saved Changed")
                             reset();
-                            navigate("/dashboard/my-profile");
+                            navigate("/student-dashboard/my-profile");
                         });
 
                 }
@@ -200,4 +200,4 @@ const MyProfileEdit = () => {
     );
 };
 
-export default MyProfileEdit;
+export default MyProfileEditStudent;

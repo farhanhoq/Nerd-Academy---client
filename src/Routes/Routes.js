@@ -38,6 +38,8 @@ import Profile from "../pages/Dashboard/Instructor/Profile";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
 import MyProfileEdit from "../pages/Dashboard/Instructor/MyProfileEdit";
+import MyProfileEditStudent from "../pages/StudentDashboard/Student/MyProfileEditStudent";
+import MyProfileStudent from "../pages/StudentDashboard/Student/MyProfileStudent";
 
 export const routes = createBrowserRouter([
     {
@@ -193,14 +195,6 @@ export const routes = createBrowserRouter([
                 element: <StudentAnnouncement></StudentAnnouncement>
             },
             {
-                path: '/student-dashboard/student-settings',
-                element: <StudentSettings></StudentSettings>,
-            },
-            {
-                path: '/student-dashboard/student-profile',
-                element: <StudentProfile></StudentProfile>,
-            },
-            {
                 path: '/student-dashboard/student-courses',
                 element: <MyCourses></MyCourses>,
             },
@@ -211,6 +205,15 @@ export const routes = createBrowserRouter([
             {
                 path: '/student-dashboard/student-assignment',
                 element: <StudentAssignment></StudentAssignment>,
+            },
+            {
+                path: '/student-dashboard/my-profile',
+                element: <MyProfileStudent></MyProfileStudent>,
+            },
+
+            {
+                path: '/student-dashboard/my-profile-edit',
+                element: <MyProfileEditStudent></MyProfileEditStudent>,
             },
         ]
     },
