@@ -98,7 +98,7 @@ const MyProfileEdit = () => {
                     <div className="avatar">
                         <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             {/* <img src="https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1670098851032.png" alt='' /> */}
-                            <img src={user?.photoURL} alt="" />
+                            <img src={users?.body?.picture} alt="" />
                         </div>
                     </div>
                     {/* <button className="border p-2 bg-primary text-black rounded cursor-pointer">
