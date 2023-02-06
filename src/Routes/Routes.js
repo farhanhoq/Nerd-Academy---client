@@ -121,14 +121,6 @@ export const routes = createBrowserRouter([
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>,
             },
-            // {
-            //     path: '/dashboard/profile',
-            //     element: <Profile></Profile>,
-            // },
-            // {
-            //     path: '/dashboard/settings',
-            //     element: <Settings></Settings>,
-            // },
 
             {
                 path: '/dashboard/my-profile',
