@@ -1,50 +1,32 @@
-import React, { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
-import { AuthContext } from "../../../Context/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
+import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { BiEdit } from 'react-icons/bi';
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const MyProfile = () => {
-  const {
-    register,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
   const { user } = useContext(AuthContext);
-  const [isLoading, setisLoading] = useState(false);
 
-  const handleEdit = (data) => {
-    console.log(data);
-    const profileData = {
-      fullname: data.name,
-      username: data.username,
-      email: data.email,
-      skill: data.skill,
-      bio: data.bio,
-      phone: data.number,
-    };
+  const { data: profile = [], refetch, isLoading } = useQuery({
+    queryKey: ["profile"],
+    queryFn: async () => {
+      const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
+      const data = await res.json();
+      return data;
+    }
+  })
+  // const { email, fullName, eductaion, phone, address, picture } = profile;
+  refetch();
 
-    fetch("https://nerd-academy-server.vercel.app/profile", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(profileData),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        alert(`${data.name} is added!`);
-        reset();
-      });
-  };
+  // console.log(profile.body.picture);
 
   return (
     <div className="card bg-base-100 shadow-xl p-12">
 
       <div className="flex flex-row justify-between">
-      <h3 className="text-2xl font-bold">My profile</h3>
-      <button className="text-primary"><BiEdit></BiEdit> Edit</button>
+        <h3 className="text-2xl font-bold">My profile</h3>
+        <Link to="/dashboard/my-profile-edit" className="text-primary"><BiEdit></BiEdit> Edit</Link>
       </div>
 
       <div className="flex flex-row justify-center gap-12 mt-6 items-center">
@@ -52,7 +34,8 @@ const MyProfile = () => {
         <div className="flex flex-col gap-4 items-center">
           <div className="avatar">
             <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src="https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1670098851032.png" />
+              {/* <img src="https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1670098851032.png" /> */}
+              <img src={profile?.body?.picture} alt="" />
             </div>
           </div>
           <button className="border p-2 bg-primary text-black rounded cursor-pointer">
@@ -63,36 +46,36 @@ const MyProfile = () => {
         <div className="card-body flex flex-col gap-4">
           <div>
             <span className="text-sm">Full Name</span>
-            <p className="text-lg">Neasher Ahmed</p>
+            <p className="text-lg">{profile?.body?.fullName}</p>
           </div>
 
           <div>
             <span className="text-sm">Email Adress</span>
-            <p className="text-lg">Neasher75@gmail.com</p>
+            <p className="text-lg">{profile?.body?.email}</p>
           </div>
 
           <div>
             <span className="text-sm">Phone</span>
-            <p className="text-lg">01212121</p>
+            <p className="text-lg">{profile?.body?.phone}</p>
           </div>
 
           <div>
             <span className="text-sm">Skill</span>
-            <p className="text-lg">Web Developer</p>
+            <p className="text-lg">{profile?.body?.skill}</p>
           </div>
         </div>
 
         <div className="card-body flex flex-col gap-4">
-        <div>
-            <span className="text-sm">Adress</span>
-            <p className="text-lg">Pabna, Bangladesh</p>
+          <div>
+            <span className="text-sm">Address</span>
+            <p className="text-lg">{profile?.body?.address}</p>
           </div>
 
           <div>
             <span className="text-sm">Education</span>
-            <p className="text-lg">Hon's CSE</p>
+            <p className="text-lg">{profile?.body?.education}</p>
           </div>
-          
+
         </div>
 
       </div>

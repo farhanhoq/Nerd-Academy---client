@@ -5,18 +5,18 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../Context/AuthProvider';
 
-const CheckoutForm = ({ total  , email, handleAddData}) => {
+const CheckoutForm = ({ total, email, handleAddData }) => {
 
-  const {user , loading} = useContext(AuthContext)
-  
-    const [cardError, setCardError] = useState('');
-    const [clientSecret, setClientSecret] = useState("");
-    const stripe = useStripe();
-    const elements = useElements();
+  const { user, loading } = useContext(AuthContext)
+
+  const [cardError, setCardError] = useState('');
+  const [clientSecret, setClientSecret] = useState("");
+  const stripe = useStripe();
+  const elements = useElements();
 
   useEffect(() => {
-    
-    fetch("http://localhost:5000/create-payment-intent", {
+
+    fetch("https://nerd-academy-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ total }),
@@ -27,48 +27,48 @@ const CheckoutForm = ({ total  , email, handleAddData}) => {
   // console.log(total);
 
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        // || !elements
-        if (!stripe || !elements) {
-          return
-        }
-        const card = elements.getElement(CardElement);
-        if (card === null) {
-            return;
-          }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // || !elements
+    if (!stripe || !elements) {
+      return
+    }
+    const card = elements.getElement(CardElement);
+    if (card === null) {
+      return;
+    }
 
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
-          type: 'card',
-          card,
-        });
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card,
+    });
 
-        if (error) {
-          console.log(error);
-          setCardError(error.message);
-        } else {
-          setCardError('');
-        }
+    if (error) {
+      console.log(error);
+      setCardError(error.message);
+    } else {
+      setCardError('');
+    }
 
-        const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
-          clientSecret,
-          {
-            payment_method: {
-              card: card,
-              billing_details: {
-                name: user,
-                email: email
-              },
-            },
+    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: user,
+            email: email
           },
-        );
+        },
+      },
+    );
 
-        if(confirmError){
-          setCardError(confirmError.message);
-          return;
-        }
-        console.log('paymentIntent' , paymentIntent);
-      }
+    if (confirmError) {
+      setCardError(confirmError.message);
+      return;
+    }
+    console.log('paymentIntent', paymentIntent);
+  }
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -97,7 +97,7 @@ const CheckoutForm = ({ total  , email, handleAddData}) => {
           Pay
         </button>
       </form>
-      <p className='text-red-500'>{ cardError }</p>
+      <p className='text-red-500'>{cardError}</p>
     </>
   );
 };

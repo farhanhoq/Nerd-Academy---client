@@ -37,6 +37,7 @@ import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 import Profile from "../pages/Dashboard/Instructor/Profile";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
+import MyProfileEdit from "../pages/Dashboard/Instructor/MyProfileEdit";
 
 export const routes = createBrowserRouter([
     {
@@ -120,17 +121,23 @@ export const routes = createBrowserRouter([
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>,
             },
-            {
-                path: '/dashboard/profile',
-                element: <Profile></Profile>,
-            },
-            {
-                path: '/dashboard/settings',
-                element: <Settings></Settings>,
-            },
+            // {
+            //     path: '/dashboard/profile',
+            //     element: <Profile></Profile>,
+            // },
+            // {
+            //     path: '/dashboard/settings',
+            //     element: <Settings></Settings>,
+            // },
+
             {
                 path: '/dashboard/my-profile',
                 element: <MyProfile></MyProfile>,
+            },
+
+            {
+                path: '/dashboard/my-profile-edit',
+                element: <MyProfileEdit></MyProfileEdit>,
             },
 
             {

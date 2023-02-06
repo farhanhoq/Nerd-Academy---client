@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
@@ -8,6 +9,17 @@ const DashboardLayout = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const { data: profile = [], refetch, isLoading } = useQuery({
+        queryKey: ["profile"],
+        queryFn: async () => {
+            const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
+            const data = await res.json();
+            return data;
+        }
+    })
+    // const { email, fullName, eductaion, phone, address, picture } = profile;
+    refetch();
 
     const handleLogOut = () => {
         logOut()
@@ -40,9 +52,9 @@ const DashboardLayout = () => {
                     </div>
 
                     <div class="mt-2 text-center">
-                        <img className='w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28' src={user?.photoURL} alt="" srcset="" />
-                        <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{user?.displayName}</h5>
-                        <span class="hidden text-gray-400 lg:block">Instructor</span>
+                        <img className='w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28' src={profile?.body?.picture} alt="" srcset="" />
+                        <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{profile?.body?.fullName}</h5>
+                        <span class="hidden text-gray-400 lg:block">{profile?.role}</span>
                     </div>
 
                     <ul className="menu p-4 w-80 lg:bg-opacity-0 text-white">
