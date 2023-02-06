@@ -38,9 +38,9 @@ const MyProfile = () => {
               <img src={profile?.body?.picture} alt="" />
             </div>
           </div>
-          <button className="border p-2 bg-primary text-black rounded cursor-pointer">
+          <Link to="/dashboard/my-profile-edit" className="border p-2 bg-primary text-black rounded cursor-pointer">
             Edit Profile
-          </button>
+          </Link>
         </div>
 
         <div className="card-body flex flex-col gap-4">
