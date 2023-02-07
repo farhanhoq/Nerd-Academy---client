@@ -1,13 +1,27 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import Navbar from '../pages/Shared/Navbar';
+import { GoSignOut } from 'react-icons/go';
+
 
 const DashboardLayout = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const { data: profile = [], refetch, isLoading } = useQuery({
+        queryKey: ["profile"],
+        queryFn: async () => {
+            const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
+            const data = await res.json();
+            return data;
+        }
+    })
+    // const { email, fullName, eductaion, phone, address, picture } = profile;
+    refetch();
 
     const handleLogOut = () => {
         logOut()
@@ -40,9 +54,9 @@ const DashboardLayout = () => {
                     </div>
 
                     <div class="mt-2 text-center">
-                        <img className='w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28' src={user?.photoURL} alt="" srcset="" />
-                        <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{user?.displayName}</h5>
-                        <span class="hidden text-gray-400 lg:block">Instructor</span>
+                        <img className='w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28' src={profile?.body?.picture} alt="" srcset="" />
+                        <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{profile?.body?.fullName}</h5>
+                        <span class="hidden text-gray-400 lg:block">{profile?.role}</span>
                     </div>
 
                     <ul className="menu p-4 w-80 lg:bg-opacity-0 text-white">
@@ -92,34 +106,24 @@ const DashboardLayout = () => {
                                         {/* <Link to="/dashboard/profile"><span class="group-hover:text-gray-700">Profile</span></Link> */}
                                     </Link>
                                 </li>
+
                                 <li>
-                                    <Link to="/dashboard/profile" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+                                    <Link to="/dashboard/my-profile" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
                                         <img className='h-5 w-5' src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" srcset="" />
-                                        <span class="group-hover:text-gray-700">Profile</span>
+                                        <span class="group-hover:text-gray-700">My Profile</span>
                                         {/* <Link to="/dashboard/settings"><span class="group-hover:text-gray-700">Settings</span></Link> */}
                                     </Link>
                                 </li>
+
                                 <li>
-                                    <Link to="/dashboard/settings" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <span class="group-hover:text-gray-700">Setting</span>
-                                        {/* <Link to="/dashboard/settings"><span class="group-hover:text-gray-700">Settings</span></Link> */}
+                                    <Link onClick={handleLogOut} class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+                                        <GoSignOut></GoSignOut>
+                                        <span class="group-hover:text-gray-700">Log Out</span>
                                     </Link>
                                 </li>
 
 
-                                {/* <li>
-                                    <Link href="#" target="_blank" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2">
-                                        <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-                                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="ml-3">Documentation</span>
-                                    </Link>
-                                </li> */}
+
                             </ul>
                         </div>
                     </ul>

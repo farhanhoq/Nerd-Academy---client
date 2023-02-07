@@ -30,41 +30,41 @@ const CheckoutForm = ({ total  , email }) => {
   // console.log(total);
 
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        // || !elements
-        if (!stripe || !elements) {
-          return
-        }
-        const card = elements.getElement(CardElement);
-        if (card === null) {
-            return;
-          }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // || !elements
+    if (!stripe || !elements) {
+      return
+    }
+    const card = elements.getElement(CardElement);
+    if (card === null) {
+      return;
+    }
 
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
-          type: 'card',
-          card,
-        });
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card,
+    });
 
-        if (error) {
-          console.log(error);
-          setCardError(error.message);
-        } else {
-          setCardError('');
-        }
+    if (error) {
+      console.log(error);
+      setCardError(error.message);
+    } else {
+      setCardError('');
+    }
 
-        const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
-          clientSecret,
-          {
-            payment_method: {
-              card: card,
-              billing_details: {
-                name: user,
-                email: email
-              },
-            },
+    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: user,
+            email: email
           },
-        );
+        },
+      },
+    );
 
         if(confirmError){
           setCardError(confirmError.message);
@@ -140,7 +140,7 @@ const CheckoutForm = ({ total  , email }) => {
           Pay
         </button>
       </form>
-      <p className='text-red-500'>{ cardError }</p>
+      <p className='text-red-500'>{cardError}</p>
     </>
   );
 };

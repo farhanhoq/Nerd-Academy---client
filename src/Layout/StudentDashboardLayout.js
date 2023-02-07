@@ -4,10 +4,22 @@ import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import Navbar from '../pages/Shared/Navbar';
 import graduated from '../Assets/graduated.png';
+import { useQuery } from '@tanstack/react-query';
 
 const StudentDashboardLayout = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const { data: profile = [], refetch, isLoading } = useQuery({
+    queryKey: ["profile"],
+    queryFn: async () => {
+      const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
+      const data = await res.json();
+      return data;
+    }
+  })
+  // const { email, fullName, eductaion, phone, address, picture } = profile;
+  refetch();
 
   const handleLogOut = () => {
     logOut()
@@ -44,14 +56,14 @@ const StudentDashboardLayout = () => {
           <div class="mt-16 text-center">
             <img
               className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"
-              src={graduated}
+              src={profile?.body?.picture}
               alt=""
               srcset=""
             />
             <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
-              Jerge Chamas
+              {profile?.body?.fullName}
             </h5>
-            <span class="hidden text-gray-400 lg:block">Student</span>
+            <span class="hidden text-gray-400 lg:block">{profile?.role}</span>
           </div>
 
           <ul className="menu p-4 w-80 lg:bg-opacity-0 text-white">
@@ -153,7 +165,23 @@ const StudentDashboardLayout = () => {
 
                 <li>
                   <Link
-                    to="/student-dashboard/student-profile"
+                    to="/student-dashboard/student-order"
+                    class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
+                  >
+                    <img
+                      className="h-5 w-5"
+                      src="https://cdn-icons-png.flaticon.com/512/3500/3500833.png"
+                      alt=""
+                      srcset=""
+                    />
+                    <span class="group-hover:text-gray-700">Order History</span>
+                    {/* <Link to="/dashboard/profile"><span class="group-hover:text-gray-700">Profile</span></Link> */}
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/student-dashboard/my-profile"
                     class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
                   >
                     <svg
@@ -172,50 +200,6 @@ const StudentDashboardLayout = () => {
                     </svg>
                     <span class="group-hover:text-gray-700">My Profile</span>
                     {/* <Link to="/dashboard/profile"><span class="group-hover:text-gray-700">Profile</span></Link> */}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/student-dashboard/student-order"
-                    class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
-                  >
-                    <img
-                      className="h-5 w-5"
-                      src="https://cdn-icons-png.flaticon.com/512/3500/3500833.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <span class="group-hover:text-gray-700">Order History</span>
-                    {/* <Link to="/dashboard/profile"><span class="group-hover:text-gray-700">Profile</span></Link> */}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/student-dashboard/student-settings"
-                    class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
-                  >
-                    <svg
-                      class="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                      ></path>
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                      ></path>
-                    </svg>
-                    <span class="group-hover:text-gray-700">Settings</span>
-                    {/* <Link to="/dashboard/settings"><span class="group-hover:text-gray-700">Settings</span></Link> */}
                   </Link>
                 </li>
                 <li>
