@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -12,9 +12,29 @@ const AddCourse = () => {
     let year = newDate.getFullYear();
     const navigation = useNavigate();
 
+    const [learnings, setLearning] = useState([]);
+
     const { user } = useContext(AuthContext);
+    console.log(learnings)
     const { register, handleSubmit, formState: { errors } } = useForm();
     // const imgbbHostKey = process.env.REACT_APP_imgbb_key;
+
+    const handleAddLearn = () => {
+        const newLearning = [...learnings, []];
+        setLearning(newLearning);
+    }
+
+    const handleDeleteLearn = (i) => {
+        const deleteData = [...learnings];
+        deleteData.splice(i, 1);
+        setLearning(deleteData)
+    }
+
+    const handleChangeLearn = (onChangeData, i) => {
+        const inputData = [...learnings]
+        inputData[i] = onChangeData.target.value;
+        setLearning(inputData)
+    }
 
     const handleAddProduct = (data) => {
         const image = data.image[0];
@@ -40,7 +60,8 @@ const AddCourse = () => {
                         price: data.price,
                         hours: data.hours,
                         category: data.category,
-                        postingDate: `${date}.${month}.${year}`
+                        postingDate: `${date}.${month}.${year}`,
+                        learning: learnings
                     }
 
                     console.log(addCourse);
@@ -73,7 +94,8 @@ const AddCourse = () => {
                             <div className="form-control w-full max-w-xs">
                                 <input
                                     {...register("tutor")}
-                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Instructor Name' />
+                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Instructor Name' defaultValue={user.displayName
+}/>
                             </div>
 
                             <div className="form-control w-full max-w-xs">
@@ -130,7 +152,6 @@ const AddCourse = () => {
                                 </div>
                             </div>
 
-
                             <div className="form-control w-full max-w-xs">
                                 <input
                                     {...register("image", {
@@ -139,6 +160,27 @@ const AddCourse = () => {
                                     type="file" className="input input-bordered w-full max-w-xs" placeholder='Upload a Image' />
                                 {errors.img && <span className='text-error'>{errors.img.message}</span>}
                             </div>
+
+                            <div className='form-control w-full max-w-xs'>
+                                <h2 className='text-xl font-bold'>Student Will Learn</h2>
+
+                                <button onClick={() => handleAddLearn()} className="btn btn-primary my-4">Add</button>
+
+                                {learnings.map((data, i) => {
+                                    return (
+                                        <div className='flex'>
+                                            <textarea
+                                                {...register("learnings", {
+                                                    required: "Student will learn",
+                                                })}
+                                                className="textarea textarea-bordered my-2" value={data} onChange={e => handleChangeLearn(e, i)} placeholder="Please write what student will learn"></textarea>
+                                            <button onClick={()=>handleDeleteLearn(i)} className="btn btn-sm ml-2">x</button>
+                                        </div>
+                                    )
+                                })}
+                                
+                            </div>
+
                         </div>
 
                         <input className='btn btn-accent w-full text-white mt-6 text-center' type="submit" value="Add Course" />
