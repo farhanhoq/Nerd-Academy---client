@@ -4,10 +4,13 @@ import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../Context/AuthProvider';
+import { toast } from 'react-hot-toast';
 
-const CheckoutForm = ({ total  , email, handleAddData}) => {
+const CheckoutForm = ({ total  , email }) => {
+  // const [singleData , setSingleData] = useState({});
+  // console.log(singleData);
 
-  const {user , loading} = useContext(AuthContext)
+  const {user , loading } = useContext(AuthContext);
   
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState("");
@@ -16,7 +19,7 @@ const CheckoutForm = ({ total  , email, handleAddData}) => {
 
   useEffect(() => {
     
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://nerd-academy-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ total }),
@@ -69,6 +72,46 @@ const CheckoutForm = ({ total  , email, handleAddData}) => {
         }
         console.log('paymentIntent' , paymentIntent);
       }
+
+    //   const {
+    //     data: checkoutItems = [],
+    //     isLoading,
+    //     refetch,
+    //   } = useQuery({
+    //     queryKey: ['checkoutItems'],
+    //     queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`).then(res => res.json()),
+    //   });
+
+    //   const handleAddData = (picture, title, tutor, lectures, hours) => {
+        
+    //     const data = {
+    //       picture,
+    //       title,
+    //       tutor,
+    //       lectures,
+    //       hours
+    //     }
+      
+    //       fetch("https://nerd-academy-server.vercel.app/perchased-course", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/json" },
+    //         body: JSON.stringify( data ),
+    //       })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //           if (data.acknowledged) {
+    //             toast.success("Course purchased Successfully");
+    //         }
+    //         });
+    //   }
+
+    // checkoutItems?.map(singleItem => {
+    //   // setSingleData(items)
+    //   handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
+    // })
+
+      
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -92,7 +135,7 @@ const CheckoutForm = ({ total  , email, handleAddData}) => {
           className="btn btn-sm mt-5"
           type="submit"
           disabled={!stripe}
-          onClick={handleAddData}
+          
         >
           Pay
         </button>

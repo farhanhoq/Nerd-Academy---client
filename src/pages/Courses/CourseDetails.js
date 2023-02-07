@@ -10,14 +10,15 @@ import Loader from "../../Loader/Loader";
 
 
 const CourseDetails = () => {
-  const [overview, setOverview] = useState([]);
+  // const [overview, setOverview] = useState([]);
   const [contentData, setContentData] = useState([]);
   const { user, loading } = useContext(AuthContext);
   // console.log(contentData);
 
   const course = useLoaderData();
+  console.log(course);
 
-  const { id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description } = course[0];
+  const { id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description , instructorEmail } = course[0];
 
 
   useEffect(() => {
@@ -35,11 +36,11 @@ const CourseDetails = () => {
   // });
   // console.log(contentData);
 
-  useEffect(() => {
-    fetch("https://nerd-academy-server.vercel.app/overview")
-      .then((res) => res.json())
-      .then((data) => setOverview(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://nerd-academy-server.vercel.app/overview")
+  //     .then((res) => res.json())
+  //     .then((data) => setOverview(data));
+  // }, []);
 
   const handleAddToCart = () => {
     const coursecart = {
@@ -55,7 +56,9 @@ const CourseDetails = () => {
       hours,
       date,
       description,
+      instructorEmail
     };
+
 
     fetch("https://nerd-academy-server.vercel.app/userscart", {
       method: "POST",

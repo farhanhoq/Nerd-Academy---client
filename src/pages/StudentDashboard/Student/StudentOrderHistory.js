@@ -1,15 +1,28 @@
 import { useQuery } from '@tanstack/react-query';
+import { useContext } from 'react';
 import userImg from '../../../Assets/user.png'
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const StudentOrderHistory = () => {
 
 
-    const { data: orders = [], isLoading, refetch } = useQuery({
-        queryKey: ['orders'],
-        queryFn: () => fetch('https://nerd-academy-server.vercel.app/order-history')
-          .then(res => res.json())
+    // const { data: orders = [], isLoading, refetch } = useQuery({
+    //     queryKey: ['orders'],
+    //     queryFn: () => fetch('https://nerd-academy-server.vercel.app/order-history')
+    //       .then(res => res.json())
+    //   });
+    //   console.log(orders);
+
+    const {user} = useContext(AuthContext);
+    const {
+        data: studentCheckoutData = [],
+        isLoading,
+        refetch,
+      } = useQuery({
+        queryKey: ['studentCheckoutData'],
+        queryFn: () => fetch(`https://nerd-academy-server.vercel.app/student-order-history/${user?.email}`).then(res => res.json()),
       });
-      console.log(orders);
+      console.log(studentCheckoutData);
 
     return (
         <div>
@@ -33,7 +46,7 @@ const StudentOrderHistory = () => {
                         </thead>
                         <tbody class="text-sm font-normal text-gray-700">
                             {
-                                orders.map(order => 
+                                studentCheckoutData.map(order => 
                                 <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
                                 <td class="flex flex-row items-center px-4 py-4">
                                     <div class="flex w-10 h-10 mr-4">
@@ -42,23 +55,23 @@ const StudentOrderHistory = () => {
                                         </a>
                                     </div>
                                     <div class="flex-1 pl-1">
-                                        <div class="font-medium">{order?.name}</div>
+                                        <div class="font-medium">{order?.userName}</div>
                                         <div class="text-sm text-blue-600 ">
-                                            {order?.isVerified}
+                                            {order?.userEmail}
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-4 py-4">
-                                    {order?.courseName}
+                                    {order?.title}
                                 </td>
                                 <td class="px-4 py-4">
                                     ${order?.price}
                                 </td>
                                 <td class="px-4 py-4">
-                                    {order?.orderNo}
+                                    {order?.transactionId}
                                 </td>
                                 <td class="px-4 py-4">
-                                    {order?.purchasedOn}
+                                    {order?.date}
                                 </td>
                             </tr>)
                             }

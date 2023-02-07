@@ -1,6 +1,19 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Order = () => {
+    const {user} = useContext(AuthContext);
+    const {
+        data: checkoutData = [],
+        isLoading,
+        refetch,
+      } = useQuery({
+        queryKey: ['checkoutData'],
+        queryFn: () => fetch(`https://nerd-academy-server.vercel.app/checkout-data/${user?.email}`).then(res => res.json()),
+      });
+      console.log(checkoutData);
+
     return (
         <div>
             <div class=" card my-12 bg-base-100 shadow-xl">
@@ -28,118 +41,41 @@ const Order = () => {
                                 </tr>
                             </thead>
                             <tbody class="text-sm font-normal text-gray-700">
-                                <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
+                                {
+                                    checkoutData?.map(data => <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
                                     <td class="flex flex-row items-center px-4 py-4">
                                         <div class="flex w-10 h-10 mr-4">
                                             <a href="#" class="relative block">
-                                                <img alt="profil" src="https://images.unsplash.com/photo-1560329072-17f59dcd30a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d29tZW4lMjBmYWNlfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="object-cover w-10 h-10 mx-auto rounded-md" />
+                                                <img alt="profil" src={data?.picture} class="object-cover w-10 h-10 mx-auto rounded-md" />
                                             </a>
                                         </div>
                                         <div class="flex-1 pl-1">
-                                            <div class="font-medium">Barbara Curtis</div>
+                                            <div class="font-medium">{data?.userName}</div>
                                             <div class="text-sm text-blue-600 ">
-                                                Account Deactivated
+                                                {data?.userEmail}
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-4 py-4">
-                                        Web Development
+                                        {data?.title}
                                     </td>
                                     <td class="px-4 py-4">
-                                        $1500
+                                        {data?.price}
                                     </td>
                                     <td class="px-4 py-4">
-                                        MX-8523537435
+                                        {data?.transactionId}
                                     </td>
                                     <td class="px-4 py-4">
-                                        Just Now
+                                        {data?.date}
                                     </td>
-                                </tr>
-                                <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="flex flex-row items-center px-4 py-4">
-                                        <div class="flex w-10 h-10 mr-4">
-                                            <a href="#" class="relative block">
-                                                <img alt="profil" src="https://images.unsplash.com/photo-1571395443367-8fbb3962e48f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fG1lbiUyMGZhY2V8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="object-cover w-10 h-10 mx-auto rounded-md" />
-                                            </a>
-                                        </div>
-                                        <div class="flex-1 pl-1">
-                                            <div class="font-medium">Charlie Hawkins</div>
-                                            <div class="text-sm text-green-600 ">
-                                                Email Verified
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        Apps Development
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        $1100
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        MX-9537537436
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        Mar 04, 2018 11:37am
-                                    </td>
-                                </tr>
-                                <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="flex flex-row items-center px-4 py-4">
-                                        <div class="flex w-10 h-10 mr-4">
-                                            <a href="#" class="relative block">
-                                                <img alt="profil" src="https://images.unsplash.com/photo-1532170579297-281918c8ae72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fGZlbWFsZXxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60" class="object-cover w-10 h-10 mx-auto rounded-md" />
-                                            </a>
-                                        </div>
-                                        <div class="flex-1 pl-1">
-                                            <div class="font-medium ">Nina Bates</div>
-                                            <div class="text-sm text-yellow-600">
-                                                Payment On Hold
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        Machine Learning
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        $2200
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        MX-7533567437
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        Mar 13, 2018 9:41am
-                                    </td>
-                                </tr>
-                                <tr class="py-10 border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="flex flex-row items-center px-4 py-4">
-                                        <div class="flex w-10 h-10 mr-4">
-                                            <a href="#" class="relative block">
-                                                <img alt="profil" src="https://images.unsplash.com/photo-1474176857210-7287d38d27c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1lbiUyMGZhY2V8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="object-cover w-10 h-10 mx-auto rounded-md" />
-                                            </a>
-                                        </div>
-                                        <div class="flex-1 pl-1">
-                                            <div class="font-medium ">Hester Richards</div>
-                                            <div class="text-sm text-green-600 ">
-                                                Email Verified
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        Artificial Intelligence
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        $1000
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        MX-5673467743
-                                    </td>
-                                    <td class="px-4 py-4">
-                                        Feb 21, 2018 8:34am
-                                    </td>
-                                </tr>
+                                </tr>)
+                                }
+                                
+                                
                             </tbody>
                         </table>
                     </div>
-                    <div class="flex flex-col items-center w-full px-4 py-2 space-y-2 text-sm text-gray-500 sm:justify-between sm:space-y-0 sm:flex-row">
+                    {/* <div class="flex flex-col items-center w-full px-4 py-2 space-y-2 text-sm text-gray-500 sm:justify-between sm:space-y-0 sm:flex-row">
                         <p class="flex">Showing&nbsp;<span class="font-bold"> 1 to 4 </span>&nbsp;of 8 entries</p>
                         <div class="flex items-center justify-between space-x-2">
                             <a href="#" class="hover:text-gray-600">Previous</a>
@@ -149,7 +85,7 @@ const Order = () => {
                             </div>
                             <a href="#" class="hover:text-gray-600">Next</a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
