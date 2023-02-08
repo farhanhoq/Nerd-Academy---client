@@ -7,7 +7,7 @@ const useStudent = email => {
             fetch(`https://nerd-academy-server.vercel.app/users/student/${email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setIsStudent(data.isStudent);
                 })
         }

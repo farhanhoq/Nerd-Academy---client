@@ -18,7 +18,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   const [isRole] = useRole(user?.email)
-  console.log(isRole)
+  // console.log(isRole)
   const [isTeacher] = useTeacher(user?.email);
   const [isStudent] = useStudent(user?.email);
   
