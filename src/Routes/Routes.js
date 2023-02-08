@@ -32,7 +32,7 @@ import StudentProfile from "../pages/StudentDashboard/Student/StudentProfile";
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
-import Home from "../pages/home/Home/Home";
+import Home from "../pages/Home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 import Profile from "../pages/Dashboard/Instructor/Profile";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
@@ -40,6 +40,7 @@ import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
 import MyProfileEdit from "../pages/Dashboard/Instructor/MyProfileEdit";
 import MyProfileEditStudent from "../pages/StudentDashboard/Student/MyProfileEditStudent";
 import MyProfileStudent from "../pages/StudentDashboard/Student/MyProfileStudent";
+import Wishlist from "../pages/Wishlist/Wishlist";
 
 export const routes = createBrowserRouter([
     {
@@ -88,6 +89,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/checkout',
                 element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>
+            }
+            ,
+            {
+                path: '/wishlist',
+                element: <PrivateRoutes><Wishlist></Wishlist></PrivateRoutes>
             }
             ,
             {

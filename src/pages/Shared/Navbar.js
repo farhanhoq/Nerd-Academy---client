@@ -226,43 +226,44 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="dropdown dropdown-end">
+      {
+        user?.uid ?
+          <>
+            <div className="dropdown dropdown-end">
 
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
-        </label>
+                  <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                    <div className="w-10 rounded-full">
+                      <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    </div>
+                  </label>
 
-        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-        
-          {
-            user?.uid ?
-              <>
-                  {
-                    isRole === "student" && 
-                    <li><Link to="student-dashboard">Dashboard</Link></li>
-                  }
-                  {
-                    isRole === "teacher" && 
-                    <li><Link to="dashboard">Dashboard</Link></li>
-                  }
-                  {
-                    isRole === "admin" && 
-                    <li><Link to="admin-dashboard">Dashboard</Link></li>
-                  }
-                  <Link to='/' onClick={handleLogOut}><li>Log Out</li></Link>
-              </>
-              :
-              <>
-                <Link to="/login"><li>Login</li></Link>
-                <Link to="/register"><li>Register</li></Link>
-              </>
-          }
+                  <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
+                  
+                            {
+                              isRole === "student" && 
+                              <li><Link to="student-dashboard">Dashboard</Link></li>
+                            }
+                            {
+                              isRole === "teacher" && 
+                              <li><Link to="dashboard">Dashboard</Link></li>
+                            }
+                            {
+                              isRole === "admin" && 
+                              <li><Link to="admin-dashboard">Dashboard</Link></li>
+                            }
+                            <li><Link to='/wishlist'>Wishlist</Link></li>
+                            <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
+                  </ul>
 
-        </ul>
+            </div>
+          </>
+          :
+          <>
+            <Link to="/login" className="btn btn-primary">Login</Link>
+            <Link to="/register" className="btn btn-outline">Register</Link>
+          </>
+      }
 
-      </div>
     </nav>
   );
 };
