@@ -16,8 +16,9 @@ const CheckoutForm = ({ total  , email }) => {
   
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState("");
-    const [payment , setPayment] = useState(null);
-    console.log(payment)
+    const [transactionId , setTransactionId] = useState('');
+    const [processing , setProcessing] = useState(false);
+
     const stripe = useStripe();
     const elements = useElements();
 
@@ -32,8 +33,6 @@ const CheckoutForm = ({ total  , email }) => {
       .then((data) => setClientSecret(data.clientSecret));
   }, [total]);
   // console.log(total);
-
-
 
 
   const handleSubmit = async (event) => {
@@ -58,6 +57,7 @@ const CheckoutForm = ({ total  , email }) => {
     } else {
       setCardError('');
     }
+    setProcessing(true);
 
     const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
       clientSecret,
@@ -76,13 +76,18 @@ const CheckoutForm = ({ total  , email }) => {
           setCardError(confirmError.message);
           return;
         }
-        setPayment(paymentIntent)
-        console.log('paymentIntent' , paymentIntent);
-        checkoutItems?.map(singleItem => {
-                    handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
-                    handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price)
-                    toast.success("Course purchased Successfully");
-                  })
+        // setPayment(paymentIntent)
+        if(paymentIntent.status === "succeeded"){
+          toast.success("Course purchased Successfully");
+          setTransactionId(paymentIntent.id);
+          
+           checkoutItems?.map(singleItem => {
+            handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
+            handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price);
+          });
+        }
+        setProcessing(false);
+       
     }
 
       const {
@@ -135,7 +140,7 @@ const CheckoutForm = ({ total  , email }) => {
             userName: user?.displayName,
             userEmail: user?.email,
             date: `${date}-${month}-${year}`,
-            transactionId: payment?.id
+            transactionId: transactionId
           }
       
           fetch('https://nerd-academy-server.vercel.app/checkout-data', {
@@ -176,8 +181,7 @@ const CheckoutForm = ({ total  , email }) => {
         <button
           className="btn btn-sm mt-5 btn-primary"
           type="submit"
-          disabled={!stripe || !clientSecret}
-          
+          disabled={!stripe || !clientSecret || processing}
         >
           Pay
         </button>
