@@ -118,7 +118,7 @@ const AddCourse = () => {
                                     {...register("description", {
                                         required: "Please provided description",
                                     })}
-                                    className="textarea textarea-bordered" placeholder="course description"></textarea>
+                                    className="textarea textarea-bordered" placeholder="Course description"></textarea>
                                 {errors.description && <span className='text-error'>{errors.description.message}</span>}
                             </div>
 
@@ -136,7 +136,7 @@ const AddCourse = () => {
                                     {...register("hours", {
                                         required: "Please provided course hours",
                                     })}
-                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='course hours' />
+                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Course hours' />
                                 {errors.hours && <span className='text-error'>{errors.hours.message}</span>}
                             </div>
 
@@ -164,7 +164,7 @@ const AddCourse = () => {
                             <div className='form-control w-full max-w-xs'>
                                 <h2 className='text-xl font-bold'>Student Will Learn</h2>
 
-                                <button onClick={() => handleAddLearn()} className="btn btn-primary my-4">Add</button>
+                                <button onClick={() => handleAddLearn()} className="btn btn-primary text-white my-4">Add</button>
 
                                 {learnings.map((data, i) => {
                                     return (
@@ -183,7 +183,7 @@ const AddCourse = () => {
 
                         </div>
 
-                        <input className='btn btn-accent w-full text-white mt-6 text-center' type="submit" value="Add Course" />
+                        <input className='btn btn-primary w-full text-white mt-6 text-center' type="submit" value="Add Course" />
                     </form>
                 </div>
             </div>

@@ -193,7 +193,7 @@ const Navbar = () => {
       <div class="hidden lg:block w-[45%] ">
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
-            <a className="bg-transparent w-full">
+            <a className="bg-transparent w-full" href="/">
               <input
                 type="text"
                 placeholder="Search courses here"
@@ -233,7 +233,7 @@ const Navbar = () => {
 
                   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                      <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                      <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" />
                     </div>
                   </label>
 
@@ -259,8 +259,8 @@ const Navbar = () => {
           </>
           :
           <>
-            <Link to="/login" className="btn btn-primary">Login</Link>
-            <Link to="/register" className="btn btn-outline">Register</Link>
+            <Link to="/login" className="btn btn-primary hover:btn-outline text-white">Login</Link>
+            <Link to="/register" className="btn btn-primary text-white hover:btn-primary">Register</Link>
           </>
       }
 
