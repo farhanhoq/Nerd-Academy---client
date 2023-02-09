@@ -7,13 +7,17 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const CheckoutForm = ({ total  , email }) => {
-  // const [singleData , setSingleData] = useState({});
-  // console.log(singleData);
+  let newDate = new Date()
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
 
   const {user , loading } = useContext(AuthContext);
   
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState("");
+    const [payment , setPayment] = useState(null);
+    console.log(payment)
     const stripe = useStripe();
     const elements = useElements();
 
@@ -30,14 +34,16 @@ const CheckoutForm = ({ total  , email }) => {
   // console.log(total);
 
 
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     // || !elements
     if (!stripe || !elements) {
-      return
+      return;
     }
     const card = elements.getElement(CardElement);
-    if (card === null) {
+    if (card == null) {
       return;
     }
 
@@ -59,8 +65,8 @@ const CheckoutForm = ({ total  , email }) => {
         payment_method: {
           card: card,
           billing_details: {
-            name: user,
-            email: email
+            name: user?.displayName,
+            email: user?.email
           },
         },
       },
@@ -70,45 +76,81 @@ const CheckoutForm = ({ total  , email }) => {
           setCardError(confirmError.message);
           return;
         }
+        setPayment(paymentIntent)
         console.log('paymentIntent' , paymentIntent);
+        checkoutItems?.map(singleItem => {
+                    handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
+                    handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price)
+                    toast.success("Course purchased Successfully");
+                  })
+    }
+
+      const {
+        data: checkoutItems = [],
+        isLoading,
+        refetch,
+      } = useQuery({
+        queryKey: ['checkoutItems'],
+        queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`).then(res => res.json()),
+      });
+
+      const handleAddData = (picture, title, tutor, lectures, hours) => {
+        
+        const data = {
+          picture,
+          title,
+          tutor,
+          lectures,
+          hours
+        }
+      
+          fetch("https://nerd-academy-server.vercel.app/perchased-course", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify( data ),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+            //   if (data.acknowledged) {
+            //     checkoutItems?.map(singleItem => {
+            //     // setSingleData(items)
+            //     const {picture , title , tutor , lectures , hours, instructorEmail , price} = singleItem;
+            //     handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
+            //     handlePurchasedData(instructorEmail, picture, title, price)
+            //     toast.success("Course purchased Successfully");
+            //   })
+              
+            // }
+            });
       }
 
-    //   const {
-    //     data: checkoutItems = [],
-    //     isLoading,
-    //     refetch,
-    //   } = useQuery({
-    //     queryKey: ['checkoutItems'],
-    //     queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`).then(res => res.json()),
-    //   });
+      const handlePurchasedData = (instructorEmail, picture, title, price) => {
 
-    //   const handleAddData = (picture, title, tutor, lectures, hours) => {
-        
-    //     const data = {
-    //       picture,
-    //       title,
-    //       tutor,
-    //       lectures,
-    //       hours
-    //     }
+          const checkoutData = {
+            instructorEmail,
+            picture,
+            title,
+            price,
+            userName: user?.displayName,
+            userEmail: user?.email,
+            date: `${date}-${month}-${year}`,
+            transactionId: payment?.id
+          }
       
-    //       fetch("https://nerd-academy-server.vercel.app/perchased-course", {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify( data ),
-    //       })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //           if (data.acknowledged) {
-    //             toast.success("Course purchased Successfully");
-    //         }
-    //         });
-    //   }
-
-    // checkoutItems?.map(singleItem => {
-    //   // setSingleData(items)
-    //   handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
-    // })
+          fetch('https://nerd-academy-server.vercel.app/checkout-data', {
+                      method: 'POST',
+                      headers: 
+                      {
+                        'content-type': 'application/json',
+                      },
+                      body: JSON.stringify(checkoutData)
+                    })
+                      .then(res => res.json())
+                      .then(data => console.log(data))
+      
+      
+        }
 
       
 
@@ -132,9 +174,9 @@ const CheckoutForm = ({ total  , email }) => {
           }}
         />
         <button
-          className="btn btn-sm mt-5"
+          className="btn btn-sm mt-5 btn-primary"
           type="submit"
-          disabled={!stripe}
+          disabled={!stripe || !clientSecret}
           
         >
           Pay
