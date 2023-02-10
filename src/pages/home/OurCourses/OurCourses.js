@@ -51,6 +51,8 @@ const OurCourses = () => {
         console.log(result)
       if (result.acknowledged === true) {
           toast.success('Added to wishlist successfully')
+      } else {
+          toast.error(result.message)
         }
     })
   }
