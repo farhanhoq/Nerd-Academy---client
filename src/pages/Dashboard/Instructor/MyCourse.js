@@ -41,9 +41,9 @@ const MyCourse = () => {
                 <h2 className="card-title">My Courses</h2>
                 <hr className='my-2' />
                 <div className="tabs flex flex-row gap-6">
-                    <a className="tab tab-bordered tab-active">Publish</a>
-                    <a className="tab tab-bordered">Pending</a>
-                    <a className="tab tab-bordered">Draft</a>
+                    <a href="/" className="tab tab-bordered tab-active">Publish</a>
+                    <a href="/" className="tab tab-bordered">Pending</a>
+                    <a href="/" className="tab tab-bordered">Draft</a>
                 </div>
                 <hr className='my-2' />
 
@@ -59,7 +59,7 @@ const MyCourse = () => {
                                     <img
                                         className="w-full h-40"
                                         src={course?.picture}
-                                        alt="wallpaper"
+                                        alt="course"
                                     />
 
                                     {/* <div className="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
@@ -108,9 +108,9 @@ const MyCourse = () => {
                                     </div>
                                     <div className="flex items-center relative  border-b border-cyan-500 py-1"></div>
                                     <div className="flex items-center relative my-2">
-                                        <img src={user?.photoURL} className="w-10 h-10 rounded-full bg-gray-100 " alt="" />
+                                        <img src={user?.photoURL} className="w-10 h-10 rounded-full bg-gray-100 " alt="user" />
                                         <div className="ml-3">
-                                            <p className="font-medium text-gray-800">
+                                            <p className="font-medium text-gray-800 capitalize">
                                                 {course?.tutor}
                                             </p>
                                             <p className="text-md text-gray-600"></p>
@@ -121,12 +121,12 @@ const MyCourse = () => {
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                                 </svg> */}
 
-                                            <Link to={`/details/${course._id}`} className="text-sm btn btn-sm">
+                                            <Link to={`/details/${course._id}`} className="text-sm btn btn-primary mr-1 btn-sm text-white">
                                                 View More
                                             </Link>
 
                                         </div>
-                                        <Link onClick={() => deleteProduct(course._id)} className="text-sm btn btn-sm btn-error">
+                                        <Link onClick={() => deleteProduct(course._id)} className="text-sm btn btn-sm btn-error text-white">
                                             Delete
                                         </Link>
                                     </div>

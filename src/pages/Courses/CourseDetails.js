@@ -16,9 +16,9 @@ const CourseDetails = () => {
   // console.log(contentData);
 
   const course = useLoaderData();
-  console.log(course);
 
-  const { id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description , instructorEmail } = course[0];
+  const { _id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description , instructorEmail, content } = course[0];
+  console.log(content)
 
 
   useEffect(() => {
@@ -26,6 +26,7 @@ const CourseDetails = () => {
       .then((res) => res.json())
       .then((data) => setContentData(data));
   }, []);
+
 
   // const { data: contentData = [], refetch } = useQuery({
   //   queryKey: ["contentData", user?.email],
@@ -138,7 +139,7 @@ const CourseDetails = () => {
             </div>
           </div>
 
-          {/* content */}
+          {/* course content */}
 
           <div className="mt-20">
             <h1 className="text-3xl font-bold mb-7">Course content</h1>
