@@ -220,7 +220,8 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="text-3xl hover:text-primary cursor-pointer mx-5">
+<div>
+<div className="text-2xl hover:text-primary cursor-pointer mx-5">
         <Link to="/cart" className="item" style={{ color: getColor("/") }}>
           <FaShoppingCart />
         </Link>
@@ -274,6 +275,7 @@ const Navbar = () => {
             <Link to="/register" className="btn text-white hover:btn-primary hover:text-white list">Register</Link>
           </>
       }
+</div>
 
     </nav>
   );
