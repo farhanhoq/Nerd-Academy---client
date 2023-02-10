@@ -161,7 +161,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div class="hidden lg:block w-[17%]">
+      <div className="hidden lg:block w-[17%]">
         {/* <img src={nerd} alt="" /> */}
         <div className="w-[210px]">
           <Link
@@ -190,7 +190,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div class="hidden lg:block w-[45%] ">
+      <div className="hidden lg:block w-[45%] ">
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
             <a className="bg-transparent w-full" href="/">
@@ -226,6 +226,17 @@ const Navbar = () => {
         </Link>
       </div>
 
+      <div>
+              <div className="switch-checkbox">
+                <label className="switch">
+                  <input
+                    type="checkbox"
+                    onChange={() => handleThemeSwitch(!darkMode)}/>
+                  <span className="slider round"></span>
+                </label>
+              </div>
+            </div>
+
       {
         user?.uid ?
           <>
@@ -233,7 +244,7 @@ const Navbar = () => {
 
                   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                      <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" />
+                      <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
                     </div>
                   </label>
 
@@ -259,8 +270,8 @@ const Navbar = () => {
           </>
           :
           <>
-            <Link to="/login" className="btn btn-primary hover:btn-outline text-white">Login</Link>
-            <Link to="/register" className="btn btn-primary text-white hover:btn-primary">Register</Link>
+            <Link to="/login" className="btn text-white hover:text-white list">Login</Link>
+            <Link to="/register" className="btn text-white hover:btn-primary hover:text-white list">Register</Link>
           </>
       }
 
