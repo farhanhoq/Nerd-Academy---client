@@ -70,7 +70,7 @@ const CoursesTable = ({ course, refetch }) => {
                     </Link>
                 </td>
                 <td class="py-3 px-6 text-center">
-                    <button onClick={() => handelApprove(course._id)}><span class="bg-primary cursor-pointer text-white py-1 px-3 rounded-full">Approved</span></button>
+                    <button onClick={() => handelApprove(course._id)}><span class="bg-primary cursor-pointer text-white py-1 px-3 rounded-full">Approve</span></button>
                 </td>
                 <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
