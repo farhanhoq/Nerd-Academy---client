@@ -220,62 +220,62 @@ const Navbar = () => {
         </ul>
       </div>
 
-<div>
-<div className="text-2xl hover:text-primary cursor-pointer mx-5">
-        <Link to="/cart" className="item" style={{ color: getColor("/") }}>
-          <FaShoppingCart />
-        </Link>
-      </div>
-
       <div>
-              <div className="switch-checkbox">
-                <label className="switch">
+        <div className="text-2xl hover:text-primary cursor-pointer mx-5">
+          <Link to="/cart" className="item" style={{ color: getColor("/") }}>
+            <FaShoppingCart />
+          </Link>
+        </div>
+
+        <div>
+          <div className="switch-checkbox">
+              <label className="switch">
                   <input
                     type="checkbox"
                     onChange={() => handleThemeSwitch(!darkMode)}/>
                   <span className="slider round"></span>
-                </label>
-              </div>
-            </div>
+              </label>
+          </div>
+        </div>
 
-      {
-        user?.uid ?
-          <>
-            <div className="dropdown dropdown-end">
+            {
+              user?.uid ?
+                <>
+                  <div className="dropdown dropdown-end">
 
-                  <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                      <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
-                    </div>
-                  </label>
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                          <div className="w-10 rounded-full">
+                            <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
+                          </div>
+                        </label>
 
-                  <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
-                  
-                            {
-                              isRole === "student" && 
-                              <li><Link to="student-dashboard">Dashboard</Link></li>
-                            }
-                            {
-                              isRole === "teacher" && 
-                              <li><Link to="dashboard">Dashboard</Link></li>
-                            }
-                            {
-                              isRole === "admin" && 
-                              <li><Link to="admin-dashboard">Dashboard</Link></li>
-                            }
-                            <li><Link to='/wishlist'>Wishlist</Link></li>
-                            <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
-                  </ul>
+                        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
+                        
+                                  {
+                                    isRole === "student" && 
+                                    <li><Link to="student-dashboard">Dashboard</Link></li>
+                                  }
+                                  {
+                                    isRole === "teacher" && 
+                                    <li><Link to="dashboard">Dashboard</Link></li>
+                                  }
+                                  {
+                                    isRole === "admin" && 
+                                    <li><Link to="admin-dashboard">Dashboard</Link></li>
+                                  }
+                                  <li><Link to='/wishlist'>Wishlist</Link></li>
+                                  <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
+                        </ul>
 
-            </div>
-          </>
-          :
-          <>
-            <Link to="/login" className="btn text-white hover:text-white list">Login</Link>
-            <Link to="/register" className="btn text-white hover:btn-primary hover:text-white list">Register</Link>
-          </>
-      }
-</div>
+                  </div>
+                </>
+                :
+                <>
+                  <Link to="/login" className="btn text-white hover:text-white list">Login</Link>
+                  <Link to="/register" className="btn text-white hover:btn-primary hover:text-white list">Register</Link>
+                </>
+            }
+      </div>
 
     </nav>
   );
