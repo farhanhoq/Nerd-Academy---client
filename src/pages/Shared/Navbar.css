@@ -183,3 +183,29 @@ input:checked + .slider:before {
 .custom-border:hover::after {
   transform: scale(1);
 }
+
+
+/* Button style  */
+.list,
+.list:hover {
+  background: none !important;
+  border: none;
+  color: white;
+}
+
+.list::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 1px;
+  width: 100%;
+  bottom: 7px;
+  left: 0;
+  transform: scale(0);
+  transition: 0.3s linear;
+}
+
+.list:hover,
+.list:hover::after {
+  transform: scale(1);
+}

@@ -13,15 +13,14 @@ const googleProvider = new GoogleAuthProvider();
 const Register = () => {
 
   const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
-  const handleSignUp = (data, event) => {
+  const handleSignUp = (data) => {
     createUser(data.email, data.password)
       .then(result => {
         const user = result.user;
         console.log(user);
-        event.target.reset();
         // toast.success("Successfully User Created");
 
         const userInfo = {
@@ -67,6 +66,7 @@ const Register = () => {
           //     }
           //   })
           toast.success("Successfully User Created");
+          reset()
           navigate('/');
         }
       })
@@ -77,6 +77,7 @@ const Register = () => {
     googleSignIn(googleProvider)
       .then(result => {
         const user = result.user;
+        console.log(user)
         toast.success("successfully logged in");
         navigate('/');
       })

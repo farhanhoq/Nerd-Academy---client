@@ -32,12 +32,14 @@ import StudentProfile from "../pages/StudentDashboard/Student/StudentProfile";
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
-import Home from "../pages/home/Home/Home";
+import Home from "../pages/Home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 import Profile from "../pages/Dashboard/Instructor/Profile";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
 import MyProfileEdit from "../pages/Dashboard/Instructor/MyProfileEdit";
+import Pending from "../pages/Dashboard/Instructor/Pending";
+import Publish from "../pages/Dashboard/Instructor/Publish";
 import MyProfileEditStudent from "../pages/StudentDashboard/Student/MyProfileEditStudent";
 import MyProfileStudent from "../pages/StudentDashboard/Student/MyProfileStudent";
 import Wishlist from "../pages/Wishlist/Wishlist";
@@ -143,6 +145,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myCourse',
                 element: <MyCourse></MyCourse>,
+
             },
             {
                 path: '/dashboard/add-course',
@@ -151,6 +154,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/DasboardReview',
                 element: <DasboardReview></DasboardReview>,
+            },
+            {
+                path: '/dashboard/pending',
+                element: <Pending></Pending>,
+            },
+            {
+                path: '/dashboard/publish',
+                element: <Publish></Publish>,
             },
             {
                 path: '/dashboard/order',

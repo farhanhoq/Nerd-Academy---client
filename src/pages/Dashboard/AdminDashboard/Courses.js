@@ -13,7 +13,7 @@ const Courses = () => {
     const { data: myCourse = [], refetch } = useQuery({
         queryKey: ['myCourse'],
         queryFn: async () => {
-            const res = await fetch(`https://nerd-academy-server.vercel.app/my-courses?email=${user?.email}`, {
+            const res = await fetch(`http://localhost:5000/pending`, {
                 // headers: {
                 //     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 // }

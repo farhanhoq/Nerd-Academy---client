@@ -22,6 +22,24 @@ const CoursesTable = ({ course, refetch }) => {
             })
     };
 
+    const handelApprove = id => {
+        fetch(`http://localhost:5000/courses/${id}`, {
+            method: 'PUT',
+            // headers: {
+            //     authorization: `bearer ${localStorage.getItem('token')}`
+            // }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success('Make Verifiy Successful.');
+                    refetch();
+                }
+            })
+    };
+
+
     return (
         <tbody class="text-gray-600 text-sm font-light">
             <tr class="border-b border-gray-200 hover:bg-gray-100">
@@ -52,7 +70,7 @@ const CoursesTable = ({ course, refetch }) => {
                     </Link>
                 </td>
                 <td class="py-3 px-6 text-center">
-                    <span class="bg-primary cursor-pointer text-white py-1 px-3 rounded-full">Approved</span>
+                    <button onClick={() => handelApprove(course._id)}><span class="bg-primary cursor-pointer text-white py-1 px-3 rounded-full">Approve</span></button>
                 </td>
                 <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">

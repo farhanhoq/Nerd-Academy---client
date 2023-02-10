@@ -12,6 +12,7 @@ const Wishlist = () => {
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/wishlist?email=${user?.email}`);
             const data = await res.json();
+            console.log(data);
             return data;
         }
     })
@@ -38,7 +39,7 @@ const Wishlist = () => {
         <section className="py-24">
             <ScrollToTop />
             <div className="w-10/12 mx-auto p-5 shadow-xl border rounded-xl">
-            <h1 className="text-5xl p-4 mb-8">Wish List</h1>
+            <h1 className="text-5xl p-4 mb-8">Wish List ({wishLists.length})</h1>
             <div className="flex">
                 <div className="overflow-x-auto w-7/12">
                 <table className="table w-full">

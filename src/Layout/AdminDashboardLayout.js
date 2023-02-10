@@ -62,7 +62,7 @@ const AdminDashboardLayout = () => {
                                             <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                                         </svg> */}
                                         <FaUsers className='text-xl text-grey'></FaUsers>
-                                        <span class="ml-3 flex-1 whitespace-nowrap">Customer</span></Link>
+                                        <span class="ml-3 flex-1 whitespace-nowrap">Students</span></Link>
                                 </li>
                                 <li>
                                     <Link to="/admin-dashboard/courses" className='text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group'>

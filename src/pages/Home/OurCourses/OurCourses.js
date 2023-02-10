@@ -51,6 +51,8 @@ const OurCourses = () => {
         console.log(result)
       if (result.acknowledged === true) {
           toast.success('Added to wishlist successfully')
+      } else {
+          toast.error(result.message)
         }
     })
   }
@@ -182,7 +184,7 @@ const OurCourses = () => {
                       <p className="text-md text-gray-600"></p>
                     </div>
 
-                    <div className="flex items-center space-x-1.5 rounded-lg px-4 py-1.5 border-primary border transition ease-in-out  duration-300 hover:text-white duration-100 hover:bg-cyan-500 mx-8">
+                    <div className="flex items-center space-x-1.5 rounded-lg px-4 py-1.5 border-primary border transition ease-in-out  duration-300 hover:text-white hover:bg-cyan-500 mx-3">
 
                       <Link to={`/details/${course._id}`} className="text-sm">
                         View More
