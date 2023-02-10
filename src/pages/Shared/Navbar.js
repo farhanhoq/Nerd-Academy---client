@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaAngleDoubleRight, FaShoppingCart } from "react-icons/fa";
+import { HiChevronDoubleRight } from "react-icons/hi";
 import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
@@ -83,21 +84,55 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-      <li>
-        <a href="/">Web Development</a>
+    <span className="dropdown dropdown-right dropdown-hover">
+      <li className="">
+        <a href="/" className="flex justify-between items-center"><span>Web Development</span><HiChevronDoubleRight /></a>
+        <ul  className="dropdown-content menu bg-base-100 w-full pl-0 " >
+            <Link to='/details/63c8b8924cad87fef2c00434'><li><a>React</a></li></Link>
+            <Link to='/details/63c8b8924cad87fef2c00435'><li><a>Java Script</a></li></Link>
+          </ul>
       </li>
-      <li>
-        <a href="/">Programming</a>
+    </span>
+
+      <span className="dropdown dropdown-right dropdown-hover">
+        <li>
+      <a href="/" className="flex justify-between items-center"><span>Programming</span><HiChevronDoubleRight /></a>
+      <ul  className="dropdown-content menu bg-base-100 w-full pl-0 " >
+            <Link to='/details/63c8b8924cad87fef2c00437'><li><a>JAVA Programming</a></li></Link>
+            <Link to='/details/63e531492ddfa35f8cb8fe85'><li><a>C Programming</a></li></Link>
+      </ul>
       </li>
-      <li>
-        <a href="/">Computer Science</a>
+      </span>
+      
+      <span className="dropdown dropdown-right dropdown-hover">
+        <li className="" >
+        <a href="/" className="flex justify-between items-center"><span>Computer Science</span><HiChevronDoubleRight /></a>
+          <ul  className="dropdown-content menu bg-base-100 w-full pl-0 " >
+            <Link to='/details/63e52fce2ddfa35f8cb8fe84'><li><a>Python Programming</a></li></Link>
+          </ul>
       </li>
-      <li>
-        <a href="/">Artificial Intelligence</a>
+      </span>
+      
+      <span className="dropdown dropdown-right dropdown-hover">
+        <li>
+      <a href="/" className="flex justify-between items-center"><span>Artificial Intelligence</span><HiChevronDoubleRight /></a>
+      <ul  className="dropdown-content menu bg-base-100 w-full pl-0 " >
+            <Link to='/details/63c8b8924cad87fef2c00438'><li><a>Artificial Intelligence</a></li></Link>
+            <Link to='/details/63c8b8924cad87fef2c00439'><li><a>Machine Learning</a></li></Link>
+          </ul>
       </li>
-      <li>
-        <a href="/">Mobile App Development</a>
+      </span>
+      
+      <span className="dropdown dropdown-right dropdown-hover absolute left-5">
+        <li>
+      <a href="/" className="flex justify-between items-center"><span>Mobile App Development</span><HiChevronDoubleRight /></a>
+      <ul  className="dropdown-content menu bg-base-100 w-full pl-0 relative" >
+            <Link to='/details/63c8b8924cad87fef2c0043a'><li><a>Swift</a></li></Link>
+            <Link to='/details/63e327d29a6a2de3bd454da8'><li><a>Socket IO</a></li></Link>
+          </ul>
       </li>
+      </span>
+      
     </>
   );
 
@@ -182,7 +217,7 @@ const Navbar = () => {
             <span className="rounded item" style={{ color: getColor("/") }}>
               Categories
             </span>
-            <ul className="bg-base-100 p-2 rounded">{menuItems}</ul>
+            <ul className="bg-base-100 rounded">{menuItems}</ul>
           </li>
           {/* <li>
             <Link to="/dashboard" className="pt-3 item text-md" style={{ color: getColor("/") }}>Instructor</Link>
