@@ -38,6 +38,8 @@ import Profile from "../pages/Dashboard/Instructor/Profile";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
 import MyProfileEdit from "../pages/Dashboard/Instructor/MyProfileEdit";
+import Pending from "../pages/Dashboard/Instructor/Pending";
+import Publish from "../pages/Dashboard/Instructor/Publish";
 
 export const routes = createBrowserRouter([
     {
@@ -135,6 +137,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myCourse',
                 element: <MyCourse></MyCourse>,
+
             },
             {
                 path: '/dashboard/add-course',
@@ -143,6 +146,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/DasboardReview',
                 element: <DasboardReview></DasboardReview>,
+            },
+            {
+                path: '/dashboard/pending',
+                element: <Pending></Pending>,
+            },
+            {
+                path: '/dashboard/publish',
+                element: <Publish></Publish>,
             },
             {
                 path: '/dashboard/order',

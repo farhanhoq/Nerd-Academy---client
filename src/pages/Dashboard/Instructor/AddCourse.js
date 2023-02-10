@@ -40,7 +40,10 @@ const AddCourse = () => {
                         price: data.price,
                         hours: data.hours,
                         category: data.category,
-                        postingDate: `${date}.${month}.${year}`
+                        postingDate: `${date}.${month}.${year}`,
+                        publish: false
+
+
                     }
 
                     console.log(addCourse);
