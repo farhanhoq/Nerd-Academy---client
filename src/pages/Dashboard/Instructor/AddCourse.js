@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -12,11 +12,49 @@ const AddCourse = () => {
     let year = newDate.getFullYear();
     const navigation = useNavigate();
 
+    const [learnings, setLearning] = useState([]);
+    const [contents, setContent] = useState([]);
+
     const { user } = useContext(AuthContext);
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     // const imgbbHostKey = process.env.REACT_APP_imgbb_key;
 
-    const handleAddProduct = (data) => {
+    const handleAddLearn = () => {
+        const newLearning = [...learnings, []];
+        setLearning(newLearning);
+    }
+
+    const handleDeleteLearn = (i) => {
+        const deleteData = [...learnings];
+        deleteData.splice(i, 1);
+        setLearning(deleteData)
+    }
+
+    const handleChangeLearn = (onChangeData, i) => {
+        const inputData = [...learnings]
+        inputData[i] = onChangeData.target.value;
+        setLearning(inputData)
+    }
+
+    const handleAddContent = () => {
+        const newLearning = [...contents, []];
+        setContent(newLearning);
+    }
+
+    const handleDeleteContent = (i) => {
+        const deleteData = [...contents];
+        deleteData.splice(i, 1);
+        setContent(deleteData)
+    }
+
+    const handleChangeContent = (onChangeData, i) => {
+        const inputData = [...contents]
+        inputData[i] = onChangeData.target.value;
+        setContent(inputData)
+    }
+
+    const handleAddCourse = (data) => {
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -41,9 +79,9 @@ const AddCourse = () => {
                         hours: data.hours,
                         category: data.category,
                         postingDate: `${date}.${month}.${year}`,
-                        publish: false
-
-
+                        publish: false,
+                        learning: learnings,
+                        content: contents
                     }
 
                     console.log(addCourse);
@@ -70,13 +108,13 @@ const AddCourse = () => {
             <h2 className="mt-8 text-3xl font-bold text-primary">Add a Course</h2>
             <div className='my-6 flex justify-center items-center'>
                 <div className='w-full card shadow-2xl p-8'>
-                    <form onSubmit={handleSubmit(handleAddProduct)}>
+                    <form onSubmit={handleSubmit(handleAddCourse)}>
                         <div className='grid grid-cols-2 gap-6'>
 
                             <div className="form-control w-full max-w-xs">
                                 <input
                                     {...register("tutor")}
-                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Instructor Name' />
+                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Instructor Name' defaultValue={user.displayName} />
                             </div>
 
                             <div className="form-control w-full max-w-xs">
@@ -99,7 +137,7 @@ const AddCourse = () => {
                                     {...register("description", {
                                         required: "Please provided description",
                                     })}
-                                    className="textarea textarea-bordered" placeholder="course description"></textarea>
+                                    className="textarea textarea-bordered" placeholder="Course description"></textarea>
                                 {errors.description && <span className='text-error'>{errors.description.message}</span>}
                             </div>
 
@@ -117,7 +155,7 @@ const AddCourse = () => {
                                     {...register("hours", {
                                         required: "Please provided course hours",
                                     })}
-                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='course hours' />
+                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Course hours' />
                                 {errors.hours && <span className='text-error'>{errors.hours.message}</span>}
                             </div>
 
@@ -133,8 +171,7 @@ const AddCourse = () => {
                                 </div>
                             </div>
 
-
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full max-w-xs mt-6">
                                 <input
                                     {...register("image", {
                                         required: "Image is required"
@@ -142,9 +179,50 @@ const AddCourse = () => {
                                     type="file" className="input input-bordered w-full max-w-xs" placeholder='Upload a Image' />
                                 {errors.img && <span className='text-error'>{errors.img.message}</span>}
                             </div>
+
+                            <div className='form-control w-full max-w-xs mt-6'>
+                                <h2 className='text-xl font-bold'>Student Will Learn</h2>
+
+                                <button onClick={() => handleAddLearn()} className="btn btn-primary text-white my-4">Add</button>
+
+                                {learnings.map((data, i) => {
+                                    return (
+                                        <div className='flex'>
+                                            <textarea
+                                                {...register("learnings", {
+                                                    required: "Student will learn",
+                                                })}
+                                                className="textarea textarea-bordered my-2" value={data} onChange={e => handleChangeLearn(e, i)} placeholder="Please write what student will learn"></textarea>
+                                            <button onClick={() => handleDeleteLearn(i)} className="btn btn-sm ml-2 btn-primary">x</button>
+                                        </div>
+                                    )
+                                })}
+
+                            </div>
+
+                            <div className='form-control w-full max-w-xs mt-6'>
+                                <h2 className='text-xl font-bold'>Course Content</h2>
+
+                                <button onClick={() => handleAddContent()} className="btn btn-primary text-white my-4">Add</button>
+
+                                {contents.map((data, i) => {
+                                    return (
+                                        <div className='flex'>
+                                            <textarea
+                                                {...register("content", {
+                                                    required: "Course content",
+                                                })}
+                                                className="textarea textarea-bordered my-2" value={data} onChange={e => handleChangeContent(e, i)} placeholder="Please write what student will learn"></textarea>
+                                            <button onClick={() => handleDeleteContent(i)} className="btn btn-primary btn-sm ml-2">x</button>
+                                        </div>
+                                    )
+                                })}
+
+                            </div>
+
                         </div>
 
-                        <input className='btn btn-accent w-full text-white mt-6 text-center' type="submit" value="Add Course" />
+                        <input className='btn btn-primary w-full text-white mt-6 text-center' type="submit" value="Add Course" />
                     </form>
                 </div>
             </div>

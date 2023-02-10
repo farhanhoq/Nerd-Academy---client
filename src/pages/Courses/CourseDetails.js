@@ -10,14 +10,15 @@ import Loader from "../../Loader/Loader";
 
 
 const CourseDetails = () => {
-  const [overview, setOverview] = useState([]);
+  // const [overview, setOverview] = useState([]);
   const [contentData, setContentData] = useState([]);
   const { user, loading } = useContext(AuthContext);
   // console.log(contentData);
 
   const course = useLoaderData();
 
-  const { id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description } = course[0];
+  const { _id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description , instructorEmail, content } = course[0];
+  console.log(content)
 
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const CourseDetails = () => {
       .then((res) => res.json())
       .then((data) => setContentData(data));
   }, []);
+
 
   // const { data: contentData = [], refetch } = useQuery({
   //   queryKey: ["contentData", user?.email],
@@ -35,11 +37,11 @@ const CourseDetails = () => {
   // });
   // console.log(contentData);
 
-  useEffect(() => {
-    fetch("https://nerd-academy-server.vercel.app/overview")
-      .then((res) => res.json())
-      .then((data) => setOverview(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://nerd-academy-server.vercel.app/overview")
+  //     .then((res) => res.json())
+  //     .then((data) => setOverview(data));
+  // }, []);
 
   const handleAddToCart = () => {
     const coursecart = {
@@ -55,7 +57,9 @@ const CourseDetails = () => {
       hours,
       date,
       description,
+      instructorEmail
     };
+
 
     fetch("https://nerd-academy-server.vercel.app/userscart", {
       method: "POST",
@@ -135,7 +139,7 @@ const CourseDetails = () => {
             </div>
           </div>
 
-          {/* content */}
+          {/* course content */}
 
           <div className="mt-20">
             <h1 className="text-3xl font-bold mb-7">Course content</h1>

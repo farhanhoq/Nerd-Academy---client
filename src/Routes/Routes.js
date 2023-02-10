@@ -40,6 +40,9 @@ import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
 import MyProfileEdit from "../pages/Dashboard/Instructor/MyProfileEdit";
 import Pending from "../pages/Dashboard/Instructor/Pending";
 import Publish from "../pages/Dashboard/Instructor/Publish";
+import MyProfileEditStudent from "../pages/StudentDashboard/Student/MyProfileEditStudent";
+import MyProfileStudent from "../pages/StudentDashboard/Student/MyProfileStudent";
+import Wishlist from "../pages/Wishlist/Wishlist";
 
 export const routes = createBrowserRouter([
     {
@@ -88,6 +91,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/checkout',
                 element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>
+            }
+            ,
+            {
+                path: '/wishlist',
+                element: <PrivateRoutes><Wishlist></Wishlist></PrivateRoutes>
             }
             ,
             {
@@ -204,14 +212,6 @@ export const routes = createBrowserRouter([
                 element: <StudentAnnouncement></StudentAnnouncement>
             },
             {
-                path: '/student-dashboard/student-settings',
-                element: <StudentSettings></StudentSettings>,
-            },
-            {
-                path: '/student-dashboard/student-profile',
-                element: <StudentProfile></StudentProfile>,
-            },
-            {
                 path: '/student-dashboard/student-courses',
                 element: <MyCourses></MyCourses>,
             },
@@ -222,6 +222,15 @@ export const routes = createBrowserRouter([
             {
                 path: '/student-dashboard/student-assignment',
                 element: <StudentAssignment></StudentAssignment>,
+            },
+            {
+                path: '/student-dashboard/my-profile',
+                element: <MyProfileStudent></MyProfileStudent>,
+            },
+
+            {
+                path: '/student-dashboard/my-profile-edit',
+                element: <MyProfileEditStudent></MyProfileEditStudent>,
             },
         ]
     },

@@ -13,15 +13,14 @@ const googleProvider = new GoogleAuthProvider();
 const Register = () => {
 
   const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
-  const handleSignUp = (data, event) => {
+  const handleSignUp = (data) => {
     createUser(data.email, data.password)
       .then(result => {
         const user = result.user;
         console.log(user);
-        event.target.reset();
         // toast.success("Successfully User Created");
 
         const userInfo = {
@@ -67,6 +66,7 @@ const Register = () => {
           //     }
           //   })
           toast.success("Successfully User Created");
+          reset()
           navigate('/');
         }
       })
@@ -77,6 +77,7 @@ const Register = () => {
     googleSignIn(googleProvider)
       .then(result => {
         const user = result.user;
+        console.log(user)
         toast.success("successfully logged in");
         navigate('/');
       })
@@ -147,7 +148,7 @@ const Register = () => {
               />
               {errors.name && <span className='text-error'>{errors.name.message}</span>}
             </div>
-            <div className="">
+            <div className="mt-2">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
@@ -161,7 +162,7 @@ const Register = () => {
               />
               {errors.email && <span className='text-error'>{errors.email.message}</span>}
             </div>
-            <div className="form-control">
+            <div className="form-control mt-2">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
@@ -177,7 +178,7 @@ const Register = () => {
               />
               {errors.password && <span className='text-error'>{errors.password.message}</span>}
             </div>
-            <div className="form-control">
+            <div className="form-control mt-2">
               <label className="label">
                 <span className="label-text">Account Type</span>
               </label>
@@ -190,7 +191,7 @@ const Register = () => {
                 </select>
               </div>
 
-              <label className="label">
+              <label className="label mt-2">
                 <Link to="/login">
                   <span className="label-text-alt ">
                     Have an account?{" "}

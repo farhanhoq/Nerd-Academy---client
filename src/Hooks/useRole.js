@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const useRole = email => {
     const [isRole, setIsRole] = useState(false);
     const [isRoleLoading, setIsRoleLoading] = useState(true);
-    console.log(isRole)
+    // console.log(isRole)
 
     useEffect(() => {
         if (email) {

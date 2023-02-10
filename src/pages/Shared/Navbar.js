@@ -18,7 +18,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   const [isRole] = useRole(user?.email)
-  console.log(isRole)
+  // console.log(isRole)
   const [isTeacher] = useTeacher(user?.email);
   const [isStudent] = useStudent(user?.email);
   
@@ -161,7 +161,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div class="hidden lg:block w-[17%]">
+      <div className="hidden lg:block w-[17%]">
         {/* <img src={nerd} alt="" /> */}
         <div className="w-[210px]">
           <Link
@@ -190,10 +190,10 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div class="hidden lg:block w-[45%] ">
+      <div className="hidden lg:block w-[45%] ">
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
-            <a className="bg-transparent w-full">
+            <a className="bg-transparent w-full" href="/">
               <input
                 type="text"
                 placeholder="Search courses here"
@@ -220,49 +220,63 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="text-3xl hover:text-primary cursor-pointer mx-5">
-        <Link to="/cart" className="item" style={{ color: getColor("/") }}>
-          <FaShoppingCart />
-        </Link>
-      </div>
+      <div>
+        <div className="text-2xl hover:text-primary cursor-pointer mx-5">
+          <Link to="/cart" className="item" style={{ color: getColor("/") }}>
+            <FaShoppingCart />
+          </Link>
+        </div>
 
-      <div className="dropdown dropdown-end">
-
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+        <div>
+          <div className="switch-checkbox">
+              <label className="switch">
+                  <input
+                    type="checkbox"
+                    onChange={() => handleThemeSwitch(!darkMode)}/>
+                  <span className="slider round"></span>
+              </label>
           </div>
-        </label>
+        </div>
 
-        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-        
-          {
-            user?.uid ?
-              <>
-                  {
-                    isRole === "student" && 
-                    <li><Link to="student-dashboard">Dashboard</Link></li>
-                  }
-                  {
-                    isRole === "teacher" && 
-                    <li><Link to="dashboard">Dashboard</Link></li>
-                  }
-                  {
-                    isRole === "admin" && 
-                    <li><Link to="admin-dashboard">Dashboard</Link></li>
-                  }
-                  <Link to='/' onClick={handleLogOut}><li>Log Out</li></Link>
-              </>
-              :
-              <>
-                <Link to="/login"><li>Login</li></Link>
-                <Link to="/register"><li>Register</li></Link>
-              </>
-          }
+            {
+              user?.uid ?
+                <>
+                  <div className="dropdown dropdown-end">
 
-        </ul>
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                          <div className="w-10 rounded-full">
+                            <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
+                          </div>
+                        </label>
 
+                        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
+                        
+                                  {
+                                    isRole === "student" && 
+                                    <li><Link to="student-dashboard">Dashboard</Link></li>
+                                  }
+                                  {
+                                    isRole === "teacher" && 
+                                    <li><Link to="dashboard">Dashboard</Link></li>
+                                  }
+                                  {
+                                    isRole === "admin" && 
+                                    <li><Link to="admin-dashboard">Dashboard</Link></li>
+                                  }
+                                  <li><Link to='/wishlist'>Wishlist</Link></li>
+                                  <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
+                        </ul>
+
+                  </div>
+                </>
+                :
+                <>
+                  <Link to="/login" className="btn text-white hover:text-white list">Login</Link>
+                  <Link to="/register" className="btn text-white hover:btn-primary hover:text-white list">Register</Link>
+                </>
+            }
       </div>
+
     </nav>
   );
 };
