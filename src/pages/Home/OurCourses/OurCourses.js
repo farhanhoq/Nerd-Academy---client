@@ -113,9 +113,11 @@ const OurCourses = () => {
             {coursedata?.map((course) => (
               <div
                 key={course?._id}
-                className="cursor-pointer rounded-xl bg-white p-2 shadow-lg hover:shadow-xl h-96 border"
+                className="cursor-pointer rounded-xl bg-white p-2 shadow-lg hover:shadow-xl h-96 border dropdown dropdown-hover dropdown-top dropdown-end"
               >
-                <div className="relative flex items-end overflow-hidden rounded-xl">
+                <div className=""  tabIndex={0}>
+
+                  <div className="relative flex items-end overflow-hidden rounded-xl">
                   <img
                     className="w-full h-40"
                     src={course?.picture}
@@ -192,12 +194,27 @@ const OurCourses = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+                </div>
 
-        </div>
+                <div tabIndex={0} className="dropdown-content card card-compact w-64 p-2 shadow bg-white border text-primary-content rounded text-justify">
+                    <div className="card-body">
+                    <h3 className="card-title">{course?.title}</h3>
+                    <p>{course?.description}</p>
+                  </div>
+              </div>
+                
+
+                
+              </div>
+              
+            ))}
+            
+  </div>
+  
+          </div>
+        
       </div>
+      
     </div>
   );
 };

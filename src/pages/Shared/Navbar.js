@@ -122,11 +122,11 @@ const Navbar = () => {
           </ul>
         </li>
       </span>
-
-      <span className="dropdown dropdown-right dropdown-hover absolute left-5">
+      
+      <span className="dropdown dropdown-right dropdown-hover">
         <li>
-          <a href="/" className="flex justify-between items-center"><span>Mobile App Development</span><HiChevronDoubleRight /></a>
-          <ul className="dropdown-content menu bg-base-100 w-full pl-0 relative" >
+      <a href="/" className="flex justify-between items-center"><span>Mobile App Development</span><HiChevronDoubleRight /></a>
+      <ul  className="dropdown-content menu bg-base-100 w-full pl-0 " >
             <Link to='/details/63c8b8924cad87fef2c0043a'><li><a>Swift</a></li></Link>
             <Link to='/details/63e327d29a6a2de3bd454da8'><li><a>Socket IO</a></li></Link>
           </ul>
@@ -228,7 +228,7 @@ const Navbar = () => {
       <div className="hidden lg:block w-[45%] ">
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
-            <a className="bg-transparent w-full" href="/">
+            <a className="bg-transparent w-full">
               <input
                 type="text"
                 placeholder="Search courses here"
