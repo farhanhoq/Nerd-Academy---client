@@ -5,6 +5,7 @@ import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import Navbar from '../pages/Shared/Navbar';
 import { GoSignOut } from 'react-icons/go';
+import "./style.css";
 
 
 const DashboardLayout = () => {
@@ -47,19 +48,14 @@ const DashboardLayout = () => {
 
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     {/* Logo here in this div */}
-                    {/* <div className="">
-                        <Link to="#" title="home">
-                            <img className='w-32' src="" alt="" srcset="" />
-                        </Link>
-                    </div>
 
-                    <div className="mt-2 text-center">
+                    <div className="mt-12 text-center">
                         <img className='w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28' src={profile?.body?.picture} alt="" srcset="" />
                         <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block uppercase">{profile?.name}</h5>
                         <span className="hidden text-gray-400 lg:block capitalize font-bold">{profile?.role}</span>
-                    </div> */}
+                    </div>
 
-                    <ul className="mt-16 lg:mt-32 menu p-4 w-80 lg:bg-opacity-0 text-white">
+                    <ul className="mt-2 menu p-4 w-80 lg:bg-opacity-0 text-white">
                         <div>
                             <ul className="space-y-2 tracking-wide text-white ">
                                 <li>

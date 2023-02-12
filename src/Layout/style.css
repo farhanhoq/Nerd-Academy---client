@@ -13,3 +13,7 @@
 .margin-top1 {
     margin-top: 65px;
 }
+
+.display {
+    display: none !important;
+}
