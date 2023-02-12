@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaAngleDoubleRight, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import { HiChevronDoubleRight } from "react-icons/hi";
 import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -8,26 +8,28 @@ import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
-import useAdmin from "../../Hooks/useAdmin";
-import useTeacher from "../../Hooks/useTeacher";
-import useStudent from "../../Hooks/useStudent";
 import useRole from "../../Hooks/useRole";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const { user, logOut } = useContext(AuthContext);
-  const [isAdmin] = useAdmin(user?.email);
   const [isRole] = useRole(user?.email)
-  // console.log(isRole)
-  const [isTeacher] = useTeacher(user?.email);
-  const [isStudent] = useStudent(user?.email);
-
   const [theme, setTheme] = useState("light");
   const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
 
   const navigate = useNavigate();
+
+  const { data: image = [] } = useQuery({
+    queryKey: ["image"],
+    queryFn: async () => {
+      const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
+      const data = await res.json();
+      return data.body.picture;
+    }
+  })
+  console.log(image)
 
   useEffect(() => {
     if (theme === "dark") {
@@ -180,20 +182,6 @@ const Navbar = () => {
         >
           {menuItems}
         </ul>
-
-        {/* <div>
-          {(location.pathname === "/admin-dashboard" ||
-            location.pathname.startsWith("/admin-dashboard/")) && (
-            <div className="drawer-content block lg:hidden">
-              <label
-                htmlFor="admin-dashboard-drawer"
-                className="btn btn-primary drawer-button"
-              >
-                <MdOutlineDashboardCustomize className="text-2xl text-white" />
-              </label>
-            </div>
-          )}
-        </div> */}
       </div>
 
       <div className="hidden lg:block w-[17%]">
@@ -219,9 +207,6 @@ const Navbar = () => {
             </span>
             <ul className="bg-base-100 rounded">{menuItems}</ul>
           </li>
-          {/* <li>
-            <Link to="/dashboard" className="pt-3 item text-md" style={{ color: getColor("/") }}>Instructor</Link>
-          </li> */}
         </ul>
       </div>
 
@@ -280,7 +265,7 @@ const Navbar = () => {
 
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
+                    <img src={image} alt="" />
                   </div>
                 </label>
 
