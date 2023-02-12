@@ -169,44 +169,44 @@ const StudentDashboard = () => {
           </div>
         </div>
       </div>
-      
-        <div className="bg-slate-200 rounded-xl p-5 col-span-3">
-          <h1 className="text-black m-5 text-4xl">Video Duration</h1>
-          <BarChart
-            width={850}
-            height={300}
-            data={data01}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-            barSize={20}
-          >
-            <XAxis
-              dataKey="name"
-              scale="point"
-              padding={{ left: 10, right: 10 }}
-            />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <CartesianGrid strokeDasharray="3 3" />
-            <Bar dataKey="pv" fill="#8884d8" background={{ fill: '#eee' }} />
-          </BarChart>
-        </div>
 
-        <div className="bg-slate-200 rounded-xl p-5 col-span-1 ">
-          <div className="items-center mt-8">
-            <img className="w-[150px] mx-auto justify-center" src={trophy} alt="" />
-            <h1 className='text-center font-bold text-4xl text-black mt-10'>101 <br /> Reward</h1>
-          </div>
-        </div>
+      <div className="bg-slate-200 rounded-xl p-5 col-span-3">
+        <h1 className="text-black m-5 text-4xl">Video Duration</h1>
+        <BarChart
+          width={850}
+          height={300}
+          data={data01}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+          barSize={20}
+        >
+          <XAxis
+            dataKey="name"
+            scale="point"
+            padding={{ left: 10, right: 10 }}
+          />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Bar dataKey="pv" fill="#8884d8" background={{ fill: '#eee' }} />
+        </BarChart>
+      </div>
 
-        <div className='bg-slate-200 rounded-xl p-5 col-span-4'>
-
+      <div className="bg-slate-200 rounded-xl p-5 col-span-1 ">
+        <div className="items-center mt-8">
+          <img className="w-[150px] mx-auto justify-center" src={trophy} alt="" />
+          <h1 className='text-center font-bold text-4xl text-black mt-10'>101 <br /> Reward</h1>
         </div>
+      </div>
+
+      <div className='bg-slate-200 rounded-xl p-5 col-span-4'>
+
+      </div>
 
     </div>
   );
