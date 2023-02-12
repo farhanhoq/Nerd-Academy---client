@@ -89,25 +89,6 @@ const AddCourse = () => {
                 content: contents,
             };
 
-<<<<<<< HEAD
-                    const addCourse = {
-                        tutor: data.tutor,
-                        email: user?.email,
-                        picture: imgData.data.url,
-                        title: data.courseTitle,
-                        description: data.description,
-                        price: data.price,
-                        hours: data.hours,
-                        category: data.category,
-                        postingDate: `${date}.${month}.${year}`,
-                        publish: false,
-                        learning: learnings,
-                        content: contents
-                    }
-=======
-            console.log(addCourse);
->>>>>>> farhan
-
             fetch("https://nerd-academy-server.vercel.app/courses", {
                 method: "POST",
                 headers: {
@@ -126,333 +107,211 @@ const AddCourse = () => {
 
     return (
         <div>
-<<<<<<< HEAD
             <h2 className="mt-8 text-3xl font-bold text-primary">Add a Course</h2>
-            <div className='my-6 flex justify-center items-center'>
-                <div className='w-full card shadow-2xl p-8'>
-                    <form onSubmit={handleSubmit(handleAddCourse)}>
-                        <div className='grid grid-cols-2 gap-6'>
-
-                            <div className="form-control w-full max-w-xs">
-                                <input
-                                    {...register("tutor")}
-                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Instructor Name' defaultValue={user.displayName} />
-                            </div>
-
-                            <div className="form-control w-full max-w-xs">
-                                <input
-                                    {...register("email")}
-                                    type="email" className="input input-bordered w-full max-w-xs" defaultValue={user?.email} readOnly />
-                            </div>
-
-                            <div className="form-control w-full max-w-xs">
-                                <input
-                                    {...register("courseTitle", {
-                                        required: "Please provided course title",
-                                    })}
-                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Course Title' />
-                                {errors.courseTitle && <span className='text-error'>{errors.courseTitle.message}</span>}
-                            </div>
-
-                            <div className="form-control w-full max-w-xs">
-                                <textarea
-                                    {...register("description", {
-                                        required: "Please provided description",
-                                    })}
-                                    className="textarea textarea-bordered" placeholder="Course description"></textarea>
-                                {errors.description && <span className='text-error'>{errors.description.message}</span>}
-                            </div>
-
-                            <div className="form-control w-full max-w-xs">
-                                <input
-                                    {...register("price", {
-                                        required: "Please provided course price",
-                                    })}
-                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Price' />
-                                {errors.price && <span className='text-error'>{errors.price.message}</span>}
-                            </div>
-
-                            <div className="form-control w-full max-w-xs">
-                                <input
-                                    {...register("hours", {
-                                        required: "Please provided course hours",
-                                    })}
-                                    type="text" className="input input-bordered w-full max-w-xs" placeholder='Course hours' />
-                                {errors.hours && <span className='text-error'>{errors.hours.message}</span>}
-                            </div>
-
-                            <div className="form-control w-full max-w-xs">
-                                <div className='input-group'>
-                                    <select required {...register("category")} className="select select-bordered">
-                                        <option value="Web Development">Web Development</option>
-                                        <option value="App Development">App Development</option>
-                                        <option value="Programming">Programming</option>
-                                        <option value="Computer Science">Computer Science</option>
-                                        <option value="Artificial Intelligence">Artificial Intelligence</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="form-control w-full max-w-xs mt-6">
-                                <input
-                                    {...register("image", {
-                                        required: "Image is required"
-                                    })}
-                                    type="file" className="input input-bordered w-full max-w-xs" placeholder='Upload a Image' />
-                                {errors.img && <span className='text-error'>{errors.img.message}</span>}
-                            </div>
-
-                            <div className='form-control w-full max-w-xs mt-6'>
-                                <h2 className='text-xl font-bold'>Student Will Learn</h2>
-
-                                <button onClick={() => handleAddLearn()} className="btn btn-primary text-white my-4">Add</button>
-
-                                {learnings.map((data, i) => {
-                                    return (
-                                        <div className='flex'>
-                                            <textarea
-                                                {...register("learnings", {
-                                                    required: "Student will learn",
-                                                })}
-                                                className="textarea textarea-bordered my-2" value={data} onChange={e => handleChangeLearn(e, i)} placeholder="Please write what student will learn"></textarea>
-                                            <button onClick={() => handleDeleteLearn(i)} className="btn btn-sm ml-2 btn-primary">x</button>
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
-
-                            <div className='form-control w-full max-w-xs mt-6'>
-                                <h2 className='text-xl font-bold'>Course Content</h2>
-
-                                <button onClick={() => handleAddContent()} className="btn btn-primary text-white my-4">Add</button>
-
-                                {contents.map((data, i) => {
-                                    return (
-                                        <div className='flex'>
-                                            <textarea
-                                                {...register("content", {
-                                                    required: "Course content",
-                                                })}
-                                                className="textarea textarea-bordered my-2" value={data} onChange={e => handleChangeContent(e, i)} placeholder="Please write what student will learn"></textarea>
-                                            <button onClick={() => handleDeleteContent(i)} className="btn btn-primary btn-sm ml-2">x</button>
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
-
-                        </div>
-
-                        <input className='btn btn-primary w-full text-white mt-6 text-center' type="submit" value="Add Course" />
-                    </form>
-=======
-        <h2 className="mt-8 text-3xl font-bold text-primary">Add a Course</h2>
-        <div className="my-6 flex justify-center items-center">
-            <div className="w-full card shadow-2xl p-8">
-            <form onSubmit={handleSubmit(handleAddCourse)}>
-                <div className="grid grid-cols-2 gap-6">
-                <div className="form-control w-full max-w-xs">
-                    <input
-                    {...register("tutor")}
-                    type="text"
-                    className="input input-bordered w-full max-w-xs"
-                    placeholder="Instructor Name"
-                    defaultValue={user.displayName}
-                    />
->>>>>>> farhan
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                    <input
-                    {...register("email")}
-                    type="email"
-                    className="input input-bordered w-full max-w-xs"
-                    defaultValue={user?.email}
-                    readOnly
-                    />
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                    <input
-                    {...register("courseTitle", {
-                        required: "Please provided course title",
-                    })}
-                    type="text"
-                    className="input input-bordered w-full max-w-xs"
-                    placeholder="Course Title"
-                    />
-                    {errors.courseTitle && (
-                    <span className="text-error">
-                        {errors.courseTitle.message}
-                    </span>
-                    )}
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                    <textarea
-                    {...register("description", {
-                        required: "Please provided description",
-                    })}
-                    className="textarea textarea-bordered"
-                    placeholder="Course description"
-                    ></textarea>
-                    {errors.description && (
-                    <span className="text-error">
-                        {errors.description.message}
-                    </span>
-                    )}
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                    <input
-                    {...register("price", {
-                        required: "Please provided course price",
-                    })}
-                    type="text"
-                    className="input input-bordered w-full max-w-xs"
-                    placeholder="Price"
-                    />
-                    {errors.price && (
-                    <span className="text-error">{errors.price.message}</span>
-                    )}
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                    <input
-                    {...register("hours", {
-                        required: "Please provided course hours",
-                    })}
-                    type="text"
-                    className="input input-bordered w-full max-w-xs"
-                    placeholder="Course hours"
-                    />
-                    {errors.hours && (
-                    <span className="text-error">{errors.hours.message}</span>
-                    )}
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                    <div className="input-group">
-                    <select
-                        required
-                        {...register("category")}
-                        className="select select-bordered"
-                    >
-                        <option value="Web Development">Web Development</option>
-                        <option value="App Development">App Development</option>
-                        <option value="Programming">Programming</option>
-                        <option value="Computer Science">Computer Science</option>
-                        <option value="Artificial Intelligence">
-                        Artificial Intelligence
-                        </option>
-                    </select>
+            <div className="my-6 flex justify-center items-center">
+                <div className="w-full card shadow-2xl p-8">
+                <form onSubmit={handleSubmit(handleAddCourse)}>
+                    <div className="grid grid-cols-2 gap-6">
+                    <div className="form-control w-full max-w-xs">
+                        <input
+                        {...register("tutor")}
+                        type="text"
+                        className="input input-bordered w-full max-w-xs"
+                        placeholder="Instructor Name"
+                        defaultValue={user.displayName}
+                        />
                     </div>
-                </div>
 
-                <div className="form-control w-full max-w-xs mt-6">
-                    <input
-                    {...register("image", {
-                        required: "Image is required",
-                    })}
-                    type="file"
-                    className="input input-bordered w-full max-w-xs"
-                    placeholder="Upload a Image"
-                    />
-                    {errors.img && (
-                    <span className="text-error">{errors.img.message}</span>
-                    )}
-                </div>
+                    <div className="form-control w-full max-w-xs">
+                        <input
+                        {...register("email")}
+                        type="email"
+                        className="input input-bordered w-full max-w-xs"
+                        defaultValue={user?.email}
+                        readOnly
+                        />
+                    </div>
 
-                <div className="form-control w-full max-w-xs mt-6">
-                    <h2 className="text-xl font-bold">Student Will Learn</h2>
-
-                    <button
-                    onClick={() => handleAddLearn()}
-                    className="btn btn-primary text-white my-4"
-                    >
-                    Add
-                    </button>
-
-                    {learnings.map((data, i) => {
-                    return (
-                        <div className="flex">
-                            <textarea
-                                {...register("learnings", {
-                                required: "Student will learn",
-                                })}
-                                className="textarea textarea-bordered my-2"
-                                value={data}
-                                onChange={(e) => handleChangeLearn(e, i)}
-                                placeholder="Please write what student will learn"
-                            ></textarea>
-                            <button
-                                onClick={() => handleDeleteLearn(i)}
-                                className="btn btn-sm ml-2 btn-primary"
-                            >
-                                x
-                            </button>
-                            </div>
-                        );
+                    <div className="form-control w-full max-w-xs">
+                        <input
+                        {...register("courseTitle", {
+                            required: "Please provided course title",
                         })}
+                        type="text"
+                        className="input input-bordered w-full max-w-xs"
+                        placeholder="Course Title"
+                        />
+                        {errors.courseTitle && (
+                        <span className="text-error">
+                            {errors.courseTitle.message}
+                        </span>
+                        )}
                     </div>
 
-                    <div className="form-control w-full mt-6">
-                        <h2 className="text-xl font-bold">Course Content</h2>
+                    <div className="form-control w-full max-w-xs">
+                        <textarea
+                        {...register("description", {
+                            required: "Please provided description",
+                        })}
+                        className="textarea textarea-bordered"
+                        placeholder="Course description"
+                        ></textarea>
+                        {errors.description && (
+                        <span className="text-error">
+                            {errors.description.message}
+                        </span>
+                        )}
+                    </div>
+
+                    <div className="form-control w-full max-w-xs">
+                        <input
+                        {...register("price", {
+                            required: "Please provided course price",
+                        })}
+                        type="text"
+                        className="input input-bordered w-full max-w-xs"
+                        placeholder="Price"
+                        />
+                        {errors.price && (
+                        <span className="text-error">{errors.price.message}</span>
+                        )}
+                    </div>
+
+                    <div className="form-control w-full max-w-xs">
+                        <input
+                        {...register("hours", {
+                            required: "Please provided course hours",
+                        })}
+                        type="text"
+                        className="input input-bordered w-full max-w-xs"
+                        placeholder="Course hours"
+                        />
+                        {errors.hours && (
+                        <span className="text-error">{errors.hours.message}</span>
+                        )}
+                    </div>
+
+                    <div className="form-control w-full max-w-xs">
+                        <div className="input-group">
+                        <select
+                            required
+                            {...register("category")}
+                            className="select select-bordered"
+                        >
+                            <option value="Web Development">Web Development</option>
+                            <option value="App Development">App Development</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Artificial Intelligence">
+                            Artificial Intelligence
+                            </option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div className="form-control w-full max-w-xs mt-6">
+                        <input
+                        {...register("image", {
+                            required: "Image is required",
+                        })}
+                        type="file"
+                        className="input input-bordered w-full max-w-xs"
+                        placeholder="Upload a Image"
+                        />
+                        {errors.img && (
+                        <span className="text-error">{errors.img.message}</span>
+                        )}
+                    </div>
+
+                    <div className="form-control w-full max-w-xs mt-6">
+                        <h2 className="text-xl font-bold">Student Will Learn</h2>
 
                         <button
-                        onClick={() => handleAddContent()}
+                        onClick={() => handleAddLearn()}
                         className="btn btn-primary text-white my-4"
                         >
                         Add
                         </button>
 
-                        {contents.map((data, i) => {
+                        {learnings.map((data, i) => {
                         return (
-                            <div className="flex justify-between">
-                                
+                            <div className="flex">
                                 <textarea
+                                    {...register("learnings", {
+                                    required: "Student will learn",
+                                    })}
                                     className="textarea textarea-bordered my-2"
-                                    name="chp_name"
-                                    value={data.chp_name}
-                                    onChange={(e) => handleChangeContent(e, i)}
+                                    value={data}
+                                    onChange={(e) => handleChangeLearn(e, i)}
                                     placeholder="Please write what student will learn"
                                 ></textarea>
-                                <input
-                                    className="input input-bordered my-2"
-                                    name="lecture_num"
-                                    value={data.lecture_num}
-                                    onChange={(e) => handleChangeContent(e, i)}
-                                    placeholder="Please write what student will learn"
-                                ></input>
-                                <input
-                                    className="input input-bordered my-2"
-                                    name="chp_duration"
-                                    value={data.chp_duration}
-                                    onChange={(e) => handleChangeContent(e, i)}
-                                    placeholder="Please write what student will learn"
-                                ></input>
-                                
                                 <button
-                                    onClick={() => handleDeleteContent(i)}
-                                    className="btn btn-primary btn-sm ml-2"
+                                    onClick={() => handleDeleteLearn(i)}
+                                    className="btn btn-sm ml-2 btn-primary"
                                 >
                                     x
                                 </button>
+                                </div>
+                            );
+                            })}
                         </div>
-                    );
-                    })}
-                </div>
-                </div>
 
-                <input
-                className="btn btn-primary w-full text-white mt-6 text-center"
-                type="submit"
-                value="Add Course"
-                />
-            </form>
+                        <div className="form-control w-full mt-6">
+                            <h2 className="text-xl font-bold">Course Content</h2>
+
+                            <button
+                            onClick={() => handleAddContent()}
+                            className="btn btn-primary text-white my-4"
+                            >
+                            Add
+                            </button>
+
+                            {contents.map((data, i) => {
+                            return (
+                                <div className="flex justify-between">
+                                    
+                                    <textarea
+                                        className="textarea textarea-bordered my-2"
+                                        name="chp_name"
+                                        value={data.chp_name}
+                                        onChange={(e) => handleChangeContent(e, i)}
+                                        placeholder="Please write what student will learn"
+                                    ></textarea>
+                                    <input
+                                        className="input input-bordered my-2"
+                                        name="lecture_num"
+                                        value={data.lecture_num}
+                                        onChange={(e) => handleChangeContent(e, i)}
+                                        placeholder="Please write what student will learn"
+                                    ></input>
+                                    <input
+                                        className="input input-bordered my-2"
+                                        name="chp_duration"
+                                        value={data.chp_duration}
+                                        onChange={(e) => handleChangeContent(e, i)}
+                                        placeholder="Please write what student will learn"
+                                    ></input>
+                                    
+                                    <button
+                                        onClick={() => handleDeleteContent(i)}
+                                        className="btn btn-primary btn-sm ml-2"
+                                    >
+                                        x
+                                    </button>
+                            </div>
+                        );
+                        })}
+                    </div>
+                    </div>
+
+                    <input
+                    className="btn btn-primary w-full text-white mt-6 text-center"
+                    type="submit"
+                    value="Add Course"
+                    />
+                </form>
+                </div>
             </div>
-        </div>
         </div>
     );
 };
