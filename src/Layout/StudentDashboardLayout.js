@@ -5,6 +5,7 @@ import { AuthContext } from '../Context/AuthProvider';
 import Navbar from '../pages/Shared/Navbar';
 import graduated from '../Assets/graduated.png';
 import { useQuery } from '@tanstack/react-query';
+import "./style.css";
 
 const StudentDashboardLayout = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -37,7 +38,7 @@ const StudentDashboardLayout = () => {
       <Navbar></Navbar>
       <div className="drawer drawer-mobile">
         <input
-          id="dashboard-drawer"
+          id="student-dashboard-drawer"
           type="checkbox"
           className="drawer-toggle"
         />
@@ -45,9 +46,9 @@ const StudentDashboardLayout = () => {
           <Outlet />
         </div>
         <div className="drawer-side border">
-          <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
+          <label htmlFor="student-dashboard-drawer" className="drawer-overlay"></label>
           {/* Logo here in this div */}
-          <div class="">
+          {/* <div class="">
             <Link to="#" title="home">
               <img className="w-32" src="" alt="" srcset="" />
             </Link>
@@ -64,9 +65,9 @@ const StudentDashboardLayout = () => {
               {profile?.body?.fullName}
             </h5>
             <span class="hidden text-gray-400 lg:block">{profile?.role}</span>
-          </div>
+          </div> */}
 
-          <ul className="menu p-4 w-80 lg:bg-opacity-0 text-white">
+          <ul className="margin-top menu p-4 w-80 lg:bg-opacity-0 text-black ">
             <div>
               <ul class="space-y-2 tracking-wide text-white ">
                 <li>
@@ -141,7 +142,7 @@ const StudentDashboardLayout = () => {
                         d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"
                       />
                     </svg>
-                    <span class="group-hover:text-gray-700">Announcements</span>
+                    <span class="group-hover:text-gray-700 ">Announcements</span>
                     {/* <Link to="/dashboard/announcement"><span class="group-hover:text-gray-700">Announcement</span></Link> */}
                   </Link>
                 </li>
@@ -198,7 +199,7 @@ const StudentDashboardLayout = () => {
                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                       ></path>
                     </svg>
-                    <span class="group-hover:text-gray-700">My Profile</span>
+                    <span class="group-hover:text-gray-700 ">My Profile</span>
                     {/* <Link to="/dashboard/profile"><span class="group-hover:text-gray-700">Profile</span></Link> */}
                   </Link>
                 </li>
