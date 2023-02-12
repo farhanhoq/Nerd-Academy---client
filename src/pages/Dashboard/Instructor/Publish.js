@@ -12,7 +12,7 @@ const Publish = () => {
     }, [])
 
     return (
-        <div className="card my-6 bg-base-100 shadow-xl">
+        <div className="card my-6 bg-base-100">
             <div className="card-body">
                 <h2 className="card-title">My Courses</h2>
                 <hr className='my-2' />
@@ -22,7 +22,7 @@ const Publish = () => {
                         <li>
                             <Link to="/dashboard/pending" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
                                 <img className='h-5 w-5' src="https://cdn-icons-png.flaticon.com/512/9526/9526996.png" alt="" srcset="" />
-                                <span class="tab tab-bordered tab-active group-hover:text-gray-700">Pending</span>
+                                <span class="tab tab-bordered group-hover:text-gray-700">Pending</span>
                             </Link>
                         </li>
 
@@ -36,6 +36,7 @@ const Publish = () => {
 
                     </div>
                 </ul>
+
                 <div className="drawer drawer-mobile">
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 text-center'>
