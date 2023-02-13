@@ -251,32 +251,36 @@ const CourseDetails = () => {
               <div className="inline rating rating-lg mr-1"><input type="radio" name="rating-8" className="mask mask-star bg-yellow-500" checked /></div>
               {rating} course rating * {review}K ratings</h1>
 
-            <div>
-              <h2 className="text-2xl mb-2">Write a review for this {title} course</h2>
-              <form onSubmit={handleSubmit(handleReview)} className="card card-side bg-base-100 shadow-xl">
-                <figure>
-                  <input
-                    {...register("image")}
-                    type="file"
-                    className="file-input file-input-bordered w-3/5"
-                    placeholder="Upload a Image"
-                  />
-                  {errors.img && (
-                    <span className="text-error">{errors.img.message}</span>
-                  )}
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">Write your opinion</h2>
-                  <textarea
-                    {...register("review")}
-                    name="review"
-                    placeholder="review" className="textarea textarea-bordered textarea-sm w-full max-w-xs" ></textarea>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Submit</button>
+            {
+              user?.uid &&
+              <div>
+                <h2 className="text-2xl mb-2">Write a review for this {title} course</h2>
+                <form onSubmit={handleSubmit(handleReview)} className="card card-side bg-base-100 shadow-xl">
+                  <figure>
+                    <input
+                      {...register("image")}
+                      type="file"
+                      className="file-input file-input-bordered w-3/5"
+                      placeholder="Upload a Image"
+                    />
+                    {errors.img && (
+                      <span className="text-error">{errors.img.message}</span>
+                    )}
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Write your opinion</h2>
+                    <textarea
+                      {...register("review")}
+                      name="review"
+                      placeholder="review" className="textarea textarea-bordered textarea-sm w-full max-w-xs" ></textarea>
+                    <div className="card-actions justify-end">
+                      <button className="btn btn-primary">Submit</button>
+                    </div>
                   </div>
-                </div>
-              </form>
-            </div>
+                </form>
+              </div>
+            }
+
 
             <Review email={email} courseId={_id}></Review>
           </div>
