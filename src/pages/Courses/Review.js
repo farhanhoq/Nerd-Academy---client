@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import Loader from "../../Loader/Loader";
 
-const Review = () => {
+const Review = ({ email, courseId }) => {
 
     // const [reviewData, setReviewData] = useState([]);
     // const { loading } = useContext(AuthContext);
@@ -12,7 +12,7 @@ const Review = () => {
         queryKey: ['reviewData'],
         queryFn: async () => {
             try {
-                const res = await fetch(`https://nerd-academy-server.vercel.app/review`);
+                const res = await fetch(`https://nerd-academy-server.vercel.app/review?email=${email}&courseId=${courseId}`);
                 const data = await res.json();
                 return data;
             }
