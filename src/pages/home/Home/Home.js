@@ -24,12 +24,12 @@ const Home = () => {
             <OurCourses></OurCourses>
             <Counter></Counter>
             <Faq></Faq>
-            {
+            {/* {
                 loading ?
                     <Loader></Loader>
                     :
                     <Blog></Blog>
-            }
+            } */}
             {
                 user?.uid ?
                     <Contact></Contact>

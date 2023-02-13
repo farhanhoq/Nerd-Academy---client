@@ -6,6 +6,7 @@ import Navbar from '../pages/Shared/Navbar';
 import graduated from '../Assets/graduated.png';
 import { useQuery } from '@tanstack/react-query';
 import "./style.css";
+import { AiOutlineHome } from 'react-icons/ai';
 
 const StudentDashboardLayout = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -203,6 +204,14 @@ const StudentDashboardLayout = () => {
                     {/* <Link to="/dashboard/profile"><span class="group-hover:text-gray-700">Profile</span></Link> */}
                   </Link>
                 </li>
+
+                <li>
+                  <Link to="/" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+                    <AiOutlineHome className='text-xl text-grey'></AiOutlineHome>
+                    <span class="group-hover:text-gray-700 ">Home</span>
+                  </Link>
+                </li>
+
                 <li>
                   <Link
                     to=""
