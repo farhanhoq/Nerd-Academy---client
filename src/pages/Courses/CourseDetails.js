@@ -11,22 +11,22 @@ import Loader from "../../Loader/Loader";
 
 const CourseDetails = () => {
   // const [overview, setOverview] = useState([]);
-  const [contentData, setContentData] = useState([]);
+  // const [contentData, setContentData] = useState([]);
   const { user, loading } = useContext(AuthContext);
   // console.log(contentData);
 
   const course = useLoaderData();
 
-  const { _id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description , instructorEmail, content } = course[0];
-  console.log(content)
+  const { _id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description , instructorEmail, content , learning } = course[0];
+  console.log(content);
+  console.log(learning);
 
 
-  useEffect(() => {
-    fetch('https://nerd-academy-server.vercel.app/courseContent')
-      .then((res) => res.json())
-      .then((data) => setContentData(data));
-  }, []);
-
+  // useEffect(() => {
+  //   fetch('https://nerd-academy-server.vercel.app/courseContent')
+  //     .then((res) => res.json())
+  //     .then((data) => setContentData(data));
+  // }, []);
 
   // const { data: contentData = [], refetch } = useQuery({
   //   queryKey: ["contentData", user?.email],
@@ -119,43 +119,30 @@ const CourseDetails = () => {
         </div>
       </div>
 
-
-
       <div className="flex w-11/12 mx-auto mt-32">
-
         <div className="w-7/12 mx-auto ">
           <h1 className="text-3xl font-bold  pb-4">What you'll learn</h1>
-          <div className="flex border p-5">
-            <div>
-              <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" /> Have an intermediate skill level of Python programming.</p>
-              <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" /> Use the numpy library to create and manipulate arrays.</p>
-              <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" /> Learn how to work with various data formats within python, including: JSON,HTML, and MS Excel Worksheets.</p>
-              <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" /> Have a portfolio of various data analysis projects.</p>
-            </div>
-            <div>
-              <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" /> Use the Jupyter Notebook Environment.</p>
-              <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" /> Use the pandas module with Python to create and structure data.</p>
-              <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" /> Create data visualizations using matplotlib and the seaborn modules with python.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 border p-5">
+              {
+                learning?.map(learn => <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" />{learn}</p>)
+              }
           </div>
-
           {/* course content */}
-
           <div className="mt-20">
             <h1 className="text-3xl font-bold mb-7">Course content</h1>
 
             {
-              contentData?.map(data => <div className="collapse collapse-arrow border border-base-300 bg-base-100">
+              content?.map(data => <div className="collapse collapse-arrow border border-base-300 bg-base-100">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>{data?.heading}</p><p>{data?.date}</p>
+                <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>{data?.chp_name}</p><p>{data?.lecture_num} lecture / {data?.chp_duration}</p>
 
                 </div>
-                <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
+                {/* <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
                   {
                     data?.section.map(singleData => <p className="py-2"><FaPlayCircle className="inline mr-1" />{singleData}</p>)
                   }
 
-                </div>
+                </div> */}
               </div>)
             }
 

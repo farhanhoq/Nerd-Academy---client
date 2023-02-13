@@ -80,7 +80,7 @@ const CheckoutForm = ({ total  , email }) => {
         if(paymentIntent.status === "succeeded"){
           toast.success("Course purchased Successfully");
           setTransactionId(paymentIntent.id);
-          
+          handleDeleteCartData();
            checkoutItems?.map(singleItem => {
             handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
             handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price);
@@ -100,7 +100,6 @@ const CheckoutForm = ({ total  , email }) => {
       });
 
       const handleAddData = (picture, title, tutor, lectures, hours) => {
-        
         const data = {
           picture,
           title,
@@ -155,7 +154,14 @@ const CheckoutForm = ({ total  , email }) => {
                       .then(data => console.log(data))
       
       
-        }
+      }
+
+
+      const handleDeleteCartData = () => {
+        fetch(`https://nerd-academy-server.vercel.app/usercart/${user?.email}`, {
+        method: 'DELETE',
+      });
+      }
 
       
 

@@ -20,7 +20,7 @@ const Cart = () => {
   let total = 0;
 
   for (const singledata of cartDatas) {
-    total = total + singledata.price;
+    total = total + parseFloat(singledata.price);
   }
 
   const handleRemove = (id) => {
@@ -40,6 +40,7 @@ const Cart = () => {
         });
     }
   };
+  
 
   return (
     <section className="py-24">

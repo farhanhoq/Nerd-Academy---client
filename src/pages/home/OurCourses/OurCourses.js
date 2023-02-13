@@ -113,7 +113,7 @@ const OurCourses = () => {
             {coursedata?.map((course) => (
               <div
                 key={course?._id}
-                className="cursor-pointer rounded-xl bg-white p-2 shadow-lg hover:shadow-xl h-96 border dropdown dropdown-hover dropdown-top dropdown-end"
+                className="cursor-pointer rounded-xl bg-white p-2 shadow-lg hover:shadow-xl h-96 border dropdown dropdown-hover dropdown-top"
               >
                 <div className=""  tabIndex={0}>
 
