@@ -1,21 +1,38 @@
-import React, { useState , useEffect, useContext } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import Loader from "../../Loader/Loader";
 
 const Review = () => {
 
-    const [reviewData, setReviewData] = useState([]);
-    const { loading } = useContext(AuthContext);
+    // const [reviewData, setReviewData] = useState([]);
+    // const { loading } = useContext(AuthContext);
 
-    useEffect(() => {
-        fetch('https://nerd-academy-server.vercel.app/review')
-            .then((res) => res.json())
-            .then((data) => setReviewData(data));
-    }, []);
-    // console.log(reviewData);
-   if(loading){
-    return <Loader></Loader>
-   }
+    const { data: reviewData = [], isLoading, refetch } = useQuery({
+        queryKey: ['reviewData'],
+        queryFn: async () => {
+            try {
+                const res = await fetch(`https://nerd-academy-server.vercel.app/review`);
+                const data = await res.json();
+                return data;
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+    });
+
+    // useEffect(() => {
+    //     fetch('https://nerd-academy-server.vercel.app/review')
+    //         .then((res) => res.json())
+    //         .then((data) => setReviewData(data));
+    // }, []);
+    console.log(reviewData);
+    if (isLoading) {
+        return <Loader></Loader>
+    }
+    refetch();
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             {
@@ -28,7 +45,7 @@ const Review = () => {
                             <p className='pl-1 text-sm'>{data?.date}</p>
                         </div>
                     </div>
-                    <p>{data?.about}</p>
+                    <p>{data?.review}</p>
                 </div>)
             }
         </div>

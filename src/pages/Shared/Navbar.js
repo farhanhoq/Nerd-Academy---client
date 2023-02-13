@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaAngleDoubleRight, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import { HiChevronDoubleRight } from "react-icons/hi";
 import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -8,26 +8,20 @@ import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
-import useAdmin from "../../Hooks/useAdmin";
-import useTeacher from "../../Hooks/useTeacher";
-import useStudent from "../../Hooks/useStudent";
 import useRole from "../../Hooks/useRole";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const { user, logOut } = useContext(AuthContext);
-  const [isAdmin] = useAdmin(user?.email);
   const [isRole] = useRole(user?.email)
-  // console.log(isRole)
-  const [isTeacher] = useTeacher(user?.email);
-  const [isStudent] = useStudent(user?.email);
-  
   const [theme, setTheme] = useState("light");
   const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
 
   const navigate = useNavigate();
+
+  console.log(user)
 
   useEffect(() => {
     if (theme === "dark") {
@@ -84,43 +78,43 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-    <span className="dropdown dropdown-right dropdown-hover">
-      <li className="">
-        <a href="/" className="flex justify-between items-center"><span>Web Development</span><HiChevronDoubleRight /></a>
-        <ul  className="dropdown-content menu bg-base-100 w-full pl-0 " >
+      <span className="dropdown dropdown-right dropdown-hover">
+        <li className="">
+          <a href="/" className="flex justify-between items-center"><span>Web Development</span><HiChevronDoubleRight /></a>
+          <ul className="dropdown-content menu bg-base-100 w-full pl-0 " >
             <Link to='/details/63c8b8924cad87fef2c00434'><li><a>React</a></li></Link>
             <Link to='/details/63c8b8924cad87fef2c00435'><li><a>Java Script</a></li></Link>
           </ul>
-      </li>
-    </span>
+        </li>
+      </span>
 
       <span className="dropdown dropdown-right dropdown-hover">
         <li>
-      <a href="/" className="flex justify-between items-center"><span>Programming</span><HiChevronDoubleRight /></a>
-      <ul  className="dropdown-content menu bg-base-100 w-full pl-0 " >
+          <a href="/" className="flex justify-between items-center"><span>Programming</span><HiChevronDoubleRight /></a>
+          <ul className="dropdown-content menu bg-base-100 w-full pl-0 " >
             <Link to='/details/63c8b8924cad87fef2c00437'><li><a>JAVA Programming</a></li></Link>
             <Link to='/details/63e531492ddfa35f8cb8fe85'><li><a>C Programming</a></li></Link>
-      </ul>
-      </li>
+          </ul>
+        </li>
       </span>
-      
+
       <span className="dropdown dropdown-right dropdown-hover">
         <li className="" >
-        <a href="/" className="flex justify-between items-center"><span>Computer Science</span><HiChevronDoubleRight /></a>
-          <ul  className="dropdown-content menu bg-base-100 w-full pl-0 " >
+          <a href="/" className="flex justify-between items-center"><span>Computer Science</span><HiChevronDoubleRight /></a>
+          <ul className="dropdown-content menu bg-base-100 w-full pl-0 " >
             <Link to='/details/63e52fce2ddfa35f8cb8fe84'><li><a>Python Programming</a></li></Link>
           </ul>
-      </li>
+        </li>
       </span>
-      
+
       <span className="dropdown dropdown-right dropdown-hover">
         <li>
-      <a href="/" className="flex justify-between items-center"><span>Artificial Intelligence</span><HiChevronDoubleRight /></a>
-      <ul  className="dropdown-content menu bg-base-100 w-full pl-0 " >
+          <a href="/" className="flex justify-between items-center"><span>Artificial Intelligence</span><HiChevronDoubleRight /></a>
+          <ul className="dropdown-content menu bg-base-100 w-full pl-0 " >
             <Link to='/details/63c8b8924cad87fef2c00438'><li><a>Artificial Intelligence</a></li></Link>
             <Link to='/details/63c8b8924cad87fef2c00439'><li><a>Machine Learning</a></li></Link>
           </ul>
-      </li>
+        </li>
       </span>
       
       <span className="dropdown dropdown-right dropdown-hover">
@@ -130,9 +124,9 @@ const Navbar = () => {
             <Link to='/details/63c8b8924cad87fef2c0043a'><li><a>Swift</a></li></Link>
             <Link to='/details/63e327d29a6a2de3bd454da8'><li><a>Socket IO</a></li></Link>
           </ul>
-      </li>
+        </li>
       </span>
-      
+
     </>
   );
 
@@ -158,7 +152,7 @@ const Navbar = () => {
       }
     >
       <div className="dropdown">
-        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+        <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -180,20 +174,6 @@ const Navbar = () => {
         >
           {menuItems}
         </ul>
-
-        <div>
-          {(location.pathname === "/admin-dashboard" ||
-            location.pathname.startsWith("/admin-dashboard/")) && (
-            <div className="drawer-content block lg:hidden">
-              <label
-                htmlFor="admin-dashboard-drawer"
-                className="btn btn-primary drawer-button"
-              >
-                <MdOutlineDashboardCustomize className="text-2xl text-white" />
-              </label>
-            </div>
-          )}
-        </div>
       </div>
 
       <div className="hidden lg:block w-[17%]">
@@ -219,9 +199,6 @@ const Navbar = () => {
             </span>
             <ul className="bg-base-100 rounded">{menuItems}</ul>
           </li>
-          {/* <li>
-            <Link to="/dashboard" className="pt-3 item text-md" style={{ color: getColor("/") }}>Instructor</Link>
-          </li> */}
         </ul>
       </div>
 
@@ -264,52 +241,77 @@ const Navbar = () => {
 
         <div>
           <div className="switch-checkbox">
-              <label className="switch">
-                  <input
-                    type="checkbox"
-                    onChange={() => handleThemeSwitch(!darkMode)}/>
-                  <span className="slider round"></span>
-              </label>
+            <label className="switch">
+              <input
+                type="checkbox"
+                onChange={() => handleThemeSwitch(!darkMode)} />
+              <span className="slider round"></span>
+            </label>
           </div>
         </div>
 
-            {
-              user?.uid ?
-                <>
-                  <div className="dropdown dropdown-end">
+        {
+          user?.uid ?
+            <>
+              <div className="dropdown dropdown-end">
 
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                          <div className="w-10 rounded-full">
-                            <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
-                          </div>
-                        </label>
-
-                        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
-                        
-                                  {
-                                    isRole === "student" && 
-                                    <li><Link to="student-dashboard">Dashboard</Link></li>
-                                  }
-                                  {
-                                    isRole === "teacher" && 
-                                    <li><Link to="dashboard">Dashboard</Link></li>
-                                  }
-                                  {
-                                    isRole === "admin" && 
-                                    <li><Link to="admin-dashboard">Dashboard</Link></li>
-                                  }
-                                  <li><Link to='/wishlist'>Wishlist</Link></li>
-                                  <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
-                        </ul>
-
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user.photoURL} alt="" />
                   </div>
-                </>
-                :
-                <>
-                  <Link to="/login" className="btn text-white hover:text-white list">Login</Link>
-                  <Link to="/register" className="btn text-white hover:btn-primary hover:text-white list">Register</Link>
-                </>
-            }
+                </label>
+
+                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
+
+                  {
+                    isRole === "student" &&
+                    <li><Link to="student-dashboard">Dashboard</Link></li>
+                  }
+                  {
+                    isRole === "teacher" &&
+                    <li><Link to="dashboard">Dashboard</Link></li>
+                  }
+                  {
+                    isRole === "admin" &&
+                    <li><Link to="admin-dashboard">Dashboard</Link></li>
+                  }
+                  <li><Link to='/wishlist'>Wishlist</Link></li>
+                  <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
+                </ul>
+
+              </div>
+            </>
+            :
+            <>
+              <Link to="/login" className="btn text-white hover:text-white list">Login</Link>
+              <Link to="/register" className="btn text-white hover:btn-primary hover:text-white list">Register</Link>
+            </>
+        }
+
+        <div className="ml-2">
+          {(location.pathname === "/admin-dashboard" ||
+            location.pathname.startsWith("/admin-dashboard/")) && (
+              <div className="drawer-content block lg:hidden">
+                <label
+                  htmlFor="admin-dashboard-drawer"
+                  className="btn btn-primary drawer-button"
+                >
+                  <MdOutlineDashboardCustomize className="text-xl text-white" />
+                </label>
+              </div>
+            )}
+          {(location.pathname === "/student-dashboard" ||
+            location.pathname.startsWith("/student-dashboard")) && (
+              <div className="drawer-content block lg:hidden">
+                <label
+                  htmlFor="student-dashboard-drawer"
+                  className="btn btn-primary drawer-button"
+                >
+                  <MdOutlineDashboardCustomize className="text-xl text-white" />
+                </label>
+              </div>
+            )}
+        </div>
       </div>
 
     </nav>

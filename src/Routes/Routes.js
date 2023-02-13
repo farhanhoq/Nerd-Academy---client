@@ -32,7 +32,7 @@ import StudentProfile from "../pages/StudentDashboard/Student/StudentProfile";
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
-import Home from "../pages/home/Home/Home";
+import Home from "../pages/Home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 import Profile from "../pages/Dashboard/Instructor/Profile";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
@@ -43,6 +43,7 @@ import Publish from "../pages/Dashboard/Instructor/Publish";
 import MyProfileEditStudent from "../pages/StudentDashboard/Student/MyProfileEditStudent";
 import MyProfileStudent from "../pages/StudentDashboard/Student/MyProfileStudent";
 import Wishlist from "../pages/Wishlist/Wishlist";
+import StudentFeedback from "../pages/StudentDashboard/Student/StudentFeedback";
 
 export const routes = createBrowserRouter([
     {
@@ -215,6 +216,10 @@ export const routes = createBrowserRouter([
                 path: '/student-dashboard/student-courses',
                 element: <MyCourses></MyCourses>,
             },
+            // {
+            //     path: '/student-dashboard/student-feedback',
+            //     element: <StudentFeedback></StudentFeedback>,
+            // },
             {
                 path: '/student-dashboard/student-order',
                 element: <StudentOrderHistory></StudentOrderHistory>

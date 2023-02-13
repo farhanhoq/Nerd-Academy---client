@@ -7,12 +7,19 @@ import StudentAlsoBought from "../StudentAlsoBought/StudentAlsoBought";
 import Review from "./Review";
 import ScrollToTop from "../ScrollToTop";
 import Loader from "../../Loader/Loader";
+import { useForm } from "react-hook-form";
 
 
 const CourseDetails = () => {
+  let newDate = new Date();
+  let date1 = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
   // const [overview, setOverview] = useState([]);
   // const [contentData, setContentData] = useState([]);
   const { user, loading } = useContext(AuthContext);
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
   // console.log(contentData);
 
   const course = useLoaderData();
@@ -72,6 +79,63 @@ const CourseDetails = () => {
       .then((result) => {
         if (result.acknowledged === true) {
           toast.success("Added to cart successfully");
+        }
+      });
+  };
+
+  // const handleReview = (event) => {
+  //   event.preventDefault();
+  //   const form = event.target;
+  //   const review = form.review.value;
+  //   const picture = form.picture.value;
+
+  //   const reviewData = {
+  //     name: user?.displayName,
+  //     review,
+  //     picture,
+  //     date: `${date1}.${month}.${year}`
+  //   }
+  // }
+
+  const handleReview = (data, event) => {
+    // const form = event.target;
+    // const review = form.review.value;
+    // const image = form.picture.value;
+
+    console.log(data);
+    const image = data.image[0];
+    console.log(image);
+    const formData = new FormData();
+    formData.append("image", image);
+
+    const url = `https://api.imgbb.com/1/upload?key=218ccec0a78d63b33e00278172e1c053`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.success) {
+          const reviewData = {
+            name: user?.displayName,
+            review: data.review,
+            picture: imgData.data.url,
+            date: `${date1}.${month}.${year}`
+          }
+          // console.log(reviewData);
+
+          fetch("https://nerd-academy-server.vercel.app/review", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(reviewData),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              toast.success("Review has been added");
+              event.target.reset();
+            });
         }
       });
   };
@@ -184,6 +248,34 @@ const CourseDetails = () => {
             <h1 className="text-3xl font-bold  pb-4 flex items-center">
               <div className="inline rating rating-lg mr-1"><input type="radio" name="rating-8" className="mask mask-star bg-yellow-500" checked /></div>
               {rating} course rating * {review}K ratings</h1>
+
+            <div>
+              <h2 className="text-2xl mb-2">Write a review for this {title} course</h2>
+              <form onSubmit={handleSubmit(handleReview)} className="card card-side bg-base-100 shadow-xl">
+                <figure>
+                  <input
+                    {...register("image")}
+                    type="file"
+                    className="file-input file-input-bordered w-3/5"
+                    placeholder="Upload a Image"
+                  />
+                  {errors.img && (
+                    <span className="text-error">{errors.img.message}</span>
+                  )}
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">Write your opinion</h2>
+                  <textarea
+                    {...register("review")}
+                    name="review"
+                    placeholder="review" className="textarea textarea-bordered textarea-sm w-full max-w-xs" ></textarea>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
             <Review></Review>
           </div>
 

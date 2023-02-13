@@ -29,7 +29,7 @@ const MyProfile = () => {
         <Link to="/dashboard/my-profile-edit" className="text-primary"><BiEdit></BiEdit> Edit</Link>
       </div>
 
-      <div className="flex flex-row justify-center gap-12 mt-6 items-center">
+      <div className="flex flex-col md:flex-row md:justify-center gap-0 md:gap-12 mt-6 md:items-center">
 
         <div className="flex flex-col gap-4 items-center">
           <div className="avatar">
