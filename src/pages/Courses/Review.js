@@ -41,7 +41,7 @@ const Review = ({ email, courseId }) => {
                     <div className='flex pb-5 '>
                         <img className='w-12 h-12 rounded-full' src={data?.picture} alt="" />
                         <div className='pl-2'>
-                            <h4 className='text-lg font-bold '>{data?.name}</h4>
+                            <h4 className='text-lg font-bold '>{data?.userName}</h4>
                             <p className='pl-1 text-sm'>{data?.date}</p>
                         </div>
                     </div>

@@ -7,13 +7,8 @@ const DasboardReview = () => {
 
     // const [reviewData, setReviewData] = useState([]);
     const { user, loading } = useContext(AuthContext);
-    console.log(user);
+    console.log(user.email);
 
-    // useEffect(() => {
-    //     fetch(`https://nerd-academy-server.vercel.app/review?email=${user?.email}`)
-    //         .then((res) => res.json())
-    //         .then((data) => setReviewData(data));
-    // }, []);
     const { data: reviewData = [], isLoading, refetch } = useQuery({
         queryKey: ['reviewData'],
         queryFn: async () => {
@@ -44,11 +39,12 @@ const DasboardReview = () => {
                         <div className='flex pb-5 '>
                             <img className='w-12 h-12 rounded-full' src={data?.picture} alt="" />
                             <div className='pl-2'>
-                                <h4 className='text-lg font-bold '>{data?.name}</h4>
+                                <h4 className='text-lg font-bold '>{data?.userName}</h4>
+                                <h4 className='text-sm font-bold '>{data?.title}</h4>
                                 <p className='pl-1 text-sm'>{data?.date}</p>
                             </div>
                         </div>
-                        <p>{data?.review}</p>
+                        <p>Review : {data?.review}</p>
                     </div>)
                 }
             </div>
