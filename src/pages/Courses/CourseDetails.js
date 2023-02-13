@@ -8,6 +8,7 @@ import Review from "./Review";
 import ScrollToTop from "../ScrollToTop";
 import Loader from "../../Loader/Loader";
 import { useForm } from "react-hook-form";
+import { useQuery } from "@tanstack/react-query";
 
 
 const CourseDetails = () => {
@@ -26,7 +27,19 @@ const CourseDetails = () => {
 
   const { _id, title, picture, email, img, price, rating, review, tutor, lectures, hours, date, description, instructorEmail, content, learning } = course[0];
   // console.log(instructorEmail);
-  console.log(_id);
+  // console.log(_id);
+
+  const { data: users = [], refetch, isLoading } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
+      const data = await res.json();
+      return data;
+    }
+  })
+  // const { _id } = users;
+  refetch();
+  console.log(users);
 
 
   // useEffect(() => {
@@ -102,44 +115,71 @@ const CourseDetails = () => {
     // const review = form.review.value;
     // const image = form.picture.value;
 
-    console.log(data);
-    const image = data.image[0];
-    console.log(image);
-    const formData = new FormData();
-    formData.append("image", image);
+    const reviewData = {
+      userName: users?.name,
+      review: data.review,
+      picture: users?.body?.picture,
+      date: `${date1}.${month}.${year}`,
+      instructorMail: email,
+      courseId: _id,
+      title,
+      tutor,
+      userEmail: users.email
+    }
+    // console.log(reviewData);
 
-    const url = `https://api.imgbb.com/1/upload?key=218ccec0a78d63b33e00278172e1c053`;
-    fetch(url, {
+    fetch("https://nerd-academy-server.vercel.app/review", {
       method: "POST",
-      body: formData,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviewData),
     })
       .then((res) => res.json())
-      .then((imgData) => {
-        if (imgData.success) {
-          const reviewData = {
-            name: user?.displayName,
-            review: data.review,
-            picture: imgData.data.url,
-            date: `${date1}.${month}.${year}`,
-            instructorMail: email,
-            courseId: _id
-          }
-          // console.log(reviewData);
-
-          fetch("https://nerd-academy-server.vercel.app/review", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(reviewData),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              toast.success("Review has been added");
-              event.target.reset();
-            });
-        }
+      .then((data) => {
+        toast.success("Review has been added");
+        event.target.reset();
       });
+
+    // console.log(data);
+    // const image = data.image[0];
+    // console.log(image);
+    // const formData = new FormData();
+    // formData.append("image", image);
+
+    // const url = `https://api.imgbb.com/1/upload?key=218ccec0a78d63b33e00278172e1c053`;
+    // fetch(url, {
+    //   method: "POST",
+    //   body: formData,
+    // })
+    //   .then((res) => res.json())
+    //   .then((imgData) => {
+    //     if (imgData.success) {
+    //       const reviewData = {
+    //         name: user?.displayName,
+    //         review: data.review,
+    //         picture: users.body.picture,
+    //         date: `${date1}.${month}.${year}`,
+    //         instructorMail: email,
+    //         courseId: _id,
+    //         title
+    //       }
+    //       // console.log(reviewData);
+
+    //       fetch("https://nerd-academy-server.vercel.app/review", {
+    //         method: "POST",
+    //         headers: {
+    //           "content-type": "application/json",
+    //         },
+    //         body: JSON.stringify(reviewData),
+    //       })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //           toast.success("Review has been added");
+    //           event.target.reset();
+    //         });
+    //     }
+    //   });
   };
 
   if (loading) {
@@ -256,7 +296,7 @@ const CourseDetails = () => {
               <div>
                 <h2 className="text-2xl mb-2">Write a review for this {title} course</h2>
                 <form onSubmit={handleSubmit(handleReview)} className="card card-side bg-base-100 shadow-xl">
-                  <figure>
+                  {/* <figure>
                     <input
                       {...register("image")}
                       type="file"
@@ -266,14 +306,14 @@ const CourseDetails = () => {
                     {errors.img && (
                       <span className="text-error">{errors.img.message}</span>
                     )}
-                  </figure>
+                  </figure> */}
                   <div className="card-body">
                     <h2 className="card-title">Write your opinion</h2>
                     <textarea
                       {...register("review")}
                       name="review"
                       placeholder="review" className="textarea textarea-bordered textarea-sm w-full max-w-xs" ></textarea>
-                    <div className="card-actions justify-end">
+                    <div className="card-actions">
                       <button className="btn btn-primary">Submit</button>
                     </div>
                   </div>
