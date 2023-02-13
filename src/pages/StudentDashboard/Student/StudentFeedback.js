@@ -1,59 +1,77 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../../Context/AuthProvider';
 
-const StudentFeedback = () => {
+const StudentFeedback = ({course}) => {
+    let newDate = new Date()
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    // console.log(course);
+    const {instructorEmail , tutor , title } = course;
+
+const { user } = useContext(AuthContext);
+
+const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+
+const handlePost = review => {
+    const handleAddPost = {
+        review: review?.feedback,
+        title,
+        tutor,
+        instructorEmail,
+        userName: user?.displayName,
+        userEmail: user?.email,
+        date: `${date}-${month}-${year}`,
+    }
+
+    fetch('http://localhost:5000/student-feedback', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(handleAddPost),
+    })
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        if (data.acknowledged) {
+          toast.success('Feedback submitted successfully');
+        //   refetch();
+        }
+      })
+      .catch(error => console.error(error));
+        reset();
+  };
+
+
     return (
-        <div>
-            {/* Review added */}
-            <div className='p-10'>
-                <h1 className='text-center text-5xl font-semibold '> Services Feedback</h1>
-            </div>
-
-            <div>
-                <div className="">
-                    <div className="hero-content flex-col lg:flex-row">
-                        <img src="" alt="" className="max-w-sm rounded-lg shadow-2xl" />
-                        <div>
-                            <label htmlFor="my-modal-4" className="btn bg-gradient-to-r from-sky-600 to-cyan-400">Add Review</label>
-                        </div>
-                    </div>
-                </div>
-
-
                 <div>
-
-                    {/* Put this part before </body> tag */}
-                    <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-                    <label htmlFor="my-modal-4" className="modal cursor-pointer">
+                    <input type="checkbox" id="my-modal" className="modal-toggle" />
+                    <label htmlFor="my-modal" className="modal cursor-pointer">
                         <label className="modal-box relative" htmlFor="">
 
-                            <form data-aos="zoom-in-down">
+                            <form onSubmit={handleSubmit(handlePost)} data-aos="zoom-in-down">
                                 <div className='justify-center'>
-                                    <div className='gap-5 mt-5 '>
-
-                                        <textarea required className="textarea textarea-primary w-full"
+                                    <div className='gap-5 mt-5 form-control'>
+                                        <textarea {...register('feedback')} required className="textarea textarea-primary w-full"
                                             name='feedback'
                                             placeholder="Type your feedback">
-
                                         </textarea>
-
-
                                     </div>
-                                    <button className="btn btn-active btn-secondary mt-6 " type='submit'>Place Review</button>
-
+                                    <div className='form-control'>
+                                        <button>
+                                            <label htmlFor="my-modal" className="btn btn-active btn-secondary mt-6" type='submit'>Place Review</label>
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </label>
                     </label>
-
                 </div>
 
-                <div>
-
-                </div>
-
-            </div >
-
-        </div>
     );
 };
 
