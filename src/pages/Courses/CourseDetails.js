@@ -24,9 +24,9 @@ const CourseDetails = () => {
 
   const course = useLoaderData();
 
-  const { _id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description , instructorEmail, content , learning } = course[0];
-  console.log(content);
-  console.log(learning);
+  const { _id, title, picture, email, img, price, rating, review, tutor, lectures, hours, date, description, instructorEmail, content, learning } = course[0];
+  // console.log(instructorEmail);
+  console.log(_id);
 
 
   // useEffect(() => {
@@ -120,7 +120,9 @@ const CourseDetails = () => {
             name: user?.displayName,
             review: data.review,
             picture: imgData.data.url,
-            date: `${date1}.${month}.${year}`
+            date: `${date1}.${month}.${year}`,
+            instructorMail: email,
+            courseId: _id
           }
           // console.log(reviewData);
 
@@ -187,9 +189,9 @@ const CourseDetails = () => {
         <div className="w-7/12 mx-auto ">
           <h1 className="text-3xl font-bold  pb-4">What you'll learn</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 border p-5">
-              {
-                learning?.map(learn => <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" />{learn}</p>)
-              }
+            {
+              learning?.map(learn => <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" />{learn}</p>)
+            }
           </div>
           {/* course content */}
           <div className="mt-20">
@@ -276,7 +278,7 @@ const CourseDetails = () => {
               </form>
             </div>
 
-            <Review></Review>
+            <Review email={email} courseId={_id}></Review>
           </div>
 
 

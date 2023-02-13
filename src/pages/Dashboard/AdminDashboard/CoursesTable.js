@@ -23,7 +23,7 @@ const CoursesTable = ({ course, refetch }) => {
     };
 
     const handelApprove = id => {
-        fetch(`http://localhost:5000/courses/${id}`, {
+        fetch(`https://nerd-academy-server.vercel.app/courses/${id}`, {
             method: 'PUT',
             // headers: {
             //     authorization: `bearer ${localStorage.getItem('token')}`
