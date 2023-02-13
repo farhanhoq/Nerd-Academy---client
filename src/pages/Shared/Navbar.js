@@ -21,15 +21,7 @@ const Navbar = () => {
 
   const navigate = useNavigate();
 
-  const { data: image = [] } = useQuery({
-    queryKey: ["image"],
-    queryFn: async () => {
-      const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
-      const data = await res.json();
-      return data.body.picture;
-    }
-  })
-  console.log(image)
+  console.log(user)
 
   useEffect(() => {
     if (theme === "dark") {
@@ -265,7 +257,7 @@ const Navbar = () => {
 
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img src={image} alt="" />
+                    <img src={user.photoURL} alt="" />
                   </div>
                 </label>
 
