@@ -1,19 +1,31 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../../Loader/Loader';
 
 const DasboardReview = () => {
 
-    const [reviewData, setReviewData] = useState([]);
-    const { loading } = useContext(AuthContext);
+    // const [reviewData, setReviewData] = useState([]);
+    const { user, loading } = useContext(AuthContext);
+    console.log(user.email);
 
-    useEffect(() => {
-        fetch('https://nerd-academy-server.vercel.app/review')
-            .then((res) => res.json())
-            .then((data) => setReviewData(data));
-    }, []);
+    const { data: reviewData = [], isLoading, refetch } = useQuery({
+        queryKey: ['reviewData'],
+        queryFn: async () => {
+            try {
+                const res = await fetch(`https://nerd-academy-server.vercel.app/das-review?email=${user?.email}`);
+                const data = await res.json();
+                return data;
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+    });
+
     console.log(reviewData);
-    if (loading) {
+    refetch();
+    if (isLoading) {
         return <Loader></Loader>
     }
 
@@ -27,11 +39,12 @@ const DasboardReview = () => {
                         <div className='flex pb-5 '>
                             <img className='w-12 h-12 rounded-full' src={data?.picture} alt="" />
                             <div className='pl-2'>
-                                <h4 className='text-lg font-bold '>{data?.name}</h4>
+                                <h4 className='text-lg font-bold '>{data?.userName}</h4>
+                                <h4 className='text-sm font-bold '>{data?.title}</h4>
                                 <p className='pl-1 text-sm'>{data?.date}</p>
                             </div>
                         </div>
-                        <p>{data?.review}</p>
+                        <p>Review : {data?.review}</p>
                     </div>)
                 }
             </div>

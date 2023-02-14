@@ -8,6 +8,7 @@ import Review from "./Review";
 import ScrollToTop from "../ScrollToTop";
 import Loader from "../../Loader/Loader";
 import { useForm } from "react-hook-form";
+import { useQuery } from "@tanstack/react-query";
 
 
 const CourseDetails = () => {
@@ -24,9 +25,21 @@ const CourseDetails = () => {
 
   const course = useLoaderData();
 
-  const { _id, title, picture, img, price, rating, review, tutor, lectures, hours, date, description , instructorEmail, content , learning } = course[0];
-  console.log(content);
-  console.log(learning);
+  const { _id, title, picture, email, img, price, rating, review, tutor, lectures, hours, date, description, instructorEmail, content, learning } = course[0];
+  // console.log(instructorEmail);
+  // console.log(_id);
+
+  const { data: users = [], refetch, isLoading } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
+      const data = await res.json();
+      return data;
+    }
+  })
+  // const { _id } = users;
+  refetch();
+  console.log(users);
 
 
   // useEffect(() => {
@@ -102,42 +115,71 @@ const CourseDetails = () => {
     // const review = form.review.value;
     // const image = form.picture.value;
 
-    console.log(data);
-    const image = data.image[0];
-    console.log(image);
-    const formData = new FormData();
-    formData.append("image", image);
+    const reviewData = {
+      userName: users?.name,
+      review: data.review,
+      picture: users?.body?.picture,
+      date: `${date1}.${month}.${year}`,
+      instructorMail: email,
+      courseId: _id,
+      title,
+      tutor,
+      userEmail: users.email
+    }
+    // console.log(reviewData);
 
-    const url = `https://api.imgbb.com/1/upload?key=218ccec0a78d63b33e00278172e1c053`;
-    fetch(url, {
+    fetch("https://nerd-academy-server.vercel.app/review", {
       method: "POST",
-      body: formData,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviewData),
     })
       .then((res) => res.json())
-      .then((imgData) => {
-        if (imgData.success) {
-          const reviewData = {
-            name: user?.displayName,
-            review: data.review,
-            picture: imgData.data.url,
-            date: `${date1}.${month}.${year}`
-          }
-          // console.log(reviewData);
-
-          fetch("https://nerd-academy-server.vercel.app/review", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(reviewData),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              toast.success("Review has been added");
-              event.target.reset();
-            });
-        }
+      .then((data) => {
+        toast.success("Review has been added");
+        event.target.reset();
       });
+
+    // console.log(data);
+    // const image = data.image[0];
+    // console.log(image);
+    // const formData = new FormData();
+    // formData.append("image", image);
+
+    // const url = `https://api.imgbb.com/1/upload?key=218ccec0a78d63b33e00278172e1c053`;
+    // fetch(url, {
+    //   method: "POST",
+    //   body: formData,
+    // })
+    //   .then((res) => res.json())
+    //   .then((imgData) => {
+    //     if (imgData.success) {
+    //       const reviewData = {
+    //         name: user?.displayName,
+    //         review: data.review,
+    //         picture: users.body.picture,
+    //         date: `${date1}.${month}.${year}`,
+    //         instructorMail: email,
+    //         courseId: _id,
+    //         title
+    //       }
+    //       // console.log(reviewData);
+
+    //       fetch("https://nerd-academy-server.vercel.app/review", {
+    //         method: "POST",
+    //         headers: {
+    //           "content-type": "application/json",
+    //         },
+    //         body: JSON.stringify(reviewData),
+    //       })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //           toast.success("Review has been added");
+    //           event.target.reset();
+    //         });
+    //     }
+    //   });
   };
 
   if (loading) {
@@ -187,9 +229,9 @@ const CourseDetails = () => {
         <div className="w-7/12 mx-auto ">
           <h1 className="text-3xl font-bold  pb-4">What you'll learn</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 border p-5">
-              {
-                learning?.map(learn => <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" />{learn}</p>)
-              }
+            {
+              learning?.map(learn => <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" />{learn}</p>)
+            }
           </div>
           {/* course content */}
           <div className="mt-20">
@@ -249,34 +291,38 @@ const CourseDetails = () => {
               <div className="inline rating rating-lg mr-1"><input type="radio" name="rating-8" className="mask mask-star bg-yellow-500" checked /></div>
               {rating} course rating * {review}K ratings</h1>
 
-            <div>
-              <h2 className="text-2xl mb-2">Write a review for this {title} course</h2>
-              <form onSubmit={handleSubmit(handleReview)} className="card card-side bg-base-100 shadow-xl">
-                <figure>
-                  <input
-                    {...register("image")}
-                    type="file"
-                    className="file-input file-input-bordered w-3/5"
-                    placeholder="Upload a Image"
-                  />
-                  {errors.img && (
-                    <span className="text-error">{errors.img.message}</span>
-                  )}
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">Write your opinion</h2>
-                  <textarea
-                    {...register("review")}
-                    name="review"
-                    placeholder="review" className="textarea textarea-bordered textarea-sm w-full max-w-xs" ></textarea>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Submit</button>
+            {
+              user?.uid &&
+              <div>
+                <h2 className="text-2xl mb-2">Write a review for this {title} course</h2>
+                <form onSubmit={handleSubmit(handleReview)} className="card card-side bg-base-100 shadow-xl">
+                  {/* <figure>
+                    <input
+                      {...register("image")}
+                      type="file"
+                      className="file-input file-input-bordered w-3/5"
+                      placeholder="Upload a Image"
+                    />
+                    {errors.img && (
+                      <span className="text-error">{errors.img.message}</span>
+                    )}
+                  </figure> */}
+                  <div className="card-body">
+                    <h2 className="card-title">Write your opinion</h2>
+                    <textarea
+                      {...register("review")}
+                      name="review"
+                      placeholder="review" className="textarea textarea-bordered textarea-sm w-full max-w-xs" ></textarea>
+                    <div className="card-actions">
+                      <button className="btn btn-primary">Submit</button>
+                    </div>
                   </div>
-                </div>
-              </form>
-            </div>
+                </form>
+              </div>
+            }
 
-            <Review></Review>
+
+            <Review email={email} courseId={_id}></Review>
           </div>
 
 

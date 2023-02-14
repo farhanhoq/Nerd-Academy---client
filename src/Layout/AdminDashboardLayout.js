@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../pages/Shared/Navbar';
 import { FaUsers } from 'react-icons/fa';
 import { RiAdminLine } from 'react-icons/ri';
+import { AiOutlineHome } from 'react-icons/ai';
 import "./style.css";
 
 
@@ -68,6 +69,12 @@ const AdminDashboardLayout = () => {
                                         </svg> */}
                                         <RiAdminLine className='text-xl text-grey'></RiAdminLine>
                                         <span class="ml-3 flex-1 whitespace-nowrap lg:text-black text-white">Courses</span></Link>
+                                </li>
+                                <li>
+                                    <Link to="/" className='text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group'>
+
+                                        <AiOutlineHome className='text-xl text-grey'></AiOutlineHome>
+                                        <span class="ml-3 flex-1 whitespace-nowrap lg:text-black text-white">Home</span></Link>
                                 </li>
                                 <li>
                                     <Link className='text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group'>

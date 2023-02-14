@@ -104,7 +104,7 @@ export const routes = createBrowserRouter([
             }
             ,
             {
-                path: '/blog',
+                path: '/blogs',
                 element: <Blog></Blog>
             }
             ,
