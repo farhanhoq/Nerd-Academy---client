@@ -273,21 +273,21 @@ const AddCourse = () => {
                                                 name="chp_name"
                                                 value={data.chp_name}
                                                 onChange={(e) => handleChangeContent(e, i)}
-                                                placeholder="Please write what student will learn"
+                                                placeholder="Chapter Name"
                                             ></textarea>
                                             <input
                                                 className="input input-bordered my-2"
                                                 name="lecture_num"
                                                 value={data.lecture_num}
                                                 onChange={(e) => handleChangeContent(e, i)}
-                                                placeholder="Please write what student will learn"
+                                                placeholder="Lecture Numbers"
                                             ></input>
                                             <input
                                                 className="input input-bordered my-2"
                                                 name="chp_duration"
                                                 value={data.chp_duration}
                                                 onChange={(e) => handleChangeContent(e, i)}
-                                                placeholder="Please write what student will learn"
+                                                placeholder="Duration"
                                             ></input>
 
                                             <button
