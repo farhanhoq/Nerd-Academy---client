@@ -221,7 +221,7 @@ const AddCourse = () => {
                                 )}
                             </div>
 
-                            <div className="form-control w-full max-w-xs mt-6">
+                            <div className="form-control w-full mt-6">
                                 <h2 className="text-xl font-bold">Student Will Learn</h2>
 
                                 <button
@@ -238,7 +238,7 @@ const AddCourse = () => {
                                                 {...register("learnings", {
                                                     required: "Student will learn",
                                                 })}
-                                                className="textarea textarea-bordered my-2"
+                                                className="textarea textarea-bordered my-2 w-full"
                                                 value={data}
                                                 onChange={(e) => handleChangeLearn(e, i)}
                                                 placeholder="Please write what student will learn"
@@ -266,7 +266,7 @@ const AddCourse = () => {
 
                                 {contents.map((data, i) => {
                                     return (
-                                        <div className="flex justify-between">
+                                        <div className="flex justify-between items-center">
 
                                             <textarea
                                                 className="textarea textarea-bordered my-2"
@@ -276,14 +276,14 @@ const AddCourse = () => {
                                                 placeholder="Chapter Name"
                                             ></textarea>
                                             <input
-                                                className="input input-bordered my-2"
+                                                className="input input-bordered my-2 w-1/3"
                                                 name="lecture_num"
                                                 value={data.lecture_num}
                                                 onChange={(e) => handleChangeContent(e, i)}
                                                 placeholder="Lecture Numbers"
                                             ></input>
                                             <input
-                                                className="input input-bordered my-2"
+                                                className="input input-bordered w-1/6 my-2"
                                                 name="chp_duration"
                                                 value={data.chp_duration}
                                                 onChange={(e) => handleChangeContent(e, i)}
