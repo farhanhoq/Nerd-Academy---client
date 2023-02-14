@@ -6,7 +6,7 @@ const Publish = () => {
 
     const [publish, setPublish] = useState();
     useEffect(() => {
-        fetch('https://nerd-academy-server.vercel.app/courses')
+        fetch('https://nerd-academy-server.vercel.app/publish')
             .then(res => res.json())
             .then(data => setPublish(data));
     }, [])
