@@ -12,7 +12,7 @@ const Review = ({ email, courseId }) => {
         queryKey: ['reviewData'],
         queryFn: async () => {
             try {
-                const res = await fetch(`https://nerd-academy-server.vercel.app/review?email=${email}&courseId=${courseId}`);
+                const res = await fetch(`https://nerd-academy-server.vercel.app/review?courseId=${courseId}`);
                 const data = await res.json();
                 return data;
             }

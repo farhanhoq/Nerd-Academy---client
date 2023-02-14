@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../../Loader/Loader';
 import StudentFeedback from './StudentFeedback';
+import TeacherFeedback from './TeacherFeedback';
 
 const MyCourses = () => {
     const [coursedata, setCourseData] = useState([]);
@@ -45,10 +46,15 @@ const MyCourses = () => {
                             <p className='mt-2'>By {course.tutor}</p>
                             <div className="card-actions mt-10 justify-end">
                                 <button className="btn btn-primary rounded text-white bg-gradient-to-r from-sky-600 to-cyan-400">Continue course</button>
-                                <label htmlFor="my-modal" className="btn bg-gradient-to-r from-sky-600 to-cyan-400">Add Review</label>
+                                <div className='text-right'>
+                                <label htmlFor="teacher-modal" className="mb-1 rounded border-none btn-xs text-xs capitalize btn bg-gradient-to-r from-sky-600 to-cyan-400">Add teacher review</label>
+                                    <label htmlFor="my-modal" className="rounded border-none btn-xs text-xs capitalize btn bg-gradient-to-r from-sky-600 to-cyan-400">Add course review</label>
+                                </div>
+                                
                             </div>
                         </div>
                         <StudentFeedback course={course}></StudentFeedback>
+                        <TeacherFeedback course={course}></TeacherFeedback>
                     </div>
                     
                 ))}
