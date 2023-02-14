@@ -9,7 +9,7 @@ const StudentFeedback = ({course}) => {
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
     // console.log(course);
-    const {instructorEmail , tutor , title } = course;
+    const {courseId, instructorEmail , tutor , title } = course;
 
 const { user } = useContext(AuthContext);
 
@@ -18,16 +18,17 @@ const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
 const handlePost = review => {
     const handleAddPost = {
+        courseId,
         review: review?.feedback,
         title,
         tutor,
-        instructorEmail,
+        instructorMail: instructorEmail,
         userName: user?.displayName,
         userEmail: user?.email,
         date: `${date}-${month}-${year}`,
     }
 
-    fetch('http://localhost:5000/student-feedback', {
+    fetch('https://nerd-academy-server.vercel.app/review', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -36,11 +37,7 @@ const handlePost = review => {
     })
       .then(res => res.json())
       .then(data => {
-        // console.log(data);
-        if (data.acknowledged) {
-          toast.success('Feedback submitted successfully');
-        //   refetch();
-        }
+          toast.success('Review added successfully');
       })
       .catch(error => console.error(error));
         reset();

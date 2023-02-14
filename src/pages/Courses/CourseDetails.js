@@ -52,6 +52,7 @@ const CourseDetails = () => {
 
   const handleAddToCart = () => {
     const coursecart = {
+      courseId: _id,
       email: user?.email,
       name: user?.displayName,
       title,
