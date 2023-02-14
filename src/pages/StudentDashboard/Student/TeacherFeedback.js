@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider';
 
-const TeacherFeedback = () => {
+const TeacherFeedback = ({course}) => {
     let newDate = new Date()
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
@@ -11,20 +11,22 @@ const TeacherFeedback = () => {
     const { user } = useContext(AuthContext);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const {courseId, instructorEmail , tutor , title } = course;
 
     const handlePost = review => {
         const handleAddPost = {
-            // courseId,
-            // review: review?.feedback,
-            // title,
-            // tutor,
-            // instructorMail: instructorEmail,
+            courseId,
+            review: review?.feedback,
+            title,
+            tutor,
+            instructorMail: instructorEmail,
             userName: user?.displayName,
             userEmail: user?.email,
             date: `${date}-${month}-${year}`,
         }
+        console.log(handleAddPost);
     
-        fetch('', {
+        fetch('https://nerd-academy-server.vercel.app/teachers-review', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
