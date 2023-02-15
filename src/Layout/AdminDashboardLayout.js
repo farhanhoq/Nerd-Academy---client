@@ -5,6 +5,7 @@ import Navbar from '../pages/Shared/Navbar';
 import { FaUsers } from 'react-icons/fa';
 import { RiAdminLine } from 'react-icons/ri';
 import { AiOutlineHome } from 'react-icons/ai';
+import { GrMenu } from 'react-icons/gr';
 import "./style.css";
 
 
@@ -69,6 +70,12 @@ const AdminDashboardLayout = () => {
                                         </svg> */}
                                         <RiAdminLine className='text-xl text-grey'></RiAdminLine>
                                         <span class="ml-3 flex-1 whitespace-nowrap lg:text-black text-white">Courses</span></Link>
+                                </li>
+                                <li>
+                                    <Link to="/admin-dashboard/menus" className='text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group'>
+
+                                        <GrMenu className='text-xl text-grey'></GrMenu>
+                                        <span class="ml-3 flex-1 whitespace-nowrap lg:text-black text-white">Menu</span></Link>
                                 </li>
                                 <li>
                                     <Link to="/" className='text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group'>
