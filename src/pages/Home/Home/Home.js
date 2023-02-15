@@ -7,7 +7,6 @@ import Contact from '../../Contact/Contact';
 import About from '../../About/About';
 import Faq from '../../Faq/Faq';
 import { AuthContext } from '../../../Context/AuthProvider';
-import Blog from '../../Blog/Blog';
 import Loader from '../../../Loader/Loader';
 
 const Home = () => {
