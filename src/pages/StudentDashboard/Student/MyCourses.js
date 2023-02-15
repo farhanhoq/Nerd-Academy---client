@@ -44,11 +44,11 @@ const MyCourses = () => {
                         <div className="text-left text-black p-3">
                             <h2 className="card-title mt-5">{course.title}</h2>
                             <p className='mt-2'>By {course.tutor}</p>
-                            <div className="card-actions mt-10 justify-end">
-                                <button className="btn btn-primary rounded text-white bg-gradient-to-r from-sky-600 to-cyan-400">Continue course</button>
-                                <div className='text-right'>
-                                <label htmlFor="teacher-modal" className="mb-1 rounded border-none btn-xs text-xs capitalize btn bg-gradient-to-r from-sky-600 to-cyan-400">Add teacher review</label>
-                                    <label htmlFor="my-modal" className="rounded border-none btn-xs text-xs capitalize btn bg-gradient-to-r from-sky-600 to-cyan-400">Add course review</label>
+                            <div className="card-actions mt-5 justify-end">
+                                <Link to="/module" className="btn btn-primary rounded text-white bg-gradient-to-r from-sky-600 to-cyan-400">Continue course</Link>
+                                <div className='text-right mt-1'>
+                                <label htmlFor="teacher-modal" className=" rounded border-none btn-xs text-xs capitalize btn bg-gradient-to-r from-sky-600 to-cyan-400">Add teacher review</label>
+                                    <label htmlFor="my-modal" className="block pt-1 mt-1 rounded border-none btn-xs text-xs capitalize btn bg-gradient-to-r from-sky-600 to-cyan-400">Add course review</label>
                                 </div>
                                 
                             </div>

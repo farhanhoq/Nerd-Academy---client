@@ -43,6 +43,7 @@ import Publish from "../pages/Dashboard/Instructor/Publish";
 import MyProfileEditStudent from "../pages/StudentDashboard/Student/MyProfileEditStudent";
 import MyProfileStudent from "../pages/StudentDashboard/Student/MyProfileStudent";
 import Wishlist from "../pages/Wishlist/Wishlist";
+import Module from "../pages/StudentDashboard/Student/Module";
 
 export const routes = createBrowserRouter([
     {
@@ -112,6 +113,11 @@ export const routes = createBrowserRouter([
                 path: '/blog/:id',
                 element: <BlogDetails></BlogDetails>,
                 loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/blog/${params.id}`)
+            }
+            ,
+            {
+                path: '/module',
+                element: <Module></Module>,
             }
             ,
             {
@@ -215,10 +221,6 @@ export const routes = createBrowserRouter([
                 path: '/student-dashboard/student-courses',
                 element: <MyCourses></MyCourses>,
             },
-            // {
-            //     path: '/student-dashboard/student-feedback',
-            //     element: <StudentFeedback></StudentFeedback>,
-            // },
             {
                 path: '/student-dashboard/student-order',
                 element: <StudentOrderHistory></StudentOrderHistory>
