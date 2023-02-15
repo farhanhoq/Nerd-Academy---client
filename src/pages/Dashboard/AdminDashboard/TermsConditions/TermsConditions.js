@@ -5,7 +5,7 @@ const TermsConditions = () => {
     const [pageDetails, setpageDetails] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/menu-items')
+        fetch('https://nerd-academy-server.vercel.app/api/menu-items')
             .then(response => response.json())
             .then(data => setpageDetails(data))
             .catch(error => console.error('Error fetching menu items:', error));

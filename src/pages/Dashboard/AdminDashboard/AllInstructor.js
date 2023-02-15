@@ -8,7 +8,7 @@ const AllInstructor = () => {
     const { data: users = [], refetch, isLoading } = useQuery({
         queryKey: ["user"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/all-users`);
+            const res = await fetch(`https://nerd-academy-server.vercel.app/all-users`);
             const data = await res.json();
             return data;
         }
@@ -17,7 +17,7 @@ const AllInstructor = () => {
     // console.log(users?.body?.picture);
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/del-users/${id}`, {
+        fetch(`https://nerd-academy-server.vercel.app/del-users/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

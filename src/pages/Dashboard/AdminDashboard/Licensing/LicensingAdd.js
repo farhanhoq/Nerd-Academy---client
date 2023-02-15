@@ -16,7 +16,7 @@ const LicensingAdd = () => {
             title: "licensing",
             pageDetails: content
         }
-        fetch(`http://localhost:5000/api/menu-items/`, {
+        fetch(`https://nerd-academy-server.vercel.app/api/menu-items/`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
