@@ -44,8 +44,18 @@ import MyProfileEditStudent from "../pages/StudentDashboard/Student/MyProfileEdi
 import MyProfileStudent from "../pages/StudentDashboard/Student/MyProfileStudent";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import Module from "../pages/StudentDashboard/Student/Module";
+import Menu from "../pages/Dashboard/AdminDashboard/Menu";
+import PrivacyPolicyAdd from "../pages/Dashboard/AdminDashboard/PrivacyPolicyAdd";
+import PrivacyPolicy from "../pages/Dashboard/AdminDashboard/PrivacyPolicy";
+import TermsConditionsAdd from "../pages/Dashboard/AdminDashboard/TermsConditions/TermsConditionsAdd";
+import TermsConditions from "../pages/Dashboard/AdminDashboard/TermsConditions/TermsConditions";
+import LicensingAdd from "../pages/Dashboard/AdminDashboard/Licensing/LicensingAdd";
+import Licensing from "../pages/Dashboard/AdminDashboard/Licensing/Licensing";
+import CookiePolicyAdd from "../pages/Dashboard/AdminDashboard/CookiePolicy/CookiePolicyAdd";
+import CookiePolicy from "../pages/Dashboard/AdminDashboard/CookiePolicy/CookiePolicy";
 
 export const routes = createBrowserRouter([
+
     {
         path: '/',
         element: <Main></Main>,
@@ -119,7 +129,38 @@ export const routes = createBrowserRouter([
                 path: '/module',
                 element: <Module></Module>,
             }
-            ,
+            ,{
+                path: '/privacy-policy',
+                element: <PrivacyPolicy></PrivacyPolicy>
+            },
+            {
+                path: '/privacy-add',
+                element: <PrivacyPolicyAdd></PrivacyPolicyAdd>
+            },
+            {
+                path: '/terms-add',
+                element: <TermsConditionsAdd></TermsConditionsAdd>
+            },
+            {
+                path: '/terms-conditions',
+                element: <TermsConditions></TermsConditions>
+            },
+            {
+                path: '/license-add',
+                element: <LicensingAdd></LicensingAdd>
+            },
+            {
+                path: '/license',
+                element: <Licensing></Licensing>
+            },
+            {
+                path: '/cookie-add',
+                element: <CookiePolicyAdd></CookiePolicyAdd>
+            },
+            {
+                path: '/cookie-policy',
+                element: <CookiePolicy></CookiePolicy>
+            },
             {
                 path: '*',
                 element: <Error></Error>
@@ -201,6 +242,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/admin-dashboard/courses',
                 element: <Courses></Courses>,
+            },
+            {
+                path: '/admin-dashboard/menus',
+                element: <Menu></Menu>,
             },
         ]
     },
