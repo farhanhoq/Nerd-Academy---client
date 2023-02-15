@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div className="hero min-h-screen relative grid-cols-2" style={{ backgroundImage: `url(${newBg})` }} id="#home">
       <div className='absolute left-[50px] top-[80px]'>
-        <div className="hero-content items-center justify-center">
+        <div className="hero-content items-center justify-center flex-col md:flex-row">
           <div className='w-full text-white mx-auto'>
             <h1 className="text-4xl font-bold">Online Learning Platform!</h1>
             <p className="py-8 w-2/3">Nerd Academy is an online learning community based in the globally for people who want to learn from educational videos. The courses, which are not accredited, are only available through paid subscription.</p>
@@ -17,7 +17,7 @@ const Banner = () => {
           </div>
           <div className=''>
         {/* <ImgSlider /> */}
-        <img src={banner} alt="" />
+        <img src={banner} alt="" className='hidden md:block' />
       </div>
         </div>
       </div>

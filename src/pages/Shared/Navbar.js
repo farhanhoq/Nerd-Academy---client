@@ -2,13 +2,13 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { HiChevronDoubleRight } from "react-icons/hi";
-import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
 import useRole from "../../Hooks/useRole";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -158,20 +158,17 @@ const Navbar = () => {
             className="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
+            stroke="currentColor">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              d="M4 6h16M4 12h8m-8 6h16"
-            />
+              d="M4 6h16M4 12h8m-8 6h16"/>
           </svg>
         </label>
         <ul
           tabIndex={0}
-          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-        >
+          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           {menuItems}
         </ul>
       </div>
@@ -182,8 +179,7 @@ const Navbar = () => {
           <Link
             to="/"
             className="font-bold text-2xl navbar-logo"
-            style={{ color: getColor("/") }}
-          >
+            style={{ color: getColor("/") }}>
             {" "}
             Nerd
             <span> Academy</span>
@@ -215,10 +211,13 @@ const Navbar = () => {
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
             <a className="bg-transparent w-full">
+            <div className="flex absolute inset-y-0 left-4 items-center pl-3 pointer-events-none">
+                <svg className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+            </div>
               <input
                 type="text"
                 placeholder="Search courses here"
-                className="input input-bordered input-primary rounded-full w-full"
+                className="input input-bordered input-primary rounded-lg w-full px-10"
                 onChange={handleFilter}
               />
             </a>
@@ -265,7 +264,7 @@ const Navbar = () => {
               <div className="dropdown dropdown-end">
 
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
+                  <div className="w-10 rounded-full ring ring-black ring-offset-base-100 ">
                     <img src={user.photoURL} alt="" />
                   </div>
                 </label>
