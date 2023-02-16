@@ -130,7 +130,7 @@ const OurCourses = () => {
               >
                 {courses?.map((course) => (
                   <SwiperSlide key={course?._id}>
-                    <div className="cursor-pointer rounded-xl bg-white p-2 shadow-lg hover:shadow-xl h-96 border dropdown dropdown-hover dropdown-top">
+                    <div className="cursor-pointer rounded-xl bg-white p-2 shadow-lg hover:shadow-xl h-96 w-full border dropdown dropdown-hover dropdown-top">
                       <div className="" tabIndex={0}>
                         <div className="relative flex items-end overflow-hidden rounded-xl">
                           <img
