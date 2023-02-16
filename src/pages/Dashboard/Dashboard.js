@@ -18,11 +18,13 @@ const Dashboard = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/perchased-courses?email=${user?.email}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setPurchasedCourses(data);
-            });
+        fetch(
+          `http://localhost:5000/perchased-courses-teacher?email=${user?.email}`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            setPurchasedCourses(data);
+          });
     }, [])
 
     const publish = courses.filter((course) => course.publish === true)
