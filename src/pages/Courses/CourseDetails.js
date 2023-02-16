@@ -1,5 +1,5 @@
-import { FaAngleRight, FaBullseye, FaCertificate, FaDotCircle, FaEnvelopeOpenText, FaFileDownload, FaGlobe, FaMobileAlt, FaPlayCircle, FaRocketchat, FaStar, FaUserClock, FaUserPlus, FaVideo } from "react-icons/fa";
-import React, { useContext, useEffect, useState } from "react";
+import { FaAngleRight, FaBullseye, FaCertificate, FaEnvelopeOpenText, FaFileDownload, FaGlobe, FaMobileAlt, FaPlayCircle, FaRocketchat, FaStar, FaUserClock, FaUserPlus, FaVideo } from "react-icons/fa";
+import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -16,20 +16,15 @@ const CourseDetails = () => {
   let date1 = newDate.getDate();
   let month = newDate.getMonth() + 1;
   let year = newDate.getFullYear();
-  // const [overview, setOverview] = useState([]);
-  // const [contentData, setContentData] = useState([]);
   const { user, loading } = useContext(AuthContext);
-  const { register, handleSubmit, formState: { errors } } = useForm();
-
-  // console.log(contentData);
+  const { register, handleSubmit } = useForm();
 
   const course = useLoaderData();
 
-  const { _id, title, picture, email, img, price, rating, review, tutor, lectures, hours, date, description, content, learning } = course[0];
-  console.log(lectures, rating, review, hours);
-  // console.log(_id);
+  const { _id, title, picture, email, img, price, rating, review, tutor, lectures, hours, date, description,content, learning } = course[0];
+  console.log(lectures, rating , review, hours);
 
-  const { data: users = [], refetch, isLoading } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
       const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
@@ -37,10 +32,8 @@ const CourseDetails = () => {
       return data;
     }
   })
-  // const { _id } = users;
-  refetch();
-  // console.log(users);
 
+  refetch();
 
   const handleAddToCart = () => {
     const coursecart = {

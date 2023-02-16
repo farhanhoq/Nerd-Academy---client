@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FaqDetails from './FaqDetails';
-// import FaqDetails from './FaqDetails';
+import FaqImg from "../../Assets/faq.svg"
 
 const Faq = () => {
     const [faq, setFaq] = useState([]);
@@ -13,7 +13,7 @@ const Faq = () => {
 
     return (
 
-        <section className="bg-cyan-50 py-16 dark:bg-black dark:text-white">
+        <section className="py-16 dark:bg-black dark:text-white">
             <div className="container px-5 mt-16 mx-auto">
                 <div className="mt-10">
 
@@ -29,7 +29,7 @@ const Faq = () => {
 
                 <div className="flex lg:w-4/5 mx-auto mb-2 flex-col lg:flex-row-reverse items-center justify-around gap-6">
                     <div className="lg:w-full w-11/12 lg:mr-40 mt-16 ml-6">
-                        <img className='hue-rotate-0 w-full justify-center rounded-md shadow-gray-400 mb-6' src="https://img.freepik.com/free-vector/organic-flat-people-business-training_23-2148896824.jpg?w=740&t=st=1673904517~exp=1673905117~hmac=0c55fb2d4a5b1324d41bc752c767b2f92b970f1b81548a9c6c5394dfb74d088f" alt="" srcset="" />
+                        <img className='hue-rotate-0 w-full justify-center rounded-md shadow-gray-400 mb-6' src={FaqImg} alt="" srcset="" />
                     </div>
 
                     <div className="w-full px-2 dark:text-black">

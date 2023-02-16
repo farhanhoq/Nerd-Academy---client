@@ -8,12 +8,11 @@ const StudentFeedback = ({ course }) => {
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
-    // console.log(course);
     const {courseId, instructorEmail , tutor , title } = course;
 
     const { user } = useContext(AuthContext);
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset} = useForm();
 
 
 const handlePost = review => {

@@ -15,7 +15,6 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import Settings from "../pages/Dashboard/Instructor/Settings";
 import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
 import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
 import Order from "../pages/Dashboard/Instructor/Order";
@@ -27,14 +26,11 @@ import Customer from "../pages/Dashboard/AdminDashboard/Customer";
 import StudentDashboardLayout from '../Layout/StudentDashboardLayout';
 import StudentDashboard from "../pages/StudentDashboard/StudentDashboard";
 import StudentAnnouncement from '../pages/StudentDashboard/Student/StudentAnnouncement';
-import StudentSettings from '../pages/StudentDashboard/Student/StudentSettings';
-import StudentProfile from "../pages/StudentDashboard/Student/StudentProfile";
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
 import Home from "../pages/Home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
-import Profile from "../pages/Dashboard/Instructor/Profile";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
 import MyProfileEdit from "../pages/Dashboard/Instructor/MyProfileEdit";
@@ -44,7 +40,6 @@ import MyProfileEditStudent from "../pages/StudentDashboard/Student/MyProfileEdi
 import MyProfileStudent from "../pages/StudentDashboard/Student/MyProfileStudent";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import MyReviews from "../pages/StudentDashboard/Student/MyReviews";
-import MyReviewEdit from "../pages/StudentDashboard/Student/MyReviewEdit";
 import Module from "../pages/StudentDashboard/Student/Module";
 import Menu from "../pages/Dashboard/AdminDashboard/Menu";
 import PrivacyPolicyAdd from "../pages/Dashboard/AdminDashboard/PrivacyPolicyAdd";
@@ -276,10 +271,6 @@ export const routes = createBrowserRouter([
             {
                 path: '/student-dashboard/my-reviews',
                 element: <MyReviews></MyReviews>,
-            },
-            {
-                path: '/student-dashboard/my-reviews-edit/:id',
-                element: <MyReviewEdit></MyReviewEdit>,
             },
             {
                 path: '/student-dashboard/student-order',

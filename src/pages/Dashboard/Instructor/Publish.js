@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Publish = () => {
 
-
+    const {user} = useContext(AuthContext)
     const [publish, setPublish] = useState();
+
     useEffect(() => {
-        fetch('https://nerd-academy-server.vercel.app/publish')
+        fetch(`https://nerd-academy-server.vercel.app/publish?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setPublish(data));
     }, [])

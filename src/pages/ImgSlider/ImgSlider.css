@@ -1,5 +1,5 @@
 .mycard {
-  @apply w-96 cursor-pointer border-b-4 rounded-lg bg-gradient-to-t to-white from-white shadow-lg h-44 text-black
+  @apply w-96 cursor-pointer border-b-4 rounded-lg h-44  text-black
 
   self-end
 }

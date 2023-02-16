@@ -1,12 +1,11 @@
 import React from 'react';
 import newBg from '../../../Assets/home-banner-bg.png.webp';
-import ImgSlider from '../../ImgSlider/ImgSlider';
 import banner from '../../../Assets/banner.webp'
 
 const Banner = () => {
 
   return (
-    <div className="hero min-h-screen relative grid-cols-2" style={{ backgroundImage: `url(${newBg})` }} id="#home">
+    <div className="hero min-h-screen grid-cols-2 relative" style={{ backgroundImage: `url(${newBg})` }} id="#home">
       <div className='absolute left-[50px] top-[80px]'>
         <div className="hero-content items-center justify-center flex-col md:flex-row">
           <div className='w-full text-white mx-auto'>
@@ -16,7 +15,6 @@ const Banner = () => {
             <a href="#courses" className="btn bg-white dark:bg-black text-black dark:text-white border-none hover:bg-white hover:shadow-2xl shadow-white">Explore our courses</a>
           </div>
           <div className=''>
-        {/* <ImgSlider /> */}
         <img src={banner} alt="" className='hidden md:block' />
       </div>
         </div>

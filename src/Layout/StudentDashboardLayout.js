@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import Navbar from '../pages/Shared/Navbar';
-import graduated from '../Assets/graduated.png';
 import { useQuery } from '@tanstack/react-query';
 import "./style.css";
 import { AiOutlineHome } from 'react-icons/ai';
@@ -11,9 +10,8 @@ import { AiOutlineHome } from 'react-icons/ai';
 const StudentDashboardLayout = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
-  // const [profile, setProfile] = useState();
 
-  const { data: profile = [], refetch, isLoading } = useQuery({
+  const { data: profile = [], } = useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
       const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
@@ -22,13 +20,7 @@ const StudentDashboardLayout = () => {
     }
   })
 
-  // fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`)
-  //                   .then(res => res.json())
-  //                   .then(data => {
-  //                     setProfile(data)
-  //                   })
-  // const { email, fullName, eductaion, phone, address, picture } = profile;
-  // refetch();
+  console.log(profile)
 
   const handleLogOut = () => {
     logOut()

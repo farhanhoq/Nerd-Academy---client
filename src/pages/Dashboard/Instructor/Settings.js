@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import cover from "../../../Assets/cover.jpg";
 import { AuthContext } from "../../../Context/AuthProvider";
 
@@ -9,10 +8,8 @@ const Settings = () => {
     register,
     reset,
     handleSubmit,
-    formState: { errors },
   } = useForm();
   const { user } = useContext(AuthContext);
-  const [isLoading, setisLoading] = useState(false);
 
   const handleEdit = (data) => {
     console.log(data);
@@ -36,17 +33,6 @@ const Settings = () => {
         alert(`${data.name} is added!`);
         reset();
       });
-    // fetch(`https://mobile-phones-server.vercel.app/users/${user?._id}`, {
-    //     method: 'PUT',
-    //     headers: {
-    //         'content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify(user)
-    // })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data);
-    //     })
   };
   return (
     <div className="p-4 card card-compact my-20 bg-base-100 shadow-xl">
@@ -56,8 +42,7 @@ const Settings = () => {
 
       <form
         onSubmit={handleSubmit(handleEdit)}
-        className="grid grid-cols-2 justify-between gap-6 my-6"
-      >
+        className="grid grid-cols-2 justify-between gap-6 my-6">
         <div className="form-control w-full">
           <label className="label">
             <span className="label-text font-semibold">Full Name</span>

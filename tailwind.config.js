@@ -8,9 +8,8 @@ module.exports = {
     themes: [
       {
         nerdthemes: {
-          primary: '#7b35fd',
-          base: '#ad35e9',
-          secondary: '#2c3e50',
+          primary: '#7B33FD',
+          secondary: '#B337E3',
           accent: "#3A4256",
           neutral: "#3D4451",
           "base-100": "#FFFFFF",

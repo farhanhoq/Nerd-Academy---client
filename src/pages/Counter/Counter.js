@@ -1,47 +1,63 @@
 import React, { useEffect, useState } from 'react';
-import users from '../../Assets/users.png'
-import instructorf from '../../Assets/instructorf.png'
-import learner from '../../Assets/learner.png'
-import course from '../../Assets/course.png'
-import cover2 from '../../Assets/cover2.jpg'
-import './Counter.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsers, faPersonChalkboard, faGraduationCap, faBook } from '@fortawesome/free-solid-svg-icons'
 
 const Counter = () => {
-    const [counters, setCounters] = useState([]);
+    const [users, setUsers] = useState([]);
+    const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch('https://nerd-academy-server.vercel.app/counter')
+        fetch('https://nerd-academy-server.vercel.app/all-users')
             .then(res => res.json())
             .then(data => {
-                setCounters(data)
+                setUsers(data)
             })
     }, []);
+
+    useEffect(() => {
+        fetch('https://nerd-academy-server.vercel.app/courses')
+            .then(res => res.json())
+            .then(data => {
+                setCourses(data)
+            })
+    }, []);
+
+    const instructors = users.filter((user) => user.role === "teacher")
+    const learners = users.filter((user) => user.role === "student")
+
+    console.log(instructors)
+
     return (
-
-
-        // <div style={{
-        //     background: ` url(${cover2})`,
-        //     backgroundPosition: "center",
-        //     backgroundRepeat: "no-repeat",
-        //     backgroundSize: "cover",
-        //     height: "400px",
-        //     padding: "1px",
-        // }}
-        // >
-        <div style={{ backgroundImage: `url(${cover2})` }} className="lg:h-96 p-1 bg-cover bg-no-repeat	bg-center">
-            <div className='grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-8 my-20 w-12/12 mx-24'>
-                {
-                    counters.map(counter => <div key={counter.id} counter={counter} className="w-full max-w-sm  rounded-md shadow-md border border-cyan-500">
-                        <div className="flex justify-end px-4 pt-4">
+        <div className="p-1 bg-gradient-to-r from-[#7b35fd] to-[#ad35e9]">
+            <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 my-20 w-12/12 mx-24'>
+                <div className="w-full max-w-sm rounded-md shadow-md border py-6">
+                        <div className="flex flex-col items-center p-6 text-white">
+                            <FontAwesomeIcon icon={ faUsers} className="text-5xl mb-4"/>
+                            <h5 className="dark:text-gray-400 text-3xl font-semibold">{users.length}</h5>
+                            <span className="mb-1 text-md font-bold dark:text-white capitalize">USERS</span>
                         </div>
-                        <div className="left-content flex flex-col items-center pb-10">
-                            <img className="w-24 h-24 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src={counter.img} alt='' />
-                            <h5 className="mb-1 text-xl font-bold text-gray-900 dark:text-white">{counter.title}</h5>
-                            <span className="text-black-500 dark:text-gray-400 text-md font-semibold">{counter.digit}</span>
-
+                </div>
+                <div className="w-full max-w-sm rounded-md shadow-md border py-6">
+                    <div className="flex flex-col items-center p-6 text-white">
+                            <FontAwesomeIcon icon={ faPersonChalkboard} className="text-5xl mb-4"/>
+                            <h5 className="dark:text-gray-400 text-3xl font-semibold">{instructors.length}</h5>
+                            <span className="mb-1 text-md font-bold dark:text-white capitalize">INSTRUCTORS</span>
                         </div>
-                    </div>)
-                }
+                </div>
+                <div className="w-full max-w-sm rounded-md shadow-md border py-6">
+                        <div className="flex flex-col items-center p-6 text-white">
+                            <FontAwesomeIcon icon={ faGraduationCap} className="text-5xl mb-4"/>
+                            <h5 className="dark:text-gray-400 text-3xl font-semibold">{learners.length}</h5>
+                            <span className="mb-1 text-md font-bold dark:text-white capitalize">LEARNERS</span>
+                        </div>
+                </div>
+                <div className="w-full max-w-sm rounded-md shadow-md border py-6">
+                        <div className="flex flex-col items-center p-6 text-white">
+                            <FontAwesomeIcon icon={ faBook} className="text-5xl mb-4"/>
+                            <h5 className="dark:text-gray-400 text-3xl font-semibold">{courses.length}</h5>
+                            <span className="mb-1 text-md font-bold dark:text-white capitalize">COURSES</span>
+                        </div>
+                </div>
             </div>
         </div>
 

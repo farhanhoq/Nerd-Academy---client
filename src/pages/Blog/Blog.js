@@ -11,9 +11,7 @@ const Blog = () => {
   const { loading } = useContext(AuthContext);
 
   const {
-    data: blogData = [],
-    isLoading,
-    refetch,
+    data: blogData = []
   } = useQuery({
     queryKey: ['blogData'],
     queryFn: () => fetch('https://nerd-academy-server.vercel.app/blog').then(res => res.json()),

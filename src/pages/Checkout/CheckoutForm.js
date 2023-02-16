@@ -1,5 +1,4 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { FaCreditCard, FaPaypal, FaLock } from 'react-icons/fa';
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -12,7 +11,7 @@ const CheckoutForm = ({ total  , email }) => {
   let month = newDate.getMonth() + 1;
   let year = newDate.getFullYear();
 
-  const {user , loading } = useContext(AuthContext);
+  const {user } = useContext(AuthContext);
   
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState("");
@@ -46,7 +45,7 @@ const CheckoutForm = ({ total  , email }) => {
       return;
     }
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error } = await stripe.createPaymentMethod({
       type: 'card',
       card,
     });
@@ -91,9 +90,7 @@ const CheckoutForm = ({ total  , email }) => {
     }
 
       const {
-        data: checkoutItems = [],
-        isLoading,
-        refetch,
+        data: checkoutItems = []
       } = useQuery({
         queryKey: ['checkoutItems'],
         queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`).then(res => res.json()),
@@ -121,16 +118,6 @@ const CheckoutForm = ({ total  , email }) => {
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
-            //   if (data.acknowledged) {
-            //     checkoutItems?.map(singleItem => {
-            //     // setSingleData(items)
-            //     const {picture , title , tutor , lectures , hours, instructorEmail , price} = singleItem;
-            //     handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
-            //     handlePurchasedData(instructorEmail, picture, title, price)
-            //     toast.success("Course purchased Successfully");
-            //   })
-              
-            // }
             });
       }
 
