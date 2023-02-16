@@ -52,7 +52,7 @@ const AdminBlogs = () => {
 
                     console.log(blogsData);
 
-                    fetch(`http://localhost:5000/blog`, {
+                    fetch(`https://nerd-academy-server.vercel.app/blog`, {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",
