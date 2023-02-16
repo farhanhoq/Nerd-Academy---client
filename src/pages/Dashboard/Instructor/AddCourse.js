@@ -209,18 +209,7 @@ const AddCourse = () => {
                                 </div>
                             </div>
 
-                            <div className="form-control w-full max-w-xs mt-6">
-                                <input
-                                    {...register("image")}
-                                    type="file"
-                                    className="input input-bordered w-full max-w-xs"
-                                    placeholder="Upload a Image"
-                                />
-                                {errors.img && (
-                                    <span className="text-error">{errors.img.message}</span>
-                                )}
-                            </div>
-
+                        
                             <div className="form-control w-full mt-6">
                                 <h2 className="text-xl font-bold">Student Will Learn</h2>
 
@@ -266,7 +255,8 @@ const AddCourse = () => {
 
                                 {contents.map((data, i) => {
                                     return (
-                                        <div className="flex justify-between items-center">
+                                        <div>
+                                             <div className="flex justify-between items-center">
 
                                             <textarea
                                                 className="textarea textarea-bordered my-2"
@@ -297,8 +287,31 @@ const AddCourse = () => {
                                                 x
                                             </button>
                                         </div>
+                                            <div className="form-control border border-primary p-3 rounded-lg mt-5">
+                                                <h1 className="text-xl font-bold mb-3">Select your video</h1>
+                                                <input
+                                                 {...register("video")}
+                                                 type="file" 
+                                                 className="file-input file-input-bordered file-input-primary w-full" />
+                                            </div>
+
+                                            
+                                        </div>
+                                       
                                     );
                                 })}
+                                            <div className="form-control border border-primary p-3 rounded-lg mt-5">
+                                            <h1 className="text-xl font-bold mb-3">Upload an image</h1>
+                                                <input
+                                                    {...register("image")}
+                                                    type="file"
+                                                    className="input input-bordered file-input-primary w-full"
+                                                    placeholder="Upload a Image"
+                                                />
+                                                {errors.img && (
+                                                    <span className="text-error">{errors.img.message}</span>
+                                                )}
+                                            </div>
                             </div>
                         </div>
 

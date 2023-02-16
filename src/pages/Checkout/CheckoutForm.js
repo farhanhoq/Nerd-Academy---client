@@ -82,7 +82,7 @@ const CheckoutForm = ({ total  , email }) => {
           setTransactionId(paymentIntent.id);
           handleDeleteCartData();
            checkoutItems?.map(singleItem => {
-            handleAddData(singleItem?.courseId, singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours, singleItem?.instructorEmail);
+            handleAddData(singleItem?.courseId, singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours, singleItem?.instructorEmail, singleItem?.price);
             handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price);
           });
         }
@@ -99,7 +99,7 @@ const CheckoutForm = ({ total  , email }) => {
         queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`).then(res => res.json()),
       });
 
-      const handleAddData = (courseId, picture, title, tutor, lectures, hours, instructorEmail) => {
+      const handleAddData = (courseId, picture, title, tutor, lectures, hours, instructorEmail ,price) => {
         const data = {
           courseId,
           picture,
@@ -108,6 +108,7 @@ const CheckoutForm = ({ total  , email }) => {
           lectures,
           hours,
           instructorEmail,
+          price,
           buyerEmail: user?.email
         }
         console.log(data);
