@@ -6,7 +6,7 @@ import Loader from "../../Loader/Loader";
 const Review = ({ email, courseId }) => {
 
     // const [reviewData, setReviewData] = useState([]);
-    // const { loading } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
 
     const { data: reviewData = [], isLoading, refetch } = useQuery({
         queryKey: ['reviewData'],

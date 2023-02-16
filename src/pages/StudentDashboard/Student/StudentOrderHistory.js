@@ -20,7 +20,12 @@ const StudentOrderHistory = () => {
         refetch,
       } = useQuery({
         queryKey: ['studentCheckoutData'],
-        queryFn: () => fetch(`https://nerd-academy-server.vercel.app/student-order-history/${user?.email}`).then(res => res.json()),
+        queryFn: () => fetch(`https://nerd-academy-server.vercel.app/student-order-history?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                return data;
+            })
       });
       console.log(studentCheckoutData);
 
