@@ -28,6 +28,7 @@
     "react-router-dom": "^6.6.2",
     "react-scripts": "^5.0.1",
     "react-spinners": "^0.13.8",
+    "react-toastify": "^9.1.1",
     "recharts": "^2.3.2",
     "scroll-carousel": "^1.2.1",
     "stripe": "^11.9.0",

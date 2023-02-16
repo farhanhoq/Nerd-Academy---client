@@ -206,6 +206,12 @@ const StudentDashboardLayout = () => {
                 </li>
 
                 <li>
+                  <Link to="/student-dashboard/my-reviews" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+                    <img className='h-5 w-5' src="https://cdn-icons-png.flaticon.com/512/1545/1545282.png" alt="" srcset="" />
+                    <span class="group-hover:text-gray-700 ">My Reviews</span>
+                  </Link>
+                </li>
+                <li>
                   <Link to="/" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
                     <AiOutlineHome className='text-xl text-grey'></AiOutlineHome>
                     <span class="group-hover:text-gray-700 ">Home</span>
