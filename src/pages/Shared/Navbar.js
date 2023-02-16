@@ -21,8 +21,6 @@ const Navbar = () => {
 
   const navigate = useNavigate();
 
-  // console.log(user)
-
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
