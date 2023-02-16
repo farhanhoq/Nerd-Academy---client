@@ -27,7 +27,7 @@ const ModalReview = ({ review, setModalReviews, refetch }) => {
         })
             .then((res) => res.json())
             .then((result) => {
-                toast.success("Updated");
+                toast.success("Updated the review");
                 setModalReviews(false);
                 refetch();
             });

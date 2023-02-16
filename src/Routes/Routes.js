@@ -40,7 +40,6 @@ import MyProfileEditStudent from "../pages/StudentDashboard/Student/MyProfileEdi
 import MyProfileStudent from "../pages/StudentDashboard/Student/MyProfileStudent";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import MyReviews from "../pages/StudentDashboard/Student/MyReviews";
-import MyReviewEdit from "../pages/StudentDashboard/Student/MyReviewEdit";
 import Module from "../pages/StudentDashboard/Student/Module";
 import Menu from "../pages/Dashboard/AdminDashboard/Menu";
 import PrivacyPolicyAdd from "../pages/Dashboard/AdminDashboard/PrivacyPolicyAdd";
@@ -267,10 +266,6 @@ export const routes = createBrowserRouter([
             {
                 path: '/student-dashboard/my-reviews',
                 element: <MyReviews></MyReviews>,
-            },
-            {
-                path: '/student-dashboard/my-reviews-edit/:id',
-                element: <MyReviewEdit></MyReviewEdit>,
             },
             {
                 path: '/student-dashboard/student-order',
