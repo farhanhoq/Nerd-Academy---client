@@ -1,17 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
-import { useForm } from "react-hook-form";
 import ModalReview from './ModalReview';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
-
     const [modalReviews, setModalReviews] = useState({});
 
-    const { data: reviews = [], refetch, isLoading } = useQuery({
+    const { data: reviews = [], refetch } = useQuery({
         queryKey: ["reviews"],
         queryFn: async () => {
             const res = await fetch(`https://nerd-academy-server.vercel.app/studentsReviews?email=${user?.email}`);

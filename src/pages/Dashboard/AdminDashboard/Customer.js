@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 const Customer = () => {
 
-    const { data: users = [], refetch, isLoading } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ["user"],
         queryFn: async () => {
             const res = await fetch(`https://nerd-academy-server.vercel.app/all-users`);

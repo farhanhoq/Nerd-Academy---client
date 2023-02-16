@@ -1,13 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../Context/AuthProvider";
+import React from "react";
 import Loader from "../../Loader/Loader";
 
-const Review = ({ email, courseId }) => {
-
-    // const [reviewData, setReviewData] = useState([]);
-    // const { loading } = useContext(AuthContext);
-
+const Review = ({ courseId }) => {
     const { data: reviewData = [], isLoading, refetch } = useQuery({
         queryKey: ['reviewData'],
         queryFn: async () => {
@@ -22,12 +17,6 @@ const Review = ({ email, courseId }) => {
         }
     });
 
-    // useEffect(() => {
-    //     fetch('https://nerd-academy-server.vercel.app/review')
-    //         .then((res) => res.json())
-    //         .then((data) => setReviewData(data));
-    // }, []);
-    console.log(reviewData);
     if (isLoading) {
         return <Loader></Loader>
     }

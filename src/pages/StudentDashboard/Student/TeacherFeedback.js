@@ -10,7 +10,7 @@ const TeacherFeedback = ({course}) => {
     let year = newDate.getFullYear();
     const { user } = useContext(AuthContext);
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const {courseId, instructorEmail , tutor , title } = course;
 
     const handlePost = review => {

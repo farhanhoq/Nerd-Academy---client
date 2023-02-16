@@ -11,9 +11,7 @@ const Blog = () => {
   const { loading } = useContext(AuthContext);
 
   const {
-    data: blogData = [],
-    isLoading,
-    refetch,
+    data: blogData = []
   } = useQuery({
     queryKey: ['blogData'],
     queryFn: () => fetch('https://nerd-academy-server.vercel.app/blog').then(res => res.json()),
@@ -41,7 +39,6 @@ const Blog = () => {
               <figure><img className='h-[170px] w-full object-cover' src={data?.picture} alt="Shoes" /></figure>
               <div className="p-4">
                 <h2 className="card-title text-lg capitalize">{data?.heading}...</h2>
-                {/* <p className='text-sm text-slate-500'>{data?.about.slice(0, 120)}</p> */}
                 <button className="text-left text-md text-primary underline">Read more...</button>
 
               </div>

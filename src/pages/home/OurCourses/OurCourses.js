@@ -1,9 +1,7 @@
 import minusb from "../../../Assets/minusb.png";
 import book from "../../../Assets/book.png";
-import { useQuery } from "@tanstack/react-query";
 import "./OurCourses.css";
 import { Link } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";

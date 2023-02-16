@@ -1,54 +1,47 @@
 import React from "react";
-// import bookb from '../../Assets/bookb.png'
-import online from "../../Assets/online.png";
-import certificate from "../../Assets/certificate.png";
-import analyst from "../../Assets/analyst.png";
+import {  FaUserTie, FaGraduationCap, FaRocket } from "react-icons/fa";
 
 const About = () => {
   return (
-    <section
-      className="grid justify-between px-4 items-center dark:text-white w-3/5 mt-[-10%]"
-      id="about">
-        <div className="grid grid-cols-3 gap-4">
+    <section className="grid justify-between px-4 items-center dark:text-white w-3/5 mt-[-10%] mb-20" id="about">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
-        <div className="card flex-col shadow-md mt-8 text-black w-full cursor-pointer items-center">
-          <figure>
-            <img className="h-20 w-24 ml-6" src={online} alt="Movie" />
-          </figure>
-          <div className="w-full p-4">
-            <h2 className="card-title">Flexibility </h2>
-            <p className="text-slate-500 text-base mt-2">
-              Online courses can be accessed from anywhere, at any time, making
-              it convenient for people with busy schedules.
-            </p>
+        <div className="card flex-col border-r border-slate-300 rounded-none mt-2 text-black w-full cursor-pointer">
+          <div className="px-8">
+           <span className="bg-red text-2xl"> <FaGraduationCap className="text-[3rem] text-primary"/></span>
           </div>
-        </div>
-
-        <div className="card flex-col shadow-md mt-2 text-black w-full cursor-pointer">
-          <figure>
-            <img className="h-20 w-24 ml-6" src={certificate} alt="Movie" />
-          </figure>
           <div className="w-full p-8">
-            <h2 className="card-title">Cost effective</h2>
+            <h2 className="card-title">Certificate</h2>
             <p className="text-slate-500 text-base mt-2">
-              Online courses and programs are often less expensive than
-              traditional on-campus options.
+            A Google Docs scam that appears to be widespread began landing in Wednesday in what seemed to be a phishing attack.
             </p>
           </div>
         </div>
 
-        <div className="card flex-col shadow-md mt-2 text-black w-full cursor-pointer">
-          <figure>
-            <img className="h-20 w-24 ml-6" src={analyst} alt="Movie" />
-          </figure>
+        <div className="card flex-col border-r border-slate-300 rounded-none mt-2 text-black w-full cursor-pointer">
+          <div className="px-8">
+           <span className="bg-red text-2xl"> <FaUserTie className="text-[3rem] text-primary"/></span>
+          </div>
           <div className="w-full p-8">
-            <h2 className="card-title">Networking</h2>
+            <h2 className="card-title">Expert Instructors</h2>
             <p className="text-slate-500 text-base mt-2">
-              Online learning allows for students to connect with a diverse
-              group of people from around the world.
+            A Google Docs scam that appears to be widespread began landing in Wednesday in what seemed to be a phishing attack.
             </p>
           </div>
         </div>
+
+        <div className="card flex-col rounded-none mt-2 text-black w-full cursor-pointer">
+          <div className="px-8">
+           <span className="bg-red text-2xl"> <FaRocket className="text-[3rem] text-primary"/></span>
+          </div>
+          <div className="w-full p-8">
+            <h2 className="card-title">Learn from anywhere</h2>
+            <p className="text-slate-500 text-base mt-2">
+            A Google Docs scam that appears to be widespread began landing in Wednesday in what seemed to be a phishing attack.
+            </p>
+          </div>
+        </div>
+
         </div>
 
     </section>

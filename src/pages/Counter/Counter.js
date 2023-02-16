@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import users from '../../Assets/users.png'
-import instructorf from '../../Assets/instructorf.png'
-import learner from '../../Assets/learner.png'
-import course from '../../Assets/course.png'
 import cover2 from '../../Assets/cover2.jpg'
 import './Counter.css'
 
@@ -17,17 +13,6 @@ const Counter = () => {
             })
     }, []);
     return (
-
-
-        // <div style={{
-        //     background: ` url(${cover2})`,
-        //     backgroundPosition: "center",
-        //     backgroundRepeat: "no-repeat",
-        //     backgroundSize: "cover",
-        //     height: "400px",
-        //     padding: "1px",
-        // }}
-        // >
         <div style={{ backgroundImage: `url(${cover2})` }} className="lg:h-96 p-1 bg-cover bg-no-repeat	bg-center">
             <div className='grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-8 my-20 w-12/12 mx-24'>
                 {
