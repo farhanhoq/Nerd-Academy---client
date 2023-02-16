@@ -8,7 +8,7 @@ const Order = () => {
         data: checkoutData = [],
       } = useQuery({
         queryKey: ['checkoutData'],
-        queryFn: () => fetch(`https://nerd-academy-server.vercel.app/checkout-data/${user?.email}`).then(res => res.json()),
+        queryFn: () => fetch(`https://nerd-academy-server.vercel.app/teacher-order-history?email=${user?.email}`).then(res => res.json()),
       });
       console.log(checkoutData);
 
