@@ -127,7 +127,7 @@ const CourseDetails = () => {
       tutor,
       userEmail: users.email
     }
-    // console.log(reviewData);
+    console.log(reviewData);
 
     fetch("https://nerd-academy-server.vercel.app/review", {
       method: "POST",
