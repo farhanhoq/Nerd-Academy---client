@@ -77,31 +77,31 @@ const OurCourses = () => {
           <div className="flex flex-col md:flex-row gap-0 md:gap-6 justify-center my-10">
             <button
               onClick={() => filterResult("Web Development")}
-              className="bg-transparent border-2 border-sky-400 p-2 rounded-lg mt-6"
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
             >
               Web Development
             </button>
             <button
               onClick={() => filterResult("Apps Development")}
-              className="bg-transparent border-2 border-sky-400 p-2 rounded-lg mt-6"
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
             >
               App Development
             </button>
             <button
               onClick={() => filterResult("Programming")}
-              className="bg-transparent border-2 border-sky-400 p-2 rounded-lg mt-6"
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
             >
               Programming
             </button>
             <button
               onClick={() => filterResult("Computer Science")}
-              className="bg-transparent border-2 border-sky-400 p-2 rounded-lg mt-6"
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
             >
               Computer Science
             </button>
             <button
               onClick={() => filterResult("Artificial Intelligence")}
-              className="bg-transparent border-2 border-sky-400 p-2 rounded-lg mt-6"
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
             >
               Artificial Intelligence
             </button>
