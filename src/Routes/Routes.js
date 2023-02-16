@@ -55,6 +55,7 @@ import LicensingAdd from "../pages/Dashboard/AdminDashboard/Licensing/LicensingA
 import Licensing from "../pages/Dashboard/AdminDashboard/Licensing/Licensing";
 import CookiePolicyAdd from "../pages/Dashboard/AdminDashboard/CookiePolicy/CookiePolicyAdd";
 import CookiePolicy from "../pages/Dashboard/AdminDashboard/CookiePolicy/CookiePolicy";
+import AdminBlogs from "../Layout/AdminBlogs";
 
 export const routes = createBrowserRouter([
 
@@ -248,6 +249,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/admin-dashboard/menus',
                 element: <Menu></Menu>,
+            },
+            {
+                path: '/admin-dashboard/blogs',
+                element: <AdminBlogs></AdminBlogs>,
             },
         ]
     },

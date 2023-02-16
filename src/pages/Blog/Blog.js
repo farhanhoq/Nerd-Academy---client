@@ -38,9 +38,9 @@ const Blog = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {
             blogData.map(data => <Link to={`/blog/${data._id}`} className="card card-compact bg-base-100 shadow-xl hover:bg-base-200 hover:shadow-2xl">
-              <figure><img className='h-[170px] w-full object-cover' src={data?.picture} alt="Shoes" /></figure>
+              <figure><img className='h-[170px] w-full object-cover' src={data?.blogImage} alt="Blog Image" /></figure>
               <div className="p-4">
-                <h2 className="card-title text-lg capitalize">{data?.heading}...</h2>
+                <h2 className="card-title text-lg capitalize">{data?.title}...</h2>
                 {/* <p className='text-sm text-slate-500'>{data?.about.slice(0, 120)}</p> */}
                 <button className="text-left text-md text-primary underline">Read more...</button>
 
