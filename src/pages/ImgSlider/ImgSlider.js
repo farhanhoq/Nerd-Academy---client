@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import Loader from "../../Loader/Loader";
 import minusb from "../../Assets/minusb.png";
-import book from "../../Assets/book.png";
 
 const ImgSlider = () => {
   const { loading } = useContext(AuthContext);
@@ -36,7 +35,6 @@ const ImgSlider = () => {
       </h1>
       <div className="grid justify-center">
           <img className="h-full w-12" src={minusb} alt="" />
-          <img className="h-full w-12" src={book} alt="" />
         </div>
 
       <div className=" flex items-center justify-center my-32">

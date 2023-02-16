@@ -1,5 +1,4 @@
 import minusb from "../../../Assets/minusb.png";
-import book from "../../../Assets/book.png";
 import "./OurCourses.css";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -10,7 +9,6 @@ import { toast } from "react-hot-toast";
 
 const OurCourses = () => {
   const [coursedata, setCourseData] = useState([]);
-
   const { user, loading } = useContext(AuthContext);
 
   useEffect(() => {
@@ -26,8 +24,6 @@ const OurCourses = () => {
       return currentCourseData.category === catItem;
     });
     setCourseData(result);
-
-    // window.location.reload(true)
   };
 
   const handleAddToWishlist = (course) => {
@@ -69,7 +65,6 @@ const OurCourses = () => {
 
         <div className="grid justify-center">
           <img className="h-full w-12" src={minusb} alt="" />
-          <img className="h-full w-12" src={book} alt="" />
         </div>
 
         <div className="mx-auto rounded-lg">
