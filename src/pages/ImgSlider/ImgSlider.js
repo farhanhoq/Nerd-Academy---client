@@ -73,7 +73,7 @@ const ImgSlider = () => {
                       <p className="badge badge-ghost font-thin rounded mt-4">
                         {course?.tutor}
                       </p>
-                      <p className="ml-1 pt-1">{course?.description}</p>
+                      <p className="ml-1 pt-1">{course?.description.length > 100 ? <>{course?.description.slice(0, 60) + "..."}</> : course?.description}</p>
                      
                       <p className="flex justify-between mt-6">
                          <p className="ml-1 text-lg text-primary font-bold mt-1">${course?.price}</p>
