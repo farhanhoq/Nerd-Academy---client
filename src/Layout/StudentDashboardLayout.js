@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
@@ -11,6 +11,7 @@ import { AiOutlineHome } from 'react-icons/ai';
 const StudentDashboardLayout = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+  // const [profile, setProfile] = useState();
 
   const { data: profile = [], refetch, isLoading } = useQuery({
     queryKey: ["profile"],
@@ -20,8 +21,14 @@ const StudentDashboardLayout = () => {
       return data;
     }
   })
+
+  // fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`)
+  //                   .then(res => res.json())
+  //                   .then(data => {
+  //                     setProfile(data)
+  //                   })
   // const { email, fullName, eductaion, phone, address, picture } = profile;
-  refetch();
+  // refetch();
 
   const handleLogOut = () => {
     logOut()
