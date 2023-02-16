@@ -7,6 +7,7 @@ const Dashboard = () => {
     const location = useLocation();
     const {user} = useContext(AuthContext);
     const [courses, setCourses] = useState([]);
+    const [purchasedCourses, setPurchasedCourses] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:5000/my-courses?email=${user?.email}`)
@@ -15,12 +16,23 @@ const Dashboard = () => {
                 setCourses(data);
             });
     }, [])
-
+    
+    useEffect(() => {
+        fetch(`http://localhost:5000/perchased-courses?email=${user?.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setPurchasedCourses(data);
+            });
+    }, [])
     
     const publish = courses.filter((course) => course.publish === true )
-    const pendings = courses.filter((course) => course.publish === false )
+    const pendings = courses.filter((course) => course.publish === false)
+    const students = [...new Set(purchasedCourses.map((course) => course.buyerEmail))]
+    const prices = purchasedCourses.map((course) => course.price*1)
+    const total = prices.reduce((x,y) => (x+y), 0)
 
-    console.log(courses, publish, pendings)
+    console.log()
+    console.log(students, prices, total)
 
 
     return (
@@ -109,7 +121,7 @@ const Dashboard = () => {
                         <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-cyan-500 ">
                             <div className="left-content flex flex-col items-center pb-10">
                                 <img className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src="https://cdn-icons-png.flaticon.com/512/2501/2501026.png" alt='' />
-                                <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">5</span>
+                                <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">{students.length}</span>
                                 <h5 className="mb-1 text-xs font-medium text-gray-900 dark:text-white">Total Students</h5>
                             </div>
                         </div>
@@ -117,7 +129,7 @@ const Dashboard = () => {
                         <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-cyan-500 ">
                             <div className="left-content flex flex-col items-center pb-10">
                                 <img className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src="https://cdn-icons-png.flaticon.com/512/9084/9084691.png" alt='' />
-                                <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">5</span>
+                                <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">{total}</span>
                                 <h5 className="mb-1 text-xs font-medium text-gray-900 dark:text-white">Total Earnings</h5>
                             </div>
                         </div>
