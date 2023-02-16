@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaLinkedinIn, FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+
   return (
     <div>
       <hr />
@@ -29,6 +30,19 @@ const Footer = () => {
 
           </ul>
         </div>
+
+        <div className="md:justify-self-center">
+          <h2 className="text-2xl text-primary uppercase font-semibold">Rules & Regulations</h2>
+          <ul>
+            <Link className="text-xl" to='/privacy-policy'><li className="my-2">Privacy Policy</li></Link>
+            <Link className="text-xl" to='/terms-conditions'><li className="my-2">Terms & Conditions</li></Link>
+            <Link className="text-xl" to='/license'><li className="my-2">Licensing</li></Link>
+            <Link className="text-xl" to='/cookie-policy'><li className="my-2">Cookie Policy</li></Link>
+
+          </ul>
+        </div>
+
+
         <div className="">
           <span className="text-2xl mb-2 text-primary uppercase font-semibold">Follow Us</span>
           <ul className="flex gap-x-6">

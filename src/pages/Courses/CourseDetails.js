@@ -65,6 +65,7 @@ const CourseDetails = () => {
 
   const handleAddToCart = () => {
     const coursecart = {
+      courseId: _id,
       email: user?.email,
       name: user?.displayName,
       title,
@@ -126,7 +127,7 @@ const CourseDetails = () => {
       tutor,
       userEmail: users.email
     }
-    // console.log(reviewData);
+    console.log(reviewData);
 
     fetch("https://nerd-academy-server.vercel.app/review", {
       method: "POST",

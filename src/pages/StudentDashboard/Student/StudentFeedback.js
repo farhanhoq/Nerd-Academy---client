@@ -9,40 +9,37 @@ const StudentFeedback = ({ course }) => {
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
     // console.log(course);
-    const { instructorEmail, tutor, title } = course;
+    const {courseId, instructorEmail , tutor , title } = course;
 
     const { user } = useContext(AuthContext);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
 
-    const handlePost = review => {
-        const handleAddPost = {
-            review: review?.feedback,
-            title,
-            tutor,
-            instructorEmail,
-            userName: user?.displayName,
-            userEmail: user?.email,
-            date: `${date}-${month}-${year}`,
-        }
+const handlePost = review => {
+    const handleAddPost = {
+        courseId,
+        review: review?.feedback,
+        title,
+        tutor,
+        instructorMail: instructorEmail,
+        userName: user?.displayName,
+        userEmail: user?.email,
+        date: `${date}-${month}-${year}`,
+    }
 
-        fetch('https://nerd-academy-server.vercel.app/student-feedback', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(handleAddPost),
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                if (data.acknowledged) {
-                    toast.success('Feedback submitted successfully');
-                    //   refetch();
-                }
-            })
-            .catch(error => console.error(error));
+    fetch('https://nerd-academy-server.vercel.app/review', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(handleAddPost),
+    })
+      .then(res => res.json())
+      .then(data => {
+          toast.success('Review added successfully');
+      })
+      .catch(error => console.error(error));
         reset();
     };
 
@@ -52,7 +49,6 @@ const StudentFeedback = ({ course }) => {
             <input type="checkbox" id="my-modal" className="modal-toggle" />
             <label htmlFor="my-modal" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
-
                     <form onSubmit={handleSubmit(handlePost)} data-aos="zoom-in-down">
                         <div className='justify-center'>
                             <div className='gap-5 mt-5 form-control'>

@@ -1,685 +1,93 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import { FaReact } from 'react-icons/fa';
 
 const AllInstructor = () => {
+
+    const { data: users = [], refetch, isLoading } = useQuery({
+        queryKey: ["user"],
+        queryFn: async () => {
+            const res = await fetch(`https://nerd-academy-server.vercel.app/all-users`);
+            const data = await res.json();
+            return data;
+        }
+    })
+    refetch();
+    // console.log(users?.body?.picture);
+
+    const handleDelete = (id) => {
+        fetch(`https://nerd-academy-server.vercel.app/del-users/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.error('Teacher Deleted');
+                refetch();
+            })
+    };
+
     return (
-        <div class="overflow-x-auto my-6">
-            <div class="min-w-screen min-h-screen flex items-center justify-center bg-gray-100 overflow-hidden">
-                <div class="w-full lg:w-5/6">
-                    <div class="bg-white shadow-md rounded my-6">
-                        <table class="min-w-max w-full table-auto">
-                            <thead>
-                                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                    <th class="py-3 px-6 text-left">Category</th>
-                                    <th class="py-3 px-6 text-left">Instructor</th>
-                                    <th class="py-3 px-6 text-center">Email</th>
-                                    <th class="py-3 px-6 text-center">Status</th>
-                                    <th class="py-3 px-6 text-center">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
+        <section class="min-w-screen min-h-screen text-gray-600 w-full my-6">
+            <div class="flex flex-col justify-center h-full">
+                <div class="w-full mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+                    <header class="px-5 py-4 border-b border-gray-100">
+                        <h2 class="font-semibold text-gray-800 text-2xl">Instructors</h2>
+                    </header>
+                    <div class="p-3">
+                        <div class="overflow-x-auto">
+                            <table class="table-auto w-full">
+                                <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                    <tr>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-semibold text-left">Category</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-semibold text-left">Instructors</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-semibold text-left">Email</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-semibold text-left">Actions</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm divide-y divide-gray-100">
+                                    {
+                                        users.map(user => user.role === "teacher" &&
+                                            <tr>
+                                                <td class="p-2 whitespace-nowrap">
+                                                    <div class="font-medium text-gray-800">{user?.body?.skill}</div>
+                                                </td>
+                                                <td class="p-2 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
+                                                            <img class="rounded-full h-8 w-10" src={user?.body?.picture} alt="Student" />
+                                                        </div>
+                                                        <div class="font-medium text-gray-800">{user.name}</div>
+                                                    </div>
+                                                </td>
+                                                <td class="p-2 whitespace-nowrap">
+                                                    <div class="text-left">{user.email}</div>
+                                                </td>
+                                                <td class="p-2 whitespace-nowrap">
+                                                    <button
+                                                        onClick={() => handleDelete(user._id)}
+                                                        class="btn btn-error btn-xs">Delete</button>
+                                                </td>
 
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">Web Developer</span>
-                                        </div>
-                                    </td>
+                                            </tr>
+                                        )
+                                    }
 
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="text-gray-600 text-sm font-light">
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <FaReact />
-                                            </div>
-                                            <span class="font-medium">React Developer</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">
-                                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                            </div>
-                                            <span>Eshal Rosas</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <p>demo@gmail.com</p>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center">
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </div>
-                                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
