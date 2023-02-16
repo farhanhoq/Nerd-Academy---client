@@ -30,14 +30,14 @@ const ImgSlider = () => {
 
   return (
     <div className="my-20">
-      <h1 className="text-5xl text-center font-bold capitalize my-8">
+      <h1 className="text-3xl md:text-5xl text-center font-bold capitalize my-8">
         Our trending courses
       </h1>
       <div className="grid justify-center">
           <img className="h-full w-12" src={minusb} alt="" />
         </div>
 
-      <div className=" flex items-center justify-center my-32">
+      <div className=" flex items-center justify-center my-32 flex-col gap-6">
         <div className="w-full px-32">
           <Swiper
             spaceBetween={50}
@@ -49,8 +49,7 @@ const ImgSlider = () => {
             autoplay={{
               delay: 1000,
             }}
-            modules={[Autoplay]}
-          >
+            modules={[Autoplay]}>
             {courses?.map((course, i) => (
               <SwiperSlide key={i}>
                 <Link to={`/details/${course?._id}`} className="h-96 flex shadow-lg">

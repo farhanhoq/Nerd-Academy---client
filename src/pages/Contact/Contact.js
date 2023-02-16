@@ -27,7 +27,7 @@ const Contact = () => {
         />
       </div>
 
-      <div className="grid justify-between mt-10 mr-20 justify-self-center">
+      <div className="grid justify-between mt-10 justify-self-center">
         <h2 className="text-center lg:text-left text-2xl font-bold">
           {" "}
           Stay Connected with us
