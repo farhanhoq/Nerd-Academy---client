@@ -14,9 +14,7 @@ const ImgSlider = () => {
   const { loading } = useContext(AuthContext);
 
   const {
-    data: courses = [],
-    isLoading,
-    refetch,
+    data: courses = []
   } = useQuery({
     queryKey: ["courses"],
     queryFn: () =>

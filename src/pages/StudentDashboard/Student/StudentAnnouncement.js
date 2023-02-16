@@ -1,5 +1,4 @@
 import React from 'react';
-import { FiEdit } from 'react-icons/fi';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
 
 const StudentAnnouncement = () => {

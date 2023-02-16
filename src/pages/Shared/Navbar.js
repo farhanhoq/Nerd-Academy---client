@@ -9,7 +9,6 @@ import { useEffect } from "react";
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
 import useRole from "../../Hooks/useRole";
 import "./Navbar.css";
-import logo from "../../Assets/logo.png"
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);

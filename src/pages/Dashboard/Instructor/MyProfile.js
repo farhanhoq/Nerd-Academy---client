@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useContext } from "react";
 import { BiEdit } from 'react-icons/bi';
 import { Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import { AuthContext } from "../../../Context/AuthProvider";
 const MyProfile = () => {
   const { user } = useContext(AuthContext);
 
-  const { data: profile = [], refetch, isLoading } = useQuery({
+  const { data: profile = [], refetch } = useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
       const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);

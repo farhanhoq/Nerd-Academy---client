@@ -6,13 +6,12 @@ const ModalReview = ({ review, setModalReviews, refetch }) => {
     const { _id } = review;
     console.log(review);
 
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit } = useForm();
 
     const handleSubmitReview = data => {
         const review = data.review;
         console.log(review);
 
-        // console.log(review);
         const ratedata = {
             review,
             _id

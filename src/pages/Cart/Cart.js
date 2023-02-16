@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { signInAnonymously } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -8,7 +7,7 @@ import ScrollToTop from "../ScrollToTop";
 const Cart = () => {
   const { user } = useContext(AuthContext);
   const url = `https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`;
-  const { data: cartDatas = [], isLoading, refetch } = useQuery({
+  const { data: cartDatas = [] } = useQuery({
     queryKey: ["cartDatas", user?.email],
     queryFn: async () => {
       const res = await fetch(url);
@@ -57,7 +56,7 @@ const Cart = () => {
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
                           <div className="mask w-28 rounded-lg h-20">
-                            <img src={data?.picture} />
+                            <img src={data?.picture} alt="" />
                           </div>
                         </div>
                         <div className="">
