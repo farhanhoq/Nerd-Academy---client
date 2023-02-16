@@ -14,6 +14,7 @@ const MyProfileEdit = () => {
         formState: { errors },
     } = useForm();
     const { user, updateUser } = useContext(AuthContext);
+
     // console.log(user);
     // const [isLoading, setisLoading] = useState(false);
     const navigate = useNavigate();
