@@ -73,7 +73,8 @@ const ImgSlider = () => {
                      
                       <p className="flex justify-between mt-6">
                          <p className="ml-1 text-lg text-primary font-bold mt-1">${course?.price}</p>
-                        <span className="badge bg-gradient-to-tr from-[#7b35fd] to-[#ad35e9] px-6 py-4 mr-2 rounded-full border-none text-white">
+                        <span className="badge bg-gradient-to-r from-[#7B33FD]
+              to-[#B337E3] px-6 py-4 mr-2 rounded-full border-none text-white">
                           Trending
                         </span>
                       </p>

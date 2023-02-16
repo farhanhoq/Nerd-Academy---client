@@ -79,32 +79,32 @@ const OurCourses = () => {
           <div className="flex flex-col md:flex-row gap-0 md:gap-6 justify-center my-10">
             <button
               onClick={() => filterResult("Web Development")}
-              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
-            >
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
+               hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-500">
               Web Development
             </button>
             <button
               onClick={() => filterResult("Apps Development")}
-              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
-            >
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
+              hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-300">
               App Development
             </button>
             <button
               onClick={() => filterResult("Programming")}
-              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
-            >
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
+              hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-300">
               Programming
             </button>
             <button
               onClick={() => filterResult("Computer Science")}
-              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
-            >
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
+              hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-300">
               Computer Science
             </button>
             <button
               onClick={() => filterResult("Artificial Intelligence")}
-              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6"
-            >
+              className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
+              hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-150">
               Artificial Intelligence
             </button>
           </div>
@@ -121,8 +121,7 @@ const OurCourses = () => {
                 autoplay={{
                   delay: 5000,
                 }}
-                modules={[Autoplay]}
-              >
+                modules={[Autoplay]}>
                 {courses?.map((course) => (
                   <SwiperSlide key={course?._id}>
                     <div className="cursor-pointer rounded-xl bg-white p-2 shadow-lg hover:shadow-xl h-96 w-full border dropdown dropdown-hover dropdown-top">
@@ -131,16 +130,14 @@ const OurCourses = () => {
                           <img
                             className="w-full h-40"
                             src={course?.picture}
-                            alt="wallpaper"
-                          />
+                            alt="wallpaper"/>
 
                           <div className="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="h-5 w-5 text-yellow-400"
                               viewBox="0 0 20 20"
-                              fill="currentColor"
-                            >
+                              fill="currentColor">
                               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                             </svg>
 
@@ -198,11 +195,13 @@ const OurCourses = () => {
                               <p className="text-md text-gray-600"></p>
                             </div>
 
-                            <div className="flex items-center space-x-1.5 rounded-lg px-4 py-1.5 border-primary border transition ease-in-out  duration-300 hover:text-white hover:bg-cyan-500 mx-3">
+                            <div className="flex items-center space-x-1.5 rounded-lg px-4 py-1.5 
+                            border-primary border transition ease-in-out  duration-300
+                             hover:text-white hover:bg-gradient-to-r hover:from-[#7B33FD]
+                             hover:to-[#B337E3] mx-3">
                               <Link
                                 to={`/details/${course._id}`}
-                                className="text-sm"
-                              >
+                                className="text-sm ">
                                 View More
                               </Link>
                             </div>
