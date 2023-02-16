@@ -17,6 +17,7 @@ const CheckoutForm = ({ total  , email }) => {
     const [clientSecret, setClientSecret] = useState("");
     const [transactionId , setTransactionId] = useState('');
     const [processing , setProcessing] = useState(false);
+    console.log(transactionId);
 
     const stripe = useStripe();
     const elements = useElements();
@@ -78,11 +79,11 @@ const CheckoutForm = ({ total  , email }) => {
         // setPayment(paymentIntent)
         if(paymentIntent.status === "succeeded"){
           toast.success("Course purchased Successfully");
-          setTransactionId(paymentIntent.id);
+          // setTransactionId(paymentIntent.id);
           handleDeleteCartData();
            checkoutItems?.map(singleItem => {
             handleAddData(singleItem?.courseId, singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours, singleItem?.instructorEmail, singleItem?.price);
-            handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price);
+            handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price, paymentIntent.id);
           });
         }
         setProcessing(false);
@@ -108,7 +109,7 @@ const CheckoutForm = ({ total  , email }) => {
           price,
           buyerEmail: user?.email
         }
-        console.log(data);
+        // console.log(data);
       
           fetch("https://nerd-academy-server.vercel.app/perchased-course", {
             method: "POST",
@@ -121,7 +122,7 @@ const CheckoutForm = ({ total  , email }) => {
             });
       }
 
-      const handlePurchasedData = (instructorEmail, picture, title, price) => {
+      const handlePurchasedData = (instructorEmail, picture, title, price, transactionId) => {
 
           const checkoutData = {
             instructorEmail,
@@ -131,8 +132,9 @@ const CheckoutForm = ({ total  , email }) => {
             userName: user?.displayName,
             userEmail: user?.email,
             date: `${date}-${month}-${year}`,
-            transactionId: transactionId
+            transactionId
           }
+          console.log(checkoutData);
       
           fetch('https://nerd-academy-server.vercel.app/checkout-data', {
                       method: 'POST',
