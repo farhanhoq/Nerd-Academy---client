@@ -108,37 +108,37 @@ const AddCourse = () => {
     return (
         <div>
             <h2 className="mt-8 text-3xl font-bold text-primary">Add a Course</h2>
-            <div className="my-6 flex justify-center items-center">
-                <div className="w-full card shadow-2xl p-8">
+            <div className="my-6">
+                <div className="card shadow-2xl p-8">
                     <form onSubmit={handleSubmit(handleAddCourse)}>
-                        <div className="grid grid-cols-2 gap-6">
-                            <div className="form-control w-full max-w-xs">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="form-control w-full">
                                 <input
                                     {...register("tutor")}
                                     type="text"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input input-bordered w-full "
                                     placeholder="Instructor Name"
                                     defaultValue={user.displayName}
                                 />
                             </div>
 
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full">
                                 <input
                                     {...register("email")}
                                     type="email"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input input-bordered w-full "
                                     defaultValue={user?.email}
                                     readOnly
                                 />
                             </div>
 
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full ">
                                 <input
                                     {...register("courseTitle", {
                                         required: "Please provided course title",
                                     })}
                                     type="text"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input input-bordered w-full"
                                     placeholder="Course Title"
                                 />
                                 {errors.courseTitle && (
@@ -148,7 +148,7 @@ const AddCourse = () => {
                                 )}
                             </div>
 
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full">
                                 <textarea
                                     {...register("description", {
                                         required: "Please provided description",
@@ -163,13 +163,13 @@ const AddCourse = () => {
                                 )}
                             </div>
 
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full ">
                                 <input
                                     {...register("price", {
                                         required: "Please provided course price",
                                     })}
                                     type="text"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input input-bordered w-full"
                                     placeholder="Price"
                                 />
                                 {errors.price && (
@@ -177,13 +177,13 @@ const AddCourse = () => {
                                 )}
                             </div>
 
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full">
                                 <input
                                     {...register("hours", {
                                         required: "Please provided course hours",
                                     })}
                                     type="text"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input input-bordered w-full"
                                     placeholder="Course hours"
                                 />
                                 {errors.hours && (
@@ -191,27 +191,28 @@ const AddCourse = () => {
                                 )}
                             </div>
 
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full">
                                 <div className="input-group">
                                     <select
                                         required
                                         {...register("category")}
-                                        className="select select-bordered"
+                                        className="select select-bordered w-full"
                                     >
-                                        <option value="Web Development">Web Development</option>
-                                        <option value="App Development">App Development</option>
-                                        <option value="Programming">Programming</option>
-                                        <option value="Computer Science">Computer Science</option>
-                                        <option value="Artificial Intelligence">
+                                        <option className="" value="Web Development">Web Development</option>
+                                        <option className="" value="App Development">App Development</option>
+                                        <option className="" value="Programming">Programming</option>
+                                        <option className="" value="Computer Science">Computer Science</option>
+                                        <option className="" value="Artificial Intelligence">
                                             Artificial Intelligence
                                         </option>
                                     </select>
                                 </div>
                             </div>
+                        </div>
 
-                        
-                            <div className="form-control w-full mt-6">
-                                <h2 className="text-xl font-bold">Student Will Learn</h2>
+                        <div className="flex gap-5 mt-20">
+                            <div className="form-control w-full">
+                                <h2 className="text-xl font-bold text-primary">Student Will Learn</h2>
 
                                 <button
                                     onClick={() => handleAddLearn()}
@@ -222,7 +223,7 @@ const AddCourse = () => {
 
                                 {learnings.map((data, i) => {
                                     return (
-                                        <div className="flex">
+                                        <div className="flex items-center">
                                             <textarea
                                                 {...register("learnings", {
                                                     required: "Student will learn",
@@ -234,7 +235,7 @@ const AddCourse = () => {
                                             ></textarea>
                                             <button
                                                 onClick={() => handleDeleteLearn(i)}
-                                                className="btn btn-sm ml-2 btn-primary"
+                                                className="btn btn-sm ml-2 btn-primary "
                                             >
                                                 x
                                             </button>
@@ -243,8 +244,8 @@ const AddCourse = () => {
                                 })}
                             </div>
 
-                            <div className="form-control w-full mt-6">
-                                <h2 className="text-xl font-bold">Course Content</h2>
+                            <div className="form-control w-full">
+                                <h2 className="text-xl font-bold text-primary">Course Content</h2>
 
                                 <button
                                     onClick={() => handleAddContent()}
@@ -256,39 +257,41 @@ const AddCourse = () => {
                                 {contents.map((data, i) => {
                                     return (
                                         <div>
-                                             <div className="flex justify-between items-center">
-
+                                             <div className="">
                                             <textarea
-                                                className="textarea textarea-bordered my-2"
+                                                className="textarea textarea-bordered mt-2 w-full"
                                                 name="chp_name"
                                                 value={data.chp_name}
                                                 onChange={(e) => handleChangeContent(e, i)}
                                                 placeholder="Chapter Name"
                                             ></textarea>
+                                            <div className="w-full flex gap-4 items-center">
                                             <input
-                                                className="input input-bordered my-2 w-1/3"
+                                                className="input input-bordered my-2 w-6/12"
                                                 name="lecture_num"
                                                 value={data.lecture_num}
                                                 onChange={(e) => handleChangeContent(e, i)}
                                                 placeholder="Lecture Numbers"
                                             ></input>
                                             <input
-                                                className="input input-bordered w-1/6 my-2"
+                                                className="input input-bordered w-6/12 my-2"
                                                 name="chp_duration"
                                                 value={data.chp_duration}
                                                 onChange={(e) => handleChangeContent(e, i)}
                                                 placeholder="Duration"
                                             ></input>
-
                                             <button
                                                 onClick={() => handleDeleteContent(i)}
-                                                className="btn btn-primary btn-sm ml-2"
+                                                className="btn btn-primary btn-sm"
                                             >
                                                 x
                                             </button>
+                                            </div>
+                                            
+                                            
                                         </div>
                                             <div className="form-control border border-primary p-3 rounded-lg mt-5">
-                                                <h1 className="text-xl font-bold mb-3">Select your video</h1>
+                                                <h1 className="text-xl font-bold mb-3 text-primary">Select your video</h1>
                                                 <input
                                                  {...register("video")}
                                                  type="file" 
@@ -300,19 +303,23 @@ const AddCourse = () => {
                                        
                                     );
                                 })}
-                                            <div className="form-control border border-primary p-3 rounded-lg mt-5">
-                                            <h1 className="text-xl font-bold mb-3">Upload an image</h1>
-                                                <input
-                                                    {...register("image")}
-                                                    type="file"
-                                                    className="input input-bordered file-input-primary w-full"
-                                                    placeholder="Upload a Image"
-                                                />
-                                                {errors.img && (
-                                                    <span className="text-error">{errors.img.message}</span>
-                                                )}
-                                            </div>
+                                           
                             </div>
+                        </div>
+                            
+                        
+
+                        <div className="form-control border border-primary p-3 rounded-lg mt-16 w-6/12 mx-auto">
+                            <h1 className="text-xl font-bold mb-3 text-center text-primary">Upload an image</h1>
+                            <input
+                            {...register("image")}
+                            type="file"
+                            className="input input-bordered file-input-primary w-full text-black"
+                            placeholder="Upload a Image"
+                            />
+                            {errors.img && (
+                            <span className="text-error">{errors.img.message}</span>
+                            )}
                         </div>
 
                         <input
