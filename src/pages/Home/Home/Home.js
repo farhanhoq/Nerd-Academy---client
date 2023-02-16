@@ -8,6 +8,7 @@ import About from '../../About/About';
 import Faq from '../../Faq/Faq';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../../Loader/Loader';
+import ImgSlider from '../../ImgSlider/ImgSlider';
 
 const Home = () => {
     const { user, loading } = useContext(AuthContext);
@@ -20,8 +21,9 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <About></About>
-            <OurCourses></OurCourses>
+            <ImgSlider/>
             <Counter></Counter>
+            <OurCourses></OurCourses>
             <Faq></Faq>
             {/* {
                 loading ?

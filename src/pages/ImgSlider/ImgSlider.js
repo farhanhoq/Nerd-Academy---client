@@ -7,12 +7,11 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import Loader from "../../Loader/Loader";
+import minusb from "../../Assets/minusb.png";
+import book from "../../Assets/book.png";
 
 const ImgSlider = () => {
-
   const { loading } = useContext(AuthContext);
-
-
 
   const {
     data: courses = [],
@@ -20,45 +19,75 @@ const ImgSlider = () => {
     refetch,
   } = useQuery({
     queryKey: ["courses"],
-    queryFn: () => fetch("trendingCourses.json").then((res) => res.json()),
+    queryFn: () =>
+      fetch("https://nerd-academy-server.vercel.app/courses").then((res) =>
+        res.json()
+      ),
   });
 
-if(loading){
-  return <Loader></Loader>
-}
+  console.log(courses)
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
 
   return (
-    <div className=" flex items-center justify-center">
-      <div className="max-w-5xl">
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={3}
-          onSlideChange={() => console.log("slide change")}
-          loop={true}
-          centerslides={true}
-          speed={800}
-          autoplay={{
-            delay: 1000,
-          }}
-          modules={[Autoplay]}
-        >
-          {courses?.map((course, i) => (
-            <SwiperSlide key={i}>
-              <Link to={`/details/${course?._id}`} className="h-96 flex">
-                <div className={`mycard card-active`}>
-                <figure><img className='w-full h-44 rounded-t-lg' src={course?.picture} alt="" /></figure>
-                <div className="p-5">
-                <h2 className="font-bold text-xl text-primary">{course?.name}</h2>
-                <p className="badge badge-ghost font-thin rounded mt-4">{course?.author}</p>
-                <p className="ml-1 pt-1">{course?.reviews} reviews</p>
-                <p className="ml-1 text-2xl font-bold mt-1">${course?.price}</p>
-                <p className="text-right"><span className="badge badge-warning p-2 py-3 mr-2 rounded text-white">{course?.trend}</span></p>
-                </div>
-                </div>
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <div className="my-20">
+      <h1 className="text-5xl text-center font-bold capitalize my-8">
+        Our trending courses
+      </h1>
+      <div className="grid justify-center">
+          <img className="h-full w-12" src={minusb} alt="" />
+          <img className="h-full w-12" src={book} alt="" />
+        </div>
+
+      <div className=" flex items-center justify-center my-32">
+        <div className="w-full px-32">
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={3}
+            onSlideChange={() => console.log("slide change")}
+            loop={true}
+            centerslides={true}
+            speed={800}
+            autoplay={{
+              delay: 1000,
+            }}
+            modules={[Autoplay]}
+          >
+            {courses?.map((course, i) => (
+              <SwiperSlide key={i}>
+                <Link to={`/details/${course?._id}`} className="h-96 flex shadow-lg">
+                  <div className={`mycard card-active`}>
+                    <figure>
+                      <img
+                        className="w-full h-44 rounded-t-lg"
+                        src={course?.picture}
+                        alt=""
+                      />
+                    </figure>
+                    <div className="p-5">
+                      <h2 className="font-bold text-xl">
+                        {course?.title}
+                      </h2>
+                      <p className="badge badge-ghost font-thin rounded mt-4">
+                        {course?.tutor}
+                      </p>
+                      <p className="ml-1 pt-1">{course?.description}</p>
+                     
+                      <p className="flex justify-between mt-6">
+                         <p className="ml-1 text-lg text-primary font-bold mt-1">${course?.price}</p>
+                        <span className="badge bg-gradient-to-tr from-[#7b35fd] to-[#ad35e9] px-6 py-4 mr-2 rounded-full border-none text-white">
+                          Trending
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </div>
   );
