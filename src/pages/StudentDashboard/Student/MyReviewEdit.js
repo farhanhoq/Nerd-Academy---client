@@ -9,7 +9,7 @@ const MyReviewEdit = () => {
     // const navigate = useNavigate();
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/studentsReviews/${id}`)
+    //     fetch(`https://nerd-academy-server.vercel.app/studentsReviews/${id}`)
     //         .then((res) => res.json())
     //         .then((data) => {
     //             if (data.success) {
@@ -30,7 +30,7 @@ const MyReviewEdit = () => {
 
     //     }
 
-    //     fetch(`http://localhost:5000/review/${id}`, {
+    //     fetch(`https://nerd-academy-server.vercel.app/review/${id}`, {
     //         method: "PATCH",
     //         headers: {
     //             "content-type": "application/json"

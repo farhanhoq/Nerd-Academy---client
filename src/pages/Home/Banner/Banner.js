@@ -6,7 +6,7 @@ import banner from '../../../Assets/banner.webp'
 const Banner = () => {
 
   return (
-    <div className="hero min-h-screen relative grid-cols-2" style={{ backgroundImage: `url(${newBg})` }} id="#home">
+    <div className="hero min-h-screen grid-cols-2 relative" style={{ backgroundImage: `url(${newBg})` }} id="#home">
       <div className='absolute left-[50px] top-[80px]'>
         <div className="hero-content items-center justify-center flex-col md:flex-row">
           <div className='w-full text-white mx-auto'>
