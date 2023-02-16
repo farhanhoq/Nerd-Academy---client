@@ -3,10 +3,12 @@ import {  FaUserTie, FaGraduationCap, FaRocket } from "react-icons/fa";
 
 const About = () => {
   return (
-    <section className="grid justify-between px-4 items-center dark:text-white w-3/5 mt-[-10%] mb-20" id="about">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <section className="grid justify-between px-4 items-center dark:text-white w-full 
+    md:w-3/5 md:mt-[-10%] mb-20" id="about">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 justify-center">
 
-        <div className="card flex-col border-r border-slate-300 rounded-none mt-2 text-black w-full cursor-pointer">
+        <div className="card flex-col md:border-r border-slate-300 rounded md:rounded-none mt-2
+         text-black w-full cursor-pointer py-6">
           <div className="px-8">
            <span className="bg-red text-2xl"> <FaGraduationCap className="text-[3rem] text-primary"/></span>
           </div>
@@ -18,7 +20,8 @@ const About = () => {
           </div>
         </div>
 
-        <div className="card flex-col border-r border-slate-300 rounded-none mt-2 text-black w-full cursor-pointer">
+        <div className="card flex-col md:border-r border-slate-300 rounded md:rounded-none mt-2
+         text-black w-full cursor-pointer py-6">
           <div className="px-8">
            <span className="bg-red text-2xl"> <FaUserTie className="text-[3rem] text-primary"/></span>
           </div>
@@ -30,7 +33,8 @@ const About = () => {
           </div>
         </div>
 
-        <div className="card flex-col rounded-none mt-2 text-black w-full cursor-pointer">
+        <div className="card flex-col md:border-r border-slate-300 rounded md:rounded-none mt-2
+         text-black w-full cursor-pointer py-6">
           <div className="px-8">
            <span className="bg-red text-2xl"> <FaRocket className="text-[3rem] text-primary"/></span>
           </div>
@@ -41,7 +45,6 @@ const About = () => {
             </p>
           </div>
         </div>
-
         </div>
 
     </section>
