@@ -19,12 +19,12 @@ const Dashboard = () => {
 
     useEffect(() => {
         fetch(
-          `http://localhost:5000/perchased-courses-teacher?email=${user?.email}`
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            setPurchasedCourses(data);
-          });
+            `http://localhost:5000/perchased-courses-teacher?email=${user?.email}`
+            )
+            .then((res) => res.json())
+            .then((data) => {
+                setPurchasedCourses(data);
+            });
     }, [])
 
     const publish = courses.filter((course) => course.publish === true)
