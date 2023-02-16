@@ -13,7 +13,7 @@ const MyProfileEditStudent = () => {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const { user } = useContext(AuthContext);
+    const { user, updateUser } = useContext(AuthContext);
     // console.log(user);
     // const [isLoading, setisLoading] = useState(false);
     const navigate = useNavigate();
@@ -47,6 +47,11 @@ const MyProfileEditStudent = () => {
             .then(res => res.json())
             .then(imgData => {
                 if (imgData.success) {
+
+                    const userImage = {
+                        photoURL: imgData.data.url,
+                    };
+                    updateUser(userImage);
 
                     const profileData = {
                         fullName: data.name,
