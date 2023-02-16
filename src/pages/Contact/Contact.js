@@ -1,6 +1,7 @@
 import React from "react";
 import emailjs from '@emailjs/browser';
 import { toast } from "react-hot-toast";
+import contact from "../../Assets/contact.svg"
 
 const Contact = () => {
   function sendEmail(e) {
@@ -20,8 +21,8 @@ const Contact = () => {
     <section className="flex flex-col justify-between md:items-center lg:flex-row container mx-auto px-16 dark:text-white" id="contact">
       <div className="text-center lg:text-left">
         <img
-          className="w-10/12 mx-auto"
-          src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?w=740&t=st=1673781447~exp=1673782047~hmac=c4925cf02c78fea815b894b4393247cf7e71d96a32a1f3f2596131ec8b36c070"
+          className="hue-rotate-0 w-full justify-center rounded-md shadow-gray-400 mb-6"
+          src={contact}
           alt=""
         />
       </div>
