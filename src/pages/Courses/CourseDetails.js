@@ -25,8 +25,8 @@ const CourseDetails = () => {
 
   const course = useLoaderData();
 
-  const { _id, title, picture, email, img, price, rating, review, tutor, lectures, hours, date, description, instructorEmail, content, learning } = course[0];
-  // console.log(instructorEmail);
+  const { _id, title, picture, email, img, price, rating, review, tutor, lectures, hours, date, description,content, learning } = course[0];
+  console.log(lectures, rating , review, hours);
   // console.log(_id);
 
   const { data: users = [], refetch, isLoading } = useQuery({
@@ -39,7 +39,7 @@ const CourseDetails = () => {
   })
   // const { _id } = users;
   refetch();
-  console.log(users);
+  // console.log(users);
 
 
   // useEffect(() => {
@@ -78,7 +78,7 @@ const CourseDetails = () => {
       hours,
       date,
       description,
-      instructorEmail
+      instructorEmail: email
     };
 
 
