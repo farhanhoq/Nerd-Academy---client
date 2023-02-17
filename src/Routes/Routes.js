@@ -15,7 +15,6 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import Settings from "../pages/Dashboard/Instructor/Settings";
 import MyCourse from "../pages/Dashboard/Instructor/MyCourse";
 import DasboardReview from "../pages/Dashboard/Instructor/DasboardReview";
 import Order from "../pages/Dashboard/Instructor/Order";
@@ -27,14 +26,11 @@ import Customer from "../pages/Dashboard/AdminDashboard/Customer";
 import StudentDashboardLayout from '../Layout/StudentDashboardLayout';
 import StudentDashboard from "../pages/StudentDashboard/StudentDashboard";
 import StudentAnnouncement from '../pages/StudentDashboard/Student/StudentAnnouncement';
-import StudentSettings from '../pages/StudentDashboard/Student/StudentSettings';
-import StudentProfile from "../pages/StudentDashboard/Student/StudentProfile";
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
 import Home from "../pages/Home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
-import Profile from "../pages/Dashboard/Instructor/Profile";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
 import MyProfileEdit from "../pages/Dashboard/Instructor/MyProfileEdit";
@@ -54,6 +50,7 @@ import LicensingAdd from "../pages/Dashboard/AdminDashboard/Licensing/LicensingA
 import Licensing from "../pages/Dashboard/AdminDashboard/Licensing/Licensing";
 import CookiePolicyAdd from "../pages/Dashboard/AdminDashboard/CookiePolicy/CookiePolicyAdd";
 import CookiePolicy from "../pages/Dashboard/AdminDashboard/CookiePolicy/CookiePolicy";
+import AdminBlogs from "../Layout/AdminBlogs";
 
 export const routes = createBrowserRouter([
 
@@ -247,6 +244,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/admin-dashboard/menus',
                 element: <Menu></Menu>,
+            },
+            {
+                path: '/admin-dashboard/blogs',
+                element: <AdminBlogs></AdminBlogs>,
             },
         ]
     },

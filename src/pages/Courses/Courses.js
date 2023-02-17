@@ -1,24 +1,15 @@
 import React from 'react';
-import minus from '../../Assets/minus.png'
-import book from '../../Assets/book.png'
-import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import ScrollCarousel from 'scroll-carousel';
 
 const Courses = () => {
-  // new ScrollCarousel(".my-carousel", {
-  //   autoplay: true,
-  //   direction: 'ltr',
-  //   margin: 20,
-  //   speed: 5,
-  // });
-  // new ScrollCarousel(".my-carousel");
+
   new ScrollCarousel(".my-carousel", {
     direction: 'ltr'
   });
 
 
-  const { data: courses = [], isLoading, refetch } = useQuery({
+  const { data: courses = [] } = useQuery({
     queryKey: ['courses'],
     queryFn: () => fetch('trendingCourses.json')
       .then(res => res.json())

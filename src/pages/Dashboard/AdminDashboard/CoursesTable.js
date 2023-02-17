@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { FaReact } from 'react-icons/fa';
 import { RiDeleteBack2Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
@@ -60,7 +59,7 @@ const CoursesTable = ({ course, refetch }) => {
                 <td class="py-3 px-6 text-left">
                     <div class="flex items-center">
                         <div class="mr-2">
-                            <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
+                            <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" alt="" />
                         </div>
                         <span>{tutor}</span>
                     </div>

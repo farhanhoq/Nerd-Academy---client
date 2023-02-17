@@ -33,13 +33,6 @@ const Home = () => {
             } */}
             {
                 user?.uid ?
-                    <Contact></Contact>
-                    :
-                    <>
-                    </>
-            }
-            {
-                user?.uid ?
                     <>
 
                     </>
@@ -47,6 +40,7 @@ const Home = () => {
                     <Instructor></Instructor>
 
             }
+            <Contact></Contact>
 
         </div>
     );

@@ -12,7 +12,6 @@ const ModalReview = ({ review, setModalReviews, refetch }) => {
         const review = data.review;
         console.log(review);
 
-        // console.log(review);
         const ratedata = {
             review,
             _id

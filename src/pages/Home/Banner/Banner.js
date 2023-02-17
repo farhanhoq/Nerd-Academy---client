@@ -1,6 +1,5 @@
 import React from 'react';
 import newBg from '../../../Assets/home-banner-bg.png.webp';
-import ImgSlider from '../../ImgSlider/ImgSlider';
 import banner from '../../../Assets/banner.webp'
 
 const Banner = () => {
@@ -16,7 +15,6 @@ const Banner = () => {
             <a href="#courses" className="btn bg-white dark:bg-black text-black dark:text-white border-none hover:bg-white hover:shadow-2xl shadow-white">Explore our courses</a>
           </div>
           <div className=''>
-        {/* <ImgSlider /> */}
         <img src={banner} alt="" className='hidden md:block' />
       </div>
         </div>

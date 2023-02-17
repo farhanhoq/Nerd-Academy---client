@@ -7,8 +7,8 @@ const Instructor = () => {
     return (
         <div className='flex flex-col md:flex-row md:gap-6 items-center w-11/12 mx-auto shadow-2xl my-28 rounded-xl p-4 dark:text-white'>
 
-            <div className='w-full md:w-6/12'>
-                <img className='rounded-tl-md rounded-bl-md w-full md:w-11/12' src="https://img.freepik.com/premium-vector/business-people-having-board-meeting_1034-1214.jpg?w=740" alt="instructor" />
+            <div className='w-full md:w-6/12 border-r'>
+                <img className='rounded-tl-md rounded-bl-md w-full md:w-11/12' src="https://i.ibb.co/xDj3jxj/instructor.png" alt="instructor" />
             </div>
             <div className='md:w-4/6 mr-10'>
 

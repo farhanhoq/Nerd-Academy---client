@@ -3,9 +3,15 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Publish = () => {
+<<<<<<< HEAD
     const { user } = useContext(AuthContext);
 
+=======
+
+    const {user} = useContext(AuthContext)
+>>>>>>> 15e8d6f28856a2a4b41ff392fefc806a193f3f5c
     const [publish, setPublish] = useState();
+
     useEffect(() => {
         fetch(`https://nerd-academy-server.vercel.app/publish?email=${user?.email}`)
             .then(res => res.json())

@@ -1,10 +1,8 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useContext } from 'react';
-import { toast } from 'react-hot-toast';
-import { FaCreditCard, FaPaypal, FaLock } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider';
 import ScrollToTop from "../ScrollToTop";
 import CheckoutForm from './CheckoutForm';
@@ -13,12 +11,10 @@ const stripePromise = loadStripe("pk_test_51M7InvAbbSTlGyeuin3DBD1lpNqKQB1As3LAI
 console.log(stripePromise);
 
 const Checkout = () => {
-  const {user , loading} = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
 
   const {
-    data: checkoutItems = [],
-    isLoading,
-    refetch,
+    data: checkoutItems = []
   } = useQuery({
     queryKey: ['checkoutItems'],
     queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`)

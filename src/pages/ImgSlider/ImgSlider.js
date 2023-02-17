@@ -8,15 +8,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import Loader from "../../Loader/Loader";
 import minusb from "../../Assets/minusb.png";
-import book from "../../Assets/book.png";
 
 const ImgSlider = () => {
   const { loading } = useContext(AuthContext);
 
   const {
-    data: courses = [],
-    isLoading,
-    refetch,
+    data: courses = []
   } = useQuery({
     queryKey: ["courses"],
     queryFn: () =>
@@ -33,15 +30,14 @@ const ImgSlider = () => {
 
   return (
     <div className="my-20">
-      <h1 className="text-5xl text-center font-bold capitalize my-8">
+      <h1 className="text-3xl md:text-5xl text-center font-bold capitalize my-8">
         Our trending courses
       </h1>
       <div className="grid justify-center">
           <img className="h-full w-12" src={minusb} alt="" />
-          <img className="h-full w-12" src={book} alt="" />
         </div>
 
-      <div className=" flex items-center justify-center my-32">
+      <div className=" flex items-center justify-center my-32 flex-col gap-6">
         <div className="w-full px-32">
           <Swiper
             spaceBetween={50}
@@ -53,8 +49,7 @@ const ImgSlider = () => {
             autoplay={{
               delay: 1000,
             }}
-            modules={[Autoplay]}
-          >
+            modules={[Autoplay]}>
             {courses?.map((course, i) => (
               <SwiperSlide key={i}>
                 <Link to={`/details/${course?._id}`} className="h-96 flex shadow-lg">
@@ -77,7 +72,8 @@ const ImgSlider = () => {
                      
                       <p className="flex justify-between mt-6">
                          <p className="ml-1 text-lg text-primary font-bold mt-1">${course?.price}</p>
-                        <span className="badge bg-gradient-to-tr from-[#7b35fd] to-[#ad35e9] px-6 py-4 mr-2 rounded-full border-none text-white">
+                        <span className="badge bg-gradient-to-r from-[#7B33FD]
+              to-[#B337E3] px-6 py-4 mr-2 rounded-full border-none text-white">
                           Trending
                         </span>
                       </p>

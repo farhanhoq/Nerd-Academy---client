@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { BiEdit } from 'react-icons/bi';
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ import { AuthContext } from "../../../Context/AuthProvider";
 const MyProfileStudent = () => {
     const { user } = useContext(AuthContext);
 
-    const { data: profile = [], refetch, isLoading } = useQuery({
+    const { data: profile = [], refetch } = useQuery({
         queryKey: ["profile"],
         queryFn: async () => {
             const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
@@ -16,11 +15,7 @@ const MyProfileStudent = () => {
             return data;
         }
     })
-    // const { email, fullName, eductaion, phone, address, picture } = profile;
     refetch();
-
-    // console.log(profile.body.picture);
-
     return (
         <div className="card bg-base-100 shadow-xl p-12">
 

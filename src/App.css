@@ -6,6 +6,10 @@ body {
   font-family: 'Poppins', sans-serif
 }
 
+.bg-linear-primary {
+  background-image: linear-gradient(to right, #7B33FD,#B337E3);
+}
+
 ::-webkit-scrollbar {
   width: 13px;
 }

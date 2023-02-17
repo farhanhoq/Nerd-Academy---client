@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import eduAnimation from "../../../src/Assets/edu-animation.json";
-// import google from '../../Assets/google.png'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import { useForm } from "react-hook-form";
@@ -27,14 +26,6 @@ const Login = () => {
         console.log(user);
         toast.success("Successfully logged in");
         event.target.reset();
-
-        // fetch(`https://nerd-academy-server.vercel.app/jwt?email=${data.email}`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.accessToken) {
-        //             localStorage.setItem('accessToken', data.accessToken);
-        //         }
-        //     })
         navigate(from, { replace: true });
       })
       .catch(error => {
@@ -135,14 +126,16 @@ const Login = () => {
                   <Link to="/register">
                     <span className="label-text-alt">
                       New to this site? Please
-                      <span className="link link-primary">Register</span>
+                      <span className="link link-primary font-bold">Register</span>
                     </span>
                   </Link>
                 </label>
               </div>
-              <input className='btn btn-primary text-white my-4 w-full' type="submit" value="Login" />
+              <input className='btn bg-gradient-to-r from-primary to-secondary text-white border-primary hover:border-primary
+              my-4 w-full hover:bg-gradient-to-r hover:from-white hover:text-black hover:to-white' type="submit" value="Login" />
             </form>
-            <button onClick={handleSignInGoogle} className="btn btn-outline hover:bg-primary border-gray-300 hover:border-primary">
+            <button onClick={handleSignInGoogle} className="btn btn-outline hover:bg-gradient-to-r 
+             hover:from-primary hover:to-secondary border-primary hover:border-primary">
               Sign up with Google<span></span>
             </button>
           </div>

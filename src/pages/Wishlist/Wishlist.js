@@ -7,7 +7,7 @@ const Wishlist = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { data: wishLists = [], isLoading, refetch } = useQuery({
+    const { data: wishLists = [] } = useQuery({
         queryKey: ["wishLists", user?.email],
         queryFn: async () => {
             const res = await fetch(`https://nerd-academy-server.vercel.app/wishlist?email=${user?.email}`);
@@ -50,7 +50,7 @@ const Wishlist = () => {
                                             <div className="flex items-center space-x-3">
                                                 <div className="avatar">
                                                     <div className="mask w-28 rounded-lg h-20">
-                                                        <img src={data?.course?.picture} />
+                                                        <img src={data?.course?.picture} alt=""/>
                                                     </div>
                                                 </div>
                                                 <div className="">

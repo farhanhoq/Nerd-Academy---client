@@ -34,7 +34,6 @@ const Register = () => {
           .catch(error => {
             console.log(error.message);
           })
-        // navigate('/');
       })
       .catch(error => {
         toast.error(error.message);
@@ -58,13 +57,6 @@ const Register = () => {
       .then(res => res.json())
       .then(data => {
         if (data.acknowledged) {
-          // fetch(`https://nerd-academy-server.vercel.app/jwt?email=${email}`)
-          //   .then(res => res.json())
-          //   .then(data => {
-          //     if (data.accessToken) {
-          //       localStorage.setItem('accessToken', data.accessToken);
-          //     }
-          //   })
           toast.success("Successfully User Created");
           reset()
           navigate('/');
@@ -195,14 +187,18 @@ const Register = () => {
                 <Link to="/login">
                   <span className="label-text-alt ">
                     Have an account?{" "}
-                    <span className="link link-primary">Login</span>
+                    <span className="link link-primary font-bold">Login</span>
                   </span>
                 </Link>
               </label>
             </div>
-            <input className='btn btn-primary text-white my-4 w-full' type="submit" value="Sign up" />
+            <input className='btn bg-gradient-to-r from-primary to-secondary text-white border-primary hover:border-primary
+              my-4 w-full hover:bg-gradient-to-r hover:from-white hover:text-black hover:to-white'
+              type="submit" value="Sign up" />
           </form>
-          <button onClick={handleSignInGoogle} className="btn btn-outline hover:bg-primary border-gray-300 hover:border-primary">
+
+          <button onClick={handleSignInGoogle} className="btn btn-outline hover:bg-gradient-to-r 
+             hover:from-primary hover:to-secondary border-primary hover:border-primary">
             Sign up with Google<span></span>
           </button>
         </div>

@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { FaStar, FaUserFriends } from 'react-icons/fa';
@@ -29,7 +28,7 @@ const StudentAlsoBought = () => {
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
                           <div className="mask w-24 rounded-lg h-14">
-                            <img src={data?.picture} />
+                            <img src={data?.picture} alt=""/>
                           </div>
                         </div>
                         <div className="">
