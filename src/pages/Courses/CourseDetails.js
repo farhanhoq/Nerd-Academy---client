@@ -106,7 +106,7 @@ const CourseDetails = () => {
   return (
     <div className="py-24">
       <ScrollToTop />
-      <div className=" bg-gradient-to-r from-black to-slate-500">
+      <div className=" bg-gradient-to-r from-primary to-secondary">
 
         <div className=" text-white w-11/12 mx-auto p-16">
           <div className="text-lg breadcrumbs mb-9">
@@ -206,12 +206,11 @@ const CourseDetails = () => {
           <div className="my-32">
             <h1 className="text-3xl font-bold  pb-4 flex items-center">
               <div className="inline rating rating-lg mr-1"><input type="radio" name="rating-8" className="mask mask-star bg-yellow-500" checked /></div>
-              {rating} course rating * {review}K ratings</h1>
+              {rating} Course rating * {review}K ratings</h1>
 
             {
               user?.uid &&
               <div>
-                <h2 className="text-2xl mb-2">Write a review for this {title} course</h2>
                 <form onSubmit={handleSubmit(handleReview)} className="card card-side bg-base-100 shadow-xl">
                   {/* <figure>
                     <input
@@ -225,13 +224,15 @@ const CourseDetails = () => {
                     )}
                   </figure> */}
                   <div className="card-body">
-                    <h2 className="card-title">Write your opinion</h2>
+                  <h2 className="text-xl mb-2">Write a review for {title} course</h2>
                     <textarea
                       {...register("review")}
                       name="review"
-                      placeholder="review" className="textarea textarea-bordered textarea-sm w-full max-w-xs" ></textarea>
+                      placeholder="Write your review here" className="textarea textarea-bordered textarea-primary
+                       textarea-sm w-full h-60" ></textarea>
                     <div className="card-actions">
-                      <button className="btn btn-primary">Submit</button>
+                      <button className="btn bg-gradient-to-r from-primary to-secondary
+                       text-white border-none">Submit</button>
                     </div>
                   </div>
                 </form>
@@ -249,7 +250,8 @@ const CourseDetails = () => {
             <img src={picture} alt="" />
             <div className="w-10/12 mx-auto my-8">
               <h1 className="text-5xl font-bold">${price}</h1>
-              <button onClick={handleAddToCart} className="btn text-white w-full rounded-none btn-primary mb-2 mt-7">Add to cart</button>
+              <button onClick={handleAddToCart} className="btn text-white w-full rounded
+               bg-gradient-to-r from-primary to-secondary mb-2 mt-7 border-none">Add to cart</button>
               <h5 className="font-bold mt-7">This course includes:</h5>
 
               <p className="mt-3"><FaVideo className="inline mr-1" /> {hours} hours on-demand video</p>

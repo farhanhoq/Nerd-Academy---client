@@ -6,10 +6,10 @@
   backdrop-filter: blur(10px);
 }
 
-.navbar-logo,
-.item {
-  color: white;
-}
+  .navbar-logo,
+  .item {
+    color: white ;
+  }
 
 .navbar.active .navbar-logo,
 .navbar.navbar.active .item {
@@ -21,12 +21,6 @@
   border: 1 px blue;
 }
 
-
-/* .btn:hover {
-  background-color: #1a77c8;
-  color: white;
-} */
-
 .main {
   margin-top: 4em;
 }
@@ -36,7 +30,6 @@
   text-align: center;
   background-color: var(--clr-bg);
   height: 50vh;
-  /* max-height: 400px; */
 }
 
 .techsection>div {
@@ -114,7 +107,8 @@
   left: 0;
   right: 0px;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #fff;
+  border: 1px solid #7B33FD;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -125,8 +119,9 @@
   height: 14px;
   width: 12px;
   left: 4px;
+  top: 3px;
   bottom: 4px;
-  background-color: white;
+  background-image: linear-gradient(to right, #7B33FD,#B337E3);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -189,7 +184,6 @@ input:checked + .slider:before {
 .list:hover {
   background: none !important;
   border: none;
-  color: white;
 }
 
 .list::after {

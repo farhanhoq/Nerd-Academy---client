@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import minusb from "../../Assets/minusb.png";
-import book from "../../Assets/book.png";
 import { AuthContext } from '../../Context/AuthProvider';
 import Loader from '../../Loader/Loader';
 
@@ -29,16 +28,16 @@ const Blog = () => {
         </h1>
         <div className="grid justify-center">
           <img className="h-full w-12" src={minusb} alt="" />
-          <img className="h-full w-12" src={book} alt="" />
         </div>
       </div>
       <div className='w-11/12 mx-auto px-22'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {
             blogData.map(data => <Link to={`/blog/${data._id}`} className="card card-compact bg-base-100 shadow-xl hover:bg-base-200 hover:shadow-2xl">
-              <figure><img className='h-[170px] w-full object-cover' src={data?.blogImage} alt="Blog Image" /></figure>
+              <figure><img className='h-[170px] w-full object-cover hover:rotate-12 hover:scale-150
+              transition-all duration-300 ease-linear' src={data?.blogImage} alt="Blog Img" /></figure>
               <div className="p-4">
-                <h2 className="card-title text-lg capitalize">{data?.title}...</h2>
+                <h2 className="card-title text-lg capitalize hover:text-primary transition-all duration-75 ease-linear">{data?.title}...</h2>
                 {/* <p className='text-sm text-slate-500'>{data?.about.slice(0, 120)}</p> */}
                 <button className="text-left text-md text-primary underline">Read more...</button>
 
