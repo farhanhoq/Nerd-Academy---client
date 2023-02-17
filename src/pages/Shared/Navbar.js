@@ -296,6 +296,7 @@ const Navbar = () => {
                list item" style={{ color: getColor("/") }}>Register</Link>
             </>
         }
+        
 
         <div className="ml-2">
           {(location.pathname === "/admin-dashboard" ||
