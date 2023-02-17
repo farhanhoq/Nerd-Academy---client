@@ -74,16 +74,16 @@ const AdminBlogs = () => {
 
     return (
         <div className='py-12'>
-            <h2 className="text-3xl mb-2">Crate a Blogs</h2>
+            <h2 className="text-3xl mb-2">Write your blog</h2>
             <form onSubmit={handleSubmit(handleData)} className="card bg-base-100 shadow-xl">
                 <div className="card-body">
                     <div>
                         <p className="text-sm">Author Name</p>
-                        <input  {...register("name")} type="text" placeholder="Writer Name" className="input input-bordered w-full max-w-xs" />
+                        <input  {...register("name")} type="text" placeholder="Writer Name" className="mt-2 input input-bordered w-full max-w-xs" />
                     </div>
                     <div className='my-2'>
                         <p className="text-sm">Blog Title</p>
-                        <input  {...register("title")} type="text" placeholder="Blog Title" className="input input-bordered w-full " />
+                        <input  {...register("title")} type="text" placeholder="Blog Title" className="mt-2 input input-bordered w-full " />
                     </div>
                     <div className="flex w-full">
                         <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">
@@ -104,7 +104,7 @@ const AdminBlogs = () => {
                         />
                     </div>
                     <div className="card-actions">
-                        <button className='btn btn-primary mt-6 mb-4 w-1/2 text-center mx-auto text-white' type="submit">Publish</button>
+                        <button className='btn border-none bg-gradient-to-r from-primary to-secondary mt-6 mb-4 w-1/2 text-center mx-auto text-white' type="submit">Publish</button>
                     </div>
                 </div>
             </form>
