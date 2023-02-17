@@ -7,7 +7,7 @@ const AdminDashboard = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ["user"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/all-users`);
+            const res = await fetch(`https://nerd-academy-server.vercel.app/all-users`);
             const data = await res.json();
             return data;
         }
@@ -17,7 +17,7 @@ const AdminDashboard = () => {
     const { data: courses = [] } = useQuery({
         queryKey: ["courses"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/courses`);
+            const res = await fetch(`https://nerd-academy-server.vercel.app/courses`);
             const data = await res.json();
             return data;
         }
@@ -27,7 +27,7 @@ const AdminDashboard = () => {
     const { data: perchasedCourse = [] } = useQuery({
         queryKey: ["perchasedCourse"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/perchased-course`);
+            const res = await fetch(`https://nerd-academy-server.vercel.app/perchased-course`);
             const data = await res.json();
             return data;
         }
