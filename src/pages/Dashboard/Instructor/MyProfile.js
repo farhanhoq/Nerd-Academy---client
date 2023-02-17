@@ -38,7 +38,7 @@ const MyProfile = () => {
               <img src={profile?.body?.picture} alt="" />
             </div>
           </div>
-          <Link to="/dashboard/my-profile-edit" className="border p-2 bg-gradient-to-r from-primary to-secondary text-black rounded cursor-pointer">
+          <Link to="/dashboard/my-profile-edit" className="border p-2 bg-gradient-to-r from-primary to-secondary text-white rounded cursor-pointer">
             Edit Profile
           </Link>
         </div>
