@@ -72,7 +72,7 @@ const AllInstructor = () => {
                                                 <td className="p-2 whitespace-nowrap">
                                                     <button
                                                         onClick={() => handleDelete(user._id)}
-                                                        className="btn btn-error btn-xs">Delete</button>
+                                                        className="btn btn-error text-white btn-xs">Delete</button>
                                                 </td>
 
                                             </tr>
