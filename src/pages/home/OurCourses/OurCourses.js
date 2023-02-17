@@ -124,8 +124,8 @@ const OurCourses = () => {
                 modules={[Autoplay]}>
                 {courses?.map((course) => (
                   <SwiperSlide key={course?._id}>
-                    <div className="cursor-pointer rounded-xl bg-white p-2 shadow-lg hover:shadow-xl h-96 w-full border dropdown dropdown-hover dropdown-top">
-                      <div className="" tabIndex={0}>
+                    <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-96 w-full border dropdown dropdown-hover dropdown-top">
+                      <div tabIndex={0} >
                         <div className="relative flex items-end overflow-hidden rounded-xl">
                           <img
                             className="w-full h-40"
@@ -209,10 +209,7 @@ const OurCourses = () => {
                         </div>
                       </div>
 
-                      <div
-                        tabIndex={0}
-                        className="dropdown-content card card-compact w-64 p-2 shadow bg-white border text-primary-content rounded text-justify"
-                      >
+                      <div tabIndex={0} className="dropdown-content card card-compact w-64 p-2 shadow bg-white border text-primary-content rounded text-justify">
                         <div className="card-body">
                           <h3 className="card-title">{course?.title}</h3>
                           <p>{course?.description}</p>
