@@ -18,56 +18,56 @@ const Module = () => {
             <div className='col-span-3 md:col-span-1 lg:col-span-1 '>
                 <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-lg">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p> Today I will design the course module page</p>
+                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p> Let's Dive In!</p>
 
                     </div>
                     <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
-                        <p className="py-2"> Today I will design the course module page.</p>
+                        <p className="py-2">Let's Build an App!</p>
                     </div>
                 </div>
                 <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-lg">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p> Today I will design the course module page</p>
+                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>Creating Content with JSX</p>
 
                     </div>
                     <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
-                        <p className="py-2"> Today I will design the course module page.</p>
+                        <p className="py-2">Showing Basic Content</p>
                     </div>
                 </div>
                 <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-lg">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p> Today I will design the course module page</p>
+                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>Building with Reusable Components</p>
 
                     </div>
                     <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
-                        <p className="py-2"> Today I will design the course module page.</p>
+                        <p className="py-2">Creating Core Components</p>
                     </div>
                 </div>
                 <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-lg">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p> Today I will design the course module page</p>
+                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>State: How to Change Your App</p>
 
                     </div>
                     <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
-                        <p className="py-2"> Today I will design the course module page.</p>
+                        <p className="py-2">Initial App Setup and Introducing the Event System</p>
                     </div>
                 </div>
                 <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-lg">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p> Today I will design the course module page</p>
+                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>Using an API with React</p>
 
                     </div>
                     <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
-                        <p className="py-2"> Today I will design the course module page.</p>
+                        <p className="py-2">Overview of HTTP Requests</p>
                     </div>
                 </div>
                 <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-lg">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p> Today I will design the course module page</p>
+                    <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>How to Handle Forms</p>
 
                     </div>
                     <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
-                        <p className="py-2"> Today I will design the course module page.</p>
+                        <p className="py-2">Reminder on Event Handlers</p>
                     </div>
                 </div>
             </div>
