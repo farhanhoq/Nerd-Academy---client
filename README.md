@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Live website link
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://nerd-academy-79ce8.web.app
 
 ## Available Scripts
 
