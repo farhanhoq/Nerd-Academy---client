@@ -69,24 +69,7 @@ const CourseDetails = () => {
       });
   };
 
-  // const handleReview = (event) => {
-  //   event.preventDefault();
-  //   const form = event.target;
-  //   const review = form.review.value;
-  //   const picture = form.picture.value;
-
-  //   const reviewData = {
-  //     name: user?.displayName,
-  //     review,
-  //     picture,
-  //     date: `${date1}.${month}.${year}`
-  //   }
-  // }
-
   const handleReview = (data, event) => {
-    // const form = event.target;
-    // const review = form.review.value;
-    // const image = form.picture.value;
 
     const reviewData = {
       userName: users?.name,
@@ -114,45 +97,6 @@ const CourseDetails = () => {
         event.target.reset();
       });
 
-    // console.log(data);
-    // const image = data.image[0];
-    // console.log(image);
-    // const formData = new FormData();
-    // formData.append("image", image);
-
-    // const url = `https://api.imgbb.com/1/upload?key=218ccec0a78d63b33e00278172e1c053`;
-    // fetch(url, {
-    //   method: "POST",
-    //   body: formData,
-    // })
-    //   .then((res) => res.json())
-    //   .then((imgData) => {
-    //     if (imgData.success) {
-    //       const reviewData = {
-    //         name: user?.displayName,
-    //         review: data.review,
-    //         picture: users.body.picture,
-    //         date: `${date1}.${month}.${year}`,
-    //         instructorMail: email,
-    //         courseId: _id,
-    //         title
-    //       }
-    //       // console.log(reviewData);
-
-    //       fetch("https://nerd-academy-server.vercel.app/review", {
-    //         method: "POST",
-    //         headers: {
-    //           "content-type": "application/json",
-    //         },
-    //         body: JSON.stringify(reviewData),
-    //       })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //           toast.success("Review has been added");
-    //           event.target.reset();
-    //         });
-    //     }
-    //   });
   };
 
   if (loading) {

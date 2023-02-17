@@ -19,8 +19,8 @@ const Dashboard = () => {
 
     useEffect(() => {
         fetch(
-            `http://localhost:5000/perchased-courses-teacher?email=${user?.email}`
-            )
+            `https://nerd-academy-server.vercel.app/perchased-courses-teacher?email=${user?.email}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 setPurchasedCourses(data);

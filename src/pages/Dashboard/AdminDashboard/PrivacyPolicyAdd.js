@@ -1,5 +1,5 @@
 import JoditEditor from 'jodit-react';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import parse from 'html-react-parser';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,11 @@ const PrivacyPolicyAdd = () => {
     const editor = useRef(null);
     const [content, setContent] = useState('');
     const navigate = useNavigate();
+
+    const config = {
+        placeholder: "Start Typing"
+    }
+
 
     const handleSubmit = (e) => {
 
@@ -33,6 +38,7 @@ const PrivacyPolicyAdd = () => {
     }
 
 
+
     return (
         <div className='py-24'>
             <h2 className="text-3xl font-bold mx-auto text-center my-4">Adding Content for Privacy Policy</h2>
@@ -42,6 +48,7 @@ const PrivacyPolicyAdd = () => {
                         ref={editor}
                         value={content}
                         onChange={newContent => setContent(newContent)}
+                        config={config}
                     />
                     <button className='btn btn-primary mt-6 mb-4 w-1/2 text-center mx-auto text-white' type="submit">Publish</button>
                 </div>
