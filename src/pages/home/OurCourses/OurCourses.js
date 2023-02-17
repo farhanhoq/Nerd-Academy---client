@@ -124,7 +124,7 @@ const OurCourses = () => {
                 modules={[Autoplay]}>
                 {courses?.map((course) => (
                   <SwiperSlide key={course?._id}>
-                    <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-96 w-full border dropdown dropdown-hover dropdown-top">
+                    <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-min- w-full border dropdown dropdown-hover dropdown-top">
                       <div tabIndex={0} >
                         <div className="relative flex items-end overflow-hidden rounded-xl">
                           <img
@@ -168,8 +168,7 @@ const OurCourses = () => {
 
                             <div
                               className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200"
-                              onClick={() => handleAddToWishlist(course)}
-                            >
+                              onClick={() => handleAddToWishlist(course)}>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-4 w-4 text-orange-400 group-hover:text-orange-500"
@@ -181,14 +180,14 @@ const OurCourses = () => {
                             </div>
                           </div>
 
-                          <div className="flex items-center relative  border-b border-cyan-500 py-1"></div>
-                          <div className="flex items-center relative my-2">
+                          <div className="flex items-center relative border-b border-primary py-1"></div>
+                          <div className="flex items-center relative my-2 justify-between">
+                            <div className="ml-3 flex gap-4 items-center">
                             <img
                               src="https://placeimg.com/400/225/arch"
                               className="w-10 h-10 rounded-full bg-gray-100 "
                               alt=""
                             />
-                            <div className="ml-3">
                               <p className="font-medium text-gray-800">
                                 {course?.tutor}
                               </p>
@@ -196,9 +195,9 @@ const OurCourses = () => {
                             </div>
 
                             <div className="flex items-center space-x-1.5 rounded-lg px-4 py-1.5 
-                            border-primary border transition ease-in-out  duration-300
-                             hover:text-white hover:bg-gradient-to-r hover:from-[#7B33FD]
-                             hover:to-[#B337E3] mx-3">
+                            border-primary border transition ease-in-out duration-300
+                             hover:text-white hover:bg-gradient-to-r hover:from-primary
+                             hover:to-secondary mx-3">
                               <Link
                                 to={`/details/${course._id}`}
                                 className="text-sm ">

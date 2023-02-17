@@ -29,11 +29,11 @@ const MyProfileStudent = () => {
                 <div className="flex flex-col gap-4 items-center">
                     <div className="avatar">
                         <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            {/* <img src="https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1670098851032.png" /> */}
                             <img src={profile?.body?.picture} alt="" />
                         </div>
                     </div>
-                    <Link to="/student-dashboard/my-profile-edit" className="border p-2 bg-primary text-black rounded cursor-pointer">
+                    <Link to="/student-dashboard/my-profile-edit" className="border p-2 bg-gradient-to-r from-primary
+                     to-secondary text-white rounded cursor-pointer">
                         Edit Profile
                     </Link>
                 </div>

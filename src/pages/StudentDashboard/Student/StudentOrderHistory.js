@@ -32,11 +32,11 @@ const StudentOrderHistory = () => {
                     <table className="w-full border border-collapse table-auto">
                         <thead className="">
                             <tr className="text-base font-bold text-left bg-gray-50">
-                                <th className="px-4 py-3 border-b-2 border-blue-500">Student</th>
-                                <th className="px-4 py-3 border-b-2 border-green-500">Course Name</th>
-                                <th className="px-4 py-3 border-b-2 border-cyan-500">Price</th>
-                                <th className="px-4 py-3 border-b-2 border-red-500">Order No</th>
-                                <th className="px-4 py-3 text-center border-b-2 border-yellow-500 sm:text-left">Purchased On</th>
+                                <th className="px-4 py-3 border-b-2 border-primary">Student</th>
+                                <th className="px-4 py-3 border-b-2 border-secondary">Course Name</th>
+                                <th className="px-4 py-3 border-b-2 border-primary">Price</th>
+                                <th className="px-4 py-3 border-b-2 border-secondary">Order No</th>
+                                <th className="px-4 py-3 text-center border-b-2 border-primary sm:text-left">Purchased On</th>
                             </tr>
                         </thead>
                         <tbody className="text-sm font-normal text-gray-700">
@@ -51,7 +51,7 @@ const StudentOrderHistory = () => {
                                     </div>
                                     <div className="flex-1 pl-1">
                                         <div className="font-medium">{order?.userName}</div>
-                                        <div className="text-sm text-blue-600 ">
+                                        <div className="text-sm text-primary ">
                                             {order?.userEmail}
                                         </div>
                                     </div>
