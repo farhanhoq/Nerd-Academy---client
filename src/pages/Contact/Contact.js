@@ -18,8 +18,8 @@ const Contact = () => {
 
   }
   return (
-    <section className="flex flex-col  justify-between md:items-center lg:flex-row container mx-auto px-16 dark:text-white" id="contact">
-      <div className="text-center lg:text-left basis-2/4">
+    <section className="flex flex-col md:items-center lg:flex-row container mx-auto px-16 dark:text-white" id="contact">
+      <div className="text-center lg:text-left basis-2/4 mx-5">
         <img
           className="hue-rotate-0 justify-center rounded-md shadow-gray-400 mb-6 w-full"
           src={contact}
@@ -27,7 +27,7 @@ const Contact = () => {
         />
       </div>
 
-      <div className="grid justify-between mt-10 justify-self-center">
+      <div className="grid justify-between mt-10 mx-5 justify-self-center">
         <h2 className="text-center lg:text-left text-2xl font-bold">
           {" "}
           Stay Connected with us
