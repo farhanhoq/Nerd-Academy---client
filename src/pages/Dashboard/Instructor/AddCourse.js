@@ -116,7 +116,7 @@ const AddCourse = () => {
                                 <input
                                     {...register("tutor")}
                                     type="text"
-                                    className="input input-bordered w-full "
+                                    className="input input-bordered w-full border-secondary "
                                     placeholder="Instructor Name"
                                     defaultValue={user.displayName}
                                 />
@@ -126,7 +126,7 @@ const AddCourse = () => {
                                 <input
                                     {...register("email")}
                                     type="email"
-                                    className="input input-bordered w-full "
+                                    className="input input-bordered w-full border-secondary "
                                     defaultValue={user?.email}
                                     readOnly
                                 />
@@ -138,7 +138,7 @@ const AddCourse = () => {
                                         required: "Please provided course title",
                                     })}
                                     type="text"
-                                    className="input input-bordered w-full"
+                                    className="input input-bordered w-full border-secondary"
                                     placeholder="Course Title"
                                 />
                                 {errors.courseTitle && (
@@ -153,7 +153,7 @@ const AddCourse = () => {
                                     {...register("description", {
                                         required: "Please provided description",
                                     })}
-                                    className="textarea textarea-bordered"
+                                    className="textarea textarea-bordered border-secondary"
                                     placeholder="Course description"
                                 ></textarea>
                                 {errors.description && (
@@ -169,7 +169,7 @@ const AddCourse = () => {
                                         required: "Please provided course price",
                                     })}
                                     type="text"
-                                    className="input input-bordered w-full"
+                                    className="input input-bordered w-full border-secondary"
                                     placeholder="Price"
                                 />
                                 {errors.price && (
@@ -183,7 +183,7 @@ const AddCourse = () => {
                                         required: "Please provided course hours",
                                     })}
                                     type="text"
-                                    className="input input-bordered w-full"
+                                    className="input input-bordered w-full border-secondary"
                                     placeholder="Course hours"
                                 />
                                 {errors.hours && (
@@ -191,12 +191,12 @@ const AddCourse = () => {
                                 )}
                             </div>
 
-                            <div className="form-control w-full">
+                            <div className="form-control w-full ">
                                 <div className="input-group">
                                     <select
                                         required
                                         {...register("category")}
-                                        className="select select-bordered w-full"
+                                        className="select select-bordered w-full border-secondary"
                                     >
                                         <option className="" value="Web Development">Web Development</option>
                                         <option className="" value="App Development">App Development</option>
@@ -216,7 +216,7 @@ const AddCourse = () => {
 
                                 <button
                                     onClick={() => handleAddLearn()}
-                                    className="btn btn-primary text-white my-4"
+                                    className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white my-4"
                                 >
                                     Add
                                 </button>
@@ -235,7 +235,7 @@ const AddCourse = () => {
                                             ></textarea>
                                             <button
                                                 onClick={() => handleDeleteLearn(i)}
-                                                className="btn btn-sm ml-2 btn-primary "
+                                                className="btn btn-sm bg-gradient-to-r from-primary to-secondary ml-2 btn-primary "
                                             >
                                                 x
                                             </button>
@@ -249,7 +249,7 @@ const AddCourse = () => {
 
                                 <button
                                     onClick={() => handleAddContent()}
-                                    className="btn btn-primary text-white my-4"
+                                    className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white my-4"
                                 >
                                     Add
                                 </button>
@@ -257,73 +257,73 @@ const AddCourse = () => {
                                 {contents.map((data, i) => {
                                     return (
                                         <div>
-                                             <div className="">
-                                            <textarea
-                                                className="textarea textarea-bordered mt-2 w-full"
-                                                name="chp_name"
-                                                value={data.chp_name}
-                                                onChange={(e) => handleChangeContent(e, i)}
-                                                placeholder="Chapter Name"
-                                            ></textarea>
-                                            <div className="w-full flex gap-4 items-center">
-                                            <input
-                                                className="input input-bordered my-2 w-6/12"
-                                                name="lecture_num"
-                                                value={data.lecture_num}
-                                                onChange={(e) => handleChangeContent(e, i)}
-                                                placeholder="Lecture Numbers"
-                                            ></input>
-                                            <input
-                                                className="input input-bordered w-6/12 my-2"
-                                                name="chp_duration"
-                                                value={data.chp_duration}
-                                                onChange={(e) => handleChangeContent(e, i)}
-                                                placeholder="Duration"
-                                            ></input>
-                                            <button
-                                                onClick={() => handleDeleteContent(i)}
-                                                className="btn btn-primary btn-sm"
-                                            >
-                                                x
-                                            </button>
+                                            <div className="">
+                                                <textarea
+                                                    className="textarea textarea-bordered mt-2 w-full border-primary"
+                                                    name="chp_name"
+                                                    value={data.chp_name}
+                                                    onChange={(e) => handleChangeContent(e, i)}
+                                                    placeholder="Chapter Name"
+                                                ></textarea>
+                                                <div className="w-full flex gap-4 items-center">
+                                                    <input
+                                                        className="input input-bordered my-2 w-6/12 border-primary"
+                                                        name="lecture_num"
+                                                        value={data.lecture_num}
+                                                        onChange={(e) => handleChangeContent(e, i)}
+                                                        placeholder="Lecture Numbers"
+                                                    ></input>
+                                                    <input
+                                                        className="input input-bordered w-6/12 my-2 border-primary"
+                                                        name="chp_duration"
+                                                        value={data.chp_duration}
+                                                        onChange={(e) => handleChangeContent(e, i)}
+                                                        placeholder="Duration"
+                                                    ></input>
+                                                    <button
+                                                        onClick={() => handleDeleteContent(i)}
+                                                        className="btn btn-primary btn-sm bg-gradient-to-r from-primary to-secondary"
+                                                    >
+                                                        x
+                                                    </button>
+                                                </div>
+
+
                                             </div>
-                                            
-                                            
-                                        </div>
                                             <div className="form-control border border-primary p-3 rounded-lg mt-5">
                                                 <h1 className="text-xl font-bold mb-3 text-primary">Select your video</h1>
                                                 <input
-                                                 {...register("video")}
-                                                 type="file" 
-                                                 className="file-input file-input-bordered file-input-primary w-full" />
+                                                    {...register("video")}
+                                                    type="file"
+                                                    className="file-input file-input-bordered file-input-primary w-full" />
                                             </div>
 
-                                            
+
                                         </div>
-                                       
+
                                     );
                                 })}
-                                           
+
                             </div>
                         </div>
-                            
-                        
+
+
 
                         <div className="form-control border border-primary p-3 rounded-lg mt-16 w-6/12 mx-auto">
                             <h1 className="text-xl font-bold mb-3 text-center text-primary">Upload an image</h1>
                             <input
-                            {...register("image")}
-                            type="file"
-                            className="input input-bordered file-input-primary w-full text-black"
-                            placeholder="Upload a Image"
+                                {...register("image")}
+                                type="file"
+                                className="input input-bordered file-input-primary w-full text-black"
+                                placeholder="Upload a Image"
                             />
                             {errors.img && (
-                            <span className="text-error">{errors.img.message}</span>
+                                <span className="text-error">{errors.img.message}</span>
                             )}
                         </div>
 
                         <input
-                            className="btn btn-primary w-full text-white mt-6 text-center"
+                            className="btn btn-primary bg-gradient-to-r from-primary to-secondary w-full text-white mt-6 text-center"
                             type="submit"
                             value="Add Course"
                         />

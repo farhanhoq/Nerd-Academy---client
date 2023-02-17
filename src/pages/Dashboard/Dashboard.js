@@ -68,7 +68,7 @@ const Dashboard = () => {
                 <div className="px-6 pt-6 2xl:container">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-cyan-500 ">
+                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-primary">
                             <div className="left-content flex flex-col items-center pb-10">
                                 <img className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src="https://cdn-icons-png.flaticon.com/512/5179/5179450.png" alt='' />
                                 <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">{pendings.length}</span>
@@ -76,7 +76,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-cyan-500 ">
+                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-secondary ">
                             <div className="left-content flex flex-col items-center pb-10">
                                 <img className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src="https://cdn-icons-png.flaticon.com/512/9573/9573959.png" alt='' />
                                 <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">{publish.length}</span>
@@ -84,7 +84,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-cyan-500 ">
+                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-primary ">
                             <div className="left-content flex flex-col items-center pb-10">
                                 <img className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt='' />
                                 <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">{courses.length}</span>
@@ -92,7 +92,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-cyan-500 ">
+                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-secondary ">
                             <div className="left-content flex flex-col items-center pb-10">
                                 <img className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src="https://cdn-icons-png.flaticon.com/512/2501/2501026.png" alt='' />
                                 <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">{students.length}</span>
@@ -100,7 +100,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-cyan-500 ">
+                        <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-primary ">
                             <div className="left-content flex flex-col items-center pb-10">
                                 <img className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4" src="https://cdn-icons-png.flaticon.com/512/9084/9084691.png" alt='' />
                                 <span className="text-black-500 dark:text-gray-400 text-bold font-semibold text-3xl">{total}</span>
