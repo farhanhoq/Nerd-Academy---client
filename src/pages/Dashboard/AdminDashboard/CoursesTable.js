@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaReact } from 'react-icons/fa';
 import { RiDeleteBack2Line } from 'react-icons/ri';
@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const CoursesTable = ({ course, refetch }) => {
 
-    const { category, description, email, picture, tutor, title, postingDate } = course;
+    const { category, description, email, picture, tutor, title, postingDate, publish } = course;
 
 
     const deleteProduct = (id) => {
@@ -37,7 +37,11 @@ const CoursesTable = ({ course, refetch }) => {
                     refetch();
                 }
             })
+
+
     };
+
+
 
 
     return (
@@ -69,9 +73,17 @@ const CoursesTable = ({ course, refetch }) => {
                         View More
                     </Link>
                 </td>
-                <td class="py-3 px-6 text-center">
-                    <button onClick={() => handelApprove(course._id)}><span class="bg-primary cursor-pointer text-white py-1 px-3 rounded-full">Approve</span></button>
-                </td>
+                {
+                    publish === true ? <td class="py-3 px-6 text-center">
+                        <button onClick={() => handelApprove(course._id)}><span class="bg-green-600 cursor-pointer text-white py-1 px-3 rounded-full">Approved</span></button>
+                    </td>
+                        :
+                        <td class="py-3 px-6 text-center">
+                            <button onClick={() => handelApprove(course._id)}><span class="bg-primary cursor-pointer text-white py-1 px-3 rounded-full">Approve</span></button>
+                        </td>
+
+                }
+
                 <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                         <div class="text-xl cursor-pointer w-4 mr-2 transform hover:text-error hover:scale-110">
