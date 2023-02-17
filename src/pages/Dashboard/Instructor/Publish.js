@@ -86,7 +86,7 @@ const Publish = () => {
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <div className="flex items-center relative  border-b border-cyan-500 py-1"></div>
+                                            <div className="flex items-center relative  border-b border-secondary py-1"></div>
                                             <div className="flex items-center relative my-2">
 
                                                 <div className="ml-3">

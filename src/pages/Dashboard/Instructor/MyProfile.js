@@ -26,7 +26,7 @@ const MyProfile = () => {
 
       <div className="flex flex-row justify-between">
         <h3 className="text-2xl font-bold">My profile</h3>
-        <Link to="/dashboard/my-profile-edit" className="text-primary"><BiEdit></BiEdit> Edit</Link>
+        <Link to="/dashboard/my-profile-edit" className="text-primary "><BiEdit></BiEdit> Edit</Link>
       </div>
 
       <div className="flex flex-col md:flex-row md:justify-center gap-0 md:gap-12 mt-6 md:items-center">
@@ -38,7 +38,7 @@ const MyProfile = () => {
               <img src={profile?.body?.picture} alt="" />
             </div>
           </div>
-          <Link to="/dashboard/my-profile-edit" className="border p-2 bg-primary text-black rounded cursor-pointer">
+          <Link to="/dashboard/my-profile-edit" className="border p-2 bg-gradient-to-r from-primary to-secondary text-white rounded cursor-pointer">
             Edit Profile
           </Link>
         </div>
