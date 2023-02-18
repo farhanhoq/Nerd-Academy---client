@@ -171,7 +171,7 @@ const StudentDashboard = () => {
       <div className="bg-slate-200 rounded-xl p-5 col-span-3">
         <h1 className="text-black m-5 text-4xl">Video Duration</h1>
         <BarChart
-          width={850}
+          width={700}
           height={300}
           data={data01}
           margin={{
@@ -191,7 +191,7 @@ const StudentDashboard = () => {
           <Tooltip />
           <Legend />
           <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="pv" fill="#8884d8" background={{ fill: '#eee' }} />
+          <Bar dataKey="pv" fill="#7B33FD" background={{ fill: '#eee' }} />
         </BarChart>
       </div>
 
@@ -201,11 +201,6 @@ const StudentDashboard = () => {
           <h1 className='text-center font-bold text-4xl text-black mt-10'>101 <br /> Reward</h1>
         </div>
       </div>
-
-      <div className='bg-slate-200 rounded-xl p-5 col-span-4'>
-
-      </div>
-
     </div>
   );
 };

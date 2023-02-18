@@ -18,22 +18,30 @@ const Menu = () => {
                     <tr>
                         <th>1</th>
                         <td>Privacy Policy</td>
-                        <td> <Link to="/privacy-add" className='btn btn-sm text-white'>Add Content</Link> </td>
+                        <td> <Link to="/privacy-add" className='btn btn-sm text-black bg-transparent border-primary border transition ease-in-out duration-300
+                             hover:text-white hover:bg-gradient-to-r hover:from-primary
+                             hover:to-secondary'>Add Content</Link> </td>
                     </tr>
                     <tr className="hover">
                         <th>2</th>
                         <td> <button>Terms & Conditions</button> </td>
-                        <td> <Link to="/terms-add" className='btn btn-sm text-white'>Add Content</Link> </td>
+                        <td> <Link to="/privacy-add" className='btn btn-sm text-black bg-transparent border-primary border transition ease-in-out duration-300
+                             hover:text-white hover:bg-gradient-to-r hover:from-primary
+                             hover:to-secondary'>Add Content</Link> </td>
                     </tr>
                     <tr>
                         <th>3</th>
                         <td>Licensing</td>
-                        <td> <Link to="/license-add" className='btn btn-sm text-white'>Add Content</Link> </td>
+                        <td> <Link to="/privacy-add" className='btn btn-sm text-black bg-transparent border-primary border transition ease-in-out duration-300
+                             hover:text-white hover:bg-gradient-to-r hover:from-primary
+                             hover:to-secondary'>Add Content</Link> </td>
                     </tr>
                     <tr>
                         <th>4</th>
                         <td>Cookie Policy</td>
-                        <td> <Link to="/cookie-add" className='btn btn-sm text-white'>Add Content</Link> </td>
+                        <td> <Link to="/privacy-add" className='btn btn-sm text-black bg-transparent border-primary border transition ease-in-out duration-300
+                             hover:text-white hover:bg-gradient-to-r hover:from-primary
+                             hover:to-secondary'>Add Content</Link> </td>
                     </tr>
                 </tbody>
             </table>

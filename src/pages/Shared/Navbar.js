@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { HiChevronDoubleRight } from "react-icons/hi";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
@@ -174,10 +174,9 @@ const Navbar = () => {
     <nav
       className={
         navbar
-          ? "navbar active flex justify-between w-full mx-auto fixed z-10 px-16"
+          ? "navbar active flex justify-between w-full mx-auto fixed z-50 px-16"
           : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
-      }
-    >
+      }>
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
           <svg
@@ -204,7 +203,6 @@ const Navbar = () => {
       </div>
 
       <div className="hidden lg:block w-[17%]">
-        {/* <img src={nerd} alt="" /> */}
         <div className="w-[210px]">
           <Link
             to="/"
@@ -242,24 +240,14 @@ const Navbar = () => {
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
             <Link className="bg-transparent w-full">
-              <div className="flex absolute inset-y-0 left-4 items-center pl-3 pointer-events-none">
-                <svg
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </div>
+            <div className="flex absolute inset-y-0 left-4 items-center pl-3 pointer-events-none text-white">
+                <FaSearch/>
+            </div>
               <input
                 type="text"
                 placeholder="Search courses here"
-                className="input input-bordered input-primary rounded-lg w-full px-10"
+                className="input input-bordered input-primary rounded-lg w-full px-10 bg-transparent
+                border-white text-white placeholder-white"
                 onChange={handleFilter}
               />
             </Link>
@@ -301,58 +289,51 @@ const Navbar = () => {
           </div>
         </div>
 
-        {user?.uid ? (
+        {user?.uid ? 
           <>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full ring ring-black ring-offset-base-100 ">
+                <div className="w-10 rounded-full ring ring-white ring-offset-base-100 ">
                   <img src={user.photoURL} alt="" />
                 </div>
               </label>
 
-              <ul
-                tabIndex={0}
-                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32"
-              >
-                {isRole === "student" && (
-                  <li>
-                    <Link to="student-dashboard">Dashboard</Link>
-                  </li>
-                )}
-                {isRole === "teacher" && (
-                  <li>
-                    <Link to="dashboard">Dashboard</Link>
-                  </li>
-                )}
-                {isRole === "admin" && (
-                  <li>
-                    <Link to="admin-dashboard">Dashboard</Link>
-                  </li>
-                )}
-                <li>
-                  <Link to="/wishlist">Wishlist</Link>
-                </li>
-                <li>
-                  <Link to="/" onClick={handleLogOut}>
-                    Log Out
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </>
-        ) : (
-          <>
-            <Link to="/login" className="btn text-white hover:text-white list">
-              Login
-            </Link>
-            <Link
-              to="/register"
-              className="btn text-white hover:btn-primary hover:text-white list"
-            >
-              Register
-            </Link>
-          </>
-        )}
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full ring ring-white ring-offset-base-100 ">
+                    <img src={user.photoURL} alt="" />
+                  </div>
+                </label>
+
+                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
+
+                  {
+                    isRole === "student" &&
+                    <li><Link to="student-dashboard">Dashboard</Link></li>
+                  }
+                  {
+                    isRole === "teacher" &&
+                    <li><Link to="dashboard">Dashboard</Link></li>
+                  }
+                  {
+                    isRole === "admin" &&
+                    <li><Link to="admin-dashboard">Dashboard</Link></li>
+                  }
+                  <li><Link to='/wishlist'>Wishlist</Link></li>
+                  <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
+                </ul>
+
+              </div>
+            </>
+            :
+            <>
+              <div>
+              <Link to="/login" className="btn list item" style={{ color: getColor("/") }}>Login</Link>
+              </div>
+              <Link to="/register" className="btn hover:btn-primary
+                list item" style={{ color: getColor("/") }}>Register</Link>
+            </>
+        }
+        
 
         <div className="ml-2">
           {(location.pathname === "/admin-dashboard" ||

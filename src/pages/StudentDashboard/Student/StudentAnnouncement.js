@@ -43,7 +43,7 @@ const StudentAnnouncement = () => {
                                 {/* <td><FiEdit /> Edit</td> */}
                                
                                 <th>
-                                    <button className="text-sm btn btn-warning btn-sm"><MdOutlineDeleteOutline className='text-sm' />Delete</button>
+                                    <button className="text-sm btn text-white border-none bg-gradient-to-r from-primary to-secondary btn-sm"><MdOutlineDeleteOutline className='text-sm' />Delete</button>
                                 </th>
                             </tr>
                             <tr>
@@ -71,7 +71,7 @@ const StudentAnnouncement = () => {
                                 {/* <td><FiEdit /> Edit</td> */}
                                 
                                 <th>
-                                    <button className="text-sm btn btn-warning btn-sm"><MdOutlineDeleteOutline className='text-sm' />Delete</button>
+                                    <button className="text-sm btn text-white border-none bg-gradient-to-r from-primary to-secondary btn-sm"><MdOutlineDeleteOutline className='text-sm' />Delete</button>
                                 </th>
                             </tr>
                             <tr>
@@ -99,7 +99,7 @@ const StudentAnnouncement = () => {
                                 {/* <td><FiEdit /> Edit</td> */}
                                
                                 <th>
-                                    <button className="text-sm btn btn-warning btn-sm"><MdOutlineDeleteOutline className='text-sm' />Delete</button>
+                                    <button className="text-sm btn text-white border-none bg-gradient-to-r from-primary to-secondary btn-sm"><MdOutlineDeleteOutline className='text-sm' />Delete</button>
                                 </th>
                             </tr>
 

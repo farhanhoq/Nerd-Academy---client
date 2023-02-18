@@ -25,8 +25,6 @@ const Counter = () => {
     const instructors = users.filter((user) => user.role === "teacher")
     const learners = users.filter((user) => user.role === "student")
 
-    console.log(instructors)
-
     return (
         <div className="p-1 bg-gradient-to-r from-[#7b35fd] to-[#ad35e9]">
             <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 my-20 w-12/12 mx-24'>
