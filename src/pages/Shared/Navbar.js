@@ -298,12 +298,6 @@ const Navbar = () => {
                 </div>
               </label>
 
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full ring ring-white ring-offset-base-100 ">
-                    <img src={user.photoURL} alt="" />
-                  </div>
-                </label>
-
                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
 
                   {
