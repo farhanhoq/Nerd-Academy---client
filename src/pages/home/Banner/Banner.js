@@ -1,6 +1,7 @@
 import React from 'react';
 import newBg from '../../../Assets/home-banner-bg.png.webp';
 import banner from '../../../Assets/banner.webp'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
 
@@ -12,7 +13,7 @@ const Banner = () => {
             <h1 className="text-4xl font-bold">Online Learning Platform!</h1>
             <p className="py-8 w-2/3">Nerd Academy is an online learning community based in the globally for people who want to learn from educational videos. The courses, which are not accredited, are only available through paid subscription.</p>
             {/* <button className="btn text-white">Join For Free</button> */}
-            <a href="#courses" className="btn bg-white dark:bg-black text-black dark:text-white border-none hover:bg-white hover:shadow-2xl shadow-white">Explore our courses</a>
+            <Link to="#courses" className="btn bg-white dark:bg-black text-black dark:text-white border-none hover:bg-white hover:shadow-2xl shadow-white">Explore our courses</Link>
           </div>
           <div className=''>
         <img src={banner} alt="" className='hidden md:block' />

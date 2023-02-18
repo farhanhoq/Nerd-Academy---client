@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
-import Navbar from '../pages/Shared/Navbar';
 import { GoSignOut } from 'react-icons/go';
 import "./style.css";
 import { AiOutlineHome } from 'react-icons/ai';
@@ -14,7 +13,7 @@ const DashboardLayout = () => {
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const { data: profile = [], refetch, isLoading } = useQuery({
+    const { data: profile = [], refetch } = useQuery({
         queryKey: ["profile"],
         queryFn: async () => {
             const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
@@ -133,9 +132,9 @@ const DashboardLayout = () => {
                     </ul>
 
                     <div className="space-y-2 pt-2">
-                        <a href="#" className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2">
+                        <Link to="" className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2">
 
-                        </a>
+                        </Link>
 
                         {/* <a href="#" target="_blank" className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2">
                             <svg className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

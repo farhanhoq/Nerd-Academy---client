@@ -24,6 +24,7 @@ const Pending = () => {
 
     console.log(myCourse)
 
+    /*eslint-disable */
     const deleteProduct = (id) => {
         fetch(`https://nerd-academy-server.vercel.app/deleteCourse/${id}`, {
             method: 'DELETE'
@@ -36,6 +37,7 @@ const Pending = () => {
                 }
             })
     };
+    /*eslint-enable */
 
     return (
 

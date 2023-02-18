@@ -1,12 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
-import { AuthContext } from "../../Context/AuthProvider";
+import React from "react";
 import Loader from "../../Loader/Loader";
 
-const Review = ({ email, courseId }) => {
-
-    // const [reviewData, setReviewData] = useState([]);
-    const { user, loading } = useContext(AuthContext);
+const Review = ({ courseId }) => {
 
     const { data: reviewData = [], isLoading, refetch } = useQuery({
         queryKey: ['reviewData'],

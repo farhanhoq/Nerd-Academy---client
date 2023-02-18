@@ -1,6 +1,5 @@
 import JoditEditor from 'jodit-react';
-import React, { useState, useRef, useEffect } from 'react';
-import parse from 'html-react-parser';
+import React, { useState, useRef } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 

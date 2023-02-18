@@ -1,14 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
-import { toast } from 'react-hot-toast';
-// import { FaReact } from 'react-icons/fa';
-// import { RiDeleteBack2Line } from 'react-icons/ri';
-import { AuthContext } from '../../../Context/AuthProvider';
+import React from 'react';
 import CoursesTable from './CoursesTable';
 
 const Courses = () => {
-
-    const { user } = useContext(AuthContext);
 
     const { data: myCourse = [], refetch } = useQuery({
         queryKey: ['myCourse'],
