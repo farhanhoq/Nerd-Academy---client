@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
 import useRole from "../../Hooks/useRole";
 import "./Navbar.css";
+// import logo from "../../Assets/nerd.jpg"
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -196,8 +197,7 @@ const Navbar = () => {
         </label>
         <ul
           tabIndex={0}
-          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-        >
+          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           {menuItems}
         </ul>
       </div>
@@ -207,8 +207,7 @@ const Navbar = () => {
           <Link
             to="/"
             className="font-bold text-2xl navbar-logo"
-            style={{ color: getColor("/") }}
-          >
+            style={{ color: getColor("/") }}>
             {" "}
             Nerd
             <span> Academy</span>
@@ -220,7 +219,7 @@ const Navbar = () => {
       <div className="hidden lg:flex">
         <ul className="menu menu-horizontal">
           <li>
-            <span className="rounded item" style={{ color: getColor("/") }}>
+            <span className="rounded item font-semibold" style={{ color: getColor("/") }}>
               Categories
             </span>
             <ul className="bg-base-100 rounded">{menuItems}</ul>
@@ -228,7 +227,7 @@ const Navbar = () => {
 
           <li>
             <Link to="/blogs">
-              <span className="rounded item" style={{ color: getColor("/") }}>
+              <span className="rounded item font-semibold" style={{ color: getColor("/") }}>
                 Blogs
               </span>
             </Link>
@@ -240,10 +239,10 @@ const Navbar = () => {
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
             <Link className="bg-transparent w-full">
-            <div className="flex absolute inset-y-0 left-4 items-center pl-3
+              <div className="flex absolute inset-y-0 left-4 items-center pl-3
              pointer-events-none item" style={{ color: getColor("/") }}>
-                <FaSearch/>
-            </div>
+                <FaSearch />
+              </div>
               <input
                 type="text"
                 placeholder="Search courses here"
@@ -272,7 +271,7 @@ const Navbar = () => {
       </div>
 
       <div>
-        <div className="text-2xl hover:text-primary cursor-pointer mx-5">
+        <div className="text-xl hover:text-primary cursor-pointer mx-5">
           <Link to="/cart" className="item" style={{ color: getColor("/") }}>
             <FaShoppingCart />
           </Link>
@@ -290,7 +289,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {user?.uid ? 
+        {user?.uid ?
           <>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -299,60 +298,60 @@ const Navbar = () => {
                 </div>
               </label>
 
-                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
+              <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
 
-                  {
-                    isRole === "student" &&
-                    <li><Link to="student-dashboard">Dashboard</Link></li>
-                  }
-                  {
-                    isRole === "teacher" &&
-                    <li><Link to="dashboard">Dashboard</Link></li>
-                  }
-                  {
-                    isRole === "admin" &&
-                    <li><Link to="admin-dashboard">Dashboard</Link></li>
-                  }
-                  <li><Link to='/wishlist'>Wishlist</Link></li>
-                  <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
-                </ul>
+                {
+                  isRole === "student" &&
+                  <li><Link to="student-dashboard">Dashboard</Link></li>
+                }
+                {
+                  isRole === "teacher" &&
+                  <li><Link to="dashboard">Dashboard</Link></li>
+                }
+                {
+                  isRole === "admin" &&
+                  <li><Link to="admin-dashboard">Dashboard</Link></li>
+                }
+                <li><Link to='/wishlist'>Wishlist</Link></li>
+                <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
+              </ul>
 
-              </div>
-            </>
-            :
-            <>
-              <div>
+            </div>
+          </>
+          :
+          <>
+            <div>
               <Link to="/login" className="btn list item" style={{ color: getColor("/") }}>Login</Link>
-              </div>
-              <Link to="/register" className="btn hover:btn-primary
+            </div>
+            <Link to="/register" className="btn hover:btn-primary
                 list item" style={{ color: getColor("/") }}>Register</Link>
-            </>
+          </>
         }
-        
+
 
         <div className="ml-2">
           {(location.pathname === "/admin-dashboard" ||
             location.pathname.startsWith("/admin-dashboard/")) && (
-            <div className="drawer-content block lg:hidden">
-              <label
-                htmlFor="admin-dashboard-drawer"
-                className="btn btn-primary drawer-button"
-              >
-                <MdOutlineDashboardCustomize className="text-xl text-white" />
-              </label>
-            </div>
-          )}
+              <div className="drawer-content block lg:hidden">
+                <label
+                  htmlFor="admin-dashboard-drawer"
+                  className="btn btn-primary drawer-button"
+                >
+                  <MdOutlineDashboardCustomize className="text-xl text-white" />
+                </label>
+              </div>
+            )}
           {(location.pathname === "/student-dashboard" ||
             location.pathname.startsWith("/student-dashboard")) && (
-            <div className="drawer-content block lg:hidden">
-              <label
-                htmlFor="student-dashboard-drawer"
-                className="btn btn-primary drawer-button"
-              >
-                <MdOutlineDashboardCustomize className="text-xl text-white" />
-              </label>
-            </div>
-          )}
+              <div className="drawer-content block lg:hidden">
+                <label
+                  htmlFor="student-dashboard-drawer"
+                  className="btn btn-primary drawer-button"
+                >
+                  <MdOutlineDashboardCustomize className="text-xl text-white" />
+                </label>
+              </div>
+            )}
         </div>
       </div>
     </nav>
