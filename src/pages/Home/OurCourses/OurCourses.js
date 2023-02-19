@@ -83,35 +83,35 @@ const OurCourses = () => {
             <button
               onClick={() => filterResult("Web Development")}
               className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
-                hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-500"
+                hover:to-primary hover:text-white transition-colors ease-linear duration-500"
             >
               Web Development
             </button>
             <button
               onClick={() => filterResult("Apps Development")}
               className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
-              hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-300"
+              hover:to-primary hover:text-white transition-colors ease-linear duration-300"
             >
               App Development
             </button>
             <button
               onClick={() => filterResult("Programming")}
               className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
-              hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-300"
+              hover:to-primary hover:text-white transition-colors ease-linear duration-300"
             >
               Programming
             </button>
             <button
               onClick={() => filterResult("Computer Science")}
               className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
-              hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-300"
+              hover:to-primary hover:text-white transition-colors ease-linear duration-300"
             >
               Computer Science
             </button>
             <button
               onClick={() => filterResult("Artificial Intelligence")}
               className="bg-transparent border-2 border-primary p-2 rounded-lg mt-6 hover:bg-gradient-to-r hover:from-[#7B33FD]
-              hover:to-[#B337E3] hover:text-white transition-colors ease-linear duration-150"
+              hover:to-primary hover:text-white transition-colors ease-linear duration-150"
             >
               Artificial Intelligence
             </button>
@@ -131,7 +131,7 @@ const OurCourses = () => {
                 }}
                 modules={[Autoplay]}
               >
-                {courseFilterData.length === 0 ? (
+                {courseFilterData.length === 0 ? 
                   <>
                     {courses?.map(
                       (course) =>
@@ -245,7 +245,7 @@ const OurCourses = () => {
                         )
                     )}
                   </>
-                ) : (
+                  : 
                   <>
                     {courseFilterData?.map(
                       (course) =>
@@ -359,7 +359,7 @@ const OurCourses = () => {
                         )
                     )}
                   </>
-                )}
+                }
               </Swiper>
             </div>
           </div>
