@@ -42,7 +42,7 @@ const ImgSlider = () => {
           <Swiper
             spaceBetween={50}
             slidesPerView={3}
-            onSlideChange={() => console.log("slide change")}
+            // onSlideChange={() => console.log("slide change")}
             loop={true}
             centerslides={true}
             speed={800}
