@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 const Banner = () => {
+  
   /*eslint-disable */
   const { data: countAPI = [] } = useQuery({
     queryKey: ["countAPI"],
