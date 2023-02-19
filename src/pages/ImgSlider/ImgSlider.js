@@ -56,7 +56,7 @@ const ImgSlider = () => {
                   <div className={`mycard card-active`}>
                     <figure>
                       <img
-                        className="w-full h-44 rounded-t-lg"
+                        className="w-full h-44 rounded-t-lg object-cover"
                         src={course?.picture}
                         alt=""
                       />

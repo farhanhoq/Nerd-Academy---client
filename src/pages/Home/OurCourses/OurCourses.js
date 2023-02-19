@@ -128,7 +128,7 @@ const OurCourses = () => {
                       <div tabIndex={0} >
                         <div className="relative flex items-end overflow-hidden rounded-xl">
                           <img
-                            className="w-full h-40"
+                            className="w-full h-40 object-cover"
                             src={course?.picture}
                             alt="wallpaper"/>
 
