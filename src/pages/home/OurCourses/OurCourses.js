@@ -131,7 +131,7 @@ const OurCourses = () => {
                 }}
                 modules={[Autoplay]}
               >
-                {courseFilterData.length === 0 ? (
+                {courseFilterData.length === 0 ? 
                   <>
                     {courses?.map(
                       (course) =>
@@ -245,7 +245,7 @@ const OurCourses = () => {
                         )
                     )}
                   </>
-                ) : (
+                  : 
                   <>
                     {courseFilterData?.map(
                       (course) =>
@@ -359,7 +359,7 @@ const OurCourses = () => {
                         )
                     )}
                   </>
-                )}
+                }
               </Swiper>
             </div>
           </div>
