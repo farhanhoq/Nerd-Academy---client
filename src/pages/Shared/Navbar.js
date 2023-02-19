@@ -42,6 +42,16 @@ const Navbar = () => {
         res.json()
       ),
   });
+  console.log(coursesData);
+
+  const ai = coursesData.filter((course) => course.category === "Artificial Intelligence")
+  const programming = coursesData.filter((course) => course.category === "Programming")
+  const webDevelopment = coursesData.filter((course) => course.category === "Web Development")
+  const computerScience = coursesData.filter((course) => course.category === "Computer Science")
+  const appDevelopment = coursesData.filter((course) => course.category === "App Development")
+
+
+
 
   const handleLogOut = () => {
     logOut()
@@ -76,83 +86,101 @@ const Navbar = () => {
     <>
       <span className="dropdown dropdown-right dropdown-hover">
         <li className="">
-          <Link to="/" className="flex justify-between items-center">
+          <Link className="flex justify-between items-center">
             <span>Web Development</span>
             <HiChevronDoubleRight />
           </Link>
-          <ul className="dropdown-content menu bg-base-100 w-full pl-0 py-5 ">
-            <Link to="/details/63c8b8924cad87fef2c00434" className="ml-4 my-2">
-              <li>React</li>
-            </Link>
-            <Link to="/details/63c8b8924cad87fef2c00435" className="ml-4 my-2">
-              <li>Java Script</li>
-            </Link>
-          </ul>
+          {
+            webDevelopment.length > 0 &&
+            <ul className="dropdown-content menu bg-base-100 pl-0 py-5 ">
+              {
+                webDevelopment?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
+                  <li>{item?.title}</li>
+                </Link>)
+              }
+            </ul>
+          }
+
         </li>
       </span>
 
       <span className="dropdown dropdown-right dropdown-hover">
         <li>
-          <Link to="/" className="flex justify-between items-center">
+          <Link className="flex justify-between items-center">
             <span>Programming</span>
             <HiChevronDoubleRight />
           </Link>
-          <ul className="dropdown-content menu bg-base-100 w-full pl-0 py-5 ">
-            <Link to="/details/63c8b8924cad87fef2c00437" className="ml-4 my-2">
-              <li>JAVA Programming</li>
-            </Link>
-            <Link to="/details/63e531492ddfa35f8cb8fe85" className="ml-4 my-2">
-              <li>C Programming</li>
-            </Link>
-          </ul>
+          {
+            programming.length > 0 &&
+            <ul className="dropdown-content menu bg-base-100  pl-0 py-5 ">
+              {
+                programming?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
+                  <li>{item?.title}</li>
+                </Link>)
+              }
+            </ul>
+          }
+
         </li>
       </span>
 
       <span className="dropdown dropdown-right dropdown-hover">
         <li className="">
-          <Link to="/" className="flex justify-between items-center">
+          <Link className="flex justify-between items-center">
             <span>Computer Science</span>
             <HiChevronDoubleRight />
           </Link>
-          <ul className="dropdown-content menu bg-base-100 w-full pl-0 py-5 ">
-            <Link to="/details/63e52fce2ddfa35f8cb8fe84" className="ml-4 my-2">
-              <li>Python Programming</li>
-            </Link>
-          </ul>
+          {
+            computerScience.length > 0 &&
+            <ul className="dropdown-content menu bg-base-100  pl-0 py-5 ">
+              {
+                computerScience?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
+                  <li>{item?.title}</li>
+                </Link>)
+              }
+            </ul>
+          }
+
         </li>
       </span>
 
       <span className="dropdown dropdown-right dropdown-hover">
         <li>
-          <Link to="/" className="flex justify-between items-center">
+          <Link className="flex justify-between items-center">
             <span>Artificial Intelligence</span>
             <HiChevronDoubleRight />
           </Link>
-          <ul className="dropdown-content menu bg-base-100 w-full pl-0 py-5 ">
-            <Link to="/details/63c8b8924cad87fef2c00438" className="ml-4 my-2">
-              <li>Artificial Intelligence</li>
-            </Link>
-            <Link to="/details/63c8b8924cad87fef2c00439" className="ml-4 my-2">
-              <li>Machine Learning</li>
-            </Link>
-          </ul>
+          {
+            ai.length > 0 &&
+            <ul className="dropdown-content menu bg-base-100  pl-0 py-5 ">
+              {
+                ai?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
+                  <li>{item?.title}</li>
+                </Link>)
+              }
+            </ul>
+          }
+
         </li>
       </span>
 
       <span className="dropdown dropdown-right dropdown-hover">
         <li>
-          <Link to="/" className="flex justify-between items-center">
+          <Link className="flex justify-between items-center">
             <span>Mobile App Development</span>
             <HiChevronDoubleRight />
           </Link>
-          <ul className="dropdown-content menu bg-base-100 w-full pl-0 py-5 ">
-            <Link to="/details/63c8b8924cad87fef2c0043a" className="ml-4 my-2">
-              <li>Swift</li>
-            </Link>
-            <Link to="/details/63e327d29a6a2de3bd454da8" className="ml-4 my-2">
-              <li>Socket IO</li>
-            </Link>
-          </ul>
+          {
+            appDevelopment.length > 0 &&
+            <ul className="dropdown-content menu bg-base-100 w-full pl-0 py-5 ">
+              {
+                appDevelopment?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
+                  <li>{item?.title}</li>
+                </Link>)
+              }
+            </ul>
+          }
+
         </li>
       </span>
     </>
