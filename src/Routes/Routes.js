@@ -97,7 +97,7 @@ export const routes = createBrowserRouter([
             ,
             {
                 path: '/all-courses',
-                element: <PrivateRoutes><AllCourses></AllCourses></PrivateRoutes>
+                element: <AllCourses></AllCourses>
             }
             ,
             {
