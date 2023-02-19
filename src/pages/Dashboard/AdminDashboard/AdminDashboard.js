@@ -31,6 +31,7 @@ const AdminDashboard = () => {
             return data;
         }
     });
+    console.log(perchasedCourse);
 
     const { data: countAPI = [] } = useQuery({
         queryKey: ["countAPI"],
@@ -77,7 +78,7 @@ const AdminDashboard = () => {
                                     <div className="flex items-center">
                                         <div className="flex-shrink-0">
                                             <span className="text-2xl sm:text-3xl leading-none font-bold text-gray-900">{countAPI.value}</span>
-                                            <h3 className="text-base font-normal text-gray-500">Visitors this week</h3>
+                                            <h3 className="text-base font-normal text-gray-500">Total Visitors</h3>
                                         </div>
                                         {/* <div className="ml-5 w-0 flex items-center justify-end flex-1 text-green-500 text-base font-bold">
                                             32.9%
@@ -122,10 +123,18 @@ const AdminDashboard = () => {
                                                         </div>
                                                         <div className="flex-1 min-w-0">
                                                             <p className="text-sm font-medium text-gray-900 truncate">
-                                                                {customer?.title}
+                                                                {customer?.userName}
                                                             </p>
                                                             <p className="text-sm text-gray-500 truncate">
-                                                                {customer?.buyerEmail}
+                                                                {customer?.userEmail}
+                                                            </p>
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <p className="text-sm font-medium text-gray-900 truncate">
+                                                                {customer?.date}
+                                                            </p>
+                                                            <p className="text-sm text-gray-500 truncate">
+                                                                {customer?.title}
                                                             </p>
                                                         </div>
                                                         <div className="inline-flex items-center text-base font-semibold text-gray-900">
