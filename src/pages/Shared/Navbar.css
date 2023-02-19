@@ -11,6 +11,22 @@
     color: white ;
   }
 
+  .navbar .search.item {
+    border: 1px solid white;
+  }
+
+  .navbar.active .search.item {
+    border: 1px solid white !important;
+  }
+
+  .navbar .search.item::placeholder {
+    color: white;
+  }
+
+  .navbar.active .search.item::placeholder {
+    color: white;
+  }
+
 .navbar.active .navbar-logo,
 .navbar.navbar.active .item {
   color: white !important;

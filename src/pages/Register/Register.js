@@ -12,7 +12,7 @@ const googleProvider = new GoogleAuthProvider();
 
 const Register = () => {
 
-  const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
+  const { createUser, updateUser, googleSignIn, verifyEmail } = useContext(AuthContext);
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const Register = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
-        // toast.success("Successfully User Created");
+        verifyEmail()
 
         const userInfo = {
           displayName: data.name,
@@ -57,7 +57,6 @@ const Register = () => {
       .then(res => res.json())
       .then(data => {
         if (data.acknowledged) {
-          toast.success("Successfully User Created");
           reset()
           navigate('/');
         }

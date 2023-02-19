@@ -4,11 +4,13 @@ import {
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
+    sendEmailVerification,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
     updateProfile,
 } from "firebase/auth";
+import { toast } from "react-hot-toast";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -44,6 +46,13 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, userInfo);
     }
 
+    const verifyEmail = () => {
+        sendEmailVerification(auth.currentUser)
+        .then(() => {
+            toast.success("Please check you email & verify")
+          })
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
@@ -57,6 +66,7 @@ const AuthProvider = ({ children }) => {
         signIn,
         googleSignIn,
         logOut,
+        verifyEmail,
         updateUser,
         user,
         loading

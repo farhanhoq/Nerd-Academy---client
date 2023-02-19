@@ -240,14 +240,15 @@ const Navbar = () => {
         <ul className="menu menu-horizontal w-full">
           <li tabIndex={0} className="w-full">
             <Link className="bg-transparent w-full">
-            <div className="flex absolute inset-y-0 left-4 items-center pl-3 pointer-events-none text-white">
+            <div className="flex absolute inset-y-0 left-4 items-center pl-3
+             pointer-events-none item" style={{ color: getColor("/") }}>
                 <FaSearch/>
             </div>
               <input
                 type="text"
                 placeholder="Search courses here"
-                className="input input-bordered input-primary rounded-lg w-full px-10 bg-transparent
-                border-white text-white placeholder-white"
+                className="input input-bordered rounded-lg w-full px-10 bg-transparent
+                text-black search item" style={{ borderColor: getColor("/") }}
                 onChange={handleFilter}
               />
             </Link>
