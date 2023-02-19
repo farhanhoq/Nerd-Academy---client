@@ -4,25 +4,27 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { send } from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 
-const CheckoutForm = ({ total  , email }) => {
+const CheckoutForm = ({ total, email }) => {
   let newDate = new Date()
   let date = newDate.getDate();
   let month = newDate.getMonth() + 1;
   let year = newDate.getFullYear();
 
-  const {user } = useContext(AuthContext);
-  
-    const [cardError, setCardError] = useState('');
-    const [clientSecret, setClientSecret] = useState("");
-    // const [transactionId , setTransactionId] = useState('');
-    const [processing , setProcessing] = useState(false);
+  const { user } = useContext(AuthContext);
 
-    const stripe = useStripe();
-    const elements = useElements();
+  const [cardError, setCardError] = useState('');
+  const [clientSecret, setClientSecret] = useState("");
+  // const [transactionId , setTransactionId] = useState('');
+  const [processing, setProcessing] = useState(false);
+
+  const stripe = useStripe();
+  const elements = useElements();
 
   useEffect(() => {
-    
+
     fetch("https://nerd-academy-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -71,92 +73,139 @@ const CheckoutForm = ({ total  , email }) => {
       },
     );
 
-        if(confirmError){
-          setCardError(confirmError.message);
-          return;
-        }
-        // setPayment(paymentIntent)
-        if(paymentIntent.status === "succeeded"){
-          toast.success("Course purchased Successfully");
-          // setTransactionId(paymentIntent.id);
-          handleDeleteCartData();
-            checkoutItems?.forEach(singleItem => {
-            handleAddData(singleItem?.courseId, singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours, singleItem?.instructorEmail, singleItem?.price);
-            handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price, paymentIntent.id);
-          });
-        }
-        setProcessing(false);
-      
+    if (confirmError) {
+      setCardError(confirmError.message);
+      return;
+    }
+    // setPayment(paymentIntent)
+    if (paymentIntent.status === "succeeded") {
+
+      const emailInfo = {
+        to: user?.email,
+        subject: 'Payment Confirmation',
+        name: user?.displayName,
+        paymentAmount: paymentIntent.amount,
+        transactionID: paymentIntent.id
+      };
+
+      send(
+        process.env.REACT_APP_serviceIdEmailJs,
+        process.env.REACT_APP_templateIdEmailJs,
+        emailInfo,
+        process.env.REACT_APP_privateKeyEmailJs
+      )
+        .then(res => {
+          console.log('Email sent:', res.status, res.text);
+        })
+        .catch(err => {
+          console.error('Error sending email:', err);
+        });
+      toast.success("Course purchased Successfully");
+
+      // setTransactionId(paymentIntent.id);
+      handleDeleteCartData();
+      checkoutItems?.forEach(singleItem => {
+        handleAddData(singleItem?.courseId, singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours, singleItem?.instructorEmail, singleItem?.price);
+        handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price, paymentIntent.id);
+      });
+    }
+    setProcessing(false);
+
+  }
+
+  const {
+    data: checkoutItems = []
+  } = useQuery({
+    queryKey: ['checkoutItems'],
+    queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`).then(res => res.json()),
+  });
+
+  const handleAddData = (courseId, picture, title, tutor, lectures, hours, instructorEmail, price) => {
+    const data = {
+      courseId,
+      picture,
+      title,
+      tutor,
+      lectures,
+      hours,
+      instructorEmail,
+      price,
+      buyerEmail: user?.email
+    }
+    // console.log(data);
+
+    fetch("https://nerd-academy-server.vercel.app/perchased-course", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }
+
+  const handlePurchasedData = (instructorEmail, picture, title, price, transactionId) => {
+
+    const checkoutData = {
+      instructorEmail,
+      picture,
+      title,
+      price,
+      userName: user?.displayName,
+      userEmail: user?.email,
+      date: `${date}-${month}-${year}`,
+      transactionId
+    }
+    console.log(checkoutData);
+
+    const emailInfo = {
+      first_name: user?.displayName,
+      message: transactionId,
+      reply_to: user?.email
     }
 
-      const {
-        data: checkoutItems = []
-      } = useQuery({
-        queryKey: ['checkoutItems'],
-        queryFn: () => fetch(`https://nerd-academy-server.vercel.app/cartdata?email=${user?.email}`).then(res => res.json()),
-      });
+    // send(
+    //   process.env.REACT_APP_serviceIdEmailJs,
+    //   process.env.REACT_APP_templateIdEmailJs,
+    //   emailInfo,
+    //   process.env.REACT_APP_privateKeyEmailJs,
+    // )
+    //   .then(res => {
+    //     console.log("Success", res.status, res.text);
+    //   })
+    //   .catch(error => console.log(error))
 
-      const handleAddData = (courseId, picture, title, tutor, lectures, hours, instructorEmail ,price) => {
-        const data = {
-          courseId,
-          picture,
-          title,
-          tutor,
-          lectures,
-          hours,
-          instructorEmail,
-          price,
-          buyerEmail: user?.email
-        }
-        // console.log(data);
-      
-          fetch("https://nerd-academy-server.vercel.app/perchased-course", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify( data ),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-            });
-      }
+    // emailjs.sendForm('service_up6a2q2', 'template_gu40p0p', emailInfo, 'RQpbmDtuAYwO9LiSC')
+    //   .then((result) => {
+    //     console.log(result.text);
+    //   }, (error) => {
+    //     console.log(error.text);
+    //   });
+    // toast("Successfully sent your Email Thanks!")
 
-      const handlePurchasedData = (instructorEmail, picture, title, price, transactionId) => {
-
-          const checkoutData = {
-            instructorEmail,
-            picture,
-            title,
-            price,
-            userName: user?.displayName,
-            userEmail: user?.email,
-            date: `${date}-${month}-${year}`,
-            transactionId
-          }
-          console.log(checkoutData);
-      
-          fetch('https://nerd-academy-server.vercel.app/checkout-data', {
-                      method: 'POST',
-                      headers: 
-                      {
-                        'content-type': 'application/json',
-                      },
-                      body: JSON.stringify(checkoutData)
-                    })
-                      .then(res => res.json())
-                      .then(data => console.log(data))
-      
-      
-      }
+    fetch('https://nerd-academy-server.vercel.app/checkout-data', {
+      method: 'POST',
+      headers:
+      {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(checkoutData)
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
 
 
-      const handleDeleteCartData = () => {
-        fetch(`https://nerd-academy-server.vercel.app/usercart/${user?.email}`, {
-        method: 'DELETE',
-      });
-      }
+  }
 
-      
+
+  const handleDeleteCartData = () => {
+    fetch(`https://nerd-academy-server.vercel.app/usercart/${user?.email}`, {
+      method: 'DELETE',
+    });
+  }
+
+
 
   return (
     <>
