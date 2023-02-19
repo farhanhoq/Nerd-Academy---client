@@ -51,6 +51,7 @@ import Licensing from "../pages/Dashboard/AdminDashboard/Licensing/Licensing";
 import CookiePolicyAdd from "../pages/Dashboard/AdminDashboard/CookiePolicy/CookiePolicyAdd";
 import CookiePolicy from "../pages/Dashboard/AdminDashboard/CookiePolicy/CookiePolicy";
 import AdminBlogs from "../Layout/AdminBlogs";
+import AllCourses from "../pages/Courses/AllCourses";
 
 export const routes = createBrowserRouter([
 
@@ -90,6 +91,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            }
+            ,
+            {
+                path: '/all-courses',
+                element: <PrivateRoutes><AllCourses></AllCourses></PrivateRoutes>
             }
             ,
             {
