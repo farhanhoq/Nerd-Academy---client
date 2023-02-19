@@ -41,7 +41,7 @@ const StudentOrderHistory = () => {
                         </thead>
                         <tbody className="text-sm font-normal text-gray-700">
                             {
-                                studentCheckoutData.map(order => 
+                                studentCheckoutData.map(order =>
                                 <tr className="py-10 border-b border-gray-200 hover:bg-gray-100">
                                 <td className="flex flex-row items-center px-4 py-4">
                                     <div className="flex w-10 h-10 mr-4">
@@ -70,12 +70,12 @@ const StudentOrderHistory = () => {
                                 </td>
                             </tr>)
                             }
-                            
-                            
+
+
                         </tbody>
                     </table>
                 </div>
-                
+
             </div>
         </div>
 
