@@ -11,7 +11,7 @@ const Publish = () => {
         fetch(`https://nerd-academy-server.vercel.app/publish?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setPublish(data));
-    }, [])
+    }, [user?.email])
 
     return (
         <div className="card my-6 bg-base-100">

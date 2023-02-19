@@ -15,9 +15,8 @@ const CheckoutForm = ({ total  , email }) => {
   
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState("");
-    const [transactionId , setTransactionId] = useState('');
+    // const [transactionId , setTransactionId] = useState('');
     const [processing , setProcessing] = useState(false);
-    console.log(transactionId);
 
     const stripe = useStripe();
     const elements = useElements();
@@ -81,13 +80,13 @@ const CheckoutForm = ({ total  , email }) => {
           toast.success("Course purchased Successfully");
           // setTransactionId(paymentIntent.id);
           handleDeleteCartData();
-           checkoutItems?.map(singleItem => {
+            checkoutItems?.forEach(singleItem => {
             handleAddData(singleItem?.courseId, singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours, singleItem?.instructorEmail, singleItem?.price);
             handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price, paymentIntent.id);
           });
         }
         setProcessing(false);
-       
+      
     }
 
       const {

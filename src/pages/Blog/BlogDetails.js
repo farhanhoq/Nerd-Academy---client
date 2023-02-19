@@ -8,11 +8,11 @@ import parse from 'html-react-parser';
 
 const BlogDetails = () => {
     const data = useLoaderData();
-    const { name, title, date, writerImage, blogImage, blogDetails } = data[0];
+    const { name, title, date, blogImage, blogDetails } = data[0];
     // console.log(name);
     const { loading, user } = useContext(AuthContext);
 
-    const { data: usersData = [], refetch, isLoading } = useQuery({
+    const { data: usersData = [], refetch } = useQuery({
         queryKey: ["user"],
         queryFn: async () => {
             const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);

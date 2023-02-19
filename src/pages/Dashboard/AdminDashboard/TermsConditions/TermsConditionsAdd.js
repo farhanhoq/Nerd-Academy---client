@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import JoditEditor from 'jodit-react';
-import parse from 'html-react-parser';
 import { useNavigate } from 'react-router-dom';
 
 const TermsConditionsAdd = () => {

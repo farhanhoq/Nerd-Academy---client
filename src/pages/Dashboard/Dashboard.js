@@ -15,7 +15,7 @@ const Dashboard = () => {
             .then((data) => {
                 setCourses(data);
             });
-    }, [])
+    }, [user?.email])
 
     useEffect(() => {
         fetch(
@@ -25,7 +25,7 @@ const Dashboard = () => {
             .then((data) => {
                 setPurchasedCourses(data);
             });
-    }, [])
+    }, [user?.email])
 
     const publish = courses.filter((course) => course.publish === true)
     const pendings = courses.filter((course) => course.publish === false)

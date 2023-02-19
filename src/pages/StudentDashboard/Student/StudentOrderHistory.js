@@ -8,16 +8,16 @@ const StudentOrderHistory = () => {
     const {user} = useContext(AuthContext);
     const {
         data: studentCheckoutData = []
-      } = useQuery({
-        queryKey: ['studentCheckoutData'],
-        queryFn: () => fetch(`https://nerd-academy-server.vercel.app/student-order-history?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                return data;
-            })
-      });
-      console.log(studentCheckoutData);
+        } = useQuery({
+            queryKey: ['studentCheckoutData'],
+            queryFn: () => fetch(`https://nerd-academy-server.vercel.app/student-order-history?email=${user?.email}`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    return data;
+                })
+        });
+        console.log(studentCheckoutData);
 
     return (
         <div>
