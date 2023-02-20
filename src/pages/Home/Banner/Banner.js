@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 const Banner = () => {
-  
+
   /*eslint-disable */
   const { data: countAPI = [] } = useQuery({
     queryKey: ["countAPI"],
@@ -21,10 +21,9 @@ const Banner = () => {
 
   return (
     <div
-      className="hero min-h-screen grid-cols-2 relative"
+      className="hero min-h-screen grid-cols-2 relative z-[11]"
       style={{ backgroundImage: `url(${newBg})` }}
-      id="#home"
-    >
+      id="#home">
       <div className="absolute left-[50px] top-[80px]">
         <div className="hero-content items-center justify-center flex-col md:flex-row">
           <div className="w-full text-white mx-auto">
