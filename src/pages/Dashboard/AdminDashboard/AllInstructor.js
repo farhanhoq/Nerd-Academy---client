@@ -59,7 +59,16 @@ const AllInstructor = () => {
                                             <div className="font-semibold text-left">Email</div>
                                         </th>
                                         <th className="p-2 whitespace-nowrap">
-                                            <div className="font-semibold text-left">Actions</div>
+                                            <div className="font-semibold text-left">Pending Course</div>
+                                        </th>
+                                        <th className="p-2 whitespace-nowrap">
+                                            <div className="font-semibold text-left">Total Course</div>
+                                        </th>
+                                        <th className="p-2 whitespace-nowrap">
+                                            <div className="font-semibold text-left">Total Income</div>
+                                        </th>
+                                        <th className="p-2 whitespace-nowrap">
+                                            <div className="font-semibold text-left">Ban</div>
                                         </th>
                                     </tr>
                                 </thead>
@@ -77,6 +86,15 @@ const AllInstructor = () => {
                                                         </div>
                                                         <div className="font-medium text-gray-800">{user.name}</div>
                                                     </div>
+                                                </td>
+                                                <td className="p-2 whitespace-nowrap">
+                                                    <div className="text-left">{user.email}</div>
+                                                </td>
+                                                <td className="p-2 whitespace-nowrap">
+                                                    <div className="text-left">{user.email}</div>
+                                                </td>
+                                                <td className="p-2 whitespace-nowrap">
+                                                    <div className="text-left">{user.email}</div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
                                                     <div className="text-left">{user.email}</div>
