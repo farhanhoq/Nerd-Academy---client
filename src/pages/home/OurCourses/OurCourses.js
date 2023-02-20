@@ -125,7 +125,7 @@ const OurCourses = () => {
                   <h1>Find the best one from {coursedata.length} courses</h1>
                 </div>
                 <div>
-                  <Link to="/all-courses" className="btn btn-primary">Browse All Courses</Link>
+                  <Link to="/all-courses" className="btn btn-primary btn-outline">Browse All Courses</Link>
                 </div>
               </div>
               <Swiper
