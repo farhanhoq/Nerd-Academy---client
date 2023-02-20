@@ -91,13 +91,13 @@ const AllInstructor = () => {
                                                     <div className="text-left">{user.email}</div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
-                                                    <div className="text-left">{user.email}</div>
+                                                    <div className="text-center font-bold">{user.pending}</div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
-                                                    <div className="text-left">{user.email}</div>
+                                                    <div className="text-center font-bold">{user.publish}</div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
-                                                    <div className="text-left">{user.email}</div>
+                                                    <div className="text-center font-bold">{ }</div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
                                                     <button
