@@ -37,6 +37,14 @@ const CoursesTable = ({ course, refetch }) => {
                 }
             })
 
+        fetch(`https://nerd-academy-server.vercel.app/users-publish-increase?email=${email}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            }
+        })
+            .then((res) => res.json())
+
 
     };
 
