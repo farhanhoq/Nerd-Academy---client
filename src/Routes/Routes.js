@@ -52,6 +52,8 @@ import CookiePolicyAdd from "../pages/Dashboard/AdminDashboard/CookiePolicy/Cook
 import CookiePolicy from "../pages/Dashboard/AdminDashboard/CookiePolicy/CookiePolicy";
 import AdminBlogs from "../Layout/AdminBlogs";
 import AllCourses from "../pages/Courses/AllCourses";
+import TeacherPrerequisites from "../pages/TeacherPrerequisites/TeacherPrerequisites";
+import Students from "../pages/Dashboard/Instructor/Students";
 
 export const routes = createBrowserRouter([
 
@@ -95,7 +97,7 @@ export const routes = createBrowserRouter([
             ,
             {
                 path: '/all-courses',
-                element: <PrivateRoutes><AllCourses></AllCourses></PrivateRoutes>
+                element: <AllCourses></AllCourses>
             }
             ,
             {
@@ -166,6 +168,10 @@ export const routes = createBrowserRouter([
                 element: <CookiePolicy></CookiePolicy>
             },
             {
+                path: '/teacher-prerequisites',
+                element: <TeacherPrerequisites></TeacherPrerequisites>
+            },
+            {
                 path: '*',
                 element: <Error></Error>
             }
@@ -217,6 +223,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/order',
                 element: <Order></Order>,
+            },
+            {
+                path: '/dashboard/students',
+                element: <Students></Students>,
             },
 
         ]

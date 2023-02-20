@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import { GiCrossMark } from 'react-icons/gi';
+
 
 const AllInstructor = () => {
 
@@ -24,6 +26,16 @@ const AllInstructor = () => {
                 refetch();
             })
     };
+
+    // const { data: courses = [] } = useQuery({
+    //     queryKey: ["courses"],
+    //     queryFn: async () => {
+    //         const res = await fetch(`https://nerd-academy-server.vercel.app/courses`);
+    //         const data = await res.json();
+    //         return data;
+    //     }
+    // })
+    // console.log(courses);
 
     return (
         <section className="min-w-screen min-h-screen text-gray-600 w-full my-6">
@@ -72,7 +84,7 @@ const AllInstructor = () => {
                                                 <td className="p-2 whitespace-nowrap">
                                                     <button
                                                         onClick={() => handleDelete(user._id)}
-                                                        className="btn btn-error text-white btn-xs">Delete</button>
+                                                        className="btn btn-error text-white btn-xs"> <GiCrossMark></GiCrossMark> </button>
                                                 </td>
 
                                             </tr>

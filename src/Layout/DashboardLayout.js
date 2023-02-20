@@ -6,6 +6,7 @@ import { AuthContext } from '../Context/AuthProvider';
 import { GoSignOut } from 'react-icons/go';
 import "./style.css";
 import { AiOutlineHome } from 'react-icons/ai';
+import { ImProfile } from 'react-icons/im';
 
 
 const DashboardLayout = () => {
@@ -108,6 +109,13 @@ const DashboardLayout = () => {
                                         <img className='h-5 w-5' src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" srcset="" />
                                         <span className="group-hover:text-gray-700 text-black">My Profile</span>
                                         {/* <Link to="/dashboard/settings"><span className="group-hover:text-gray-700">Settings</span></Link> */}
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link to="/dashboard/students" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+                                        <span className='h-5 w-5'><ImProfile></ImProfile></span>
+                                        <span className="group-hover:text-gray-700 text-black">My Students</span>
                                     </Link>
                                 </li>
 

@@ -79,6 +79,7 @@ const OurCourses = () => {
         </div>
 
         <div className="mx-auto rounded-lg">
+
           <div className="flex flex-col md:flex-row gap-0 md:gap-6 justify-center my-10">
             <button
               onClick={() => filterResult("Web Development")}
@@ -117,8 +118,16 @@ const OurCourses = () => {
             </button>
           </div>
 
-          <div className="flex items-center justify-center my-32">
+          <div className="flex items-center justify-center mb-32">
             <div className="w-full px-32">
+              <div className="mb-10 flex justify-between">
+                <div className="text-3xl font-bold">
+                  <h1>Find the best one from {coursedata.length} courses</h1>
+                </div>
+                <div>
+                  <Link to="/all-courses" className="btn btn-primary">Browse All Courses</Link>
+                </div>
+              </div>
               <Swiper
                 spaceBetween={50}
                 slidesPerView={3}
@@ -131,7 +140,7 @@ const OurCourses = () => {
                 }}
                 modules={[Autoplay]}
               >
-                {courseFilterData.length === 0 ? (
+                {courseFilterData.length === 0 ?
                   <>
                     {courses?.map(
                       (course) =>
@@ -245,7 +254,7 @@ const OurCourses = () => {
                         )
                     )}
                   </>
-                ) : (
+                  :
                   <>
                     {courseFilterData?.map(
                       (course) =>
@@ -359,10 +368,11 @@ const OurCourses = () => {
                         )
                     )}
                   </>
-                )}
+                }
               </Swiper>
             </div>
           </div>
+
         </div>
       </div>
     </div>
