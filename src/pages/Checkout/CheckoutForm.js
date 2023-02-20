@@ -80,7 +80,7 @@ const CheckoutForm = ({ total, email }) => {
     // setPayment(paymentIntent)
     if (paymentIntent.status === "succeeded") {
 
-      const emailInfo = {
+      const emailInfoClient = {
         to: user?.email,
         subject: 'Payment Confirmation',
         name: user?.displayName,
@@ -88,10 +88,11 @@ const CheckoutForm = ({ total, email }) => {
         transactionID: paymentIntent.id
       };
 
+
       send(
         process.env.REACT_APP_serviceIdEmailJs,
         process.env.REACT_APP_templateIdEmailJs,
-        emailInfo,
+        emailInfoClient,
         process.env.REACT_APP_privateKeyEmailJs
       )
         .then(res => {
@@ -100,13 +101,18 @@ const CheckoutForm = ({ total, email }) => {
         .catch(err => {
           console.error('Error sending email:', err);
         });
+
+
+
+
+
       toast.success("Course purchased Successfully");
 
       // setTransactionId(paymentIntent.id);
       handleDeleteCartData();
       checkoutItems?.forEach(singleItem => {
         handleAddData(singleItem?.courseId, singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours, singleItem?.instructorEmail, singleItem?.price);
-        handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price, paymentIntent.id);
+        handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price, paymentIntent.id, singleItem?.tutor);
       });
     }
     setProcessing(false);
@@ -145,7 +151,7 @@ const CheckoutForm = ({ total, email }) => {
       });
   }
 
-  const handlePurchasedData = (instructorEmail, picture, title, price, transactionId) => {
+  const handlePurchasedData = (instructorEmail, picture, title, price, transactionId, tutor) => {
 
     const checkoutData = {
       instructorEmail,
@@ -159,30 +165,6 @@ const CheckoutForm = ({ total, email }) => {
     }
     console.log(checkoutData);
 
-    const emailInfo = {
-      first_name: user?.displayName,
-      message: transactionId,
-      reply_to: user?.email
-    }
-
-    // send(
-    //   process.env.REACT_APP_serviceIdEmailJs,
-    //   process.env.REACT_APP_templateIdEmailJs,
-    //   emailInfo,
-    //   process.env.REACT_APP_privateKeyEmailJs,
-    // )
-    //   .then(res => {
-    //     console.log("Success", res.status, res.text);
-    //   })
-    //   .catch(error => console.log(error))
-
-    // emailjs.sendForm('service_up6a2q2', 'template_gu40p0p', emailInfo, 'RQpbmDtuAYwO9LiSC')
-    //   .then((result) => {
-    //     console.log(result.text);
-    //   }, (error) => {
-    //     console.log(error.text);
-    //   });
-    // toast("Successfully sent your Email Thanks!")
 
     fetch('https://nerd-academy-server.vercel.app/checkout-data', {
       method: 'POST',
@@ -193,7 +175,33 @@ const CheckoutForm = ({ total, email }) => {
       body: JSON.stringify(checkoutData)
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+
+        const emailInfoInstructor = {
+          to: instructorEmail,
+          subject: 'Course Purchased',
+          name: tutor,
+          title: title,
+          transactionId: transactionId,
+          client: user?.displayName
+        }
+        console.log(emailInfoInstructor);
+
+        send(
+          process.env.REACT_APP_serviceIdEmailJs,
+          process.env.REACT_APP_templateId1EmailJs,
+          emailInfoInstructor,
+          process.env.REACT_APP_privateKeyEmailJs
+        )
+          .then(res => {
+            console.log('Email sent:', res.status, res.text);
+          })
+          .catch(err => {
+            console.error('Error sending email:', err);
+          });
+
+
+      })
 
 
   }
