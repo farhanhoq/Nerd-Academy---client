@@ -97,7 +97,7 @@ const StudentDashboard = () => {
   ];
 
   return (
-    <div className="grid grid-cols-4 my-20 gap-5">
+    <div className="grid grid-cols-4 my-12 gap-5">
       <div className="bg-slate-200 rounded-xl p-5 mx-auto col-span-2">
         <h1 className="text-black m-5 text-4xl">Health Check</h1>
         <div className="grid grid-cols-2 items-center justify-around">

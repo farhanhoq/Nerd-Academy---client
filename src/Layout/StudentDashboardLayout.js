@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
-import Navbar from '../pages/Shared/Navbar';
 import { useQuery } from '@tanstack/react-query';
 import "./style.css";
 import { AiOutlineHome } from 'react-icons/ai';
@@ -35,39 +34,24 @@ const StudentDashboardLayout = () => {
 
   return (
     <div className="mx-auto">
-      <Navbar></Navbar>
       <div className="drawer drawer-mobile">
         <input
           id="student-dashboard-drawer"
           type="checkbox"
-          className="drawer-toggle"
-        />
-        <div className="drawer-content px-5 md:px-14 my-16">
+          className="drawer-toggle" />
+        <div className="drawer-content px-5 md:px-14">
           <Outlet />
         </div>
         <div className="drawer-side border">
           <label htmlFor="student-dashboard-drawer" className="drawer-overlay"></label>
-          {/* Logo here in this div */}
-          {/* <div className="">
-            <Link to="#" title="home">
-              <img className="w-32" src="" alt="" srcset="" />
-            </Link>
+
+          <div className="mt-12 text-center">
+            <img className='w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28' src={profile?.body?.picture} alt="" srcset="" />
+            <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block uppercase">{profile?.name}</h5>
+            <span className="hidden text-gray-400 lg:block capitalize font-bold">{profile?.role}</span>
           </div>
 
-          <div className="mt-16 text-center">
-            <img
-              className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"
-              src={profile?.body?.picture}
-              alt=""
-              srcset=""
-            />
-            <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
-              {profile?.body?.fullName}
-            </h5>
-            <span className="hidden text-gray-400 lg:block">{profile?.role}</span>
-          </div> */}
-
-          <ul className="margin-top menu p-4 w-80 lg:bg-opacity-0 text-black ">
+          <ul className="menu p-4 w-80 lg:bg-opacity-0 text-black ">
             <div>
               <ul className="space-y-2 tracking-wide text-white ">
                 <li>
@@ -96,14 +80,12 @@ const StudentDashboardLayout = () => {
                 <li>
                   <Link
                     to="/student-dashboard/student-courses"
-                    className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
-                  >
+                    className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5"
                       viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
+                      fill="currentColor">
                       <path
                         className="fill-current text-gray-300 group-hover:text-cyan-300"
                         fill-rule="evenodd"

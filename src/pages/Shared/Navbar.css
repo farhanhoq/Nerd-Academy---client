@@ -1,31 +1,31 @@
 .navbar.active {
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
   box-shadow: 0 0 13px 3px hsl(0deg 0% 62% / 41%);
-  background-image: linear-gradient(to right, #7B33FD,#B337E3);
+  background-image: linear-gradient(to right, #4568dc, #b06ab3);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
-  .navbar-logo,
-  .item {
-    color: white ;
-  }
+.navbar-logo,
+.item {
+  color: white;
+}
 
-  .navbar .search.item {
-    border: 1px solid white;
-  }
+.navbar .search.item {
+  border: 1px solid white;
+}
 
-  .navbar.active .search.item {
-    border: 1px solid white !important;
-  }
+.navbar.active .search.item {
+  border: 1px solid white !important;
+}
 
-  .navbar .search.item::placeholder {
-    color: white;
-  }
+.navbar .search.item::placeholder {
+  color: white;
+}
 
-  .navbar.active .search.item::placeholder {
-    color: white;
-  }
+.navbar.active .search.item::placeholder {
+  color: white;
+}
 
 .navbar.active .navbar-logo,
 .navbar.navbar.active .item {
@@ -48,7 +48,7 @@
   height: 50vh;
 }
 
-.techsection>div {
+.techsection > div {
   width: 11%;
   height: 16vh;
   max-height: 140px;
@@ -65,7 +65,7 @@
   border: 2px solid var(--clr-primary);
 }
 
-.techsection>div:hover {
+.techsection > div:hover {
   background-color: var(--clr-bg);
   overflow: hidden;
   transform: scale(1.08);
@@ -124,7 +124,7 @@
   right: 0px;
   bottom: 0;
   background-color: #fff;
-  border: 1px solid #7B33FD;
+  border: 1px solid #7b33fd;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -137,7 +137,7 @@
   left: 4px;
   top: 3px;
   bottom: 4px;
-  background-image: linear-gradient(to right, #7B33FD,#B337E3);
+  background-image: linear-gradient(to right, #7b33fd, #b337e3);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -193,7 +193,6 @@ input:checked + .slider:before {
 .custom-border:hover::after {
   transform: scale(1);
 }
-
 
 /* Button style  */
 .list,

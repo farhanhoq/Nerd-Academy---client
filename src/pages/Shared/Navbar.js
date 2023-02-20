@@ -204,7 +204,7 @@ const Navbar = () => {
       className={
         navbar
           ? "navbar active flex justify-between w-full mx-auto fixed z-50 px-16"
-          : "navbar flex justify-between w-full mx-auto fixed z-10 px-16"
+          : "navbar flex justify-between w-full mx-auto fixed z-[999] px-16"
       }>
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
