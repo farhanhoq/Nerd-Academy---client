@@ -45,7 +45,13 @@ const Customer = () => {
                                             <div className="font-semibold text-left">Email</div>
                                         </th>
                                         <th className="p-2 whitespace-nowrap">
-                                            <div className="font-semibold text-left">Actions</div>
+                                            <div className="font-semibold text-left">Purchased Courses</div>
+                                        </th>
+                                        <th className="p-2 whitespace-nowrap">
+                                            <div className="font-semibold text-left">Total Spend</div>
+                                        </th>
+                                        <th className="p-2 whitespace-nowrap">
+                                            <div className="font-semibold text-left">Ban</div>
                                         </th>
                                         {/* <th className="p-2 whitespace-nowrap">
                                             <div className="font-semibold text-center">Country</div>
@@ -66,6 +72,12 @@ const Customer = () => {
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
                                                     <div className="text-left">{user.email}</div>
+                                                </td>
+                                                <td className="p-2 whitespace-nowrap">
+                                                    <div className="text-center font-bold">{user.purchased}</div>
+                                                </td>
+                                                <td className="p-2 whitespace-nowrap">
+                                                    <div className="text-center font-bold">{user.spend}</div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
                                                     <button
