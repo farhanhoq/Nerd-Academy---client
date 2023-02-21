@@ -54,6 +54,8 @@ import AdminBlogs from "../Layout/AdminBlogs";
 import AllCourses from "../pages/Courses/AllCourses";
 import TeacherPrerequisites from "../pages/TeacherPrerequisites/TeacherPrerequisites";
 import Students from "../pages/Dashboard/Instructor/Students";
+import AdminProfile from "../pages/Dashboard/AdminDashboard/AdminProfile";
+import AdminProfileEdit from "../pages/Dashboard/AdminDashboard/AdminProfileEdit";
 
 export const routes = createBrowserRouter([
 
@@ -256,6 +258,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/admin-dashboard/courses',
                 element: <Courses></Courses>,
+            },
+            {
+                path: '/admin-dashboard/profile',
+                element: <AdminProfile></AdminProfile>,
+            },
+            {
+                path: '/admin-dashboard/profile-edit',
+                element: <AdminProfileEdit></AdminProfileEdit>,
             },
             {
                 path: '/admin-dashboard/menus',

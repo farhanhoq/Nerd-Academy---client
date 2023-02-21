@@ -148,6 +148,17 @@ const AdminDashboardLayout = () => {
                     </span>
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/admin-dashboard/profile"
+                    className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                  >
+                    <img className="h-5 w-5 text-xl text-grey" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="" srcset="" />
+                    <span className="ml-3 flex-1 whitespace-nowrap lg:text-black text-white">
+                      My Profile
+                    </span>
+                  </Link>
+                </li>
 
                 <li>
                   <Link
