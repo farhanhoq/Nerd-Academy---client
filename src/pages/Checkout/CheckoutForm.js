@@ -101,11 +101,6 @@ const CheckoutForm = ({ total, email }) => {
         .catch(err => {
           console.error('Error sending email:', err);
         });
-
-
-
-
-
       toast.success("Course purchased Successfully");
 
       // setTransactionId(paymentIntent.id);
