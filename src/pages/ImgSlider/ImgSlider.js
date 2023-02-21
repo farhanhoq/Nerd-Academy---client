@@ -40,16 +40,6 @@ const ImgSlider = () => {
       <div className=" flex items-center justify-center my-32 flex-col gap-6">
         <div className="w-full px-32">
           <Swiper
-            breakpoints={{
-              576: {
-                width: 576,
-                slidesPerView: 2,
-              },
-              768: {
-                width: 768,
-                slidesPerView: 1,
-              },
-            }}
             spaceBetween={50}
             slidesPerView={3}
             // onSlideChange={() => console.log("slide change")}
