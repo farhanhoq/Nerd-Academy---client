@@ -101,6 +101,15 @@ const AddCourse = () => {
                             toast.success("Course Uploaded Successfully");
                             navigation("/dashboard/myCourse");
                         });
+
+
+                    fetch(`https://nerd-academy-server.vercel.app/users-pending-increase?email=${user?.email}`, {
+                        method: "PUT",
+                        headers: {
+                            "content-type": "application/json",
+                        }
+                    })
+                        .then((res) => res.json())
                 }
             });
     };

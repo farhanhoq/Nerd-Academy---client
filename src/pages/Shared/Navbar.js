@@ -92,7 +92,7 @@ const Navbar = () => {
           </Link>
           {
             webDevelopment.length > 0 &&
-            <ul className="dropdown-content menu bg-base-100 pl-0 py-5 ">
+            <ul className="dropdown-content menu bg-base-100 pl-0 pr-3 py-5 ">
               {
                 webDevelopment?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
                   <li>{item?.title}</li>
@@ -112,7 +112,7 @@ const Navbar = () => {
           </Link>
           {
             programming.length > 0 &&
-            <ul className="dropdown-content menu bg-base-100  pl-0 py-5 ">
+            <ul className="dropdown-content menu bg-base-100  pl-0 pr-3 py-5 ">
               {
                 programming?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
                   <li>{item?.title}</li>
@@ -132,7 +132,7 @@ const Navbar = () => {
           </Link>
           {
             computerScience.length > 0 &&
-            <ul className="dropdown-content menu bg-base-100  pl-0 py-5 ">
+            <ul className="dropdown-content menu bg-base-100  pl-0 pr-3 py-5 ">
               {
                 computerScience?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
                   <li>{item?.title}</li>
@@ -152,7 +152,7 @@ const Navbar = () => {
           </Link>
           {
             ai.length > 0 &&
-            <ul className="dropdown-content menu bg-base-100  pl-0 py-5 ">
+            <ul className="dropdown-content menu bg-base-100  pl-0 pr-3 py-5 ">
               {
                 ai?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
                   <li>{item?.title}</li>
@@ -172,7 +172,7 @@ const Navbar = () => {
           </Link>
           {
             appDevelopment.length > 0 &&
-            <ul className="dropdown-content menu bg-base-100 w-full pl-0 py-5 ">
+            <ul className="dropdown-content menu bg-base-100 w-full pl-0 pr-3 py-5 ">
               {
                 appDevelopment?.map(item => <Link to={`/details/${item?._id}`} className="ml-4 my-2">
                   <li>{item?.title}</li>

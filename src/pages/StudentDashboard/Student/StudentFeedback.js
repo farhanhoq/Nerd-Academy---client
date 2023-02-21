@@ -8,37 +8,38 @@ const StudentFeedback = ({ course }) => {
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
-    const {courseId, instructorEmail , tutor , title } = course;
+    const { courseId, instructorEmail, tutor, title } = course;
 
     const { user } = useContext(AuthContext);
 
-    const { register, handleSubmit, reset} = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
 
-const handlePost = review => {
-    const handleAddPost = {
-        courseId,
-        review: review?.feedback,
-        title,
-        tutor,
-        instructorMail: instructorEmail,
-        userName: user?.displayName,
-        userEmail: user?.email,
-        date: `${date}-${month}-${year}`,
-    }
+    const handlePost = review => {
+        const handleAddPost = {
+            courseId,
+            review: review?.feedback,
+            title,
+            tutor,
+            instructorMail: instructorEmail,
+            userName: user?.displayName,
+            userEmail: user?.email,
+            date: `${date}-${month}-${year}`,
+        }
+        console.log(handleAddPost);
 
-    fetch('https://nerd-academy-server.vercel.app/review', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(handleAddPost),
-    })
-      .then(res => res.json())
-      .then(data => {
-          toast.success('Review added successfully');
-      })
-      .catch(error => console.error(error));
+        fetch('https://nerd-academy-server.vercel.app/review', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(handleAddPost),
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success('Review added successfully');
+            })
+            .catch(error => console.error(error));
         reset();
     };
 

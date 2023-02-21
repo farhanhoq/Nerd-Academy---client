@@ -2,31 +2,31 @@ import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { RiDeleteBack2Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import SuggestEditModal from './SuggestEditModal';
 
 const CoursesTable = ({ course, refetch }) => {
+    const [courseId, setCourseId] = useState('')
 
-    const { category, description, email, picture, tutor, title, postingDate, publish } = course;
+    const { _id, category, description, email, picture, tutor, title, postingDate, publish } = course;
+    // console.log(course);
 
 
-    const deleteProduct = (id) => {
-        fetch(`https://nerd-academy-server.vercel.app/deleteCourse/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.acknowledged) {
-                    refetch();
-                    toast.error("Deleted Item Successfully");
-                }
-            })
-    };
+    // const deleteProduct = (id) => {
+    //     fetch(`https://nerd-academy-server.vercel.app/deleteCourse/${id}`, {
+    //         method: 'DELETE'
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.acknowledged) {
+    //                 refetch();
+    //                 toast.error("Deleted Item Successfully");
+    //             }
+    //         })
+    // };
 
     const handelApprove = id => {
         fetch(`https://nerd-academy-server.vercel.app/courses/${id}`, {
             method: 'PUT',
-            // headers: {
-            //     authorization: `bearer ${localStorage.getItem('token')}`
-            // }
         })
             .then(res => res.json())
             .then(data => {
@@ -37,13 +37,21 @@ const CoursesTable = ({ course, refetch }) => {
                 }
             })
 
+        fetch(`https://nerd-academy-server.vercel.app/users-publish-increase?email=${email}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            }
+        })
+            .then((res) => res.json())
+
 
     };
 
 
 
-
     return (
+
         <tbody className="text-gray-600 text-sm font-light">
             <tr className="border-b border-gray-200 hover:bg-gray-100">
                 <td className="py-3 px-6 text-left whitespace-nowrap">
@@ -86,16 +94,23 @@ const CoursesTable = ({ course, refetch }) => {
 
                 <td className="py-3 px-6 text-center">
                     <div className="flex item-center justify-center">
-                        <div className="text-xl cursor-pointer w-4 mr-2 transform hover:text-error hover:scale-110">
-
-                            <Link onClick={() => deleteProduct(course._id)} >
-                                <RiDeleteBack2Line></RiDeleteBack2Line>
-                            </Link>
+                        <div className="text-xl cursor-pointer w-4 mr-2 transform hover:text-error hover:scale-105">
+                            <label
+                                onClick={() => setCourseId(_id)}
+                                htmlFor="admin-modal"
+                                className="btn btn-sm text-xs">
+                                Suggest edit
+                            </label>
+                            {/* {console.log()} */}
+                            <SuggestEditModal courseId={_id}></SuggestEditModal>
                         </div>
                     </div>
                 </td>
+
             </tr>
         </tbody>
+
+
     );
 };
 
