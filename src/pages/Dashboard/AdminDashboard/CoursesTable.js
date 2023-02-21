@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { RiDeleteBack2Line } from "react-icons/ri";
-import { Link } from "react-router-dom";
-import SuggestEditModal from "./SuggestEditModal";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import SuggestEditModal from './SuggestEditModal';
 
 const CoursesTable = ({ course, refetch }) => {
     const [courseId, setCourseId] = useState("");
@@ -19,20 +18,8 @@ const CoursesTable = ({ course, refetch }) => {
         publish,
     } = course;
 
-    // const deleteProduct = (id) => {
-    //     fetch(`https://nerd-academy-server.vercel.app/deleteCourse/${id}`, {
-    //         method: 'DELETE'
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.acknowledged) {
-    //                 refetch();
-    //                 toast.error("Deleted Item Successfully");
-    //             }
-    //         })
-    // };
 
-    const handelApprove = (id) => {
+    const handelApprove = id => {
         fetch(`https://nerd-academy-server.vercel.app/courses/${id}`, {
             method: "PUT",
         })
@@ -116,16 +103,18 @@ const CoursesTable = ({ course, refetch }) => {
                 <td className="py-3 text-left">
                     <div className="flex item-center justify-center">
                         <div className="cursor-pointer w-4 transform hover:text-error hover:scale-105">
-                            <button
+                            <label
                                 onClick={() => setCourseId(_id)}
                                 htmlFor="admin-modal"
                                 className="btn btn-sm border-none bg-gradient-to-r from-primary 
                                 to-secondary cursor-pointer text-white py-1 px-3 rounded-full font-normal">
                                 Suggest edit
-                            </button>
+                            </label>
+                            {/* {console.log()} */}
                         </div>
                     </div>
                 </td>
+
                 <SuggestEditModal courseId={_id}></SuggestEditModal>
             </tr>
         </tbody>
