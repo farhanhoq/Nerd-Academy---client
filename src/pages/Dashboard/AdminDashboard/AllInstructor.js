@@ -97,7 +97,7 @@ const AllInstructor = () => {
                                                     <div className="text-center font-bold">{user.publish}</div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
-                                                    <div className="text-center font-bold">{ }</div>
+                                                    <div className="text-center font-bold">{user.income}</div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
                                                     <button

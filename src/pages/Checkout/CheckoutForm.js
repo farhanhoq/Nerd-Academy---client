@@ -202,6 +202,17 @@ const CheckoutForm = ({ total, email }) => {
 
 
       })
+    
+    fetch(
+      `http://nerd-academy-server.vercel.app/users-income?email=${instructorEmail}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(checkoutData),
+      }
+    ).then((res) => res.json());
 
 
   }
