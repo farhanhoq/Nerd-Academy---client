@@ -1,4 +1,4 @@
-import {   ref, uploadBytes, getDownloadURL, listAll, list } from "firebase/storage";
+import {   ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -87,11 +87,14 @@ const AddCourse = () => {
     listAll(videosListRef).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
+          console.log(item, url)
           setVideoUrls((prev) => [...prev, url]);
         });
       });
     });
   }, []);
+
+  console.log(videoUrls)
 
   const handleAddCourse = (data) => {
     const image = data.image[0];
@@ -132,7 +135,7 @@ const AddCourse = () => {
             .then((data) => {
                 console.log(data)
               toast.success("Course Uploaded Successfully");
-              navigation("/dashboard/myCourse");
+              // navigation("/dashboard/myCourse");
             });
 
           fetch(
@@ -348,7 +351,7 @@ const AddCourse = () => {
                           Select your video
                         </h1>
                         <input
-                          type="file" accept="video/mp4,video/x-m4v,video/*"
+                          type="file"
                           onChange={(event) => {
                             setVideUpload(event.target.files[0]);
                           }}

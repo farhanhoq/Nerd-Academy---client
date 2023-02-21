@@ -231,15 +231,17 @@ const Navbar = () => {
 
       <div className="hidden lg:block w-[17%]">
         <div className="w-[210px]">
-          <Link
+          {/* <Link
             to="/"
             className="font-bold text-2xl navbar-logo"
             style={{ color: getColor("/") }}>
             {" "}
             Nerd
             <span> Academy</span>
-          </Link>
-          {/* <img src={logo} alt="" /> */}
+          </Link> */}
+         <Link to="/">
+         <img src="https://i.ibb.co/30WJNvR/nerd-logo-01.png" alt="" />
+         </Link>
         </div>
       </div>
 
