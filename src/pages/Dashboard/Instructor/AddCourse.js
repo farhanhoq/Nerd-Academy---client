@@ -348,7 +348,7 @@ const AddCourse = () => {
                           Select your video
                         </h1>
                         <input
-                          type="video" accept="video/mp4,video/x-m4v,video/*"
+                          type="file" accept="video/mp4,video/x-m4v,video/*"
                           onChange={(event) => {
                             setVideUpload(event.target.files[0]);
                           }}
