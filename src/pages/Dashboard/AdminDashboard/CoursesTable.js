@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { RiDeleteBack2Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import SuggestEditModal from './SuggestEditModal';
 
@@ -9,20 +8,6 @@ const CoursesTable = ({ course, refetch }) => {
 
     const { _id, category, description, email, picture, tutor, title, postingDate, publish } = course;
     // console.log(course);
-
-
-    // const deleteProduct = (id) => {
-    //     fetch(`https://nerd-academy-server.vercel.app/deleteCourse/${id}`, {
-    //         method: 'DELETE'
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.acknowledged) {
-    //                 refetch();
-    //                 toast.error("Deleted Item Successfully");
-    //             }
-    //         })
-    // };
 
     const handelApprove = id => {
         fetch(`https://nerd-academy-server.vercel.app/courses/${id}`, {
@@ -102,11 +87,11 @@ const CoursesTable = ({ course, refetch }) => {
                                 Suggest edit
                             </label>
                             {/* {console.log()} */}
-                            <SuggestEditModal courseId={_id}></SuggestEditModal>
                         </div>
                     </div>
                 </td>
 
+                <SuggestEditModal courseId={_id}></SuggestEditModal>
             </tr>
         </tbody>
 
