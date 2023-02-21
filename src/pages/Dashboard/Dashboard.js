@@ -22,8 +22,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         fetch(
-            `https://nerd-academy-server.vercel.app/perchased-courses-teacher?email=${user?.email}`
-        )
+            `https://nerd-academy-server.vercel.app/perchased-courses-teacher?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setPurchasedCourses(data);
@@ -41,14 +40,12 @@ const Dashboard = () => {
             <div className="ml-auto mb-6">
                 <div className="bg-white">
                     <div className="px-6 flex items-center justify-between space-x-4 2xl:container">
-                        {/* <h5 hidden className="text-2xl text-gray-600 font-medium lg:block">Dashboard</h5> */}
                         <div className="flex space-x-4">
                             <div className='ml-24'>
                                 {(location.pathname === "/dashboard" ||
                                     location.pathname.startsWith("/dashboard/")) && (
                                         <div className="drawer-content block lg:hidden">
-                                            <label
-                                                htmlFor="dashboard-drawer"
+                                            <label htmlFor="dashboard-drawer"
                                                 className="btn btn-primary drawer-button">
                                                 <MdOutlineDashboardCustomize className="text-sm text-white" />
                                             </label>
@@ -62,7 +59,6 @@ const Dashboard = () => {
 
                 <div className="px-6 pt-6 2xl:container">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
                         <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-primary">
                             <div className="left-content flex flex-col items-center pb-10">
                                 <img className="w-20 h-20 mb-3 rounded-full shadow-lg border

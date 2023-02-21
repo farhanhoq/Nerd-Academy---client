@@ -119,13 +119,14 @@ const OurCourses = () => {
           </div>
 
           <div className="flex items-center justify-center mb-32">
-            <div className="w-full px-32">
-              <div className="mb-10 flex justify-between">
+            <div className="w-full md:px-32">
+              <div className="mb-10 flex justify-between flex-col items-center text-center md:flex-row">
                 <div className="text-3xl font-bold">
                   <h1>Find the best one from {coursedata.length} courses</h1>
                 </div>
                 <div>
-                  <Link to="/all-courses" className="btn btn-primary">Browse All Courses</Link>
+                  <Link to="/all-courses" className="btn bg-gradient-to-r from-primary to-secondary
+                   btn-md lg:btn-xl text-white mt-5 md:mt-0 border-none">Browse All Courses</Link>
                 </div>
               </div>
               <Swiper
@@ -138,8 +139,7 @@ const OurCourses = () => {
                 autoplay={{
                   delay: 5000,
                 }}
-                modules={[Autoplay]}
-              >
+                modules={[Autoplay]}>
                 {courseFilterData.length === 0 ?
                   <>
                     {courses?.map(

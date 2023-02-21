@@ -24,7 +24,7 @@ const Banner = () => {
       className="hero min-h-screen grid-cols-2 relative z-[11]"
       style={{ backgroundImage: `url(${newBg})` }}
       id="#home">
-      <div className="absolute left-[50px] top-[80px]">
+      <div className="absolute left-0 lg:left-[50px] top-[80px]">
         <div className="hero-content items-center justify-center flex-col md:flex-row">
           <div className="w-full text-white mx-auto">
             <h1 className="text-4xl font-bold">Online Learning Platform!</h1>
@@ -34,7 +34,6 @@ const Banner = () => {
               which are not accredited, are only available through paid
               subscription.
             </p>
-            {/* <button className="btn text-white">Join For Free</button> */}
             <Link
               to="#courses"
               className="btn bg-white dark:bg-black text-black dark:text-white border-none hover:bg-white hover:shadow-2xl shadow-white"

@@ -18,7 +18,7 @@ const Contact = () => {
 
   }
   return (
-    <section className="flex flex-col md:items-center lg:flex-row container mx-auto px-16 dark:text-white" id="contact">
+    <section className="flex flex-col md:items-center lg:flex-row container mx-auto md:px-16 dark:text-white" id="contact">
       <div className="text-center lg:text-left basis-2/4 mx-5">
         <img
           className="hue-rotate-0 justify-center rounded-md shadow-gray-400 mb-6 w-full"
@@ -43,7 +43,7 @@ const Contact = () => {
               <input type="text" placeholder="Name" className="input input-bordered input-primary w-full max-w-xs rounded-none " />
               <input type="email" name="email" placeholder="Email" className="input input-bordered input-primary w-full max-w-xs rounded-none" />
             </div>
-            <input type="text" name="subject" placeholder="Subject" className="input input-bordered input-primary min-w-full max-w-xs mt-6 rounded-none"/>
+            <input type="text" name="subject" placeholder="Subject" className="input input-bordered input-primary min-w-full max-w-xs mt-6 rounded-none" />
             <div className="form-control mt-6">
               <textarea className="textarea textarea-bordered textarea-primary h-24 rounded-none"
                 placeholder="Enter your message "
@@ -56,7 +56,8 @@ const Contact = () => {
             <input
               type="submit"
               value="Send Message"
-              className="btn btn-primary bg-gradient-to-r from-primary to-secondary w-40 rounded-full text-white"
+              className="btn bg-gradient-to-r from-primary to-secondary 
+              w-40 rounded-full text-white border-none"
             />
           </div>
         </form>

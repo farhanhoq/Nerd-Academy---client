@@ -21,8 +21,8 @@ const CourseDetails = () => {
 
   const course = useLoaderData();
 
-  const { _id, title, picture, email, img, price, rating, review, tutor, lectures, hours, date, description,content, learning } = course[0];
-  console.log(lectures, rating , review, hours);
+  const { _id, title, picture, email, img, price, rating, review, tutor, lectures, hours, date, description, content, learning } = course[0];
+  console.log(lectures, rating, review, hours);
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
@@ -107,8 +107,7 @@ const CourseDetails = () => {
     <div className="py-24">
       <ScrollToTop />
       <div className=" bg-gradient-to-r from-primary to-secondary">
-
-        <div className=" text-white w-11/12 mx-auto p-16">
+        <div className=" text-white w-11/12 mx-auto py-12 md:p-16">
           <div className="text-lg breadcrumbs mb-9">
             <ul>
               <li>
@@ -128,8 +127,8 @@ const CourseDetails = () => {
               </li>
             </ul>
           </div>
-          <h1 className="text-5xl font-bold">{title}</h1>
-          <h1 className="text-lg mt-5 w-8/12">{description}</h1>
+          <h1 className="text-2xl md:text-5xl font-bold">{title}</h1>
+          <h1 className="text-md md:text-lg mt-5 md:w-8/12">{description}</h1>
 
           <p className="mt-7">Created by <span className="badge rounded px-1">{tutor}</span></p>
           <p className="mt-2 mb-1 items-center"><span className=""><FaStar className="inline mr-1" /> </span>{rating} ratings</p>
@@ -137,14 +136,12 @@ const CourseDetails = () => {
           <p className="mb-1"><span><FaGlobe className="inline mr-2" /></span>English, Spanish</p>
           <p className="mb-1"><span><FaUserPlus className="inline mr-2" /></span>15,435+ students</p>
           <p>Publish date: {date}/07/23</p>
-
-
         </div>
       </div>
 
-      <div className="flex w-11/12 mx-auto mt-32">
-        <div className="w-7/12 mx-auto ">
-          <h1 className="text-3xl font-bold  pb-4">What you'll learn</h1>
+      <div className="flex flex-col md:flex-row md:w-11/12 mx-auto mt-12 lg:mt-32">
+        <div className=" md:px-0 w-[85%] mx-auto ">
+          <h1 className="text-3xl font-bold pb-4">What you'll learn</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 border p-5">
             {
               learning?.map(learn => <p className="p-2 w-11/12"><FaBullseye className="inline mr-1 w-[10px]" />{learn}</p>)
@@ -153,19 +150,15 @@ const CourseDetails = () => {
           {/* course content */}
           <div className="mt-20">
             <h1 className="text-3xl font-bold mb-7">Course content</h1>
-
             {
-              content?.map(data => <div className="collapse collapse-arrow border border-base-300 bg-base-100">
+              content?.map(data => <div className="collapse collapse-arrow border border-base-300 
+              bg-base-100">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 peer-checked:text-black-content font-bold flex justify-between"><p>{data?.chp_name}</p><p>{data?.lecture_num} lecture / {data?.chp_duration}</p>
+                <div className="collapse-title bg-base-200 text-black-content peer-checked:bg-base-200 
+                peer-checked:text-black-content font-bold flex flex-col md:flex-row justify-between">
+                  <p>{data?.chp_name}</p><p>{data?.lecture_num} lecture / {data?.chp_duration}</p>
 
                 </div>
-                {/* <div className="collapse-content bg-base-200 text-black-content peer-checked:bg-white peer-checked:text-black-content pt-2">
-                  {
-                    data?.section.map(singleData => <p className="py-2"><FaPlayCircle className="inline mr-1" />{singleData}</p>)
-                  }
-
-                </div> */}
               </div>)
             }
 
@@ -224,7 +217,7 @@ const CourseDetails = () => {
                     )}
                   </figure> */}
                   <div className="card-body">
-                  <h2 className="text-xl mb-2">Write a review for {title} course</h2>
+                    <h2 className="text-xl mb-2">Write a review for {title} course</h2>
                     <textarea
                       {...register("review")}
                       name="review"
@@ -262,14 +255,9 @@ const CourseDetails = () => {
               <p className="mt-1 pb-5"><FaCertificate className="inline mr-1" /> Certificate of completion</p>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
-
-
-
   );
 };
 
