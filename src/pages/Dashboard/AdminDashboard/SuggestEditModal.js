@@ -10,6 +10,7 @@ const SuggestEditModal = ({ courseId }) => {
         const handleAddPost = {
             suggested: suggestion
         }
+
         console.log(handleAddPost);
         fetch(`http://localhost:5000/pending/${courseId}`, {
             method: 'PUT',

@@ -197,7 +197,7 @@ const CourseDetails = () => {
           </div>
 
           <div className="my-32">
-            <h1 className="text-3xl font-bold  pb-4 flex items-center">
+            <h1 className="text-2xl md:text-3xl font-bold  pb-4 flex items-center">
               <div className="inline rating rating-lg mr-1"><input type="radio" name="rating-8" className="mask mask-star bg-yellow-500" checked /></div>
               {rating} Course rating * {review}K ratings</h1>
 
@@ -205,19 +205,8 @@ const CourseDetails = () => {
               user?.uid &&
               <div>
                 <form onSubmit={handleSubmit(handleReview)} className="card card-side bg-base-100 shadow-xl">
-                  {/* <figure>
-                    <input
-                      {...register("image")}
-                      type="file"
-                      className="file-input file-input-bordered w-3/5"
-                      placeholder="Upload a Image"
-                    />
-                    {errors.img && (
-                      <span className="text-error">{errors.img.message}</span>
-                    )}
-                  </figure> */}
                   <div className="card-body">
-                    <h2 className="text-xl mb-2">Write a review for {title} course</h2>
+                    <h2 className="md:text-xl mb-2">Write a review for {title} course</h2>
                     <textarea
                       {...register("review")}
                       name="review"
@@ -238,7 +227,7 @@ const CourseDetails = () => {
 
 
         </div>
-        <div className="w-3/12 mx-auto ">
+        <div className="w-11/12 md:w-3/12 mx-auto ">
           <div className="border">
             <img src={picture} alt="" />
             <div className="w-10/12 mx-auto my-8">

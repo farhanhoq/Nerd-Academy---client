@@ -32,12 +32,12 @@ const Courses = () => {
 
                             <thead>
                                 <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                    <th class="py-3 px-6 text-left">Category</th>
-                                    <th class="py-3 px-6 text-left">Instructor</th>
-                                    <th class="py-3 px-6 text-center">Email</th>
-                                    <th class="py-3 px-6 text-center">Details</th>
-                                    <th class="py-3 px-6 text-center">Status</th>
-                                    <th class="py-3 px-6 text-center">Actions</th>
+                                    <th class="py-3 text-left">Category</th>
+                                    <th class="py-3 text-left">Instructor</th>
+                                    <th class="py-3 text-left">Email</th>
+                                    <th class="py-3 text-left">Details</th>
+                                    <th class="py-3 text-left">Status</th>
+                                    <th class="py-3 text-left">Actions</th>
                                 </tr>
                             </thead>
                             {
