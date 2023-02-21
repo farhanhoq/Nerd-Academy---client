@@ -45,6 +45,7 @@ const CoursesTable = ({ course, setCourse, refetch }) => {
     return (
         <tbody className="text-gray-600 text-sm font-light">
             <tr className="border-b border-gray-200 hover:bg-gray-100">
+
                 <td className="py-3 px-3 text-left whitespace-nowrap">
                     <div className="flex items-center">
                         <div className="mr-2">
@@ -53,6 +54,7 @@ const CoursesTable = ({ course, setCourse, refetch }) => {
                         <span className="font-medium">{category}</span>
                     </div>
                 </td>
+
                 <td className="py-3 px-3 text-left">
                     <div className="flex items-center">
                         <div className="mr-2">
@@ -65,18 +67,21 @@ const CoursesTable = ({ course, setCourse, refetch }) => {
                         <span>{tutor}</span>
                     </div>
                 </td>
+
                 <td className="py-3 w-3 text-left">
                     <p>{email}</p>
                 </td>
+
                 <td className="py-3 text-left ">
                     <Link
                         to={`/details/${course._id}`}
                         className="text-sm btn btn-xs bg-transparent text-black border-primary border transition ease-in-out duration-300
-                             hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary "
+                            hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary "
                     >
-                        View More
+                        Details
                     </Link>
                 </td>
+
                 {publish === true ? (
                     <td className="py-3 text-left">
                         <button onClick={() => handelApprove(course._id)}>
@@ -100,18 +105,16 @@ const CoursesTable = ({ course, setCourse, refetch }) => {
                 )}
 
                 <td className="py-3 text-left">
-                    <div className="flex item-center justify-center">
                         <div className="cursor-pointer w-4 transform hover:text-error hover:scale-105">
                             <label
                                 onClick={() => setCourse(course)}
                                 htmlFor="admin-modal"
-                                className="btn btn-sm border-none bg-gradient-to-r from-primary 
-                                to-secondary cursor-pointer text-white py-1 px-3 rounded-full font-normal">
+                                className="btn btn-outline btn-primary cursor-pointer text-white text-xs py-1 px-3 font-normal hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary">
                                 Suggest edit
                             </label>
                         </div>
-                    </div>
                 </td>
+
             </tr>
         </tbody>
     );
