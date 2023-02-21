@@ -14,10 +14,10 @@ import { useQuery } from "@tanstack/react-query";
 
 const AdminDashboardLayout = () => {
 
-  const {user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const {data: profile = []} = useQuery({
+  const { data: profile = [] } = useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
       const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
@@ -46,7 +46,7 @@ const AdminDashboardLayout = () => {
           type="checkbox"
           className="drawer-toggle"
         />
-        <div className="drawer-content px-5 md:px-14 my-16">
+        <div className="drawer-content px-5 md:px-6 my-16">
           <Outlet />
         </div>
         <div className="drawer-side border-2">
