@@ -13,6 +13,11 @@ const CheckoutForm = ({ total, email }) => {
   let month = newDate.getMonth() + 1;
   let year = newDate.getFullYear();
 
+  const serviceIdEmailJs = "service_ot97gvb";
+  const templateIdEmailJs = "template_gspkcpk";
+  const templateId1EmailJs = "template_e8htsjl";
+  const privateKeyEmailJs = "rzRvJcoC-kdagZoBH";
+
   const { user } = useContext(AuthContext);
 
   const [cardError, setCardError] = useState('');
@@ -90,10 +95,10 @@ const CheckoutForm = ({ total, email }) => {
 
 
       send(
-        process.env.REACT_APP_serviceIdEmailJs,
-        process.env.REACT_APP_templateIdEmailJs,
+        serviceIdEmailJs,
+        templateIdEmailJs,
         emailInfoClient,
-        process.env.REACT_APP_privateKeyEmailJs
+        privateKeyEmailJs
       )
         .then(res => {
           console.log('Email sent:', res.status, res.text);
@@ -101,11 +106,6 @@ const CheckoutForm = ({ total, email }) => {
         .catch(err => {
           console.error('Error sending email:', err);
         });
-
-
-
-
-
       toast.success("Course purchased Successfully");
 
       // setTransactionId(paymentIntent.id);
@@ -188,10 +188,10 @@ const CheckoutForm = ({ total, email }) => {
         console.log(emailInfoInstructor);
 
         send(
-          process.env.REACT_APP_serviceIdEmailJs,
-          process.env.REACT_APP_templateId1EmailJs,
+          serviceIdEmailJs,
+          templateId1EmailJs,
           emailInfoInstructor,
-          process.env.REACT_APP_privateKeyEmailJs
+          privateKeyEmailJs
         )
           .then(res => {
             console.log('Email sent:', res.status, res.text);
