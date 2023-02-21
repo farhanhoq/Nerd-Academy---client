@@ -3,9 +3,7 @@ import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import SuggestEditModal from './SuggestEditModal';
 
-const CoursesTable = ({ course, refetch }) => {
-    const [courseId, setCourseId] = useState("");
-
+const CoursesTable = ({ course, setCourse, refetch }) => {
     const {
         _id,
         category,
@@ -17,6 +15,7 @@ const CoursesTable = ({ course, refetch }) => {
         postingDate,
         publish,
     } = course;
+
 
 
     const handelApprove = id => {
@@ -104,18 +103,15 @@ const CoursesTable = ({ course, refetch }) => {
                     <div className="flex item-center justify-center">
                         <div className="cursor-pointer w-4 transform hover:text-error hover:scale-105">
                             <label
-                                onClick={() => setCourseId(_id)}
+                                onClick={() => setCourse(course)}
                                 htmlFor="admin-modal"
                                 className="btn btn-sm border-none bg-gradient-to-r from-primary 
                                 to-secondary cursor-pointer text-white py-1 px-3 rounded-full font-normal">
                                 Suggest edit
                             </label>
-                            {/* {console.log()} */}
                         </div>
                     </div>
                 </td>
-
-                <SuggestEditModal courseId={_id}></SuggestEditModal>
             </tr>
         </tbody>
     );

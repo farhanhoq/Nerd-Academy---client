@@ -1,10 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
+import Loader from '../../../Loader/Loader';
 import CoursesTable from './CoursesTable';
+import SuggestEditModal from './SuggestEditModal';
+
 
 const Courses = () => {
+    const [course, setCourse] = useState(null)
 
-    const { data: myCourse = [], refetch } = useQuery({
+    const { data: myCourse = [], refetch, isLoading } = useQuery({
         queryKey: ['myCourse'],
         queryFn: async () => {
             const res = await fetch(`https://nerd-academy-server.vercel.app/pending`, {
@@ -17,7 +21,10 @@ const Courses = () => {
             return data;
         }
     });
-
+    
+    if(isLoading) {
+        <Loader></Loader>
+    }
 
 
     return (
@@ -44,9 +51,14 @@ const Courses = () => {
                                 myCourse.map((course) => <CoursesTable
                                     key={course._id}
                                     course={course}
+                                    setCourse={setCourse}
                                     refetch={refetch}
                                 ></CoursesTable>)
                             }
+                            {
+                                course && <SuggestEditModal course={course} refetch={refetch}/>
+                            }
+                            
                             {/* <tbody class="text-gray-600 text-sm font-light">
                                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                                     <td class="py-3 px-6 text-left whitespace-nowrap">

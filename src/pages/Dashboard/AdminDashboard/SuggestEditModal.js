@@ -1,9 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
-const SuggestEditModal = ({ courseId }) => {
+const SuggestEditModal = ({ course }) => {
     const { register, handleSubmit, reset } = useForm();
-    console.log(courseId);
+    console.log(course);
+
+    const {_id} = course;
 
 
     const handlePost = suggestion => {
@@ -12,7 +14,7 @@ const SuggestEditModal = ({ courseId }) => {
         }
 
         console.log(handleAddPost);
-        fetch(`http://localhost:5000/pending/${courseId}`, {
+        fetch(`http://localhost:5000/pending/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -20,11 +22,6 @@ const SuggestEditModal = ({ courseId }) => {
             body: JSON.stringify(handleAddPost),
         })
             .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                toast.success('Message sent successfully');
-            })
-            .catch(error => console.error(error));
         reset();
     };
 
@@ -43,7 +40,8 @@ const SuggestEditModal = ({ courseId }) => {
                             </div>
                             <div className='form-control'>
                                 <button>
-                                    <label onClick={handlePost} htmlFor="admin-modal" className="btn btn-active btn-secondary mt-6" type='submit'>Place Suggestion</label>
+                                    <label onClick={handlePost} htmlFor="admin-modal" className="btn
+                                     btn-active btn-primary text-white mt-6" type='submit'>Place Suggestion</label>
                                 </button>
                             </div>
                         </div>
