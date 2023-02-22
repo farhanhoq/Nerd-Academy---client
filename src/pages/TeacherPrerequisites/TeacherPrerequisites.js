@@ -6,7 +6,7 @@ import earning from '../../Assets/earning.svg'
 import teach from '../../Assets/teach.jpg'
 import inspire from '../../Assets/inspire.jpg'
 import cup from '../../Assets/cup.jpg'
-import educationBg1 from '../../Assets/educationBg1.jpg'
+import educationBg1 from '../../Assets/instructorDetailsBg.png'
 import ScrollToTop from '../ScrollToTop';
 import { Link } from 'react-router-dom';
 

@@ -57,6 +57,7 @@ import Students from "../pages/Dashboard/Instructor/Students";
 import AdminProfile from "../pages/Dashboard/AdminDashboard/AdminProfile";
 import AdminProfileEdit from "../pages/Dashboard/AdminDashboard/AdminProfileEdit";
 import EditPendingCourse from "../pages/Dashboard/Instructor/EditPendingCourse";
+import InstructorDetails from "../pages/InstructorDetails/InstructorDetails";
 
 export const routes = createBrowserRouter([
 
@@ -75,6 +76,10 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/courses/${params.id}`)
             }
             ,
+            {
+                path: '/instructor-details',
+                element: <InstructorDetails></InstructorDetails>
+            },
             {
                 path: '/Review',
                 element: <Review></Review>
