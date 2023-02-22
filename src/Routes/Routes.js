@@ -29,7 +29,7 @@ import StudentAnnouncement from '../pages/StudentDashboard/Student/StudentAnnoun
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
-import Home from "../pages/Home/Home/Home";
+import Home from "../pages/home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
@@ -54,6 +54,7 @@ import AdminBlogs from "../Layout/AdminBlogs";
 import AllCourses from "../pages/Courses/AllCourses";
 import TeacherPrerequisites from "../pages/TeacherPrerequisites/TeacherPrerequisites";
 import Students from "../pages/Dashboard/Instructor/Students";
+import EditPendingCourse from "../pages/Dashboard/Instructor/EditPendingCourse";
 
 export const routes = createBrowserRouter([
 
@@ -215,6 +216,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/pending',
                 element: <Pending></Pending>,
+            },
+            {
+                path: '/dashboard/edit-pending-course/:id',
+                element: <EditPendingCourse></EditPendingCourse>,
+                loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/edit-pending-course/${params.id}`)
             },
             {
                 path: '/dashboard/publish',

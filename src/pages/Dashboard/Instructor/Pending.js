@@ -23,7 +23,7 @@ const Pending = () => {
         }
     });
 
-    console.log(myCourse)
+    // console.log(myCourse)
 
     /*eslint-disable */
     const deleteProduct = (id) => {
@@ -74,7 +74,7 @@ const Pending = () => {
                         {
                             myCourse?.map(p => p.publish === false &&
                                 <>
-                                    {console.log(p?.suggested)}
+                                    {console.log(p)}
                                     <div className='indicator'>
                                         {
                                             p?.suggested &&
@@ -131,7 +131,7 @@ const Pending = () => {
                                                 </div>
 
                                                 <div className="flex items-center justify-between space-x-1.5 rounded-lg px-4 py-1.5">
-                                                    <Link to={`/details/${p._id}`} className="text-sm border-none text-white btn btn-sm bg-gradient-to-r from-primary to-secondary">
+                                                    <Link to={`/dashboard/edit-pending-course/${p._id}`} className="text-sm border-none text-white btn btn-sm bg-gradient-to-r from-primary to-secondary">
                                                         Edit
                                                     </Link>
 
