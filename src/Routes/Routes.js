@@ -56,6 +56,11 @@ import TeacherPrerequisites from "../pages/TeacherPrerequisites/TeacherPrerequis
 import Students from "../pages/Dashboard/Instructor/Students";
 import AdminProfile from "../pages/Dashboard/AdminDashboard/AdminProfile";
 import AdminProfileEdit from "../pages/Dashboard/AdminDashboard/AdminProfileEdit";
+import ContentEdit from "../pages/Dashboard/AdminDashboard/ContentEdit";
+import PrivacyContent from "../pages/Dashboard/AdminDashboard/PrivacyContent";
+import TermContent from "../pages/Dashboard/AdminDashboard/TermContent";
+import LicenceContent from "../pages/Dashboard/AdminDashboard/LicenceContent";
+import CookieContent from "../pages/Dashboard/AdminDashboard/CookieContent";
 
 export const routes = createBrowserRouter([
 
@@ -271,6 +276,23 @@ export const routes = createBrowserRouter([
                 path: '/admin-dashboard/menus',
                 element: <Menu></Menu>,
             },
+            {
+                path: '/admin-dashboard/menus/privacy-edit',
+                element: <PrivacyContent></PrivacyContent>,
+            },
+            {
+                path: '/admin-dashboard/menus/term-edit',
+                element: <TermContent></TermContent>,
+            },
+            {
+                path: '/admin-dashboard/menus/licence-edit',
+                element: <LicenceContent></LicenceContent>,
+            },
+            {
+                path: '/admin-dashboard/menus/cookie-edit',
+                element: <CookieContent></CookieContent>,
+            },
+
             {
                 path: '/admin-dashboard/blogs',
                 element: <AdminBlogs></AdminBlogs>,
