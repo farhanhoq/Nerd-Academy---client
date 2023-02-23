@@ -60,6 +60,7 @@ const MyProfileEdit = () => {
                         skill: data.skill,
                         phone: data.number,
                         address: data.address,
+                        about: data.aboutMe,
                         education: data.education,
                         picture: imgData.data.url
                     };
@@ -182,6 +183,18 @@ const MyProfileEdit = () => {
                             type="text"
                             {...register("address")}
                             placeholder="Enter your Address"
+                            className="input input-bordered w-full"
+                        />
+                    </div>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text font-semibold">About me</span>
+                        </label>
+                        <input
+                            defaultValue={users?.body?.aboutMe}
+                            type="text"
+                            {...register("aboutMe")}
+                            placeholder="Enter about yourself"
                             className="input input-bordered w-full"
                         />
                     </div>
