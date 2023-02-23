@@ -135,7 +135,10 @@ const Pending = () => {
                                                         Edit
                                                     </Link>
 
+                                                    <button onClick={() => deleteProduct(p._id)} className='btn btn-sm bg-red-700 border-none text-white'>Delete</button>
+
                                                 </div>
+                                                
                                             </div >
                                         </div >
                                         <PendingModal p={p}></PendingModal>

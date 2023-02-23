@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
@@ -11,6 +12,18 @@ const Publish = () => {
             .then(res => res.json())
             .then(data => setPublish(data));
     }, [user?.email])
+
+    const deleteProduct = (id) => {
+        fetch(`https://nerd-academy-server.vercel.app/deleteCourse/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.error("Deleted Item Successfully");
+                }
+            })
+    };
 
     return (
         <div className="card bg-base-100">
@@ -71,7 +84,7 @@ const Publish = () => {
                                                     </span>
                                                 </p>
 
-                                                <div className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200">
+                                                {/* <div className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         className="h-4 w-4 text-orange-400 group-hover:text-orange-500"
@@ -80,7 +93,7 @@ const Publish = () => {
                                                     >
                                                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                                                     </svg>
-                                                </div>
+                                                </div> */}
                                             </div>
                                             <div className="flex items-center relative  border-b border-secondary py-1"></div>
                                             <div className="flex items-center relative my-2 justify-between">
@@ -93,9 +106,11 @@ const Publish = () => {
                                                 </div>
 
                                                 <div className="flex items-center justify-between space-x-1.5 rounded-lg px-4 py-1.5">
-                                                    <Link to={`/details/${p._id}`} className="text-sm text-white bg-gradient-to-r from-primary to-secondary btn btn-sm">
+                                                    {/* <Link to={`/details/${p._id}`} className="text-sm text-white bg-gradient-to-r from-primary to-secondary btn btn-sm">
                                                         Edit
-                                                    </Link>
+                                                    </Link> */}
+
+                                                    <button onClick={() => deleteProduct(p._id)} className='btn btn-sm bg-red-700 border-none text-white'>Delete</button>
 
                                                 </div>
 

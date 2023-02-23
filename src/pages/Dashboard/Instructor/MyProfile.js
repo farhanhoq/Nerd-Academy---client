@@ -72,6 +72,11 @@ const MyProfile = () => {
           </div>
 
           <div>
+            <span className="text-sm">About me</span>
+            <p className="text-lg">{profile?.body?.about}</p>
+          </div>
+
+          <div>
             <span className="text-sm">Education</span>
             <p className="text-lg">{profile?.body?.education}</p>
           </div>
