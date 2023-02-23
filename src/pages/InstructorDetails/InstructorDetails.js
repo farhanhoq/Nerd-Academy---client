@@ -1,11 +1,13 @@
 import React from 'react';
 import bg from '../../Assets/instructorDetailsBg.png'
 import userImage from '../../Assets/userImg.jpg'
+import ScrollToTop from '../ScrollToTop';
 import StudentAlsoBought from '../StudentAlsoBought/StudentAlsoBought';
 
 const InstructorDetails = () => {
     return (
         <div className=''>
+            <ScrollToTop></ScrollToTop>
             <div className="py-[50px]" style={{ backgroundImage: `url(${bg})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content mx-auto relative py-16">
