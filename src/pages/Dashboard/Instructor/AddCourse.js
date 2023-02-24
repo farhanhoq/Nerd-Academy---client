@@ -165,7 +165,7 @@ const AddCourse = () => {
                     <input
                     {...register("tutor")}
                     type="text"
-                    className="input input-bordered w-full border-secondary "
+                    className="input input-bordered w-full border-secondary dark:bg-accent dark:text-white"
                     placeholder="Instructor Name"
                     defaultValue={user.displayName}
                     />
@@ -175,7 +175,7 @@ const AddCourse = () => {
                     <input
                     {...register("email")}
                     type="email"
-                    className="input input-bordered w-full border-secondary "
+                    className="input input-bordered w-full border-secondary dark:bg-accent dark:text-white"
                     defaultValue={user?.email}
                     readOnly
                     />
@@ -187,7 +187,7 @@ const AddCourse = () => {
                         required: "Please provided course title",
                     })}
                     type="text"
-                    className="input input-bordered w-full border-secondary"
+                    className="input input-bordered w-full border-secondary dark:bg-accent dark:text-white"
                     placeholder="Course Title"
                     />
                     {errors.courseTitle && (
@@ -202,7 +202,7 @@ const AddCourse = () => {
                     {...register("description", {
                         required: "Please provided description",
                     })}
-                    className="textarea textarea-bordered border-secondary"
+                    className="textarea textarea-bordered border-secondary dark:bg-accent dark:text-white"
                     placeholder="Course description"
                     ></textarea>
                     {errors.description && (
@@ -218,7 +218,7 @@ const AddCourse = () => {
                         required: "Please provided course price",
                     })}
                     type="text"
-                    className="input input-bordered w-full border-secondary"
+                    className="input input-bordered w-full border-secondary dark:bg-accent dark:text-white"
                     placeholder="Price"
                     />
                     {errors.price && (
@@ -232,7 +232,7 @@ const AddCourse = () => {
                         required: "Please provided course hours",
                     })}
                     type="text"
-                    className="input input-bordered w-full border-secondary"
+                    className="input input-bordered w-full border-secondary dark:bg-accent dark:text-white"
                     placeholder="Course hours"
                     />
                     {errors.hours && (
@@ -245,7 +245,7 @@ const AddCourse = () => {
                     <select
                         required
                         {...register("category")}
-                        className="select select-bordered w-full border-secondary"
+                        className="select select-bordered w-full border-secondary dark:bg-accent dark:text-white"
                     >
                         <option className="" value="Web Development">
                         Web Development
@@ -287,7 +287,8 @@ const AddCourse = () => {
                             {...register("learnings", {
                             required: "Student will learn",
                             })}
-                            className="textarea textarea-bordered my-2 w-full"
+                            className="textarea textarea-bordered my-2 w-full dark:bg-accent
+                             dark:text-white dark:border dark:border-secondary"
                             value={data}
                             onChange={(e) => handleChangeLearn(e, i)}
                             placeholder="Please write what student will learn"
@@ -310,7 +311,8 @@ const AddCourse = () => {
 
                     <button
                     onClick={() => handleAddContent()}
-                    className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white my-4"
+                    className="btn btn-primary bg-gradient-to-r from-primary to-secondary
+                     text-white my-4"
                     >
                     Add
                     </button>
@@ -320,7 +322,7 @@ const AddCourse = () => {
                         <div>
                         <div className="">
                             <textarea
-                            className="textarea textarea-bordered mt-2 w-full border-primary"
+                            className="textarea textarea-bordered mt-2 w-full border-primary dark:text-white dark:bg-accent"
                             name="chp_name"
                             value={data.chp_name}
                             onChange={(e) => handleChangeContent(e, i)}
@@ -328,14 +330,14 @@ const AddCourse = () => {
                             ></textarea>
                             <div className="w-full flex gap-4 items-center">
                             <input
-                                className="input input-bordered my-2 w-6/12 border-primary"
+                                className="input input-bordered my-2 w-6/12 border-secondary dark:text-white dark:bg-accent"
                                 name="lecture_num"
                                 value={data.lecture_num}
                                 onChange={(e) => handleChangeContent(e, i)}
                                 placeholder="Lecture Numbers"
                             ></input>
                             <input
-                                className="input input-bordered w-6/12 my-2 border-primary"
+                                className="input input-bordered w-6/12 my-2 border-secondary dark:text-white dark:bg-accent"
                                 name="chp_duration"
                                 value={data.chp_duration}
                                 onChange={(e) => handleChangeContent(e, i)}
@@ -358,7 +360,7 @@ const AddCourse = () => {
                             onChange={(event) => {
                                 setVideUpload(event.target.files[0]);
                             }}
-                            className="file-input file-input-bordered file-input-primary w-full"
+                            className="file-input file-input-bordered file-input-primary w-full dark:text-white dark:bg-accent"
                             />
                             <button
                             type="button"
@@ -382,7 +384,7 @@ const AddCourse = () => {
                 <input
                     {...register("image")}
                     type="file"
-                    className="input input-bordered file-input-primary w-full text-black"
+                    className="input input-bordered file-input-secondary w-full text-black dark:text-white dark:bg-accent"
                     placeholder="Upload a Image"
                 />
                 {errors.img && (

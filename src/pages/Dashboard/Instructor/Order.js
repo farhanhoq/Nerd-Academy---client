@@ -14,8 +14,8 @@ const Order = () => {
 
     return (
         <div>
-            <div className=" card my-12 bg-base-100 shadow-xl">
-                <div className="container mx-auto">
+            <div className=" card my-12 bg-base-100 shadow-xl dark:bg-accent dark:text-white">
+                <div className="container mx-auto ">
                     <div className="flex justify-between w-full px-4 py-2">
                         <div className="text-lg font-bold">
                             Order History
@@ -29,8 +29,8 @@ const Order = () => {
                     </div>
                     <div className="mt-6 overflow-x-auto">
                         <table className="w-full border border-collapse table-auto">
-                            <thead className="">
-                                <tr className="text-base font-bold text-left bg-gray-50">
+                            <thead>
+                                <tr className="text-base font-bold text-left bg-gray-50 dark:bg-accent dark:text-white">
                                     <th className="px-4 py-3 border-b-2 border-primary">Student</th>
                                     <th className="px-4 py-3 border-b-2 border-secondary">Course Name</th>
                                     <th className="px-4 py-3 border-b-2 border-primary">Price</th>
@@ -38,7 +38,7 @@ const Order = () => {
                                     <th className="px-4 py-3 text-center border-b-2 border-primary sm:text-left">Purchased On</th>
                                 </tr>
                             </thead>
-                            <tbody className="text-sm font-normal text-gray-700">
+                            <tbody className="text-sm font-normal text-gray-700 dark:text-white">
                                 {
                                     checkoutData?.map(data => <tr className="py-10 border-b border-gray-200 hover:bg-gray-100">
                                         <td className="flex flex-row items-center px-4 py-4">
@@ -48,22 +48,22 @@ const Order = () => {
                                                 </a>
                                             </div>
                                             <div className="flex-1 pl-1">
-                                                <div className="font-medium">{data?.userName}</div>
+                                                <div className="font-medium dark:text-white">{data?.userName}</div>
                                                 <div className="text-sm text-blue-600 ">
                                                     {data?.userEmail}
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="px-4 py-4">
+                                        <td className="px-4 py-4 dark:text-white">
                                             {data?.title}
                                         </td>
-                                        <td className="px-4 py-4">
+                                        <td className="px-4 py-4 dark:text-white">
                                             {data?.price}
                                         </td>
-                                        <td className="px-4 py-4">
+                                        <td className="px-4 py-4 dark:text-white">
                                             {data?.transactionId}
                                         </td>
-                                        <td className="px-4 py-4">
+                                        <td className="px-4 py-4 dark:text-white">
                                             {data?.date}
                                         </td>
                                     </tr>)
@@ -73,17 +73,6 @@ const Order = () => {
                             </tbody>
                         </table>
                     </div>
-                    {/* <div className="flex flex-col items-center w-full px-4 py-2 space-y-2 text-sm text-gray-500 sm:justify-between sm:space-y-0 sm:flex-row">
-                        <p className="flex">Showing&nbsp;<span className="font-bold"> 1 to 4 </span>&nbsp;of 8 entries</p>
-                        <div className="flex items-center justify-between space-x-2">
-                            <a href="#" className="hover:text-gray-600">Previous</a>
-                            <div className="flex flex-row space-x-1">
-                                <div className="flex px-2 py-px text-white bg-blue-400 border border-blue-400">1</div>
-                                <div className="flex px-2 py-px border border-blue-400 hover:bg-blue-400 hover:text-white">2</div>
-                            </div>
-                            <a href="#" className="hover:text-gray-600">Next</a>
-                        </div>
-                    </div> */}
                 </div>
             </div>
 

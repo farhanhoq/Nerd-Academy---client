@@ -6,7 +6,7 @@ import Navbar from '../pages/Shared/Navbar';
 
 const Main = () => {
     return (
-        <div className="dark:bg-black">
+        <div className="dark:bg-accent">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

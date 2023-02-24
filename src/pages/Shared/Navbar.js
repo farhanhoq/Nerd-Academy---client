@@ -244,7 +244,7 @@ const Navbar = () => {
       <div className="hidden lg:flex">
         <ul className="menu menu-horizontal">
           <li>
-            <span className="rounded item font-semibold" style={{ color: getColor("/") }}>
+            <span className="rounded item font-semibold dark:text-white" style={{ color: getColor("/") }}>
               Categories
             </span>
             <ul className="bg-base-100 rounded">{menuItems}</ul>
@@ -323,22 +323,23 @@ const Navbar = () => {
                 </div>
               </label>
 
-              <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-32">
+              <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content 
+              bg-base-100 rounded-box w-32 dark:bg-accent">
 
                 {
                   isRole === "student" &&
-                  <li><Link to="student-dashboard">Dashboard</Link></li>
+                  <li><Link to="student-dashboard" className="dark:text-white">Dashboard</Link></li>
                 }
                 {
                   isRole === "teacher" &&
-                  <li><Link to="dashboard">Dashboard</Link></li>
+                  <li><Link to="dashboard" className="dark:text-white">Dashboard</Link></li>
                 }
                 {
                   isRole === "admin" &&
-                  <li><Link to="admin-dashboard">Dashboard</Link></li>
+                  <li><Link to="admin-dashboard" className="dark:text-white">Dashboard</Link></li>
                 }
-                <li><Link to='/wishlist'>Wishlist</Link></li>
-                <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
+                <li><Link to='/wishlist' className="dark:text-white">Wishlist</Link></li>
+                <li><Link to='/' onClick={handleLogOut} className="dark:text-white">Log Out</Link></li>
               </ul>
 
             </div>

@@ -41,14 +41,14 @@ const Contact = () => {
           <div className="form-control mt-8">
             <div className="flex gap-5">
               <input type="text" placeholder="Name" className="input input-bordered input-primary 
-              dark:bg-black w-full max-w-xs rounded-none " />
+              dark:bg-accent w-full max-w-xs rounded-none " />
               <input type="email" name="email" placeholder="Email" className="input input-bordered
-              dark:bg-black input-primary w-full max-w-xs rounded-none" />
+              dark:bg-accent input-primary w-full max-w-xs rounded-none" />
             </div>
             <input type="text" name="subject" placeholder="Subject" className="input input-bordered 
-            dark:bg-black input-primary min-w-full max-w-xs mt-6 rounded-none" />
+            dark:bg-accent input-primary min-w-full max-w-xs mt-6 rounded-none" />
             <div className="form-control mt-6">
-              <textarea className="textarea textarea-bordered textarea-primary h-24 dark:bg-black rounded-none"
+              <textarea className="textarea textarea-bordered textarea-primary h-24 dark:bg-accent rounded-none"
                 placeholder="Enter your message "
                 name="message"
               ></textarea>
