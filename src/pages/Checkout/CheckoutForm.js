@@ -112,7 +112,7 @@ const CheckoutForm = ({ total, email }) => {
       handleDeleteCartData();
       checkoutItems?.forEach(singleItem => {
         handleAddData(singleItem?.courseId, singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours, singleItem?.instructorEmail, singleItem?.price);
-        handlePurchasedData(singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price, paymentIntent.id, singleItem?.tutor);
+        handlePurchasedData(singleItem?.courseId, singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price, paymentIntent.id, singleItem?.tutor);
       });
     }
     setProcessing(false);
@@ -151,9 +151,10 @@ const CheckoutForm = ({ total, email }) => {
       });
   }
 
-  const handlePurchasedData = (instructorEmail, picture, title, price, transactionId, tutor) => {
+  const handlePurchasedData = (courseId, instructorEmail, picture, title, price, transactionId, tutor) => {
 
     const checkoutData = {
+      courseId,
       instructorEmail,
       picture,
       title,
@@ -163,7 +164,7 @@ const CheckoutForm = ({ total, email }) => {
       date: `${date}-${month}-${year}`,
       transactionId
     }
-    console.log(checkoutData);
+    console.log(courseId);
 
 
     fetch('https://nerd-academy-server.vercel.app/checkout-data', {
@@ -224,6 +225,14 @@ const CheckoutForm = ({ total, email }) => {
         body: JSON.stringify(checkoutData),
       }
     ).then((res) => res.json());
+
+    fetch(`http://localhost:5000/course-bought/${courseId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(checkoutData),
+    }).then((res) => res.json());
 
 
   }
