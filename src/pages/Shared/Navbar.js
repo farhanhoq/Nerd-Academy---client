@@ -42,16 +42,12 @@ const Navbar = () => {
         res.json()
       ),
   });
-  // console.log(coursesData);
 
   const ai = coursesData.filter((course) => course.category === "Artificial Intelligence")
   const programming = coursesData.filter((course) => course.category === "Programming")
   const webDevelopment = coursesData.filter((course) => course.category === "Web Development")
   const computerScience = coursesData.filter((course) => course.category === "Computer Science")
   const appDevelopment = coursesData.filter((course) => course.category === "App Development")
-
-
-
 
   const handleLogOut = () => {
     logOut()

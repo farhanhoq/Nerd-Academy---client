@@ -31,11 +31,11 @@ const Review = ({ courseId }) => {
                     <div className='flex pb-5 '>
                         <img className='w-12 h-12 rounded-full' src={data?.picture} alt="" />
                         <div className='pl-2'>
-                            <h4 className='text-lg font-bold '>{data?.userName}</h4>
-                            <p className='pl-1 text-sm'>{data?.date}</p>
+                            <h4 className='text-lg font-bold dark:text-white'>{data?.userName}</h4>
+                            <p className='pl-1 text-sm dark:text-white'>{data?.date}</p>
                         </div>
                     </div>
-                    <p>{data?.review}</p>
+                    <p className="dark:text-white">{data?.review}</p>
                 </div>)
             }
         </div>

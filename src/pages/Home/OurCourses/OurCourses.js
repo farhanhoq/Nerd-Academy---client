@@ -68,7 +68,7 @@ const OurCourses = () => {
   }
 
   return (
-    <div className="pt-32 dark:bg-black dark:text-white" id="courses">
+    <div className="pt-32 dark:bg-dark dark:text-white" id="courses">
       <div className="w-11/12 mx-auto">
         <h1 className="text-3xl md:text-5xl text-center font-bold capitalize">
           Courses we offer
@@ -172,20 +172,19 @@ const OurCourses = () => {
                                 </div>
 
                                 <div className="mt-1 p-2">
-                                  <h2 className="text-slate-700 text-lg font-bold mt-3">
+                                  <h2 className="text-slate-700 dark:text-white text-lg font-bold mt-3">
                                     {course?.title}
                                   </h2>
-                                  <p className="mt-1 text-[2px] text-slate-400">
+                                  <p className="mt-1 text-[2px] text-slate-400 dark:text-white">
                                     {course?.description.slice(0, 60)}
                                   </p>
-                                  {/* <p>{course?.tutor}</p> */}
 
                                   <div className="mt-3 flex items-center justify-between">
                                     <p>
                                       <span className="text-base font-bold text-primary">
                                         $ {course?.price}
                                       </span>
-                                      <span className="text-sm font-semibold text-slate-400 mx-3">
+                                      <span className="text-sm font-semibold text-slate-400 dark:text-white mx-3">
                                         {course?.category}
                                       </span>
                                     </p>
@@ -215,10 +214,10 @@ const OurCourses = () => {
                                         className="w-10 h-10 rounded-full bg-gray-100 "
                                         alt=""
                                       />
-                                      <p className="font-medium text-gray-800">
+                                      <p className="font-medium text-gray-800 dark:text-white">
                                         {course?.tutor}
                                       </p>
-                                      <p className="text-md text-gray-600"></p>
+                                      <p className="text-md text-gray-600 dark:text-white"></p>
                                     </div>
 
                                     <div
