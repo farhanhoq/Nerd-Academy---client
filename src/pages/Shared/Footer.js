@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <div>
-      <hr />
+      {/* <hr className="dark:bg-black"/> */}
       <footer className="footer p-10 lg:grid-cols-3 md:justify-items-center my-8 dark:text-white">
         <div className="w-full">
           <h2 className="text-xl md:text-2xl text-primary mb-3 uppercase font-semibold">Office Address</h2>

@@ -30,7 +30,7 @@ const ImgSlider = () => {
 
   return (
     <div className="my-20">
-      <h1 className="text-3xl md:text-5xl text-center font-bold capitalize my-8">
+      <h1 className="text-3xl md:text-5xl text-center dark:text-white font-bold capitalize my-8">
         Our trending courses
       </h1>
       <div className="grid justify-center">
@@ -62,16 +62,16 @@ const ImgSlider = () => {
                       />
                     </figure>
                     <div className="p-5">
-                      <h2 className="font-bold text-xl">
+                      <h2 className="font-bold text-xl dark:text-white">
                         {course?.title}
                       </h2>
-                      <p className="badge badge-ghost font-thin rounded mt-4">
+                      <p className="badge badge-ghost font-thin rounded mt-4text-black dark:text-black">
                         {course?.tutor}
                       </p>
                       {/* <p className="ml-1 pt-1">{course?.description.length > 100 ? <>{course?.description.slice(0, 60) + "..."}</> : course?.description}</p> */}
 
                       <p className="flex justify-between mt-6">
-                        <p className="ml-1 text-lg text-primary font-bold mt-1">${course?.price}</p>
+                        <p className="ml-1 text-lg text-primary font-bold mt-1 dark:text-white">${course?.price}</p>
                         <span className="badge bg-gradient-to-r from-primary
               to-secondary px-6 py-4 mr-2 rounded-full border-none text-white">
                           Trending

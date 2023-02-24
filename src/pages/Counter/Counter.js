@@ -32,12 +32,12 @@ const Counter = () => {
                 className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1
             gap-8 my-8 w-12/12 mx-24">
                 <div className="w-full max-w-sm rounded-md flex flex-col items-center justify-center">
-                    <div className="flex flex-col items-center justify-center text-white">
+                    <div className="flex flex-col items-center justify-center text-white dark:text-white">
                         <ScrollTrigger
                             onEnter={() => setCountOn(true)}
                             onExit={() => setCountOn(false)}>
                             <div>
-                                <h1 className="dark:text-gray-400 text-[4rem] font-bold text-center">
+                                <h1 className="dark:text-white text-[4rem] font-bold text-center">
                                     {countOn && (
                                         <CountUp
                                             start={0}
@@ -55,12 +55,12 @@ const Counter = () => {
                     </div>
                 </div>
                 <div className="w-full max-w-sm rounded-md flex flex-col items-center justify-center">
-                    <div className="flex flex-col items-center justify-center text-white">
+                    <div className="flex flex-col items-center justify-center text-white dark:text-white">
                         <ScrollTrigger
                             onEnter={() => setCountOn(true)}
                             onExit={() => setCountOn(false)}>
                             <div>
-                                <h1 className="dark:text-gray-400 text-[4rem] font-bold text-center">
+                                <h1 className="dark:text-white text-[4rem] font-bold text-center">
                                     {countOn && (
                                         <CountUp
                                             start={0}
@@ -79,12 +79,12 @@ const Counter = () => {
                     </div>
                 </div>
                 <div className="w-full max-w-sm rounded-md flex flex-col items-center justify-center">
-                    <div className="flex flex-col items-center justify-center text-white">
+                    <div className="flex flex-col items-center justify-center text-white dark:text-white">
                         <ScrollTrigger
                             onEnter={() => setCountOn(true)}
                             onExit={() => setCountOn(false)}>
                             <div>
-                                <h1 className="dark:text-gray-400 text-[4rem] font-bold text-center">
+                                <h1 className="dark:text-white text-[4rem] font-bold text-center">
                                     {countOn && (
                                         <CountUp
                                             start={0}
@@ -102,19 +102,18 @@ const Counter = () => {
                     </div>
                 </div>
                 <div className="w-full max-w-sm rounded-md flex flex-col items-center justify-center">
-                    <div className="flex flex-col items-center justify-center text-white">
+                    <div className="flex flex-col items-center justify-center text-white dark:text-white">
                         <ScrollTrigger
                             onEnter={() => setCountOn(true)}
                             onExit={() => setCountOn(false)}>
                             <div>
-                                <h1 className="dark:text-gray-400 text-[4rem] font-bold text-center">
+                                <h1 className="dark:text-white text-[4rem] font-bold text-center">
                                     {countOn && (
                                         <CountUp
                                             start={0}
                                             end={courses.length}
                                             duration={1.3}
-                                            delay={0}
-                                        ></CountUp>
+                                            delay={0}></CountUp>
                                     )}
                                 </h1>
                                 <span className="mb-1 text-lg text-center block dark:text-white capitalize">
