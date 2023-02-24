@@ -38,7 +38,7 @@ const Dashboard = () => {
     return (
         <div className='mx-auto mt-10'>
             <div className="ml-auto mb-6">
-                <div className="bg-white">
+                {/* <div className="bg-white">
                     <div className="px-6 flex items-center justify-between space-x-4 2xl:container">
                         <div className="flex space-x-4">
                             <div className='ml-24'>
@@ -55,7 +55,7 @@ const Dashboard = () => {
                         </div>
 
                     </div>
-                </div>
+                </div> */}
 
                 <div className="px-6 pt-6 2xl:container">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
