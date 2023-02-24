@@ -1,4 +1,4 @@
-import {   ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -19,9 +19,11 @@ const AddCourse = () => {
     const [videoUpload, setVideUpload] = useState(null);
     const [videoUrls, setVideoUrls] = useState([]);
 
+    console.log(videoUrls)
+
     const [learnings, setLearning] = useState([]);
     const [contents, setContent] = useState([
-        { chp_name: "", lecture_num: "", chp_duration: "", chp_video: "" },
+        { chp_name: "", lecture_num: "", chp_duration: "" },
     ]);
 
     const { user } = useContext(AuthContext);
@@ -55,12 +57,10 @@ const AddCourse = () => {
         chp_name: "",
         lecture_num: "",
         chp_duration: "",
-        chp_video: ""
         };
         const newContent = [...contents, object];
         setContent(newContent);
     };
-    console.log(contents)
 
     const handleDeleteContent = (i) => {
         const deleteData = [...contents];
@@ -76,12 +76,13 @@ const AddCourse = () => {
 
     const videosListRef = ref(storage, "images/");
     const uploadVideo = () => {
-        if (contents.chp_video === null) return;
-        const videoRef = ref(storage, `videos/${contents.chp_video.name + v4()}`);
-        uploadBytes(videoRef, contents.chp_video).then((snapshot) => {
+        if (videoUpload === null) return;
+        const videoRef = ref(storage, `videos/${videoUpload.name + v4()}`);
+        uploadBytes(videoRef, videoUpload).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
+            console.log(url)
             setVideoUrls((prev) => [...prev, url]);
-            });
+        });
         });
     };
 
@@ -89,19 +90,18 @@ const AddCourse = () => {
         listAll(videosListRef).then((response) => {
         response.items.forEach((item) => {
             getDownloadURL(item).then((url) => {
-            console.log(item, url)
+            console.log(item, url);
             setVideoUrls((prev) => [...prev, url]);
             });
         });
         });
     }, []);
 
-    console.log(videoUrls)
+    console.log(videoUrls);
 
     const handleAddCourse = (data) => {
         const image = data.image[0];
         const formData = new FormData();
-        console.log(data)
         formData.append("image", image);
 
         const url = `https://api.imgbb.com/1/upload?key=218ccec0a78d63b33e00278172e1c053`;
@@ -124,7 +124,7 @@ const AddCourse = () => {
                 postingDate: `${date}.${month}.${year}`,
                 learning: learnings,
                 content: contents,
-                video: videoUrls
+                video: videoUrls,
             };
 
             fetch("https://nerd-academy-server.vercel.app/courses", {
@@ -136,7 +136,7 @@ const AddCourse = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data)
+                console.log(data);
                 toast.success("Course Uploaded Successfully");
                 // navigation("/dashboard/myCourse");
                 });
@@ -354,18 +354,18 @@ const AddCourse = () => {
                             Select your video
                             </h1>
                             <input
-                                type="file"
-                                name="chp_video"
-                                value={data.chp_video}
-                                onChange={(e) => {
-                                    handleChangeContent(e, i)
-                                }}
-                                className="file-input file-input-bordered file-input-primary w-full"
+                            type="file"
+                            onChange={(event) => {
+                                setVideUpload(event.target.files[0]);
+                            }}
+                            className="file-input file-input-bordered file-input-primary w-full"
                             />
                             <button
+                            type="button"
                             onClick={uploadVideo}
                             className="btn text-white mt-4 border-none bg-gradient-to-r from-primary 
-                            to-secondary">
+                            to-secondary"
+                            >
                             Add video
                             </button>
                         </div>

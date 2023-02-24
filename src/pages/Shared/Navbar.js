@@ -42,7 +42,7 @@ const Navbar = () => {
         res.json()
       ),
   });
-  console.log(coursesData);
+  // console.log(coursesData);
 
   const ai = coursesData.filter((course) => course.category === "Artificial Intelligence")
   const programming = coursesData.filter((course) => course.category === "Programming")

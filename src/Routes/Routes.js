@@ -29,7 +29,7 @@ import StudentAnnouncement from '../pages/StudentDashboard/Student/StudentAnnoun
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
-import Home from "../pages/Home/Home/Home";
+import Home from "../pages/home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
@@ -56,6 +56,12 @@ import TeacherPrerequisites from "../pages/TeacherPrerequisites/TeacherPrerequis
 import Students from "../pages/Dashboard/Instructor/Students";
 import AdminProfile from "../pages/Dashboard/AdminDashboard/AdminProfile";
 import AdminProfileEdit from "../pages/Dashboard/AdminDashboard/AdminProfileEdit";
+import PrivacyContent from "../pages/Dashboard/AdminDashboard/PrivacyContent";
+import TermContent from "../pages/Dashboard/AdminDashboard/TermContent";
+import LicenceContent from "../pages/Dashboard/AdminDashboard/LicenceContent";
+import CookieContent from "../pages/Dashboard/AdminDashboard/CookieContent";
+import EditPendingCourse from "../pages/Dashboard/Instructor/EditPendingCourse";
+import InstructorDetails from "../pages/InstructorDetails/InstructorDetails";
 
 export const routes = createBrowserRouter([
 
@@ -74,6 +80,10 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/courses/${params.id}`)
             }
             ,
+            {
+                path: '/instructor-details',
+                element: <InstructorDetails></InstructorDetails>
+            },
             {
                 path: '/Review',
                 element: <Review></Review>
@@ -219,6 +229,11 @@ export const routes = createBrowserRouter([
                 element: <Pending></Pending>,
             },
             {
+                path: '/dashboard/edit-pending-course/:id',
+                element: <EditPendingCourse></EditPendingCourse>,
+                loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/edit-pending-course/${params.id}`)
+            },
+            {
                 path: '/dashboard/publish',
                 element: <Publish></Publish>,
             },
@@ -271,6 +286,23 @@ export const routes = createBrowserRouter([
                 path: '/admin-dashboard/menus',
                 element: <Menu></Menu>,
             },
+            {
+                path: '/admin-dashboard/menus/privacy-edit',
+                element: <PrivacyContent></PrivacyContent>,
+            },
+            {
+                path: '/admin-dashboard/menus/term-edit',
+                element: <TermContent></TermContent>,
+            },
+            {
+                path: '/admin-dashboard/menus/licence-edit',
+                element: <LicenceContent></LicenceContent>,
+            },
+            {
+                path: '/admin-dashboard/menus/cookie-edit',
+                element: <CookieContent></CookieContent>,
+            },
+
             {
                 path: '/admin-dashboard/blogs',
                 element: <AdminBlogs></AdminBlogs>,
