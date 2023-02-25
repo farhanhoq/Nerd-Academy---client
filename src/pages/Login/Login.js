@@ -86,17 +86,18 @@ const Login = () => {
           <Lottie loop={true} animationData={eduAnimation} />
         </div>
 
-        <div className="w-10/12 lg:w-4/12 md:mt-16 mb-16 lg:mb-0">
+        <div className="w-10/12 lg:w-4/12 md:mt-16 mb-16 lg:mb-0 dark:bg-accent">
           <div>
-            <h1 className="text-5xl text-primary text-center mb-4 font-bold uppercase">
+            <h1 className="text-5xl text-primary text-center mb-4 font-bold uppercase dark:text-secondary">
               Login
             </h1>
           </div>
-          <div className="card card-body shadow-2xl bg-base-100 border border-primary mt-[50px] md:mt-0">
+          <div className="card card-body shadow-2xl bg-base-100 dark:bg-accent border border-primary
+           mt-[50px] md:mt-0 dark:border-secondary">
             <form onSubmit={handleSubmit(handleLogin)}>
-              <div className="">
+              <div>
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text dark:text-white">Email</span>
                 </label>
                 <input
                   {...register("email", {
@@ -104,13 +105,14 @@ const Login = () => {
                   })}
                   type="email"
                   placeholder="Your Email"
-                  className="input input-bordered border-primary rounded-full w-full"
+                  className="input input-bordered border-primary rounded-full w-full dark:bg-accent
+                   dark:text-white dark:border-secondary"
                 />
                 {errors.email && <p className="text-error">{errors.email?.message}</p>}
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-textdark dark:text-white">Password</span>
                 </label>
                 <input
                   {...register("password", {
@@ -119,23 +121,24 @@ const Login = () => {
                   })}
                   type="password"
                   placeholder="Your Password"
-                  className="input input-bordered border-primary rounded-full w-full"
+                  className="input input-bordered border-primary rounded-full w-full  dark:bg-accent
+                   dark:text-white dark:border-secondary"
                 />
                 {errors.password && <p className="text-error">{errors.password?.message}</p>}
                 <label className="label">
                   <Link to="/register">
-                    <span className="label-text-alt">
+                    <span className="label-text-alt dark:text-white">
                       New to this site? Please
-                      <span className="link link-primary font-bold">Register</span>
+                      <span className="link link-primary font-bold dark:text-secondary"> Register</span>
                     </span>
                   </Link>
                 </label>
               </div>
-              <input className='btn bg-gradient-to-r from-primary to-secondary text-white border-primary hover:border-primary
+              <input className='btn bg-gradient-to-r from-primary to-secondary text-white border-primary dark:border-secondary hover:border-primary
               my-4 w-full hover:bg-gradient-to-r hover:from-white hover:text-black hover:to-white' type="submit" value="Login" />
             </form>
             <button onClick={handleSignInGoogle} className="btn btn-outline hover:bg-gradient-to-r 
-             hover:from-primary hover:to-secondary border-primary hover:border-primary">
+             hover:from-primary hover:to-secondary border-primary hover:border-primary dark:text-white dark:border-secondary">
               Sign up with Google<span></span>
             </button>
           </div>
