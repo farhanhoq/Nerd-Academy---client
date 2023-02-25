@@ -1,4 +1,5 @@
 import minusb from "../../../Assets/minusb.png";
+import cart from "../../../Assets/001-shopping-cart.png";
 import "./OurCourses.css";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -9,6 +10,7 @@ import { toast } from "react-hot-toast";
 import ScrollCarousel from "scroll-carousel";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 
 const OurCourses = () => {
   const [coursedata, setCourseData] = useState([]);
@@ -62,6 +64,42 @@ const OurCourses = () => {
         }
       })
   }
+
+  const handleAddToCart = (data) => {
+    const coursecart = {
+      courseId: data?._id,
+      category: data?.category,
+      email: user?.email,
+      name: user?.displayName,
+      title: data?.title,
+      picture: data?.picture,
+      price: data?.price,
+      tutor: data?.tutor,
+      lectures: data?.content.length,
+      hours: data?.hours,
+      date: data?.postingDate,
+      description: data?.description,
+      instructorEmail: data?.email
+    };
+
+    // console.log(coursecart);
+
+
+
+    fetch("https://nerd-academy-server.vercel.app/userscart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(coursecart),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.acknowledged === true) {
+          toast.success("Added to cart successfully");
+        }
+      });
+  };
 
   if (loading) {
     return <Loader></Loader>
@@ -188,7 +226,15 @@ const OurCourses = () => {
                                         {course?.category}
                                       </span>
                                     </p>
-
+                                  <div className="">
+                                    <div
+                                      className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200 mr-2"
+                                      onClick={() =>
+                                        handleAddToCart(course)
+                                      }
+                                    >
+                                      <img className="h-4 w-4" src={cart}  alt="" />
+                                    </div>
                                     <div
                                       className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200"
                                       onClick={() =>
@@ -204,6 +250,8 @@ const OurCourses = () => {
                                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                                       </svg>
                                     </div>
+                                  </div>
+                                    
                                   </div>
 
                                   <div className="flex items-center relative border-b border-primary py-1"></div>
