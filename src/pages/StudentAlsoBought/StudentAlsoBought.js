@@ -4,16 +4,18 @@ import { FaStar, FaUserFriends } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider';
 import Loader from '../../Loader/Loader';
 
-const StudentAlsoBought = () => {
+const StudentAlsoBought = ({category}) => {
   const { loading } = useContext(AuthContext);
   const [trendingData, setTrendingData] = useState([]);
 
+  
   useEffect(() => {
-    fetch('https://nerd-academy-server.vercel.app/studentAlsoBought')
+    fetch(`https://nerd-academy-server.vercel.app/courses-also-bought?category=${category}`)
       .then((res) => res.json())
       .then((data) => setTrendingData(data));
-  }, []);
-
+    }, [category]);
+    
+    console.log(trendingData)
   if(loading){
     return <Loader></Loader>
   }
@@ -35,18 +37,15 @@ const StudentAlsoBought = () => {
                           <div className="font-bold">
                             {data?.name}
                           </div>
-                          <div className='flex'>
+                          <div className='flex flex-col'>
+                            <div className="text-sm ">
+                              <span className="opacity-70">{data?.title}</span>
+                            </div>
                             <div className="text-sm mr-2">
-                            Video: <span className="opacity-70">
-                              {data?.hours} hours
-                            </span>
-                          </div>
-                          <div className="text-sm ">
-                            Updated: <span className="opacity-70">{data?.updated}</span>
-                          </div>
-                          </div>
-                          <div>
-                            <p className='text-sm badge rounded bg-amber-400 border-none text-black'>Bestseller</p>
+                              Video: <span className="opacity-70">
+                                {data?.hours} hours
+                              </span>
+                            </div>
                           </div>
                           
                         </div>
@@ -56,12 +55,7 @@ const StudentAlsoBought = () => {
                     </td>
                     <td>
                       <div className="text-right">
-                        <p className=""><FaStar className='inline'/> 4.7</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div className="text-right">
-                        <p className=""><FaUserFriends className='inline mr-1 text-xl'/>12643</p>
+                        <p className=""><FaUserFriends className='inline mr-1 text-xl'/>{data.bought}</p>
                       </div>
                     </td>
                     <td>
