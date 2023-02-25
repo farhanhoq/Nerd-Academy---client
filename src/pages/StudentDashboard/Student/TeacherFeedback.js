@@ -36,9 +36,18 @@ const TeacherFeedback = ({course}) => {
           .then(res => res.json())
           .then(data => {
               toast.success('Review added successfully');
+              fetch(`https://nerd-academy-server.vercel.app/teacher-review-qty?email=${instructorEmail}`, {
+                  method: "PUT",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(handleAddPost),
+                }).then((res) => res.json());
           })
           .catch(error => console.error(error));
             reset();
+
+          
         };
 
     
