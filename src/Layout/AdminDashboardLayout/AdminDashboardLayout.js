@@ -50,7 +50,7 @@ const AdminDashboardLayout = () => {
       <div className="m-2">
         <button
           onClick={toggleDrawer}
-          className="btn text-2xl text-white btn-sm mx-60"
+          className="btn text-2xl text-white btn-sm mx-60 bg-gradient-to-r from-primary to-secondary border-none"
         >
           <RiMenuUnfoldFill />
         </button>
@@ -61,7 +61,7 @@ const AdminDashboardLayout = () => {
           type="checkbox"
           className="drawer-toggle"
         />
-        <div className="drawer-content px-5 md:px-14 ml-0 md:ml-72">
+        <div className="drawer-content px-5 md:pl-[7rem] ml-0 md:ml-72">
           <Outlet />
         </div>
         <>
@@ -72,11 +72,11 @@ const AdminDashboardLayout = () => {
             enableOverlay={false}
             style={{ width: "320px" }}
           >
-            <div className="drawer-side border-2 dark:bg-accent">
+            <div className="drawer-side border dark:bg-accent">
               <div className="m-2">
                 <button
                   onClick={toggleDrawer}
-                  className="btn text-2xl text-white btn-sm mx-60"
+                  className="btn text-2xl text-white btn-sm mx-60 bg-gradient-to-r from-primary to-secondary border-none"
                 >
                   <RiMenuUnfoldFill />
                 </button>

@@ -90,7 +90,6 @@ const Pending = () => {
               (p) =>
                 p.publish === false && (
                   <>
-                    {console.log(p)}
                     <div className="indicator dark:bg-accent">
                       {p?.suggested && (
                         <label
