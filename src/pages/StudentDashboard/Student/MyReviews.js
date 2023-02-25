@@ -43,8 +43,8 @@ const MyReviews = () => {
         {reviews.map((review) => (
           <section className="p-6 md:p-12 text-center md:text-left shadow-lg rounded-md">
             <div className="flex justify-center">
-              <div className="max-w-xl">
-                <div className="block p-6 rounded-lg shadow-sm bg-white m-4">
+              <div className="w-full">
+                <div className="block p-4 rounded-lg shadow-sm bg-white m-4">
                   <div className="md:flex md:flex-row">
                     <div className="md:w-80 w-36 flex justify-center items-center mb-6 lg:mb-0 mx-auto md:mx-0">
                       <img
@@ -55,14 +55,15 @@ const MyReviews = () => {
                     </div>
                     <div className="md:mr-10">
                       <div>
-                        <p className="text-gray-500 font-light mb-6">
-                          {review?.review}
+                        <p className="font-semibold text-xl mb-2 text-gray-800">
+                          {review?.title}
                         </p>
+
 
                         <div className="flex justify-between">
                           <div>
-                            <p className="font-semibold text-xl mb-2 text-gray-800">
-                              {review?.title}
+                            <p className="text-gray-500 font-light mb-6">
+                              {review?.review}
                             </p>
                             <p className="font-semibold text-gray-500 mb-0">
                               {review?.userEmail}
@@ -71,7 +72,8 @@ const MyReviews = () => {
                               {review?.date}
                             </p>
                           </div>
-                          <div className="flex items-center justify-end space-x-3.5 rounded-lg ml-12">
+
+                          <div className="flex items-end space-x-3.5 rounded-lg">
                             <label
                               onClick={() => setModalReviews(review)}
                               htmlFor="my-modal"
