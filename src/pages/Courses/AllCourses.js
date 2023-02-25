@@ -44,10 +44,6 @@ const AllCourses = () => {
             })
     }
 
-    if (loading) {
-        return <Loader></Loader>
-    }
-
     const handleAddToCart = (data) => {
         const coursecart = {
           courseId: data?._id,
@@ -83,6 +79,11 @@ const AllCourses = () => {
             }
           });
       };
+
+
+    if (loading) {
+        return <Loader></Loader>
+    }
 
     return (
         <div className='py-24'>
