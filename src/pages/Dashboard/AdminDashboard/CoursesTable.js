@@ -38,6 +38,16 @@ const CoursesTable = ({ course, setCourse, refetch }) => {
                 },
             }
         ).then((res) => res.json());
+
+        fetch(
+            `https://nerd-academy-server.vercel.app/teacher-course-qty?email=${email}`,
+            {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                },
+            }
+        ).then((res) => res.json());
     };
 
     return (
