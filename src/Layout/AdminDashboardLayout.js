@@ -46,12 +46,11 @@ const AdminDashboardLayout = () => {
   }
 
   return (
-    <div className="mx-auto">
-      {/* <Navbar></Navbar> */}
+    <div className="mx-auto dark:bg-accent">
       <div className="m-2">
         <button onClick={toggleDrawer} className="btn text-2xl text-white btn-sm mx-60"><RiMenuUnfoldFill /></button>
       </div>
-      <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile dark:bg-accent">
         <input
           id="admin-dashboard-drawer"
           type="checkbox"
@@ -69,7 +68,7 @@ const AdminDashboardLayout = () => {
             style={{ width: "320px" }}
           >
 
-            <div className="drawer-side border-2">
+            <div className="drawer-side border-2 dark:bg-accent">
               <div className="m-2">
                 <button onClick={toggleDrawer} className="btn text-2xl text-white btn-sm mx-60"><RiMenuUnfoldFill /></button>
               </div>

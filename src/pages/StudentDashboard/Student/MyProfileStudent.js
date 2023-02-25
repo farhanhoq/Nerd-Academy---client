@@ -17,10 +17,10 @@ const MyProfileStudent = () => {
     })
     refetch();
     return (
-        <div className="card bg-base-100 shadow-xl p-12">
+        <div className="card bg-base-100 shadow-xl p-12 dark:bg-accent dark:border dark:border-secondary dark:text-white">
 
             <div className="flex flex-row justify-between">
-                <h3 className="text-2xl font-bold">My profile</h3>
+                <h3 className="text-2xl font-bold dark:text-white">My profile</h3>
                 <Link to="/student-dashboard/my-profile-edit" className="text-primary"><BiEdit></BiEdit> Edit</Link>
             </div>
 

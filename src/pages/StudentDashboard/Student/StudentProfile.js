@@ -11,7 +11,8 @@ const StudentProfile = () => {
   }
   return (
     <div className="my-10">
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-xl dark:bg-accent dark:text-white dark:border 
+      dark:border-secondary">
         <div className="card-body">
           <h2 className="card-title text-4xl font-bold mb-10">My Profile</h2>
           <div className="">
