@@ -48,6 +48,7 @@ const CourseDetails = () => {
     description,
     content,
     learning,
+    category
   } = course[0];
   // console.log(lectures, rating, review, hours);
 
@@ -249,7 +250,7 @@ const students = [...new Set(purchasedCourses.map((course) => course.buyerEmail)
             <h1 className="text-3xl font-bold pb-4 dark:text-white">
               Student also bought
             </h1>
-            {/* <StudentAlsoBought></StudentAlsoBought> */}
+            <StudentAlsoBought category={category}></StudentAlsoBought>
           </div>
 
           {/* instructor */}

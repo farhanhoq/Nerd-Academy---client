@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Context/AuthProvider';
+import { AuthContext } from '../../../Context/AuthProvider';
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 
@@ -170,7 +170,7 @@ const Dashboard = () => {
                                             {countOn && (
                                                 <CountUp
                                                     start={0}
-                                                    end={total}
+                                                    end={total.toFixed(2)}
                                                     duration={1.3}
                                                     delay={0}
                                                 ></CountUp>

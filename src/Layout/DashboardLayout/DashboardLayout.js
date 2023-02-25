@@ -2,9 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Context/AuthProvider";
+import { AuthContext } from "../../Context/AuthProvider";
 import { GoSignOut } from "react-icons/go";
-import "./style.css";
 import { AiOutlineHome } from "react-icons/ai";
 import { ImProfile } from "react-icons/im";
 import Drawer from "react-modern-drawer";
@@ -72,7 +71,7 @@ const DashboardLayout = () => {
           type="checkbox"
           className="drawer-toggle"
         />
-        <div className="drawer-content px-5 md:px-24 ml-0 md:ml-72 dark:bg-accent">
+        <div className="drawer-content px-5 md:pl-[7rem] ml-0 md:ml-72 dark:bg-accent">
           <Outlet />
         </div>
         <>
@@ -83,7 +82,7 @@ const DashboardLayout = () => {
             enableOverlay={false}
             style={{ width: "320px" }}>
 
-            <div className="drawer-side border dark:bg-accent">
+            <div className="drawer-side border dark:bg-accent h-screen">
               <div className="mx-2 flex justify-start">
                 <button
                   onClick={toggleDrawer}

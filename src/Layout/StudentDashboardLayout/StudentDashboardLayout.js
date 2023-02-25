@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Context/AuthProvider";
+import { AuthContext } from "../../Context/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import "./style.css";
 import { AiOutlineHome } from "react-icons/ai";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
@@ -59,7 +58,7 @@ const StudentDashboardLayout = () => {
           type="checkbox"
           className="drawer-toggle"
         />
-        <div className="drawer-content px-5 md:px-24 ml-0 md:ml-72 dark:bg-accent">
+        <div className="drawer-content px-5 md:pl-[7rem] ml-0 md:ml-72 dark:bg-accent">
           <Outlet />
         </div>
         <>
@@ -70,7 +69,7 @@ const StudentDashboardLayout = () => {
             enableOverlay={false}
             style={{ width: "320px" }}
           >
-            <div className="drawer-side border dark:bg-accent">
+            <div className="drawer-side border dark:bg-accent h-screen">
               <div className="flex justify-start">
                 <button
                   onClick={toggleDrawer}
