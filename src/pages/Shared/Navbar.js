@@ -347,10 +347,10 @@ const Navbar = () => {
           :
           <>
             <div>
-              <Link to="/login" className="btn list item" style={{ color: getColor("/") }}>Signin</Link>
+              <Link to="/login" className="btn list item" style={{ color: getColor("/") }}>Login</Link>
             </div>
             <Link to="/register" className="btn hover:btn-primary
-                list item" style={{ color: getColor("/") }}>Signup</Link>
+                list item" style={{ color: getColor("/") }}>Join</Link>
           </>
         }
 
