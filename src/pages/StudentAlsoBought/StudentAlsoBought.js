@@ -1,8 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { FaStar, FaUserFriends } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import Loader from '../../Loader/Loader';
+import ScrollToTop from '../ScrollToTop';
 
 const StudentAlsoBought = ({category}) => {
   const { loading } = useContext(AuthContext);
@@ -20,61 +22,61 @@ const StudentAlsoBought = ({category}) => {
     return <Loader></Loader>
   }
     return (
-        <div className=''>
-              <div className="overflow-x-auto border p-3">
-            <table className="table w-full">
-              {trendingData?.map((data) => (
-                <tbody>
-                  <tr className="flex justify-between">
-                    <td>
+      <div className="">
+        <div className="overflow-x-auto border p-3">
+          <table className="table w-full">
+            {trendingData?.map((data) => (
+              // <Link to={`/details/${data._id}`}>
+
+              <tbody>
+                <tr className="flex justify-between">
+                  <td>
+                    <Link to={`/details/${data._id}`}>
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
                           <div className="mask w-24 rounded-lg h-14">
-                            <img src={data?.picture} alt=""/>
+                            <img src={data?.picture} alt="" />
                           </div>
                         </div>
                         <div className="">
-                          <div className="font-bold">
-                            {data?.name}
-                          </div>
-                          <div className='flex flex-col'>
+                          <div className="flex flex-col">
                             <div className="text-sm ">
                               <span className="opacity-70">{data?.title}</span>
                             </div>
                             <div className="text-sm mr-2">
-                              Video: <span className="opacity-70">
+                              Video:{" "}
+                              <span className="opacity-70">
                                 {data?.hours} hours
                               </span>
                             </div>
                           </div>
-                          
                         </div>
-                        
                       </div>
-                      
-                    </td>
-                    <td>
-                      <div className="text-right">
-                        <p className=""><FaUserFriends className='inline mr-1 text-xl'/>{data.bought}</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div className="">
-                        <p className="font-bold text-lg">
-                          ${data?.price}
-                        </p>
-                      </div>
+                    </Link>
+                  </td>
 
-                    </td>
-                    
-                  </tr>
-                  
-                </tbody>
-              ))}
-            </table>
-          </div>
-          
-              </div>
+                  <td>
+                    <div className="text-right">
+                      <p className="">
+                        <FaUserFriends className="inline mr-1 text-xl" />
+                        {data.bought}
+                      </p>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div className="">
+                      <p className="font-bold text-lg">${data?.price}</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+
+              // </Link>
+            ))}
+          </table>
+        </div>
+      </div>
     );
 };
 
