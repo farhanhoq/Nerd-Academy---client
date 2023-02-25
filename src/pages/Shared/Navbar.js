@@ -342,7 +342,7 @@ const Navbar = () => {
                   <li><Link to="admin-dashboard">Dashboard</Link></li>
                 }
                 <li><Link to='/wishlist'>Wishlist</Link></li>
-                <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
+                <li><Link to='/' onClick={handleLogOut}>Sign Out</Link></li>
               </ul>
 
             </div>
@@ -350,10 +350,10 @@ const Navbar = () => {
           :
           <>
             <div>
-              <Link to="/login" className="btn list item" style={{ color: getColor("/") }}>Login</Link>
+              <Link to="/login" className="btn list item" style={{ color: getColor("/") }}>Signin</Link>
             </div>
             <Link to="/register" className="btn hover:btn-primary
-                list item" style={{ color: getColor("/") }}>Register</Link>
+                list item" style={{ color: getColor("/") }}>Signup</Link>
           </>
         }
 

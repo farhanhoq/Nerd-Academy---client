@@ -54,6 +54,7 @@ const CourseDetails = () => {
     };
 
 
+
     fetch("https://nerd-academy-server.vercel.app/userscart", {
       method: "POST",
       headers: {
@@ -176,7 +177,7 @@ const CourseDetails = () => {
           <div className="my-32">
             <h1 className="text-3xl font-bold  pb-4">Instructor</h1>
             <div>
-              <Link to="/instructor-details"><h2 className="font-bold text-xl underline "><a className="link link-primary">{tutor}</a></h2></Link>
+              <Link to={`/instructor-details/${email}`} className="font-bold text-xl underline ">{tutor}</Link>
               <p className="font-thin mb-2 ">Head of Data Science at Pierian Training</p>
               <div className="flex">
                 <div className="avatar mr-3">

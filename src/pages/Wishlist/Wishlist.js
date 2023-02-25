@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider';
 import ScrollToTop from '../ScrollToTop';
 
@@ -12,11 +13,11 @@ const Wishlist = () => {
         queryFn: async () => {
             const res = await fetch(`https://nerd-academy-server.vercel.app/wishlist?email=${user?.email}`);
             const data = await res.json();
-            console.log(data);
+            
             return data;
         }
     })
-
+console.log(wishLists);
     const handleRemove = (id) => {
         const proceed = window.confirm(
             "Are you sure, you want to remove this order?"
@@ -34,6 +35,42 @@ const Wishlist = () => {
                 });
         }
     };
+
+
+
+    const handleAddToCart = (data) => {
+        const coursecart = {
+          courseId: data?.course?._id,
+          email: user?.email,
+          name: user?.displayName,
+          title: data?.course?.title,
+          picture: data?.course?.picture,
+          price: data?.course?.price,
+          rating: data?.course?.rating,
+          tutor: data?.course?.tutor,
+          lectures: data?.course?.lectures,
+          hours: data?.course?.hours,
+          date: data?.course?.date,
+          description: data?.course?.description,
+          instructorEmail: data?.course?.email
+        };
+        // console.log(coursecart);
+    
+    
+        fetch("https://nerd-academy-server.vercel.app/userscart", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(coursecart),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.acknowledged === true) {
+              toast.success("Added to cart successfully");
+            }
+          });
+      };
 
     return (
         <section className="py-24">
@@ -86,6 +123,13 @@ const Wishlist = () => {
                                                     className="text-red-500 hover:underline cursor-pointer"
                                                 >
                                                     Remove
+                                                </button>
+                                                <br />
+                                                <button
+                                                    onClick={() => handleAddToCart(data)}
+                                                    className="btn btn-sm rounded bg-gradient-to-r from-primary to-secondary border-none"
+                                                >
+                                                    Add to cart
                                                 </button>
                                             </div>
                                         </td>

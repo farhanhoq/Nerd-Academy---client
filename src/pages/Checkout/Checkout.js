@@ -8,7 +8,7 @@ import ScrollToTop from "../ScrollToTop";
 import CheckoutForm from './CheckoutForm';
 
 const stripePromise = loadStripe("pk_test_51M7InvAbbSTlGyeuin3DBD1lpNqKQB1As3LAI2cEa1DIoSidt5XyEVaT1AKyXlh5QWPH1tv1c5e7yTJe4dJmIxUE00GAFEKTgx");
-console.log(stripePromise);
+// console.log(stripePromise);
 
 const Checkout = () => {
   const {user} = useContext(AuthContext);

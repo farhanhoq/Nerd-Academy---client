@@ -81,8 +81,9 @@ export const routes = createBrowserRouter([
             }
             ,
             {
-                path: '/instructor-details',
-                element: <InstructorDetails></InstructorDetails>
+                path: '/instructor-details/:id',
+                element: <InstructorDetails></InstructorDetails>,
+                loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/users/${params.id}`)
             },
             {
                 path: '/Review',

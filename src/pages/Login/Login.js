@@ -89,7 +89,7 @@ const Login = () => {
         <div className="w-10/12 lg:w-4/12 md:mt-16 mb-16 lg:mb-0">
           <div>
             <h1 className="text-5xl text-primary text-center mb-4 font-bold uppercase">
-              Login
+              Signin
             </h1>
           </div>
           <div className="card card-body shadow-2xl bg-base-100 border border-primary mt-[50px] md:mt-0">

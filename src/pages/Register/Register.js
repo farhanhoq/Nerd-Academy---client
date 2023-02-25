@@ -120,7 +120,7 @@ const Register = () => {
       <div className="w-10/12 lg:w-4/12 md:my-32 lg:mt-22 mb-22">
         <div>
           <h1 className="text-5xl text-primary text-center mb-4 font-bold">
-            Register
+            Signup
           </h1>
         </div>
         <div className="card card-body shadow-2xl bg-base-100 border border-primary">
