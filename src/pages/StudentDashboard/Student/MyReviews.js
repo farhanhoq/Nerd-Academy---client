@@ -41,17 +41,17 @@ const MyReviews = () => {
       <h2 className="card-title dark:text-white">My Reviews</h2>
       <hr className="my-2" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-40 my-6 bg-base-100 shadow-xl dark:bg-accent dark:text-white">
+      <div className="grid lg:grid-cols-1 md:grid-cols-2 gap-x-40 my-6 bg-base-100  dark:bg-accent dark:text-white">
         {reviews.map((review) => (
           <div className="flex justify-center">
-            <div className="max-w-xl h-96">
+            <div className="max-w-7xl h-auto">
               <div className="block p-6 rounded-lg shadow-sm bg-white dark:bg-accent
                  dark:text-white dark:border dark:border-secondary">
                 <div className="md:flex md:flex-row">
-                  <div className="md:w-80 w-36 flex justify-center items-center mb-6 lg:mb-0 mx-auto md:mx-0">
+                  <div className="md:w-80 w-36 flex lg:flex-none md:flex-none justify-center items-center mb-6 lg:mb-0 mx-auto md:mx-0">
                     <img
-                      src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                      className="rounded-full shadow-md w-20 h-20"
+                      src="https://mdbootstrap.com/img/Photos/Avat ars/img%20%2810%29.jpg"
+                      className="rounded-full shadow-md w-20 h-20 mr-2"
                       alt="woman avatar"
                     />
                   </div>
@@ -61,7 +61,7 @@ const MyReviews = () => {
                       <p className="font-semibold text-xl mb-2 text-gray-800 dark:text-white">
                         {review?.title}
                       </p>
-                      <div className="flex justify-between">
+                      <div className="flex justify-between items-end">
                         <div>
                           <p className="text-gray-500 font-light mb-6 dark:text-white">
                             {review?.review}
@@ -72,6 +72,7 @@ const MyReviews = () => {
                           <p className="text-gray-500 font-light dark:text-white">
                             {review?.date}
                           </p>
+
                         </div>
                         <div className="flex items-center justify-end space-x-3.5 rounded-lg ml-12">
                           <label
@@ -101,6 +102,7 @@ const MyReviews = () => {
                             </button>
                           </Link>
                         </div>
+
                       </div>
                     </div>
                   </div>
