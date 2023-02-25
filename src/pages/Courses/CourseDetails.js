@@ -170,7 +170,7 @@ const students = [...new Set(purchasedCourses.map((course) => course.buyerEmail)
                 <Link to='/all-courses'>Programming Languages</Link>
               </li>
               <FaAngleRight className="mx-3 text-2xl" />
-              <li>Add to cart</li>
+              <li>{title}</li>
             </ul>
           </div>
           <h1 className="text-2xl md:text-5xl font-bold">{title}</h1>
@@ -179,31 +179,10 @@ const students = [...new Set(purchasedCourses.map((course) => course.buyerEmail)
           <p className="mt-7">
             Created by <span className="badge rounded px-1">{tutor}</span>
           </p>
-          {/* <p className="mt-2 mb-1 items-center">
-            <span className="">
-              <FaStar className="inline mr-1" />{" "}
-            </span>
-            {rating} ratings
-          </p> */}
-          {/* <p className="mb-1">
-            <span>
-              <FaRocketchat className="inline mr-2" />
-            </span>
-            {review}+ reviews
-          </p> */}
-          <p className="mb-1">
-            <span>
-              <FaGlobe className="inline mr-2" />
-            </span>
-            English, Spanish
-          </p>
-          <p className="mb-1">
-            <span>
-              <FaUserPlus className="inline mr-2" />
-            </span>
-            15,435+ students
-          </p>
-          <p>Publish date: {postingDate}</p>
+         
+          
+          
+          
         </div>
       </div>
 
