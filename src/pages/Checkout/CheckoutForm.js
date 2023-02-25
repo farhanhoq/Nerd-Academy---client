@@ -6,12 +6,15 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { send } from '@emailjs/browser';
 import emailjs from '@emailjs/browser';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ total, email }) => {
   let newDate = new Date()
   let date = newDate.getDate();
   let month = newDate.getMonth() + 1;
   let year = newDate.getFullYear();
+
+  const navigate = useNavigate();
 
   const serviceIdEmailJs = "service_ot97gvb";
   const templateIdEmailJs = "template_gspkcpk";
@@ -114,8 +117,11 @@ const CheckoutForm = ({ total, email }) => {
         handleAddData(singleItem?.courseId, singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours, singleItem?.instructorEmail, singleItem?.price);
         handlePurchasedData(singleItem?.courseId, singleItem?.instructorEmail, singleItem?.picture, singleItem?.title, singleItem?.price, paymentIntent.id, singleItem?.tutor);
       });
+      
+      navigate('/student-dashboard/student-courses')
     }
     setProcessing(false);
+
 
   }
 

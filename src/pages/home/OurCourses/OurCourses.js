@@ -1,5 +1,4 @@
 import minusb from "../../../Assets/minusb.png";
-import cart from "../../../Assets/001-shopping-cart.png";
 import "./OurCourses.css";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -10,6 +9,7 @@ import { toast } from "react-hot-toast";
 import ScrollCarousel from "scroll-carousel";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FaCartArrowDown } from "react-icons/fa";
 
 
 const OurCourses = () => {
@@ -25,7 +25,7 @@ const OurCourses = () => {
     fetch("https://nerd-academy-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => {
-        setCourseData(data);
+      setCourseData(data);
       });
   }, []);
 
@@ -233,7 +233,7 @@ const OurCourses = () => {
                                         handleAddToCart(course)
                                       }
                                     >
-                                      <img className="h-4 w-4" src={cart}  alt="" />
+                                      <FaCartArrowDown />
                                     </div>
                                     <div
                                       className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200"
