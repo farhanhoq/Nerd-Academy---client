@@ -6,6 +6,26 @@ body {
   font-family: 'Inter', sans-serif
 }
 
+.gradient {
+  background: linear-gradient(to right, #3A4256, #11CEE6);
+}
+
+.bg {
+  background: white;
+}
+
+.margin-top {
+  margin-top: 87px;
+}
+
+.margin-top1 {
+  margin-top: 65px;
+}
+
+.display {
+  display: none !important;
+}
+
 ::-webkit-scrollbar {
   width: 13px;
 }

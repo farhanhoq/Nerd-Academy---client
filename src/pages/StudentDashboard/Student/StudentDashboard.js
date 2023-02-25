@@ -11,7 +11,7 @@ import {
   CartesianGrid,
   Legend,
 } from 'recharts';
-import trophy from '../../Assets/trophy.png';
+import trophy from '../../../Assets/trophy.png';
 
 const StudentDashboard = () => {
   const data = [

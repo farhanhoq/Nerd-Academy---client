@@ -8,47 +8,52 @@ import { AiOutlineHome } from "react-icons/ai";
 import { GrMenu } from "react-icons/gr";
 import { FaBlog } from "react-icons/fa";
 import { GoSignOut } from "react-icons/go";
-import "./style.css";
-import { AuthContext } from "../Context/AuthProvider";
+import { AuthContext } from "../../Context/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import Drawer from 'react-modern-drawer';
-import 'react-modern-drawer/dist/index.css';
-import { RiMenuUnfoldFill } from 'react-icons/ri';
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
+import { RiMenuUnfoldFill } from "react-icons/ri";
 
 const AdminDashboardLayout = () => {
-
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(true);
   const toggleDrawer = () => {
-    setIsOpen((prevState) => !prevState)
-  }
+    setIsOpen((prevState) => !prevState);
+  };
 
   const { data: profile = [] } = useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
-      const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
+      const res = await fetch(
+        `https://nerd-academy-server.vercel.app/users/?email=${user?.email}`
+      );
       const data = await res.json();
       return data;
-    }
-  })
+    },
+  });
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
         toast.success("Sign Out Successfully");
-        navigate('/');
+        navigate("/");
       })
-      .catch(error => {
+      .catch((error) => {
         toast.error(error.message);
-      })
-  }
+      });
+  };
 
   return (
     <div className="mx-auto dark:bg-accent dark:text-white">
       <div className="m-2">
-        <button onClick={toggleDrawer} className="btn text-2xl text-white btn-sm mx-60"><RiMenuUnfoldFill /></button>
+        <button
+          onClick={toggleDrawer}
+          className="btn text-2xl text-white btn-sm mx-60"
+        >
+          <RiMenuUnfoldFill />
+        </button>
       </div>
       <div className="drawer drawer-mobile dark:bg-accent">
         <input
@@ -63,14 +68,18 @@ const AdminDashboardLayout = () => {
           <Drawer
             open={isOpen}
             onClose={toggleDrawer}
-            direction='left'
+            direction="left"
             enableOverlay={false}
             style={{ width: "320px" }}
           >
-
             <div className="drawer-side border-2 dark:bg-accent">
               <div className="m-2">
-                <button onClick={toggleDrawer} className="btn text-2xl text-white btn-sm mx-60"><RiMenuUnfoldFill /></button>
+                <button
+                  onClick={toggleDrawer}
+                  className="btn text-2xl text-white btn-sm mx-60"
+                >
+                  <RiMenuUnfoldFill />
+                </button>
               </div>
               <label
                 htmlFor="admin-dashboard-drawer"
@@ -121,7 +130,9 @@ const AdminDashboardLayout = () => {
                             className="fill-current group-hover:text-sky-300"
                           ></path>
                         </svg>
-                        <span className="-mr-1 font-medium dark:text-white">Dashboard</span>
+                        <span className="-mr-1 font-medium dark:text-white">
+                          Dashboard
+                        </span>
                       </Link>
                     </li>
 
@@ -135,7 +146,8 @@ const AdminDashboardLayout = () => {
                           className="w-6 h-6 text-gray-500 dark:text-white hover:dark:text-white flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                           fill="currentColor"
                           viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg">
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
                           <path
                             fill-rule="evenodd"
                             d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
@@ -164,7 +176,8 @@ const AdminDashboardLayout = () => {
                     <li>
                       <Link
                         to="/admin-dashboard/courses"
-                        className="text-base text-gray-900 font-normal hover:dark:bg-secondary rounded-lg flex items-center p-2 hover:bg-gray-100 group">
+                        className="text-base text-gray-900 font-normal hover:dark:bg-secondary rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                      >
                         <RiAdminLine className="text-xl text-grey dark:text-white "></RiAdminLine>
                         <span className="ml-3 flex-1 whitespace-nowrap lg:text-black dark:text-white">
                           Courses
@@ -176,7 +189,12 @@ const AdminDashboardLayout = () => {
                         to="/admin-dashboard/profile"
                         className="text-base text-gray-900 font-normal hover:dark:bg-secondary rounded-lg flex items-center p-2 hover:bg-gray-100 group"
                       >
-                        <img className="h-5 w-5 text-xl text-grey dark:text-white" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="" srcset="" />
+                        <img
+                          className="h-5 w-5 text-xl text-grey dark:text-white"
+                          src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png"
+                          alt=""
+                          srcset=""
+                        />
                         <span className="ml-3 flex-1 whitespace-nowrap lg:text-black dark:text-white">
                           My Profile
                         </span>

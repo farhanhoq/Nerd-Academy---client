@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Context/AuthProvider";
+import { AuthContext } from "../../Context/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import "./style.css";
 import { AiOutlineHome } from "react-icons/ai";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";

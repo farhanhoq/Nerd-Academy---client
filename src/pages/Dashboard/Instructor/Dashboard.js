@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Context/AuthProvider';
+import { AuthContext } from '../../../Context/AuthProvider';
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 
