@@ -22,7 +22,8 @@ const ImgSlider = () => {
       ),
   });
 
-  console.log(courses)
+  const sortedCourses = [...courses].sort((a, b) => b.bought - a.bought);
+  const trending = sortedCourses.slice(0, 9)
 
   if (loading) {
     return <Loader></Loader>;
@@ -50,7 +51,7 @@ const ImgSlider = () => {
               delay: 5000,
             }}
             modules={[Autoplay]}>
-            {courses?.map((course, i) => (
+            {trending?.map((course, i) => (
               <SwiperSlide key={i}>
                 <Link to={`/details/${course?._id}`} className="h-96 flex shadow-lg">
                   <div className={`mycard card-active`}>
@@ -70,13 +71,13 @@ const ImgSlider = () => {
                       </p>
                       {/* <p className="ml-1 pt-1">{course?.description.length > 100 ? <>{course?.description.slice(0, 60) + "..."}</> : course?.description}</p> */}
 
-                      <p className="flex justify-between mt-6">
+                      <div className="flex justify-between mt-6">
                         <p className="ml-1 text-lg text-primary font-bold mt-1 dark:text-white">${course?.price}</p>
-                        <span className="badge bg-gradient-to-r from-primary
-              to-secondary px-6 py-4 mr-2 rounded-full border-none text-white">
+                          <span className="badge bg-gradient-to-r from-primary to-secondary px-6 py-4 mr-2 rounded-full border-none text-white">
                           Trending
-                        </span>
-                      </p>
+                          </span>
+                      </div>
+                          <p className="text-primary text-sm font-bold my-2 dark:text-white">{course?.bought}+ people have already purchased this course</p>
                     </div>
                   </div>
                 </Link>
