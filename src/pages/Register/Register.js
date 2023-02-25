@@ -123,11 +123,11 @@ const Register = () => {
             Signup
           </h1>
         </div>
-        <div className="card card-body shadow-2xl bg-base-100 border border-primary">
+        <div className="card card-body shadow-2xl bg-base-100 border border-primary dark:bg-accent dark:border-secondary">
           <form onSubmit={handleSubmit(handleSignUp)}>
             <div className="">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text dark:text-white">Name</span>
               </label>
               <input
                 {...register("name", {
@@ -135,13 +135,14 @@ const Register = () => {
                 })}
                 type="text"
                 placeholder="Your name"
-                className="input input-bordered border-primary rounded-full w-full"
+                className="input input-bordered border-primary rounded-full w-full dark:bg-accent 
+                dark:text-white dark:border-secondary"
               />
               {errors.name && <span className='text-error'>{errors.name.message}</span>}
             </div>
             <div className="mt-2">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text dark:text-white">Email</span>
               </label>
               <input
                 {...register("email", {
@@ -149,13 +150,14 @@ const Register = () => {
                 })}
                 type="email"
                 placeholder="Your email"
-                className="input input-bordered border-primary rounded-full w-full"
+                className="input input-bordered border-primary rounded-full w-full dark:bg-accent
+                 dark:text-white dark:border-secondary"
               />
               {errors.email && <span className='text-error'>{errors.email.message}</span>}
             </div>
             <div className="form-control mt-2">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text dark:text-white">Password</span>
               </label>
               <input
                 {...register("password", {
@@ -165,18 +167,19 @@ const Register = () => {
                 })}
                 type="password"
                 placeholder="password"
-                className="input input-bordered border-primary rounded-full w-full"
+                className="input input-bordered border-primary rounded-full w-full dark:bg-accent
+                 dark:text-white dark:border-secondary"
               />
               {errors.password && <span className='text-error'>{errors.password.message}</span>}
             </div>
             <div className="form-control mt-2">
               <label className="label">
-                <span className="label-text">Account Type</span>
+                <span className="label-text dark:text-white">Account Type</span>
               </label>
-              <div className="input-group">
+              <div className="input-group dark:text-white dark:bg-accent">
                 <select
                   {...register("account")}
-                  className="select select-bordered border-primary rounded">
+                  className="select select-bordered border-primary rounded dark:bg-accent dark:text-white dark:border-secondary">
                   <option value="student">Student</option>
                   <option value="teacher">Teacher</option>
                 </select>
@@ -184,20 +187,21 @@ const Register = () => {
 
               <label className="label mt-2">
                 <Link to="/login">
-                  <span className="label-text-alt ">
+                  <span className="label-text-alt dark:text-white">
                     Have an account?{" "}
-                    <span className="link link-primary font-bold">Login</span>
+                    <span className="link link-primary font-bold dark:text-white">Login</span>
                   </span>
                 </Link>
               </label>
             </div>
             <input className='btn bg-gradient-to-r from-primary to-secondary text-white border-primary hover:border-primary
-              my-4 w-full hover:bg-gradient-to-r hover:from-white hover:text-black hover:to-white'
+              my-4 w-full hover:bg-gradient-to-r hover:from-white hover:text-black hover:to-white
+               dark:text-white dark:border-secondary'
               type="submit" value="Sign up" />
           </form>
 
           <button onClick={handleSignInGoogle} className="btn btn-outline hover:bg-gradient-to-r 
-             hover:from-primary hover:to-secondary border-primary hover:border-primary">
+             hover:from-primary hover:to-secondary border-primary hover:border-primary dark:text-white ">
             Sign up with Google<span></span>
           </button>
         </div>

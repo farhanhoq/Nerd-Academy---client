@@ -5,8 +5,8 @@ import anime from '../../Assets/error-animation.json'
 
 const Error = () => {
     return (
-        <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 py-32 items-center'>
+        <div className="dark:bg-accent">
+            <div className='grid grid-cols-1 md:grid-cols-2 py-32 items-center dark:bg-accent'>
                 <div className='w-10/12 mx-auto'>
                 <Lottie loop={true} animationData={anime} />
                 </div>
