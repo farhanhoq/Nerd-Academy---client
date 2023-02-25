@@ -24,14 +24,14 @@ const StudentOrderHistory = () => {
         <div className=" card my-20">
             <div className="container mx-auto">
                 <div className="px-4 py-2">
-                    <div className="text-4xl font-bold">
+                    <div className="text-4xl font-bold dark:text-white">
                         Order History
                     </div>
                 </div>
                 <div className="mt-6 overflow-x-auto">
                     <table className="w-full border border-collapse table-auto">
                         <thead className="">
-                            <tr className="text-base font-bold text-left bg-gray-50">
+                            <tr className="text-base font-bold text-left bg-gray-50 dark:bg-accent dark:text-white">
                                 <th className="px-4 py-3 border-b-2 border-primary">Student</th>
                                 <th className="px-4 py-3 border-b-2 border-secondary">Course Name</th>
                                 <th className="px-4 py-3 border-b-2 border-primary">Price</th>
@@ -42,7 +42,7 @@ const StudentOrderHistory = () => {
                         <tbody className="text-sm font-normal text-gray-700">
                             {
                                 studentCheckoutData.map(order =>
-                                <tr className="py-10 border-b border-gray-200 hover:bg-gray-100">
+                                <tr className="py-10 border-b border-gray-200 hover:bg-gray-100 hover:dark:bg-transparent">
                                 <td className="flex flex-row items-center px-4 py-4">
                                     <div className="flex w-10 h-10 mr-4">
                                         <a href="/" className="relative block">
@@ -50,28 +50,26 @@ const StudentOrderHistory = () => {
                                         </a>
                                     </div>
                                     <div className="flex-1 pl-1">
-                                        <div className="font-medium">{order?.userName}</div>
+                                        <div className="font-medium dark:text-white">{order?.userName}</div>
                                         <div className="text-sm text-primary ">
                                             {order?.userEmail}
                                         </div>
                                     </div>
                                 </td>
-                                <td className="px-4 py-4">
+                                <td className="px-4 py-4 dark:text-white">
                                     {order?.title}
                                 </td>
-                                <td className="px-4 py-4">
+                                <td className="px-4 py-4 dark:text-white">
                                     ${order?.price}
                                 </td>
-                                <td className="px-4 py-4">
+                                <td className="px-4 py-4 dark:text-white">
                                     {order?.transactionId}
                                 </td>
-                                <td className="px-4 py-4">
+                                <td className="px-4 py-4 dark:text-white">
                                     {order?.date}
                                 </td>
                             </tr>)
                             }
-
-
                         </tbody>
                     </table>
                 </div>

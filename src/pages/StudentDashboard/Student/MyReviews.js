@@ -21,6 +21,8 @@ const MyReviews = () => {
   });
   refetch();
 
+  console.log(reviews)
+
   const deleteProduct = (id) => {
     fetch(`https://nerd-academy-server.vercel.app/review/${id}`, {
       method: "DELETE",
@@ -36,15 +38,15 @@ const MyReviews = () => {
 
   return (
     <div className="my-12">
-      <h2 className="card-title">My Reviews</h2>
+      <h2 className="card-title dark:text-white">My Reviews</h2>
       <hr className="my-2" />
 
-      <div className="card my-6 bg-base-100 shadow-xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-40 my-6 bg-base-100 shadow-xl dark:bg-accent dark:text-white">
         {reviews.map((review) => (
-          <section className="p-6 md:p-12 text-center md:text-left shadow-lg rounded-md">
             <div className="flex justify-center">
-              <div className="max-w-xl">
-                <div className="block p-6 rounded-lg shadow-sm bg-white m-4">
+              <div className="max-w-xl h-96">
+                <div className="block p-6 rounded-lg shadow-sm bg-white dark:bg-accent
+                 dark:text-white dark:border dark:border-secondary">
                   <div className="md:flex md:flex-row">
                     <div className="md:w-80 w-36 flex justify-center items-center mb-6 lg:mb-0 mx-auto md:mx-0">
                       <img
@@ -55,19 +57,19 @@ const MyReviews = () => {
                     </div>
                     <div className="md:mr-10">
                       <div>
-                        <p className="text-gray-500 font-light mb-6">
+                        <p className="text-gray-500 font-light mb-6 dark:text-white">
                           {review?.review}
                         </p>
 
                         <div className="flex justify-between">
                           <div>
-                            <p className="font-semibold text-xl mb-2 text-gray-800">
+                            <p className="font-semibold text-xl mb-2 text-gray-800 dark:text-white">
                               {review?.title}
                             </p>
-                            <p className="font-semibold text-gray-500 mb-0">
+                            <p className="font-semibold text-gray-500 mb-0 dark:text-white">
                               {review?.userEmail}
                             </p>
-                            <p className="text-gray-500 font-light">
+                            <p className="text-gray-500 font-light dark:text-white">
                               {review?.date}
                             </p>
                           </div>
@@ -106,8 +108,6 @@ const MyReviews = () => {
                 </div>
               </div>
             </div>
-            <div></div>
-          </section>
         ))}
       </div>
       {modalReviews && (

@@ -90,11 +90,12 @@ const MyProfileEditStudent = () => {
 
 
     return (
-        <form onSubmit={handleSubmit(handleEdit)} className="card bg-base-100 shadow-xl p-12">
+        <form onSubmit={handleSubmit(handleEdit)} className="card bg-base-100 dark:bg-accent
+         dark:text-white dark:border dark:border-secondary shadow-xl p-12">
 
             <div className="flex flex-row justify-between">
-                <h3 className="text-2xl font-bold">My profile</h3>
-                <button type='submit' className='btn btn-primary'>Save Changes</button>
+                <h3 className="text-2xl font-bold dark:text-white">My profile</h3>
+                <button type='submit' className='btn btn-primary dark:text-white bg-gradient-to-r from-primary to-secondary border-none'>Save Changes</button>
             </div>
 
             <div className="flex flex-col lg:flex-row justify-center gap-0 lg:gap-12 mt-6 items-center">
@@ -106,13 +107,11 @@ const MyProfileEditStudent = () => {
                             <img src={users?.body?.picture} alt="" />
                         </div>
                     </div>
-                    {/* <button className="border p-2 bg-primary text-black rounded cursor-pointer">
-                        Edit Profile
-                    </button> */}
+
                     <div className="form-control w-full max-w-xs">
                         <input
                             {...register("image")}
-                            type="file" className="input input-bordered w-full max-w-xs" placeholder='Upload a Image' />
+                            type="file" className="input input-bordered w-full max-w-xs dark:text-white dark:bg-accent dark:border-secondary" placeholder='Upload a Image' />
                         {errors.image && <span className='text-error'>{errors.image.message}</span>}
                     </div>
                 </div>
@@ -120,84 +119,84 @@ const MyProfileEditStudent = () => {
                 <div className="card-body flex flex-col gap-4">
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text font-semibold">Full Name</span>
+                            <span className="label-text font-semibold dark:text-white">Full Name</span>
                         </label>
 
                         <input
                             defaultValue={users?.body?.fullName}
                             type="text"
                             {...register("name")}
-                            placeholder="name"
-                            className="input input-bordered w-full"
+                            placeholder="Name"
+                            className="input input-bordered w-full dark:text-white dark:bg-accent dark:border-secondary"
                         />
                     </div>
 
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text font-semibold">Email</span>
+                            <span className="label-text font-semibold dark:text-white">Email</span>
                         </label>
                         <input
                             type="email"
                             placeholder={user?.email}
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full dark:text-white dark:bg-accent dark:border-secondary"
                             disabled
                         />
                     </div>
 
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text font-semibold">Phone Number</span>
+                            <span className="label-text font-semibold dark:text-white">Phone Number</span>
                         </label>
                         <input
                             defaultValue={users?.body?.phone}
                             type="text"
                             {...register("number")}
                             placeholder="Enter your number"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full dark:text-white dark:bg-accent dark:border-secondary"
                         />
                     </div>
 
-                    <div className="form-control w-full">
+  
+                </div>
+
+                <div className="card-body flex flex-col gap-4">
+                <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text font-semibold">Skill</span>
+                            <span className="label-text font-semibold dark:text-white">Skill</span>
                         </label>
                         <input
                             defaultValue={users?.body?.skill}
                             type="text"
                             {...register("skill")}
                             placeholder="Enter your skill"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full dark:text-white dark:bg-accent dark:border-secondary"
                         />
                     </div>
-                </div>
-
-                <div className="card-body flex flex-col gap-4">
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text font-semibold">Address</span>
+                            <span className="label-text font-semibold dark:text-white">Address</span>
                         </label>
                         <input
                             defaultValue={users?.body?.address}
                             type="text"
                             {...register("address")}
                             placeholder="Enter your Address"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full dark:text-white dark:bg-accent dark:border-secondary"
                         />
                     </div>
 
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text font-semibold">Education</span>
+                            <span className="label-text font-semibold dark:text-white">Education</span>
                         </label>
                         <input
                             defaultValue={users?.body?.education}
                             type="text"
                             {...register("education")}
                             placeholder="Enter your Last Education"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full dark:text-white dark:bg-accent dark:border-secondary"
                         />
                     </div>
-
                 </div>
 
             </div>
