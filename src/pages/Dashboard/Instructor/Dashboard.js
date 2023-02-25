@@ -9,6 +9,7 @@ const Dashboard = () => {
     const [purchasedCourses, setPurchasedCourses] = useState([]);
     const [countOn, setCountOn] = useState(false);
 
+    
     useEffect(() => {
         fetch(`https://nerd-academy-server.vercel.app/my-courses?email=${user?.email}`)
             .then((res) => res.json())
