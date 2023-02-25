@@ -84,6 +84,8 @@ const CourseDetails = () => {
       instructorEmail: email,
     };
 
+
+
     fetch("https://nerd-academy-server.vercel.app/userscart", {
       method: "POST",
       headers: {
@@ -236,14 +238,8 @@ const CourseDetails = () => {
               Instructor
             </h1>
             <div>
-              <Link to="/instructor-details">
-                <h2 className="font-bold text-xl underline ">
-                  <a className="link link-primary">{tutor}</a>
-                </h2>
-              </Link>
-              <p className="font-thin mb-2 dark:text-white">
-                Head of Data Science at Pierian Training
-              </p>
+              <Link to={`/instructor-details/${email}`} className="font-bold text-xl underline ">{tutor}</Link>
+              <p className="font-thin mb-2 ">Head of Data Science at Pierian Training</p>
               <div className="flex">
                 <div className="avatar mr-3">
                   <div className="w-28 rounded-full">

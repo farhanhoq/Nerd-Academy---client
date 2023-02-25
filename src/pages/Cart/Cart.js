@@ -101,8 +101,8 @@ const Cart = () => {
 
           <div className="w-5/12">
             <div className="border border-primary rounded-xl p-4 w-7/12 mx-auto">
-              <h4 className="text-xl font-bold mb-2 dark:text-white">Total</h4>
-              <h1 className="text-4xl font-bold dark:text-white">${total}</h1>
+              <h4 className="text-xl font-bold mb-2">Total</h4>
+              <h1 className="text-4xl font-bold">${total.toFixed(2)}</h1>
               <div className="divider mt-[-3px]"></div>
 
               <Link to="/checkout" className="btn bg-gradient-to-r from-primary to-secondary rounded text-white w-full mt-5">

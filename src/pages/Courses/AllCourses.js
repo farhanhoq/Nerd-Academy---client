@@ -48,6 +48,42 @@ const AllCourses = () => {
         return <Loader></Loader>
     }
 
+    const handleAddToCart = (data) => {
+        const coursecart = {
+          courseId: data?._id,
+          category: data?.category,
+          email: user?.email,
+          name: user?.displayName,
+          title: data?.title,
+          picture: data?.picture,
+          price: data?.price,
+          tutor: data?.tutor,
+          lectures: data?.content.length,
+          hours: data?.hours,
+          date: data?.postingDate,
+          description: data?.description,
+          instructorEmail: data?.email
+        };
+
+        // console.log(coursecart);
+    
+    
+    
+        fetch("https://nerd-academy-server.vercel.app/userscart", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(coursecart),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.acknowledged === true) {
+              toast.success("Added to cart successfully");
+            }
+          });
+      };
+
     return (
         <div className='py-24'>
             <h1 className='text-center text-primary text-5xl font-semibold mt-12'>WE HAVE {courseData.length} WELL-DESIGNED COURSES BY OUR EXPERT INSTRUCTOR FROM ALL OVER THE WORLD </h1>
@@ -155,13 +191,18 @@ const AllCourses = () => {
 
                                     <div
                                         tabIndex={0}
-                                        className="dropdown-content card card-compact w-64 p-2 shadow bg-white border text-primary-content rounded text-justify"
+                                        className="dropdown-content card card-compact w-[320px] p-1 shadow bg-white border text-primary-content rounded-lg text-justify"
                                     >
-                                        <div className="card-body">
-                                            <h3 className="card-title">
+                                        <div className="card-body text-black text-left">
+                                            <h3 className="card-title font-bold text-sm">
                                                 {course?.title}
                                             </h3>
-                                            <p>{course?.description}</p>
+                                            <p className='text-xs mt-[-10px] text-primary font-bold mb-2'>Published: {course?.postingDate}</p>
+                                            <p className='text-xs mb-3'>{course?.description.slice(0, 150)}...</p>
+                                            {/* {
+                                                course?.learning?.map(item => <p className='text-xs'>{item}</p>)
+                                            } */}
+                                            <button onClick={() => handleAddToCart(course)} className='btn btn-wide bg-gradient-to-r from-primary to-secondary border-none rounded btn-sm mx-auto text-white'>Add to cart</button>
                                         </div>
                                     </div>
                                 </div>
@@ -274,13 +315,18 @@ const AllCourses = () => {
 
                                     <div
                                         tabIndex={0}
-                                        className="dropdown-content card card-compact w-64 p-2 shadow bg-white border text-primary-content rounded text-justify"
+                                        className="dropdown-content card card-compact w-[320px] p-1 shadow bg-white border text-primary-content rounded-lg text-justify"
                                     >
-                                        <div className="card-body">
-                                            <h3 className="card-title">
+                                        <div className="card-body text-black text-left">
+                                            <h3 className="card-title font-bold text-sm">
                                                 {course?.title}
                                             </h3>
-                                            <p>{course?.description}</p>
+                                            <p className='text-xs mt-[-10px] text-primary font-bold mb-2'>Published: {course?.postingDate}</p>
+                                            <p className='text-xs mb-3'>{course?.description.slice(0, 150)}...</p>
+                                            {/* {
+                                                course?.learning?.map(item => <p className='text-xs'>{item}</p>)
+                                            } */}
+                                            <button onClick={() => handleAddToCart(course)} className='btn btn-wide bg-gradient-to-r from-primary to-secondary border-none rounded btn-sm mx-auto text-white'>Add to cart</button>
                                         </div>
                                     </div>
                                 </div>
@@ -393,13 +439,18 @@ const AllCourses = () => {
 
                                     <div
                                         tabIndex={0}
-                                        className="dropdown-content card card-compact w-64 p-2 shadow bg-white border text-primary-content rounded text-justify"
+                                        className="dropdown-content card card-compact w-[320px] p-1 shadow bg-white border text-primary-content rounded-lg text-justify"
                                     >
-                                        <div className="card-body">
-                                            <h3 className="card-title">
+                                        <div className="card-body text-black text-left">
+                                            <h3 className="card-title font-bold text-sm">
                                                 {course?.title}
                                             </h3>
-                                            <p>{course?.description}</p>
+                                            <p className='text-xs mt-[-10px] text-primary font-bold mb-2'>Published: {course?.postingDate}</p>
+                                            <p className='text-xs mb-3'>{course?.description.slice(0, 150)}...</p>
+                                            {/* {
+                                                course?.learning?.map(item => <p className='text-xs'>{item}</p>)
+                                            } */}
+                                            <button onClick={() => handleAddToCart(course)} className='btn btn-wide bg-gradient-to-r from-primary to-secondary border-none rounded btn-sm mx-auto text-white'>Add to cart</button>
                                         </div>
                                     </div>
                                 </div>
@@ -512,13 +563,18 @@ const AllCourses = () => {
 
                                     <div
                                         tabIndex={0}
-                                        className="dropdown-content card card-compact w-64 p-2 shadow bg-white border text-primary-content rounded text-justify"
+                                        className="dropdown-content card card-compact w-[320px] p-1 shadow bg-white border text-primary-content rounded-lg text-justify"
                                     >
-                                        <div className="card-body">
-                                            <h3 className="card-title">
+                                        <div className="card-body text-black text-left">
+                                            <h3 className="card-title font-bold text-sm">
                                                 {course?.title}
                                             </h3>
-                                            <p>{course?.description}</p>
+                                            <p className='text-xs mt-[-10px] text-primary font-bold mb-2'>Published: {course?.postingDate}</p>
+                                            <p className='text-xs mb-3'>{course?.description.slice(0, 150)}...</p>
+                                            {/* {
+                                                course?.learning?.map(item => <p className='text-xs'>{item}</p>)
+                                            } */}
+                                            <button onClick={() => handleAddToCart(course)} className='btn btn-wide bg-gradient-to-r from-primary to-secondary border-none rounded btn-sm mx-auto text-white'>Add to cart</button>
                                         </div>
                                     </div>
                                 </div>
@@ -631,13 +687,18 @@ const AllCourses = () => {
 
                                     <div
                                         tabIndex={0}
-                                        className="dropdown-content card card-compact w-64 p-2 shadow bg-white border text-primary-content rounded text-justify"
+                                        className="dropdown-content card card-compact w-[320px] p-1 shadow bg-white border text-primary-content rounded-lg text-justify"
                                     >
-                                        <div className="card-body">
-                                            <h3 className="card-title">
+                                        <div className="card-body text-black text-left">
+                                            <h3 className="card-title font-bold text-sm">
                                                 {course?.title}
                                             </h3>
-                                            <p>{course?.description}</p>
+                                            <p className='text-xs mt-[-10px] text-primary font-bold mb-2'>Published: {course?.postingDate}</p>
+                                            <p className='text-xs mb-3'>{course?.description.slice(0, 150)}...</p>
+                                            {/* {
+                                                course?.learning?.map(item => <p className='text-xs'>{item}</p>)
+                                            } */}
+                                            <button onClick={() => handleAddToCart(course)} className='btn btn-wide bg-gradient-to-r from-primary to-secondary border-none rounded btn-sm mx-auto text-white'>Add to cart</button>
                                         </div>
                                     </div>
                                 </div>

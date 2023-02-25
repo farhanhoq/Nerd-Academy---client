@@ -35,8 +35,8 @@ const Banner = () => {
               subscription.
             </p>
             <Link
-              to="#courses"
-              className="btn bg-white dark:bg-accent text-black dark:text-white border-none hover:bg-white hover:shadow-2xl shadow-white"
+              to="/all-courses"
+              className="btn bg-white dark:bg-black text-black dark:text-white border-none hover:bg-white hover:shadow-2xl shadow-white"
             >
               Explore our courses
             </Link>
