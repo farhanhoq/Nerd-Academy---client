@@ -38,16 +38,16 @@ const AllInstructor = () => {
     // console.log(courses);
 
     return (
-        <section className="min-w-screen min-h-screen text-gray-600 w-full my-6">
+        <section className="min-w-screen min-h-screen text-gray-600 w-full my-6 dark:text-white">
             <div className="flex flex-col justify-center h-full">
-                <div className="w-full mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
-                    <header className="px-5 py-4 border-b border-gray-100">
-                        <h2 className="font-semibold text-gray-800 text-2xl">Instructors</h2>
+                <div className="w-full mx-auto bg-white shadow-lg rounded-sm border border-gray-200 dark:bg-accent dark:border-secondary">
+                    <header className="px-5 py-4 border-b border-gray-100 dark:border-secondary">
+                        <h2 className="font-semibold text-gray-800 text-2xl dark:text-white">Instructors</h2>
                     </header>
                     <div className="p-3">
                         <div className="overflow-x-auto">
                             <table className="table-auto w-full">
-                                <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50 dark:text-white dark:bg-accent">
                                     <tr>
                                         <th className="p-2 whitespace-nowrap">
                                             <div className="font-semibold text-left">Category</div>
@@ -77,14 +77,14 @@ const AllInstructor = () => {
                                         users.map(user => user.role === "teacher" &&
                                             <tr>
                                                 <td className="p-2 whitespace-nowrap">
-                                                    <div className="font-medium text-gray-800">{user?.body?.skill}</div>
+                                                    <div className="font-medium text-gray-800 dark:text-white">{user?.body?.skill}</div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">
                                                     <div className="flex items-center">
                                                         <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
                                                             <img className="rounded-full h-8 w-10" src={user?.body?.picture} alt="Student" />
                                                         </div>
-                                                        <div className="font-medium text-gray-800">{user.name}</div>
+                                                        <div className="font-medium text-gray-800 dark:text-white">{user.name}</div>
                                                     </div>
                                                 </td>
                                                 <td className="p-2 whitespace-nowrap">

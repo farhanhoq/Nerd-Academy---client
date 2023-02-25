@@ -16,8 +16,6 @@ const CoursesTable = ({ course, setCourse, refetch }) => {
         publish,
     } = course;
 
-
-
     const handelApprove = id => {
         fetch(`https://nerd-academy-server.vercel.app/courses/${id}`, {
             method: "PUT",
@@ -43,8 +41,8 @@ const CoursesTable = ({ course, setCourse, refetch }) => {
     };
 
     return (
-        <tbody className="text-gray-600 text-sm font-light">
-            <tr className="border-b border-gray-200 hover:bg-gray-100">
+        <tbody className="text-gray-600 text-sm font-light dark:text-white">
+            <tr className="border-b border-gray-200 hover:bg-gray-100 dark:bg-accent dark:border-secondary">
 
                 <td className="py-3 px-3 text-left whitespace-nowrap">
                     <div className="flex items-center">
@@ -76,7 +74,7 @@ const CoursesTable = ({ course, setCourse, refetch }) => {
                     <Link
                         to={`/details/${course._id}`}
                         className="text-sm btn btn-xs bg-transparent text-black border-primary border transition ease-in-out duration-300
-                            hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary "
+                            hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary dark:text-white"
                     >
                         Details
                     </Link>
@@ -109,7 +107,8 @@ const CoursesTable = ({ course, setCourse, refetch }) => {
                             <label
                                 onClick={() => setCourse(course)}
                                 htmlFor="admin-modal"
-                                className="btn btn-outline btn-primary cursor-pointer text-white text-xs py-1 px-3 font-normal hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary">
+                                className="btn btn-outline btn-primary cursor-pointer text-white text-xs py-1 px-3 
+                                font-normal hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary dark:text-secondary">
                                 Suggest edit
                             </label>
                         </div>

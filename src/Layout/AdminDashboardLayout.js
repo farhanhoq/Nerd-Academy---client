@@ -46,7 +46,7 @@ const AdminDashboardLayout = () => {
   }
 
   return (
-    <div className="mx-auto dark:bg-accent">
+    <div className="mx-auto dark:bg-accent dark:text-white">
       <div className="m-2">
         <button onClick={toggleDrawer} className="btn text-2xl text-white btn-sm mx-60"><RiMenuUnfoldFill /></button>
       </div>
@@ -85,22 +85,23 @@ const AdminDashboardLayout = () => {
                   alt=""
                   srcset=""
                 />
-                <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block uppercase">
+                <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block uppercase dark:text-white">
                   {profile?.name}
                 </h5>
-                <span className="hidden text-gray-400 lg:block capitalize font-bold">
+                <span className="hidden text-gray-400 lg:block capitalize font-bold dark:text-white">
                   {profile?.role}
                 </span>
               </div>
 
-              <ul className="mt-2 lg:mt-2 menu p-4 w-80 lg:bg-opacity-0 text-white">
+              <ul className="mt-2 lg:mt-2 menu p-4 w-80 lg:bg-opacity-0 text-white dark:text-white">
                 <div>
                   <ul className="space-y-2 tracking-wide ">
                     <li>
                       <Link
                         to="/admin-dashboard"
                         aria-label="dashboard"
-                        className="relative px-4 py-3 flex items-center space-x-4 rounded-xl bg-gradient-to-r from-primary to-secondary"
+                        className="relative px-4 py-3 flex items-center space-x-4 rounded-xl 
+                        bg-gradient-to-r from-primary to-secondary"
                       >
                         <svg
                           className="-ml-1 h-6 w-6"
@@ -120,28 +121,28 @@ const AdminDashboardLayout = () => {
                             className="fill-current group-hover:text-sky-300"
                           ></path>
                         </svg>
-                        <span className="-mr-1 font-medium">Dashboard</span>
+                        <span className="-mr-1 font-medium dark:text-white">Dashboard</span>
                       </Link>
                     </li>
 
                     <li>
                       <Link
                         to="/admin-dashboard/all-instructor"
-                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2
+                         hover:bg-gray-100 hover:dark:bg-secondary group"
                       >
                         <svg
-                          className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                          className="w-6 h-6 text-gray-500 dark:text-white hover:dark:text-white flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                           fill="currentColor"
                           viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
+                          xmlns="http://www.w3.org/2000/svg">
                           <path
                             fill-rule="evenodd"
                             d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                             clip-rule="evenodd"
                           ></path>
                         </svg>
-                        <span className="ml-3 flex-1 whitespace-nowrap lg:text-black">
+                        <span className="ml-3 flex-1 whitespace-nowrap lg:text-black dark:text-white">
                           Instructor
                         </span>
                       </Link>
@@ -150,10 +151,11 @@ const AdminDashboardLayout = () => {
                     <li>
                       <Link
                         to="/admin-dashboard/customer"
-                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2
+                         hover:bg-gray-100  hover:dark:bg-secondary group"
                       >
-                        <FaUsers className="text-xl text-grey"></FaUsers>
-                        <span className="ml-3 flex-1 whitespace-nowrap  lg:text-black">
+                        <FaUsers className="text-xl text-grey dark:text-white"></FaUsers>
+                        <span className="ml-3 flex-1 whitespace-nowrap  lg:text-black dark:text-white">
                           Students
                         </span>
                       </Link>
@@ -162,10 +164,9 @@ const AdminDashboardLayout = () => {
                     <li>
                       <Link
                         to="/admin-dashboard/courses"
-                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
-                      >
-                        <RiAdminLine className="text-xl text-grey"></RiAdminLine>
-                        <span className="ml-3 flex-1 whitespace-nowrap lg:text-black">
+                        className="text-base text-gray-900 font-normal hover:dark:bg-secondary rounded-lg flex items-center p-2 hover:bg-gray-100 group">
+                        <RiAdminLine className="text-xl text-grey dark:text-white "></RiAdminLine>
+                        <span className="ml-3 flex-1 whitespace-nowrap lg:text-black dark:text-white">
                           Courses
                         </span>
                       </Link>
@@ -173,10 +174,10 @@ const AdminDashboardLayout = () => {
                     <li>
                       <Link
                         to="/admin-dashboard/profile"
-                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                        className="text-base text-gray-900 font-normal hover:dark:bg-secondary rounded-lg flex items-center p-2 hover:bg-gray-100 group"
                       >
-                        <img className="h-5 w-5 text-xl text-grey" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="" srcset="" />
-                        <span className="ml-3 flex-1 whitespace-nowrap lg:text-black">
+                        <img className="h-5 w-5 text-xl text-grey dark:text-white" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="" srcset="" />
+                        <span className="ml-3 flex-1 whitespace-nowrap lg:text-black dark:text-white">
                           My Profile
                         </span>
                       </Link>
@@ -185,10 +186,11 @@ const AdminDashboardLayout = () => {
                     <li>
                       <Link
                         to="/admin-dashboard/menus"
-                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                        className="text-base text-gray-900 font-normal hover:dark:bg-secondary rounded-lg flex items-center 
+                        p-2 hover:bg-gray-100 group"
                       >
-                        <GrMenu className="text-xl text-grey"></GrMenu>
-                        <span className="ml-3 flex-1 whitespace-nowrap lg:text-black">
+                        <GrMenu className="text-xl text-grey dark:text-white"></GrMenu>
+                        <span className="ml-3 flex-1 whitespace-nowrap lg:text-black dark:text-white">
                           Menu
                         </span>
                       </Link>
@@ -197,10 +199,10 @@ const AdminDashboardLayout = () => {
                     <li>
                       <Link
                         to="/admin-dashboard/blogs"
-                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                        className="text-base text-gray-900 font-normal hover:dark:bg-secondary rounded-lg flex items-center p-2 hover:bg-gray-100 group"
                       >
-                        <FaBlog className="text-xl text-grey"></FaBlog>
-                        <span className="ml-3 flex-1 whitespace-nowrap">
+                        <FaBlog className="text-xl text-grey dark:text-white"></FaBlog>
+                        <span className="ml-3 flex-1 whitespace-nowrap dark:text-white">
                           Blogs
                         </span>
                       </Link>
@@ -209,10 +211,10 @@ const AdminDashboardLayout = () => {
                     <li>
                       <Link
                         to="/"
-                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                        className="text-base text-gray-900 font-normal hover:dark:bg-secondary rounded-lg flex items-center p-2 hover:bg-gray-100 group"
                       >
-                        <AiOutlineHome className="text-xl text-grey"></AiOutlineHome>
-                        <span className="ml-3 flex-1 whitespace-nowrap">
+                        <AiOutlineHome className="text-xl text-grey dark:text-white"></AiOutlineHome>
+                        <span className="ml-3 flex-1 whitespace-nowrap dark:text-white">
                           Home
                         </span>
                       </Link>
@@ -221,10 +223,10 @@ const AdminDashboardLayout = () => {
                     <li>
                       <Link
                         onClick={handleLogOut}
-                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                        className="text-base text-gray-900 font-normal hover:dark:bg-secondary rounded-lg flex items-center p-2 hover:bg-gray-100 group"
                       >
-                        <GoSignOut></GoSignOut>
-                        <span className="ml-3 flex-1 whitespace-nowrap">
+                        <GoSignOut className="dark:text-white"></GoSignOut>
+                        <span className="ml-3 flex-1 whitespace-nowrap dark:text-white">
                           Log Out
                         </span>
                       </Link>

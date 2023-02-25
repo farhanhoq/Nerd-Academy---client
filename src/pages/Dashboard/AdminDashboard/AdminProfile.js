@@ -16,13 +16,11 @@ const AdminProfile = () => {
             return data;
         }
     })
-    // const { email, fullName, eductaion, phone, address, picture } = profile;
     refetch();
 
-    // console.log(profile.body.picture);
 
     return (
-        <div className="card bg-base-100 shadow-xl p-12">
+        <div className="card bg-base-100 shadow-xl p-12 dark:bg-accent dark:border dark:border-secondary">
 
             <div className="flex flex-row justify-between">
                 <h3 className="text-2xl font-bold">My profile</h3>
@@ -34,11 +32,11 @@ const AdminProfile = () => {
                 <div className="flex flex-col gap-4 items-center">
                     <div className="avatar">
                         <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            {/* <img src="https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1670098851032.png" /> */}
                             <img src={profile?.body?.picture} alt="" />
                         </div>
                     </div>
-                    <Link to="/admin-dashboard/profile-edit" className="border p-2 bg-gradient-to-r from-primary to-secondary text-white rounded cursor-pointer">
+                    <Link to="/admin-dashboard/profile-edit" className="border p-2 bg-gradient-to-r from-primary 
+                    to-secondary text-white rounded cursor-pointer dark:border-secondary">
                         Edit Profile
                     </Link>
                 </div>

@@ -48,34 +48,33 @@ const AdminDashboard = () => {
   });
 
   refetch();
-  // console.log(countAPI);
 
   return (
     <div className="mx-auto">
-      <h2 className="mt-12 mb-6 text-4xl font-bold text-primary text-center">
+      <h2 className="mt-12 mb-6 text-4xl font-bold text-primary text-center dark:text-secondary">
         Welcome to Admin Dashboard
       </h2>
 
-      <div className="card bg-base-100 shadow-xl pt-12">
+      <div className="card bg-base-100 dark:bg-accent shadow-xl pt-12">
         <div
-          className="bg-gray-900 opacity-50 hidden"
+          className="bg-gray-900 opacity-50 hidden dark:bg-accent "
           id="sidebarBackdrop"
         ></div>
         <div
           id="main-content"
-          className="h-full w-full bg-gray-50 relative overflow-y-auto"
+          className="h-full w-full bg-gray-50 relative overflow-y-auto dark:bg-accent dark:border dark:border-secondary"
         >
           <main>
             <div className="pt-6 px-4">
               <div className="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4"></div>
               <div className="mt-4 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                <div className="bg-white shadow rounded-lg p-4 sm:p-4 xl:p-8 ">
+                <div className="bg-white shadow rounded-lg p-4 sm:p-4 xl:p-8 dark:bg-accent border dark:border-secondary dark:text-white">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <span className="text-2xl sm:text-3xl leading-none font-bold text-gray-900">
+                      <span className="text-2xl sm:text-3xl leading-none font-bold text-gray-900 dark:text-white">
                         {courses?.length}
                       </span>
-                      <h3 className="text-base font-normal text-gray-500">
+                      <h3 className="text-base font-normal text-gray-500 dark:text-white">
                         Total Courses
                       </h3>
                     </div>
@@ -87,13 +86,14 @@ const AdminDashboard = () => {
                                         </div> */}
                   </div>
                 </div>
-                <div className="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+
+                <div className="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 dark:bg-accent border dark:border-secondary dark:text-white">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <span className="text-2xl sm:text-3xl leading-none font-bold text-gray-900">
+                      <span className="text-2xl sm:text-3xl leading-none font-bold text-gray-900 dark:text-white">
                         {countAPI.value}
                       </span>
-                      <h3 className="text-base font-normal text-gray-500">
+                      <h3 className="text-base font-normal text-gray-500 dark:text-white">
                         Total Visitors
                       </h3>
                     </div>
@@ -105,13 +105,14 @@ const AdminDashboard = () => {
                                         </div> */}
                   </div>
                 </div>
-                <div className="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+
+                <div className="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 dark:bg-accent border dark:border-secondary dark:text-white">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <span className="text-2xl sm:text-3xl leading-none font-bold text-gray-900">
+                      <span className="text-2xl sm:text-3xl leading-none font-bold text-gray-900 dark:text-white">
                         {users?.length}
                       </span>
-                      <h3 className="text-base font-normal text-gray-500">
+                      <h3 className="text-base font-normal text-gray-500 dark:text-white">
                         User SignUps
                       </h3>
                     </div>
@@ -123,11 +124,12 @@ const AdminDashboard = () => {
                                         </div> */}
                   </div>
                 </div>
+
               </div>
               <div className="w-full my-4">
-                <div className="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full">
+                <div className="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full dark:bg-accent border dark:border-secondary dark:text-white">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold leading-none text-gray-900">
+                    <h3 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
                       Latest Customers
                     </h3>
                     <hr />
@@ -148,22 +150,22 @@ const AdminDashboard = () => {
                               />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium text-gray-900 truncate">
+                              <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
                                 {customer?.userName}
                               </p>
-                              <p className="text-sm text-gray-500 truncate">
+                              <p className="text-sm text-gray-500 truncate dark:text-white">
                                 {customer?.userEmail}
                               </p>
                             </div>
                             <div className="flex-1">
-                              <p className="text-sm font-medium text-gray-900 truncate">
+                              <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
                                 {customer?.date}
                               </p>
-                              <p className="text-sm text-gray-500 truncate">
+                              <p className="text-sm text-gray-500 truncate dark:text-white">
                                 {customer?.title}
                               </p>
                             </div>
-                            <div className="inline-flex items-center text-base font-semibold text-gray-900">
+                            <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                               ${customer?.price}
                             </div>
                           </div>
