@@ -77,7 +77,7 @@ const ImgSlider = () => {
                           Trending
                           </span>
                       </div>
-                          <p className="text-primary text-sm font-bold my-2 dark:text-white">{course?.bought}+ people have already purchased this course</p>
+                          <p className="text-primary text-sm font-bold my-4 dark:text-white">*{course?.bought}+ people have already purchased this course</p>
                     </div>
                   </div>
                 </Link>
