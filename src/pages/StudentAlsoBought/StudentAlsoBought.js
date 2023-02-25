@@ -23,6 +23,7 @@ const StudentAlsoBought = ({category}) => {
   }
     return (
       <div className="">
+        <ScrollToTop/>
         <div className="overflow-x-auto border p-3">
           <table className="table w-full">
             {trendingData?.map((data) => (
