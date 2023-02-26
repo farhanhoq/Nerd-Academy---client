@@ -13,6 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { RiMenuUnfoldFill } from "react-icons/ri";
+import useProfileAPI from "../../Hooks/useProfileAPI"
 
 const AdminDashboardLayout = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -23,16 +24,11 @@ const AdminDashboardLayout = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const { data: profile = [] } = useQuery({
-    queryKey: ["profile"],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://nerd-academy-server.vercel.app/users/?email=${user?.email}`
-      );
-      const data = await res.json();
-      return data;
-    },
-  });
+  const url = "https://nerd-academy-server.vercel.app/users";
+  const query = user?.email;
+  const queryName = "email"
+
+  const { datas } = useProfileAPI(url, queryName, query)
 
   const handleLogOut = () => {
     logOut()
@@ -90,15 +86,15 @@ const AdminDashboardLayout = () => {
               <div className="mt-12 text-center">
                 <img
                   className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"
-                  src={profile?.body?.picture}
+                  src={datas?.body?.picture}
                   alt=""
                   srcset=""
                 />
                 <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block uppercase dark:text-white">
-                  {profile?.name}
+                  {datas?.name}
                 </h5>
                 <span className="hidden text-gray-400 lg:block capitalize font-bold dark:text-white">
-                  {profile?.role}
+                  {datas?.role}
                 </span>
               </div>
 

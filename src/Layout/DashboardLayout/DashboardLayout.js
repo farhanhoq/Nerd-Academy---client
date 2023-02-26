@@ -9,40 +9,23 @@ import { ImProfile } from "react-icons/im";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { RiMenuUnfoldFill } from "react-icons/ri";
+import useProfileAPI from "../../Hooks/useProfileAPI"
 
 const DashboardLayout = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  // const { data: profile = [], refetch } = useQuery({
-  //   queryKey: ["profile"],
-  //   queryFn: async () => {
-  //     const res = await fetch(
-  //       `https://nerd-academy-server.vercel.app/users/?email=${user?.email}`
-  //     );
-  //     const data = await res.json();
-  //     return data;
-  //   },
-  // });
-  // refetch();
-  // const { email, fullName, eductaion, phone, address, picture } = profile;
 
   const [isOpen, setIsOpen] = useState(true);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const { data: profile = [], refetch } = useQuery({
-    queryKey: ["profile"],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://nerd-academy-server.vercel.app/users/?email=${user?.email}`
-      );
-      const data = await res.json();
-      return data;
-    },
-  });
-  // const { email, fullName, eductaion, phone, address, picture } = profile;
+  const url = "https://nerd-academy-server.vercel.app/users"
+  const query = user?.email
+  const queryName = "email"
+
+  const { datas, refetch } = useProfileAPI(url, queryName, query)
+
   refetch();
 
   const handleLogOut = () => {
@@ -102,15 +85,15 @@ const DashboardLayout = () => {
               <div className="mt-12 text-center">
                 <img
                   className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"
-                  src={profile?.body?.picture}
+                  src={datas?.body?.picture}
                   alt=""
                   srcset=""
                 />
                 <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 dark:text-white lg:block uppercase">
-                  {profile?.name}
+                  {datas?.name}
                 </h5>
                 <span className="hidden text-gray-400 dark:text-white lg:block capitalize font-bold">
-                  {profile?.role}
+                  {datas?.role}
                 </span>
               </div>
 
