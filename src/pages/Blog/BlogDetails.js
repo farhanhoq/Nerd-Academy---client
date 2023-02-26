@@ -5,21 +5,18 @@ import { AuthContext } from '../../Context/AuthProvider';
 import Loader from '../../Loader/Loader';
 import ScrollToTop from '../ScrollToTop';
 import parse from 'html-react-parser';
+import useProfileAPI from "../../Hooks/useProfileAPI"
 
 const BlogDetails = () => {
     const data = useLoaderData();
     const { name, title, date, blogImage, blogDetails } = data[0];
     const { loading, user } = useContext(AuthContext);
 
-    const { data: usersData = [], refetch } = useQuery({
-        queryKey: ["user"],
-        queryFn: async () => {
-            const res = await fetch(`https://nerd-academy-server.vercel.app/users/?email=${user?.email}`);
-            const data = await res.json();
-            return data;
-        }
-    })
-    refetch();
+    const url = "https://nerd-academy-server.vercel.app/users"
+    const query = user?.email
+    const queryName = "email"
+
+    const { datas } = useProfileAPI(url, queryName, query)
 
     if (loading) {
         return <Loader></Loader>
@@ -31,7 +28,7 @@ const BlogDetails = () => {
             <div className='w-9/12 mx-auto py-40'>
                 <h1 className='mb-20 font-bold text-3xl text-primary dark:text-white'>{title}</h1>
                 <div className='flex mb-8'>
-                    <img className='w-20 h-16 rounded-full' src={usersData?.body?.picture} alt="" />
+                    <img className='w-20 h-16 rounded-full' src={datas?.body?.picture} alt="" />
                     <div className='pl-1'>
                         <h4 className='text-primary dark:text-white text-xl font-bold pt-4 p-1'>{name}</h4>
                         <p className='pl-4 underline dark:text-white'>{date}</p>
