@@ -47,10 +47,11 @@ const AdminDashboardLayout = () => {
 
   return (
     <div className="mx-auto dark:bg-accent dark:text-white">
-      <div className="m-2">
+      <div className="mx-2 mt-2">
         <button
           onClick={toggleDrawer}
-          className="btn text-2xl text-white btn-sm mx-60 bg-gradient-to-r from-primary to-secondary border-none"
+          className="btn text-2xl text-white btn-sm bg-gradient-to-r from-primary 
+          to-secondary border-none"
         >
           <RiMenuUnfoldFill />
         </button>
@@ -76,7 +77,8 @@ const AdminDashboardLayout = () => {
               <div className="m-2">
                 <button
                   onClick={toggleDrawer}
-                  className="btn text-2xl text-white btn-sm mx-60 bg-gradient-to-r from-primary to-secondary border-none"
+                  className="btn text-2xl text-white btn-sm mt-2 bg-gradient-to-r from-primary 
+                  to-secondary border-none"
                 >
                   <RiMenuUnfoldFill />
                 </button>

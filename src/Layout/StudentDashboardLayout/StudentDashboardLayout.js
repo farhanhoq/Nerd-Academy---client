@@ -43,10 +43,10 @@ const StudentDashboardLayout = () => {
 
   return (
     <div className="mx-auto">
-      <div className="">
+      <div className="mt-2">
         <button
           onClick={toggleDrawer}
-          className="btn text-2xl text-white btn-sm mx-60
+          className="btn text-2xl text-white btn-sm
         bg-gradient-to-r from-primary to-secondary"
         >
           <RiMenuUnfoldFill />
@@ -73,7 +73,7 @@ const StudentDashboardLayout = () => {
               <div className="flex justify-start">
                 <button
                   onClick={toggleDrawer}
-                  className="btn text-2xl text-white btn-sm mx-60
+                  className="btn text-2xl text-white btn-sm mt-2
                 bg-gradient-to-r from-primary to-secondary"
                 >
                   <RiMenuUnfoldFill />
