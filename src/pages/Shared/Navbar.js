@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
 import useRole from "../../Hooks/useRole";
 import "./Navbar.css";
+import useCourseAPI from "../../Hooks/useCourseAPI";
 // import logo from "../../Assets/nerd.jpg"
 
 const Navbar = () => {
@@ -23,6 +24,8 @@ const Navbar = () => {
 
   const navigate = useNavigate();
 
+  const { courses } = useCourseAPI();
+
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -35,19 +38,11 @@ const Navbar = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  const { data: coursesData = [] } = useQuery({
-    queryKey: ["coursesData"],
-    queryFn: () =>
-      fetch("https://nerd-academy-server.vercel.app/courses").then((res) =>
-        res.json()
-      ),
-  });
-
-  const ai = coursesData.filter((course) => course.category === "Artificial Intelligence")
-  const programming = coursesData.filter((course) => course.category === "Programming")
-  const webDevelopment = coursesData.filter((course) => course.category === "Web Development")
-  const computerScience = coursesData.filter((course) => course.category === "Computer Science")
-  const appDevelopment = coursesData.filter((course) => course.category === "App Development")
+  const ai = courses.filter((course) => course.category === "Artificial Intelligence")
+  const programming = courses.filter((course) => course.category === "Programming")
+  const webDevelopment = courses.filter((course) => course.category === "Web Development")
+  const computerScience = courses.filter((course) => course.category === "Computer Science")
+  const appDevelopment = courses.filter((course) => course.category === "App Development")
 
   const handleLogOut = () => {
     logOut()
@@ -184,7 +179,7 @@ const Navbar = () => {
 
   const handleFilter = (e) => {
     const searchedWord = e.target.value;
-    const newFilter = coursesData.filter((value) => {
+    const newFilter = courses.filter((value) => {
       return value.title.toLowerCase().includes(searchedWord.toLowerCase());
     });
 
