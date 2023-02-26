@@ -29,7 +29,7 @@ import StudentAnnouncement from '../pages/StudentDashboard/Student/StudentAnnoun
 import MyCourses from "../pages/StudentDashboard/Student/MyCourses";
 import StudentOrderHistory from "../pages/StudentDashboard/Student/StudentOrderHistory";
 import StudentAssignment from "../pages/StudentDashboard/Student/StudentAssignment";
-import Home from "../pages/Home/Home/Home";
+import Home from "../pages/home/Home/Home";
 import AddCourse from "../pages/Dashboard/Instructor/AddCourse";
 import Courses from "../pages/Dashboard/AdminDashboard/Courses";
 import MyProfile from "../pages/Dashboard/Instructor/MyProfile";
@@ -62,6 +62,11 @@ import LicenceContent from "../pages/Dashboard/AdminDashboard/LicenceContent";
 import CookieContent from "../pages/Dashboard/AdminDashboard/CookieContent";
 import EditPendingCourse from "../pages/Dashboard/Instructor/EditPendingCourse";
 import InstructorDetails from "../pages/InstructorDetails/InstructorDetails";
+import RoadmapLayout from "../Layout/RoadmapLayout/RoadmapLayout";
+import Frontend from "../pages/Roadmap/Frontend";
+import Roadmap from "../pages/Roadmap/Roadmap";
+import Backend from "../pages/Roadmap/Backend";
+import Fullstack from "../pages/Roadmap/Fullstack";
 
 export const routes = createBrowserRouter([
 
@@ -350,4 +355,30 @@ export const routes = createBrowserRouter([
             },
         ]
     },
+    {
+        path: '/roadmap',
+        element: <RoadmapLayout></RoadmapLayout>,
+        errorElement: <Error></Error>,
+        children: [
+            {
+                path: '/roadmap',
+                element: <Roadmap></Roadmap>
+            }
+            ,
+            {
+                path: '/roadmap/front-end',
+                element: <Frontend></Frontend>
+            }
+            ,
+            {
+                path: '/roadmap/back-end',
+                element: <Backend></Backend>
+            }
+            ,
+            {
+                path: '/roadmap/full-stack',
+                element: <Fullstack></Fullstack>
+            }
+        ]
+    }
 ])
