@@ -2,22 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { toast } from "react-hot-toast";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import useCourseAPI from '../../Hooks/useCourseAPI';
 import Loader from '../../Loader/Loader';
 
 const AllCourses = () => {
-
-    const [courseData, setCourseData] = useState([]);
     const { user, loading } = useContext(AuthContext);
 
-    useEffect(() => {
-        fetch("https://nerd-academy-server.vercel.app/courses")
-            .then((res) => res.json())
-            .then((data) => {
-                setCourseData(data);
-            });
-    }, []);
-
-    console.log(courseData)
+    const { courses } = useCourseAPI();
 
     const handleAddToWishlist = (course) => {
         const wishlist = {
@@ -46,19 +37,19 @@ const AllCourses = () => {
 
     const handleAddToCart = (data) => {
         const coursecart = {
-          courseId: data?._id,
-          category: data?.category,
-          email: user?.email,
-          name: user?.displayName,
-          title: data?.title,
-          picture: data?.picture,
-          price: data?.price,
-          tutor: data?.tutor,
-          lectures: data?.content.length,
-          hours: data?.hours,
-          date: data?.postingDate,
-          description: data?.description,
-          instructorEmail: data?.email
+            courseId: data?._id,
+            category: data?.category,
+            email: user?.email,
+            name: user?.displayName,
+            title: data?.title,
+            picture: data?.picture,
+            price: data?.price,
+            tutor: data?.tutor,
+            lectures: data?.content.length,
+            hours: data?.hours,
+            date: data?.postingDate,
+            description: data?.description,
+            instructorEmail: data?.email
         };
 
         // console.log(coursecart);
@@ -66,19 +57,19 @@ const AllCourses = () => {
     
     
         fetch("https://nerd-academy-server.vercel.app/userscart", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(coursecart),
-        })
-          .then((res) => res.json())
-          .then((result) => {
-            if (result.acknowledged === true) {
-              toast.success("Added to cart successfully");
-            }
-          });
-      };
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(coursecart),
+            })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.acknowledged === true) {
+                toast.success("Added to cart successfully");
+                }
+            });
+        };
 
 
     if (loading) {
@@ -87,7 +78,7 @@ const AllCourses = () => {
 
     return (
         <div className='py-24'>
-            <h1 className='text-center text-primary text-5xl font-semibold mt-12'>WE HAVE {courseData.length} WELL-DESIGNED COURSES BY OUR EXPERT INSTRUCTOR FROM ALL OVER THE WORLD </h1>
+            <h1 className='text-center text-primary text-5xl font-semibold mt-12'>WE HAVE {courses.length} WELL-DESIGNED COURSES BY OUR EXPERT INSTRUCTOR FROM ALL OVER THE WORLD </h1>
 
 
             <div className='my-12 mx-24'>
@@ -96,7 +87,7 @@ const AllCourses = () => {
 
                 <div className='grid grid-cols-4 gap-2 my-10'>
                     {
-                        courseData.map(course => course.category === "Web Development" &&
+                        courses.map(course => course.category === "Web Development" &&
                             <div key={course._id}>
                                 <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-min- w-full border dropdown dropdown-hover dropdown-top">
                                     <div tabIndex={0}>
@@ -220,7 +211,7 @@ const AllCourses = () => {
 
                 <div className='grid grid-cols-4 gap-2 my-10'>
                     {
-                        courseData.map(course => course.category === "Programming" &&
+                        courses.map(course => course.category === "Programming" &&
                             <>
                                 <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-min- w-full border dropdown dropdown-hover dropdown-top">
                                     <div tabIndex={0}>
@@ -344,7 +335,7 @@ const AllCourses = () => {
 
                 <div className='grid grid-cols-4 gap-2 my-10'>
                     {
-                        courseData.map(course => course.category === "Computer Science" &&
+                        courses.map(course => course.category === "Computer Science" &&
                             <>
                                 <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-min- w-full border dropdown dropdown-hover dropdown-top">
                                     <div tabIndex={0}>
@@ -468,7 +459,7 @@ const AllCourses = () => {
 
                 <div className='grid grid-cols-4 gap-2 my-10'>
                     {
-                        courseData.map(course => course.category === "Artificial Intelligence" &&
+                        courses.map(course => course.category === "Artificial Intelligence" &&
                             <>
                                 <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-min- w-full border dropdown dropdown-hover dropdown-top">
                                     <div tabIndex={0}>
@@ -592,7 +583,7 @@ const AllCourses = () => {
 
                 <div className='grid grid-cols-4 gap-2 my-10'>
                     {
-                        courseData.map(course => course.category === "App Development" &&
+                        courses.map(course => course.category === "App Development" &&
                             <>
                                 <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-min- w-full border dropdown dropdown-hover dropdown-top">
                                     <div tabIndex={0}>

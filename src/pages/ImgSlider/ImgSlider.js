@@ -3,24 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "./ImgSlider.css";
 import "swiper/css";
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import Loader from "../../Loader/Loader";
 import minusb from "../../Assets/minusb.png";
+import useCourseAPI from "../../Hooks/useCourseAPI";
 
 const ImgSlider = () => {
   const { loading } = useContext(AuthContext);
 
-  const {
-    data: courses = []
-  } = useQuery({
-    queryKey: ["courses"],
-    queryFn: () =>
-      fetch("https://nerd-academy-server.vercel.app/courses").then((res) =>
-        res.json()
-      ),
-  });
+  const { courses } = useCourseAPI();
 
   const sortedCourses = [...courses].sort((a, b) => b.bought - a.bought);
   const trending = sortedCourses.slice(0, 9)
