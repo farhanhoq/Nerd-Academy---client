@@ -16,11 +16,7 @@ const useProfileAPI = (url, queryName, query, params) => {
         }
     })
 
-    refetch()
-
-    if (isLoading) {
-        return <Loader></Loader>
-    }
+    console.log(datas)
     
 
     return {datas, refetch, isLoading}
