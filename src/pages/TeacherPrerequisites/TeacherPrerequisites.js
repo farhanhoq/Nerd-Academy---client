@@ -9,6 +9,7 @@ import cup from '../../Assets/cup.jpg'
 import educationBg1 from '../../Assets/instructorDetailsBg.png'
 import ScrollToTop from '../ScrollToTop';
 import { Link } from 'react-router-dom';
+import InstructorRegisterModal from '../Dashboard/Instructor/InstructorRegisterModal';
 
 const TeacherPrerequisites = () => {
     return (
@@ -117,9 +118,15 @@ const TeacherPrerequisites = () => {
             <div className='py-32 bg-slate-100 text-center'>
                 <h1 className='mb-5 text-5xl font-bold text-primary'>Become an instructor today</h1>
                 <p className='font-bold text-2xl'>Join one of the world’s largest online learning marketplaces.</p>
-                <Link to="/dashboard" className='btn btn-primary rounded mt-5'>Start Teaching Today</Link>
+                <label
+                    htmlFor="instructor-register-modal"
+                    className="rounded btn text-xs capitalize border-primary bg-transparent text-black border transition
+                    ease-in-out duration-300 hover:text-white hover:bg-gradient-to-r 
+                    hover:from-primary hover:to-secondary dark:text-white">
+                    Start Teaching Today
+                  </label>
             </div>
-
+            <InstructorRegisterModal></InstructorRegisterModal>
         </div>
     );
 };
