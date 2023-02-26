@@ -1,135 +1,93 @@
 import React, { useContext } from 'react';
-import Lottie from "lottie-react";
-import eduAnimation from "../../../src/Assets/edu-animation.json";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider";
+import { AuthContext } from "../../../Context/AuthProvider";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { GoogleAuthProvider } from '@firebase/auth';
-import ScrollToTop from "../ScrollToTop";
+
 
 const googleProvider = new GoogleAuthProvider();
 
-const Register = () => {
+const InstructorRegisterModal = () => {
 
-  const { createUser, updateUser, googleSignIn, verifyEmail } = useContext(AuthContext);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  const navigate = useNavigate();
-
-  const handleSignUp = (data) => {
-    createUser(data.email, data.password)
-      .then(result => {
-        const user = result.user;
-        console.log(user);
-        verifyEmail()
-
-        const userInfo = {
-          displayName: data.name,
-        }
-
-        updateUser(userInfo)
-          .then(() => {
-            savedUsertoDb(data.name, data.email, data.account);
-          })
-          .catch(error => {
-            console.log(error.message);
-          })
-      })
-      .catch(error => {
-        toast.error(error.message);
-      });
-  }
-
+    const { createUser, updateUser, googleSignIn, verifyEmail } = useContext(AuthContext);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const navigate = useNavigate();
   
-
-  const handleSignInGoogle = () => {
-    googleSignIn(googleProvider)
-      .then(result => {
-        const user = result.user;
-        console.log(user)
-        savedUsertoDb(user.displayName, user.email, 'student');
-        toast.success("successfully logged in");
-        navigate('/');
-      })
-      .catch(error => {
-        toast.error(error.message);
-      })
-  }
-
-  const savedUsertoDb = (name, email, account) => {
-    const user = {
-      name,
-      email,
-      role: account
+    const handleSignUp = (data) => {
+      createUser(data.email, data.password)
+        .then(result => {
+          const user = result.user;
+          console.log(user);
+          verifyEmail()
+  
+          const userInfo = {
+            displayName: data.name,
+          }
+  
+          updateUser(userInfo)
+            .then(() => {
+              savedUsertoDb(data.name, data.email, data.account);
+            })
+            .catch(error => {
+              console.log(error.message);
+            })
+        })
+        .catch(error => {
+          toast.error(error.message);
+        });
+    }
+  
+  
+    const handleSignInGoogle = () => {
+      googleSignIn(googleProvider)
+        .then(result => {
+          const user = result.user;
+        //   console.log(user)
+          savedUsertoDb(user.displayName, user.email, 'teacher');
+          toast.success("successfully logged in");
+        //   navigate('/dashboard');
+        })
+        .catch(error => {
+          toast.error(error.message);
+        })
     }
 
-    fetch('https://nerd-academy-server.vercel.app/users', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(user)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.acknowledged) {
-          reset()
-          navigate('/');
+
+
+    const savedUsertoDb = (name, email, account) => {
+        const user = {
+          name,
+          email,
+          role: account
         }
-      })
-
-  }
-
-
-
-  //   const handleSignInGoogle = () => {
-  //     signInWithGoogle(googleProvider)
-  //         .then(res => {
-  //             fetch(`https://nerd-academy-server.vercel.app/jwt?email=${res.user.email}`)
-  //                 .then(res => res.json())
-  //                 .then(token => {
-  //                     localStorage.setItem('accessToken', token.accessToken);
-  //                     const user = {
-  //                         name: res.user.displayName,
-  //                         email: res.user.email,
-  //                         role: 'buyer',
-  //                     };
-  //                     fetch('https://nerd-academy-server.vercel.app/users', {
-  //                         method: 'POST',
-  //                         headers: {
-  //                             'content-type': 'application/json'
-  //                         },
-  //                         body: JSON.stringify(user)
-  //                     })
-  //                         .then(res => res.json())
-  //                         .then(data => {
-  //                             toast.success('Register successfully')
-  //                             navigate('/dashboard')
-
-  //                         })
-  //                 });
+        console.log(user);
+    
+        fetch('https://nerd-academy-server.vercel.app/users', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(user)
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.acknowledged) {
+              reset()
+              navigate('/dashboard');
+            }
+          })
+      }
+  
 
 
-  //         })
-  //         .catch(err => toast.error(err))
-  // }
 
-
-  return (
-    <div className="flex flex-col gap-6 lg:gap-24 md:flex-row items-center container mx-auto justify-between md:px-32">
-      <ScrollToTop/>
-      <div className="w-10/12 lg:w-1/2 mt-16 lg:mt-0">
-        <Lottie loop={true} animationData={eduAnimation} />
-      </div>
-
-      <div className="w-10/12 lg:w-4/12 md:my-32 lg:mt-22 mb-22">
+    return (
         <div>
-          <h1 className="text-5xl text-primary text-center mb-4 font-bold">
-            Signup
-          </h1>
-        </div>
-        <div className="card card-body shadow-2xl bg-base-100 border border-primary dark:bg-accent dark:border-secondary">
-          <form onSubmit={handleSubmit(handleSignUp)}>
+        <input type="checkbox" id="instructor-register-modal" className="modal-toggle" />
+        <label htmlFor="instructor-register-modal" className="modal cursor-pointer">
+            <label className="modal-box relative" htmlFor="">
+            <form onSubmit={handleSubmit(handleSignUp)}>
             <div className="">
               <label className="label">
                 <span className="label-text dark:text-white">Name</span>
@@ -185,8 +143,7 @@ const Register = () => {
                 <select
                   {...register("account")}
                   className="select select-bordered border-primary rounded dark:bg-accent dark:text-white dark:border-secondary">
-                  <option value="student">Student</option>
-                  <option value="teacher">Teacher</option>
+                  <option selected value="teacher">Teacher</option>
                 </select>
               </div>
 
@@ -209,10 +166,10 @@ const Register = () => {
              hover:from-primary hover:to-secondary border-primary hover:border-primary dark:text-white ">
             Sign up with Google<span></span>
           </button>
-        </div>
-      </div>
+            </label>
+        </label>
     </div>
-  );
+    );
 };
 
-export default Register;
+export default InstructorRegisterModal;

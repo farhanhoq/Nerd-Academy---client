@@ -13,7 +13,7 @@ import {
   FaUserPlus,
   FaVideo,
 } from "react-icons/fa";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -31,27 +31,52 @@ const CourseDetails = () => {
   let year = newDate.getFullYear();
   const { user, loading } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
+  const [purchasedCourses, setPurchasedCourses] = useState([]);
 
   const course = useLoaderData();
+  console.log(course);
 
   const {
     _id,
     title,
     picture,
     email,
-    img,
     price,
-    rating,
-    review,
     tutor,
-    lectures,
     hours,
-    date,
+    postingDate,
     description,
     content,
     learning,
+    category
   } = course[0];
-  console.log(lectures, rating, review, hours);
+  // console.log(lectures, rating, review, hours);
+
+
+
+// This API is created for Instructor details
+  const [instructorData, setInstructorData] = useState();
+  // console.log(instructorData);
+  useEffect(() => {
+    fetch(`https://nerd-academy-server.vercel.app/users/${email}`)
+      .then(res => res.json())
+      .then(data => setInstructorData(data));
+  }, [email]);
+
+
+  useEffect(() => {
+    fetch(
+        `https://nerd-academy-server.vercel.app/perchased-courses-teacher?email=${email}`)
+        .then((res) => res.json())
+        .then((data) => {
+            setPurchasedCourses(data);
+        });
+}, [email])
+
+const students = [...new Set(purchasedCourses.map((course) => course.buyerEmail))]
+
+
+
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
@@ -73,13 +98,10 @@ const CourseDetails = () => {
       name: user?.displayName,
       title,
       picture,
-      img,
       price,
-      rating,
       tutor,
-      lectures,
       hours,
-      date,
+      postingDate,
       description,
       instructorEmail: email,
     };
@@ -145,10 +167,10 @@ const CourseDetails = () => {
               </li>
               <FaAngleRight className="mx-3 text-2xl" />
               <li>
-                <Link>Programming Languages</Link>
+                <Link to='/all-courses'>Programming Languages</Link>
               </li>
               <FaAngleRight className="mx-3 text-2xl" />
-              <li>Add to cart</li>
+              <li>{title}</li>
             </ul>
           </div>
           <h1 className="text-2xl md:text-5xl font-bold">{title}</h1>
@@ -157,31 +179,10 @@ const CourseDetails = () => {
           <p className="mt-7">
             Created by <span className="badge rounded px-1">{tutor}</span>
           </p>
-          <p className="mt-2 mb-1 items-center">
-            <span className="">
-              <FaStar className="inline mr-1" />{" "}
-            </span>
-            {rating} ratings
-          </p>
-          <p className="mb-1">
-            <span>
-              <FaRocketchat className="inline mr-2" />
-            </span>
-            {review}+ reviews
-          </p>
-          <p className="mb-1">
-            <span>
-              <FaGlobe className="inline mr-2" />
-            </span>
-            English, Spanish
-          </p>
-          <p className="mb-1">
-            <span>
-              <FaUserPlus className="inline mr-2" />
-            </span>
-            15,435+ students
-          </p>
-          <p>Publish date: {date}/07/23</p>
+         
+          
+          
+          
         </div>
       </div>
 
@@ -228,7 +229,7 @@ const CourseDetails = () => {
             <h1 className="text-3xl font-bold pb-4 dark:text-white">
               Student also bought
             </h1>
-            {/* <StudentAlsoBought></StudentAlsoBought> */}
+            <StudentAlsoBought category={category}></StudentAlsoBought>
           </div>
 
           {/* instructor */}
@@ -239,7 +240,7 @@ const CourseDetails = () => {
             </h1>
             <div>
               <Link to={`/instructor-details/${email}`} className="font-bold text-xl underline ">{tutor}</Link>
-              <p className="font-thin mb-2 ">Head of Data Science at Pierian Training</p>
+              <p className="mb-2">{instructorData?.body?.skill}</p>
               <div className="flex">
                 <div className="avatar mr-3">
                   <div className="w-28 rounded-full">
@@ -247,37 +248,25 @@ const CourseDetails = () => {
                   </div>
                 </div>
                 <div className="">
-                  <p className="mt-2 dark:text-white mb-1 items-center">
+                  {/* <p className="mt-2 dark:text-white mb-1 items-center">
                     <FaStar className="inline mr-1" />
-                    {rating} ratings
-                  </p>
+                     ratings
+                  </p> */}
                   <p className="mb-1 dark:text-white">
                     <FaRocketchat className="inline mr-2" />
-                    {review}+ reviews
+                    {instructorData?.review_qty}+ reviews
                   </p>
                   <p className="mb-1 dark:text-white">
                     <FaUserPlus className="inline mr-2" />
-                    15,435+ students
+                    {students.length}+ students
                   </p>
                   <p className="mb-1 dark:text-white">
                     <FaPlayCircle className="inline mr-2" />
-                    58 Courses
+                    {instructorData?.course_qty} Courses
                   </p>
                 </div>
               </div>
-              <p className="mt-5 dark:text-white">
-                Jose Marcial Portilla has a BS and MS in Mechanical Engineering
-                from Santa Clara University and years of experience as a
-                professional instructor and trainer for Data Science, Machine
-                Learning and Python Programming. He has publications and patents
-                in various fields such as microfluidics, materials science, and
-                data science. Over the course of his career he has developed a
-                skill set in analyzing data and he hopes to use his experience
-                in teaching and data science to help other people learn the
-                power of programming, the ability to analyze data, and the
-                skills needed to present the data in clear and beautiful
-                visualizations.{" "}
-              </p>
+              <p className="mt-5 dark:text-white">{instructorData?.body?.about}</p>
             </div>
           </div>
 
@@ -291,7 +280,7 @@ const CourseDetails = () => {
                   checked
                 />
               </div>
-              {rating} Course rating * {review}K ratings
+              {} Course rating * {}K ratings
             </h1>
 
             {user?.uid && (
