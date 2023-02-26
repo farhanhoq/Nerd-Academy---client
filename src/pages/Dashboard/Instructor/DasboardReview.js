@@ -1,38 +1,41 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Loader from '../../../Loader/Loader';
 
 const DasboardReview = () => {
     const { user } = useContext(AuthContext);
+    const [reviews, setReviews] = useState([]);
 
-    const { data: reviewData = [], isLoading, refetch } = useQuery({
-        queryKey: ['reviewData'],
-        queryFn: async () => {
-            try {
-                const res = await fetch(`https://nerd-academy-server.vercel.app/das-review?email=${user?.email}`);
-                const data = await res.json();
-                return data;
-            }
-            catch (error) {
-                console.log(error);
-            }
-        }
-    });
+    // const { data: reviewData = [], isLoading, refetch } = useQuery({
+    //     queryKey: ['reviewData'],
+    //     queryFn: async () => {
+    //             const res = await fetch(`https://nerd-academy-server.vercel.app/das-review?email=${user?.email}`);
+    //             const data = await res.json();
+    //             return data;
+    //     }
+    // });
 
-    console.log(reviewData);
-    refetch();
-    if (isLoading) {
-        return <Loader></Loader>
-    }
+    useEffect(() => {
+    fetch(`https://nerd-academy-server.vercel.app/das-review?email=${user?.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+        setReviews(data);
+        });
+    }, [user?.email]);
+
+    // console.log(reviewData);
+    // if (isLoading) {
+    //     return <Loader></Loader>
+    // }
 
     return (
         <div className='my-12'>
             <h2 className="text-3xl font-bold">Testimonial</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                 {
-                    reviewData.map(data => <div className="">
-                        <div className="divider"></div>
+                    reviews.map(data =>
+                        <div className="">
                         <div className='flex pb-5 '>
                             <img className='w-12 h-12 rounded-full' src={data?.picture} alt="" />
                             <div className='pl-2'>

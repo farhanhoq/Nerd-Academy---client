@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
+import useCourseAPI from "../../Hooks/useCourseAPI";
 
 const Counter = () => {
     const [users, setUsers] = useState([]);
-    const [courses, setCourses] = useState([]);
     const [countOn, setCountOn] = useState(false);
+
+    const { courses } = useCourseAPI();
 
     useEffect(() => {
         fetch("https://nerd-academy-server.vercel.app/all-users")
@@ -15,13 +17,6 @@ const Counter = () => {
             });
     }, []);
 
-    useEffect(() => {
-        fetch("https://nerd-academy-server.vercel.app/courses")
-            .then((res) => res.json())
-            .then((data) => {
-                setCourses(data);
-            });
-    }, []);
 
     const instructors = users.filter((user) => user.role === "teacher");
     const learners = users.filter((user) => user.role === "student");

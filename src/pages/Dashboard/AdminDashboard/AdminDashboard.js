@@ -1,7 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import useCourseAPI from "../../../Hooks/useCourseAPI";
 
 const AdminDashboard = () => {
+
+  const { courses } = useCourseAPI();
+
   const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
@@ -13,16 +17,6 @@ const AdminDashboard = () => {
     },
   });
   // console.log(users.length);
-
-  const { data: courses = [] } = useQuery({
-    queryKey: ["courses"],
-    queryFn: async () => {
-      const res = await fetch(`https://nerd-academy-server.vercel.app/courses`);
-      const data = await res.json();
-      return data;
-    },
-  });
-  // console.log(courses);
 
   const { data: perchasedCourse = [] } = useQuery({
     queryKey: ["perchasedCourse"],

@@ -9,6 +9,7 @@ const Dashboard = () => {
     const [purchasedCourses, setPurchasedCourses] = useState([]);
     const [countOn, setCountOn] = useState(false);
 
+    
     useEffect(() => {
         fetch(`https://nerd-academy-server.vercel.app/my-courses?email=${user?.email}`)
             .then((res) => res.json())
@@ -169,7 +170,7 @@ const Dashboard = () => {
                                             {countOn && (
                                                 <CountUp
                                                     start={0}
-                                                    end={total}
+                                                    end={total.toFixed(2)}
                                                     duration={1.3}
                                                     delay={0}
                                                 ></CountUp>

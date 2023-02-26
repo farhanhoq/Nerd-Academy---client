@@ -27,16 +27,6 @@ const AllInstructor = () => {
             })
     };
 
-    // const { data: courses = [] } = useQuery({
-    //     queryKey: ["courses"],
-    //     queryFn: async () => {
-    //         const res = await fetch(`https://nerd-academy-server.vercel.app/courses`);
-    //         const data = await res.json();
-    //         return data;
-    //     }
-    // })
-    // console.log(courses);
-
     return (
         <section className="min-w-screen min-h-screen text-gray-600 w-full my-6 dark:text-white">
             <div className="flex flex-col justify-center h-full">

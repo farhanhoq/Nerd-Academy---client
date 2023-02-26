@@ -10,34 +10,30 @@ import ScrollCarousel from "scroll-carousel";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaCartArrowDown } from "react-icons/fa";
+import useCourseAPI from "../../../Hooks/useCourseAPI";
 
 
 const OurCourses = () => {
-  const [coursedata, setCourseData] = useState([]);
   const [courseFilterData, setCourseFilterData] = useState([]);
   const { user, loading } = useContext(AuthContext);
-
+  
   new ScrollCarousel(".my-carousel", {
     direction: "ltr",
   });
 
-  useEffect(() => {
-    fetch("https://nerd-academy-server.vercel.app/courses")
-      .then((res) => res.json())
-      .then((data) => {
-      setCourseData(data);
-      });
-  }, []);
+  
+  const { courses } = useCourseAPI();
+  
+  const sortCourses = courses.sort(() => Math.random() - Math.random()).slice(0, 9)
 
-  const courses = coursedata.sort(() => Math.random() - Math.random()).slice(0, 9)
+  console.log(sortCourses)
 
   const filterResult = (catItem) => {
-    const result = coursedata.filter((currentCourseData) => {
+    const result = courses.filter((currentCourseData) => {
       return currentCourseData.category === catItem;
 
     });
     setCourseFilterData(result);
-    console.log(result)
   };
 
   const handleAddToWishlist = (course) => {
@@ -117,7 +113,6 @@ const OurCourses = () => {
         </div>
 
         <div className="mx-auto rounded-lg">
-
           <div className="flex flex-col md:flex-row gap-0 md:gap-6 justify-center my-10">
             <button
               onClick={() => filterResult("Web Development")}
@@ -160,11 +155,16 @@ const OurCourses = () => {
             <div className="w-full md:px-32">
               <div className="mb-10 flex justify-between flex-col items-center text-center md:flex-row">
                 <div className="text-3xl font-bold">
-                  <h1>Find the best one from {coursedata.length} courses</h1>
+                  <h1>Find the best one from {courses.length} courses</h1>
                 </div>
                 <div>
-                  <Link to="/all-courses" className="btn bg-gradient-to-r from-primary to-secondary
-                   btn-md lg:btn-xl text-white mt-5 md:mt-0 border-none">Browse All Courses</Link>
+                  <Link
+                    to="/all-courses"
+                    className="btn bg-gradient-to-r from-primary to-secondary
+                   btn-md lg:btn-xl text-white mt-5 md:mt-0 border-none"
+                  >
+                    Browse All Courses
+                  </Link>
                 </div>
               </div>
               <Swiper
@@ -177,10 +177,11 @@ const OurCourses = () => {
                 autoplay={{
                   delay: 5000,
                 }}
-                modules={[Autoplay]}>
-                {courseFilterData.length === 0 ?
+                modules={[Autoplay]}
+              >
+                {courseFilterData.length === 0 ? (
                   <>
-                    {courses?.map(
+                    {sortCourses?.map(
                       (course) =>
                         course.publish === true && (
                           <SwiperSlide key={course?._id}>
@@ -226,32 +227,29 @@ const OurCourses = () => {
                                         {course?.category}
                                       </span>
                                     </p>
-                                  <div className="">
-                                    <div
-                                      className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200 mr-2"
-                                      onClick={() =>
-                                        handleAddToCart(course)
-                                      }
-                                    >
-                                      <FaCartArrowDown />
-                                    </div>
-                                    <div
-                                      className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200"
-                                      onClick={() =>
-                                        handleAddToWishlist(course)
-                                      }
-                                    >
-                                      <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-4 w-4 text-orange-400 group-hover:text-orange-500"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
+                                    <div className="">
+                                      <div
+                                        className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200 mr-2"
+                                        onClick={() => handleAddToCart(course)}
                                       >
-                                        <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
-                                      </svg>
+                                        <FaCartArrowDown />
+                                      </div>
+                                      <div
+                                        className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200"
+                                        onClick={() =>
+                                          handleAddToWishlist(course)
+                                        }
+                                      >
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          className="h-4 w-4 text-orange-400 group-hover:text-orange-500"
+                                          viewBox="0 0 20 20"
+                                          fill="currentColor"
+                                        >
+                                          <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                                        </svg>
+                                      </div>
                                     </div>
-                                  </div>
-                                    
                                   </div>
 
                                   <div className="flex items-center relative border-b border-primary py-1"></div>
@@ -301,7 +299,7 @@ const OurCourses = () => {
                         )
                     )}
                   </>
-                  :
+                ) : (
                   <>
                     {courseFilterData?.map(
                       (course) =>
@@ -415,11 +413,10 @@ const OurCourses = () => {
                         )
                     )}
                   </>
-                }
+                )}
               </Swiper>
             </div>
           </div>
-
         </div>
       </div>
     </div>
