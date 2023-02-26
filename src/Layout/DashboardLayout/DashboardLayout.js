@@ -61,7 +61,8 @@ const DashboardLayout = () => {
       <div className="mx-2">
         <button
           onClick={toggleDrawer}
-          className="btn text-2xl text-white bg-gradient-to-r from-primary to-secondary border-none btn-sm mx-60">
+          className="btn text-2xl text-white bg-gradient-to-r from-primary to-secondary border-none btn-sm mx-60"
+        >
           <RiMenuUnfoldFill />
         </button>
       </div>
@@ -78,10 +79,10 @@ const DashboardLayout = () => {
           <Drawer
             open={isOpen}
             onClose={toggleDrawer}
-            direction="left"  
+            direction="left"
             enableOverlay={false}
-            style={{ width: "320px" }}>
-
+            style={{ width: "320px" }}
+          >
             <div className="drawer-side border dark:bg-accent h-screen">
               <div className="mx-2 flex justify-start">
                 <button
