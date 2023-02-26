@@ -6,8 +6,6 @@ import useProfileAPI from "../../../Hooks/useProfileAPI"
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext)
-  const [courses, setCourses] = useState([])
-  const [purchasedCourses, setPurchasedCourses] = useState([])
   const [countOn, setCountOn] = useState(false)
 
   const url = "https://nerd-academy-server.vercel.app/users"
@@ -26,7 +24,7 @@ const Dashboard = () => {
               <div className="left-content flex flex-col items-center pb-10">
                 <img
                   className="w-20 h-20 mb-3 rounded-full shadow-lg border
-                                 border-zinc-50 my-4"
+                  border-zinc-50 my-4"
                   src="https://cdn-icons-png.flaticon.com/512/5179/5179450.png"
                   alt=""
                 />
@@ -50,7 +48,7 @@ const Dashboard = () => {
                     </h1>
                     <h5
                       className="mb-1 text-xs font-medium text-gray-900
-                                 dark:text-white"
+                      dark:text-white"
                     >
                       Purchased Courses
                     </h5>
@@ -86,7 +84,7 @@ const Dashboard = () => {
                     </h1>
                     <h5
                       className="mb-1 text-xs font-medium text-gray-900
-                                 dark:text-white"
+                      dark:text-white"
                     >
                       Completed Courses
                     </h5>
@@ -122,7 +120,7 @@ const Dashboard = () => {
                     </h1>
                     <h5
                       className="mb-1 text-xs font-medium text-gray-900
-                                 dark:text-white"
+                      dark:text-white"
                     >
                       Total Spend
                     </h5>
