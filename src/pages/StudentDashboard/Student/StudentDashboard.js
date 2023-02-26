@@ -1,208 +1,140 @@
-import React from 'react';
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Legend,
-} from 'recharts';
-import trophy from '../../../Assets/trophy.png';
+import React, { useContext, useEffect, useState } from "react"
+import { AuthContext } from "../../../Context/AuthProvider"
+import CountUp from "react-countup"
+import ScrollTrigger from "react-scroll-trigger"
+import useProfileAPI from "../../../Hooks/useProfileAPI"
 
-const StudentDashboard = () => {
-  const data = [
-    { name: 'Module finish on time', value: 400 },
-    { name: 'Quiz mark', value: 300 },
-    { name: 'Module progress', value: 300 },
-    { name: 'Video duration', value: 200 },
-  ];
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-  const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({
-    cx,
-    cy,
-    midAngle,
-    innerRadius,
-    outerRadius,
-    percent,
-    index,
-  }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+const Dashboard = () => {
+  const { user } = useContext(AuthContext)
+  const [courses, setCourses] = useState([])
+  const [purchasedCourses, setPurchasedCourses] = useState([])
+  const [countOn, setCountOn] = useState(false)
 
-    return (
-      <text
-        x={x}
-        y={y}
-        fill="white"
-        textAnchor={x > cx ? 'start' : 'end'}
-        dominantBaseline="central"
-      >
-        {`${(percent * 100).toFixed(0)}%`}
-      </text>
-    );
-  };
-  // Piechart data is end here
+  const url = "https://nerd-academy-server.vercel.app/users"
+  const query = user?.email
+  const queryName = "email"
 
-  // BarChart data starts from here
-
-  const data01 = [
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+  const { datas } = useProfileAPI(url, queryName, query)
 
   return (
-    <div className="grid grid-cols-4 my-12 gap-5">
-      <div className="bg-slate-200 rounded-xl p-5 mx-auto col-span-2">
-        <h1 className="text-black m-5 text-4xl">Health Check</h1>
-        <div className="grid grid-cols-2 items-center justify-around">
-          <PieChart width={300} height={200}>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              labelLine={false}
-              label={renderCustomizedLabel}
-              outerRadius={80}
-              fill="#8884d8"
-              dataKey="value"
-            >
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
+    <div className="mx-auto mt-10">
+      <div className="ml-auto mb-6">
+
+        <div className="px-6 pt-6 2xl:container">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-primary">
+              <div className="left-content flex flex-col items-center pb-10">
+                <img
+                  className="w-20 h-20 mb-3 rounded-full shadow-lg border
+                                 border-zinc-50 my-4"
+                  src="https://cdn-icons-png.flaticon.com/512/5179/5179450.png"
+                  alt=""
                 />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-          <div className="text-lg text-black">
-            <p>
-              <div className="badge badge-xs badge-info"></div> Module finish on
-              time
-            </p>
-            <p>
-              <div className="badge badge-xs badge-success"></div> Quiz mark
-            </p>
-            <p>
-              <div className="badge badge-xs badge-warning"></div> Module
-              progress
-            </p>
-            <p>
-              <div className="badge badge-xs badge-error"></div> Video duration
-            </p>
-          </div>
-        </div>
-      </div>
+                <ScrollTrigger
+                  onEnter={() => setCountOn(true)}
+                  onExit={() => setCountOn(false)}
+                >
+                  <div>
+                    <h1
+                      className="text-black-500 dark:text-gray-400 
+                                        text-bold font-semibold text-3xl text-center"
+                    >
+                      {countOn && (
+                        <CountUp
+                          start={0}
+                          end={datas.purchased}
+                          duration={1.3}
+                          delay={0}
+                        ></CountUp>
+                      )}
+                    </h1>
+                    <h5
+                      className="mb-1 text-xs font-medium text-gray-900
+                                 dark:text-white"
+                    >
+                      Purchased Courses
+                    </h5>
+                  </div>
+                </ScrollTrigger>
+              </div>
+            </div>
 
-      <div className="bg-slate-200 rounded-xl p-5 mx-auto w-full col-span-2">
-        <h1 className="text-black m-5 text-4xl">Quiz Mark</h1>
-        <div className=" flex items-center justify-around ">
-          <div
-            className="radial-progress bg- text-primary-content border-4 border-primary font-bold text-center mt-5 text-xl"
-            style={{
-              '--value': '100',
-              '--size': '9.5rem',
-              '--thickness': '0.9rem',
-            }}
-          >
-            76.75% <br /> <span className="text-sm font-thin">Avg mark%</span>{' '}
-          </div>
-          <div className="text-lg text-black">
-            <p>
-              <div className="badge badge-xs"></div> Complete Quiz 69
-            </p>
-            <p>
-              <div className="badge badge-xs badge-primary"></div> Incomplete
-              Quiz 0
-            </p>
-            <p>
-              <div className="badge badge-xs"></div> Total Quiz 69
-            </p>
-          </div>
-        </div>
-      </div>
+            <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-secondary ">
+              <div className="left-content flex flex-col items-center pb-10">
+                <img
+                  className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4"
+                  src="https://cdn-icons-png.flaticon.com/512/9573/9573959.png"
+                  alt=""
+                />
+                <ScrollTrigger
+                  onEnter={() => setCountOn(true)}
+                  onExit={() => setCountOn(false)}
+                >
+                  <div>
+                    <h1
+                      className="text-black-500 dark:text-gray-400 
+                                        text-bold font-semibold text-3xl text-center"
+                    >
+                      {countOn && (
+                        <CountUp
+                          start={0}
+                          end={0}
+                          duration={1.3}
+                          delay={0}
+                        ></CountUp>
+                      )}
+                    </h1>
+                    <h5
+                      className="mb-1 text-xs font-medium text-gray-900
+                                 dark:text-white"
+                    >
+                      Completed Courses
+                    </h5>
+                  </div>
+                </ScrollTrigger>
+              </div>
+            </div>
 
-      <div className="bg-slate-200 rounded-xl p-5 col-span-3">
-        <h1 className="text-black m-5 text-4xl">Video Duration</h1>
-        <BarChart
-          width={700}
-          height={300}
-          data={data01}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-          barSize={20}
-        >
-          <XAxis
-            dataKey="name"
-            scale="point"
-            padding={{ left: 10, right: 10 }}
-          />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="pv" fill="#7B33FD" background={{ fill: '#eee' }} />
-        </BarChart>
-      </div>
-
-      <div className="bg-slate-200 rounded-xl p-5 col-span-1 ">
-        <div className="items-center mt-8">
-          <img className="w-[150px] mx-auto justify-center" src={trophy} alt="" />
-          <h1 className='text-center font-bold text-4xl text-black mt-10'>101 <br /> Reward</h1>
+            <div className="w-11/12 max-w-sm  rounded-md shadow-md border border-primary ">
+              <div className="left-content flex flex-col items-center pb-10">
+                <img
+                  className="w-20 h-20 mb-3 rounded-full shadow-lg border border-zinc-50 my-4"
+                  src="https://cdn-icons-png.flaticon.com/512/9084/9084691.png"
+                  alt=""
+                />
+                <ScrollTrigger
+                  onEnter={() => setCountOn(true)}
+                  onExit={() => setCountOn(false)}
+                >
+                  <div>
+                    <h1
+                      className="text-black-500 dark:text-gray-400 
+                                        text-bold font-semibold text-3xl text-center"
+                    >
+                      {countOn && (
+                        <CountUp
+                          start={0}
+                          end={datas.spend}
+                          duration={1.3}
+                          delay={0}
+                        ></CountUp>
+                      )}
+                    </h1>
+                    <h5
+                      className="mb-1 text-xs font-medium text-gray-900
+                                 dark:text-white"
+                    >
+                      Total Spend
+                    </h5>
+                  </div>
+                </ScrollTrigger>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StudentDashboard;
+export default Dashboard
