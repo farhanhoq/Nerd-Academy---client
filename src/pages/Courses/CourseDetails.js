@@ -148,6 +148,7 @@ const students = [...new Set(purchasedCourses.map((course) => course.buyerEmail)
       .then((data) => {
         toast.success("Review has been added");
         event.target.reset();
+        refetch();
       });
   };
 
