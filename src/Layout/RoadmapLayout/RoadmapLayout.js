@@ -42,6 +42,10 @@ const RoadmapLayout = () => {
           </ul>
             </div>
             <Outlet></Outlet>
+            <div className='flex justify-center my-10'>
+            <Link to="/all-courses" className='btn btn-wide rounded bg-transparent border-2 border-primary p-3 hover:border-none  hover:bg-gradient-to-r hover:from-[#7B33FD]
+                hover:to-primary text-black hover:text-white transition-colors ease-linear duration-700 text-center'>Browse course</Link>
+            </div>
             <Footer></Footer>
         </div>
     );

@@ -11,14 +11,7 @@ const Pending = () => {
   const { data: myCourse = [], refetch } = useQuery({
     queryKey: ["myCourse"],
     queryFn: async () => {
-      const res = await fetch(
-        `https://nerd-academy-server.vercel.app/my-courses?email=${user?.email}`,
-        {
-          // headers: {
-          //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-          // }
-        }
-      );
+      const res = await fetch(`https://nerd-academy-server.vercel.app/my-courses?email=${user?.email}`);
       const data = await res.json();
       return data;
     },
@@ -147,9 +140,10 @@ const Pending = () => {
                               Delete
                             </button>
                           </div>
+
+                      <PendingModal p={p}></PendingModal>
                         </div>
                       </div>
-                      <PendingModal p={p}></PendingModal>
                     </div>
                   </>
                 )

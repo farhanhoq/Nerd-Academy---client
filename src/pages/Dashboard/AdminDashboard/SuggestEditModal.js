@@ -14,7 +14,7 @@ const SuggestEditModal = ({ course }) => {
         }
 
         console.log(handleAddPost);
-        fetch(`http://localhost:5000/pending/${_id}`, {
+        fetch(`https://nerd-academy-server.vercel.app/pending/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
