@@ -145,8 +145,9 @@ export const routes = createBrowserRouter([
             }
             ,
             {
-                path: '/module',
+                path: '/module/:id',
                 element: <Module></Module>,
+                loader: ({ params }) => fetch(`https://nerd-academy-server.vercel.app/courses/${params.id}`)
             }
             , {
                 path: '/privacy-policy',

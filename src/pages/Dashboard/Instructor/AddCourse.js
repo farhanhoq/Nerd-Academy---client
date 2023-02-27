@@ -80,7 +80,7 @@ const AddCourse = () => {
         const videoRef = ref(storage, `videos/${videoUpload.name + v4()}`);
         uploadBytes(videoRef, videoUpload).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
-            console.log(url)
+            toast.success("Video uploaded successfully")
             setVideoUrls((prev) => [...prev, url]);
         });
         });
