@@ -16,14 +16,14 @@ import useCourseAPI from "../../../Hooks/useCourseAPI";
 const OurCourses = () => {
   const [courseFilterData, setCourseFilterData] = useState([]);
   const { user, loading } = useContext(AuthContext);
-  
+
   new ScrollCarousel(".my-carousel", {
     direction: "ltr",
   });
 
-  
+
   const { courses } = useCourseAPI();
-  
+
   const sortCourses = courses.sort(() => Math.random() - Math.random()).slice(0, 9)
 
   console.log(sortCourses)
