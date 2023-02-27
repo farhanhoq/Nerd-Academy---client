@@ -42,7 +42,23 @@ const ImgSlider = () => {
             autoplay={{
               delay: 5000,
             }}
-            modules={[Autoplay]}>
+            modules={[Autoplay]}
+            className="mySlider"
+            breakpoints={{
+              0:{
+                slidesPerView: 1,
+                spaceBetween: 2
+              },
+              768:{
+                slidesPerView: 2,
+                spaceBetween: 10
+              },
+              1024:{
+                slidesPerView: 3,
+                spaceBetween: 2
+              }
+            }}
+            >
             {trending?.map((course, i) => (
               <SwiperSlide key={i}>
                 <Link to={`/details/${course?._id}`} className="h-96 flex shadow-lg">
@@ -54,7 +70,7 @@ const ImgSlider = () => {
                         alt=""
                       />
                     </figure>
-                    <div className="p-5">
+                    <div className="px-5 lg:px-5 lg:py-1">
                       <h2 className="font-bold text-xl dark:text-white">
                         {course?.title}
                       </h2>
