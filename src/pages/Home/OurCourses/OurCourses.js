@@ -178,6 +178,21 @@ const OurCourses = () => {
                   delay: 5000,
                 }}
                 modules={[Autoplay]}
+                className="mySlider"
+                breakpoints={{
+                  0:{
+                    slidesPerView: 1,
+                    spaceBetween: 2
+                  },
+                  768:{
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                  },
+                  1024:{
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                  }
+                }}
               >
                 {courseFilterData.length === 0 ? (
                   <>
