@@ -232,13 +232,13 @@ const CheckoutForm = ({ total, email }) => {
       }
     ).then((res) => res.json());
 
-    fetch(`http://localhost:5000/course-bought/${courseId}`, {
+    fetch(`http://nerd-academy-server.vercel.app/course-bought/${courseId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(checkoutData),
-    }).then((res) => res.json());
+    }).then((res) => res.json())
 
 
   }
