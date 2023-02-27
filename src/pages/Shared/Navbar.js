@@ -246,6 +246,14 @@ const Navbar = () => {
           </li>
 
           <li>
+            <Link to="/roadmap">
+              <span className="rounded item font-semibold" style={{ color: getColor("/") }}>
+                Roadmap
+              </span>
+            </Link>
+          </li>
+
+          <li>
             <Link to="/blogs">
               <span className="rounded item font-semibold" style={{ color: getColor("/") }}>
                 Blogs
