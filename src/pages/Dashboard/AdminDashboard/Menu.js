@@ -7,9 +7,9 @@ const Menu = () => {
   const [update, setUpdate] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/menu-items")
+    fetch("http://nerd-academy-server.vercel.app/api/menu-items")
       .then((res) => res.json())
-      .then((data) => setUpdate(data));
+      .then((data) => setUpdate(data))
   }, []);
 
   console.log(update);
