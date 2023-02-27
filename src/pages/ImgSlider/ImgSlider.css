@@ -1,5 +1,5 @@
 .mycard {
-  @apply w-96 cursor-pointer border p-0 rounded-lg h-44 text-black self-end;
+  @apply w-96 cursor-pointer border p-0 rounded-lg h-52 text-black self-end;
 }
 
 .card-active {

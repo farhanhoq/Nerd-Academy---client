@@ -200,7 +200,8 @@ const OurCourses = () => {
                       (course) =>
                         course.publish === true && (
                           <SwiperSlide key={course?._id}>
-                            <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-min- w-full border dropdown dropdown-hover dropdown-top">
+                            <div className="cursor-pointer rounded-xl p-2 shadow-lg hover:shadow-xl h-[27rem] 
+                            w-96 border dropdown dropdown-hover dropdown-top">
                               <div tabIndex={0}>
                                 <div className="relative flex items-end overflow-hidden rounded-xl">
                                   <img
