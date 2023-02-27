@@ -85,7 +85,7 @@ const Pending = () => {
 
         <div className="drawer drawer-mobile">
           {/* pending componets */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 text-center">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 p-2 text-center">
             {myCourse?.map(
               (p) =>
                 p.publish === false && (
@@ -100,7 +100,7 @@ const Pending = () => {
 
                       <div
                         key={p?._id}
-                        className="cursor-pointer rounded-xl bg-white dark:bg-accent p-2 shadow-lg hover:shadow-xl h-96 border"
+                        className="cursor-pointer rounded-xl bg-white dark:bg-accent p-2 shadow-lg hover:shadow-xl w-96 h-96 border"
                       >
                         <div className="relative flex items-end overflow-hidden rounded-xl">
                           <img
