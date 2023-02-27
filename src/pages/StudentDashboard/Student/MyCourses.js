@@ -35,7 +35,7 @@ const MyCourses = () => {
               <p className="mt-2 dark:text-white">By {course.tutor}</p>
               <div className="grid lg:grid-cols-1 md:grid-cols-1 grid-cols-1 card-actions mt-12 gap-5 lg:absolute bottom-3">
                 <Link
-                  to="/module"
+                  to={`/module/${course.courseId}`}
                   className="rounded btn text-xs capitalize border-primary bg-transparent text-black border transition
                   ease-in-out duration-300 hover:text-white hover:bg-gradient-to-r 
                   hover:from-primary hover:to-secondary dark:text-white">
