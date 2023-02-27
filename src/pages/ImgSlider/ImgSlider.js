@@ -38,8 +38,8 @@ const ImgSlider = () => {
         <img className="h-full w-12" src={minusb} alt="" />
       </div>
 
-      <div className=" flex items-center justify-center my-32 flex-col gap-6">
-        <div className="w-full px-32">
+      <div className=" my-32">
+        <div className="mx-auto w-full px-32">
           <Swiper
             spaceBetween={50}
             slidesPerView={3}
@@ -71,12 +71,12 @@ const ImgSlider = () => {
                       </p>
                       {/* <p className="ml-1 pt-1">{course?.description.length > 100 ? <>{course?.description.slice(0, 60) + "..."}</> : course?.description}</p> */}
 
-                          <p className="text-secondary text-sm font-bold my-4 dark:text-white">*{course?.bought}+ people have already purchased this course</p>
+                      <p className="text-secondary text-sm font-bold my-4 dark:text-white">*{course?.bought}+ people have already purchased this course</p>
                       <div className="flex justify-between mt-6">
                         <p className="ml-1 text-lg text-primary font-bold mt-1 dark:text-white">${course?.price}</p>
-                          <span className="badge bg-gradient-to-r from-primary to-secondary px-6 py-4 mr-2 rounded-full border-none text-white">
+                        <span className="badge bg-gradient-to-r from-primary to-secondary px-6 py-4 mr-2 rounded-full border-none text-white">
                           Trending
-                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>

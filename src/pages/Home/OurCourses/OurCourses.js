@@ -25,7 +25,7 @@ const OurCourses = () => {
     fetch("https://nerd-academy-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => {
-      setCourseData(data);
+        setCourseData(data);
       });
   }, []);
 
@@ -226,32 +226,32 @@ const OurCourses = () => {
                                         {course?.category}
                                       </span>
                                     </p>
-                                  <div className="">
-                                    <div
-                                      className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200 mr-2"
-                                      onClick={() =>
-                                        handleAddToCart(course)
-                                      }
-                                    >
-                                      <FaCartArrowDown />
-                                    </div>
-                                    <div
-                                      className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200"
-                                      onClick={() =>
-                                        handleAddToWishlist(course)
-                                      }
-                                    >
-                                      <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-4 w-4 text-orange-400 group-hover:text-orange-500"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
+                                    <div className="">
+                                      <div
+                                        className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200 mr-2"
+                                        onClick={() =>
+                                          handleAddToCart(course)
+                                        }
                                       >
-                                        <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
-                                      </svg>
+                                        <FaCartArrowDown />
+                                      </div>
+                                      <div
+                                        className="group inline-flex rounded-xl bg-indigo-100 p-2 hover:bg-indigo-200"
+                                        onClick={() =>
+                                          handleAddToWishlist(course)
+                                        }
+                                      >
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          className="h-4 w-4 text-orange-400 group-hover:text-orange-500"
+                                          viewBox="0 0 20 20"
+                                          fill="currentColor"
+                                        >
+                                          <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                                        </svg>
+                                      </div>
                                     </div>
-                                  </div>
-                                    
+
                                   </div>
 
                                   <div className="flex items-center relative border-b border-primary py-1"></div>
